@@ -1,0 +1,1588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer" elementFormDefault="qualified" targetNamespace="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sylesh-001-site2.ctempurl.com/ATPServices/Dealer.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel" />
+  <xs:import schemaLocation="http://sylesh-001-site2.ctempurl.com/ATPServices/Dealer.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://sylesh-001-site2.ctempurl.com/ATPServices/Dealer.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://sylesh-001-site2.ctempurl.com/ATPServices/Dealer.svc?xsd=xsd4" namespace="http://www.AdamKiosks.com/Customer" />
+  <xs:import schemaLocation="http://sylesh-001-site2.ctempurl.com/ATPServices/Dealer.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel.DataTables" />
+  <xs:import schemaLocation="http://sylesh-001-site2.ctempurl.com/ATPServices/Dealer.svc?xsd=xsd7" namespace="http://www.AdamKiosks.com/ATPData" />
+  <xs:element name="SelExpSvcsStatByDealerId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="serviceStatusId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageNumber" nillable="true" type="xs:short" />
+        <xs:element minOccurs="0" name="pageSize" nillable="true" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelExpSvcsStatByDealerIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelExpSvcsStatByDealerIdResult" nillable="true" type="q1:ArrayOfuspSelExpSvcsStatByDealerId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelSvcTypeByPkgId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" type="xs:int" />
+        <xs:element minOccurs="0" name="packageId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelSvcTypeByPkgIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelSvcTypeByPkgIdResult" nillable="true" type="q2:ArrayOfuspSelSvcTypeByPkgId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleServiceImage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="svcs" nillable="true" type="q3:uspSelVehicleServiceImage_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleServiceImageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehicleServiceImageResult" nillable="true" type="q4:ArrayOfuspSelVehicleServiceImage_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelVehicleServiceImage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="svcs" nillable="true" type="q5:uspSelVehicleServiceImage_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelVehicleServiceImageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DelVehicleServiceImageResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsVehicleServiceImage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="svcs" nillable="true" type="q6:uspSelVehicleServiceImage_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsVehicleServiceImageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsVehicleServiceImageResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInByUserName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Environment" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInByUserNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="LogInByUserNameResult" nillable="true" type="q7:ArrayOfuspSecurityLogInByUserName_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInByVIN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Environment" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="VIN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInByVINResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="LogInByVINResult" nillable="true" type="q8:ArrayOfuspSecurityLogInByVIN_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInByIdCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Environment" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="IdCardNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AddressLine3" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="STP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ZipPlus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInByIdCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="LogInByIdCardResult" nillable="true" type="q9:ArrayOfuspSecurityLogInByIdCard_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInByCreditCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Environment" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="CreditCardNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ExpirationMonth" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="ExpirationYear" type="xs:short" />
+        <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInByCreditCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogInByCreditCardResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogOut">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="GUID" nillable="true" type="q10:guid" />
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogOutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="LogOutResult" nillable="true" type="q11:ArrayOfuspSecurityLogOut_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetYears">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetYearsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="GetYearsResult" nillable="true" type="q12:ArrayOfNullableOfshort" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMakes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="year" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMakesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="GetMakesResult" nillable="true" type="q13:ArrayOfuspSelVehicleMakes_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="year" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="makeId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="GetModelsResult" nillable="true" type="q14:ArrayOfuspSelVehicleModels_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrims">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="year" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="makeId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="modelId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrimsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="GetTrimsResult" nillable="true" type="q15:ArrayOfuspSelVehicleTrims_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogError">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogErrorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogErrorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogInformationResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingMe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="s" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingMeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PingMeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="x" nillable="true" type="q16:uspSelVehSvcsForARCH_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateNewCustomerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelMPISubmitHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q17:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelMPISubmitHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelMPISubmitHistoryResult" nillable="true" type="q18:ArrayOfuspSelMPISubmitHistory_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseVehicleSericeRO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q19:guid" />
+        <xs:element minOccurs="0" name="serviceTypeId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ROClosedBy" nillable="true" type="q20:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseVehicleSericeROResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CloseVehicleSericeROResult" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleServiceMPIStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DealerId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleGuid" nillable="true" type="q21:guid" />
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q22:guid" />
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="swGuid" nillable="true" type="q23:guid" />
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="techGuid" nillable="true" type="q24:guid" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="partGuid" nillable="true" type="q25:guid" />
+        <xs:element minOccurs="0" name="serviceTypeId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleServiceMPIStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehicleServiceMPIStatusResult" nillable="true" type="q26:ArrayOfuspSelVehicleServiceMPIStatus_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelMPIVehicleServiceByDealerId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DealerId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="personGuid" nillable="true" type="q27:guid" />
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleGuid" nillable="true" type="q28:guid" />
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q29:guid" />
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceMPIMasterGuid" nillable="true" type="q30:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelMPIVehicleServiceByDealerIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelMPIVehicleServiceByDealerIdResult" nillable="true" type="q31:ArrayOfuspSelMPIVehicleServiceByDealerId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpsertMPIByPersonGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="m" nillable="true" type="q32:uspSelMPIVehicleServiceByDealerId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpsertMPIByPersonGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpsertMPIByPersonGuidResult" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelCustomerByGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="personGuid" nillable="true" type="q33:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelCustomerByGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelCustomerByGuidResult" nillable="true" type="q34:ArrayOfuspSelCustomerByGuid_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseVehicleSericeTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceMPIMasterGuid" nillable="true" type="q35:guid" />
+        <xs:element minOccurs="0" name="serviceTypeId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="taskClosedBy" nillable="true" type="q36:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CloseVehicleSericeTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CloseVehicleSericeTaskResult" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMPICost">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceMPIMasterGuid" nillable="true" type="q37:guid" />
+        <xs:element minOccurs="0" name="mPIItemId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="cost" nillable="true" type="xs:decimal" />
+        <xs:element minOccurs="0" name="laborCost" nillable="true" type="xs:decimal" />
+        <xs:element minOccurs="0" name="totalCost" nillable="true" type="xs:decimal" />
+        <xs:element minOccurs="0" name="IsSendToCust" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMPICostResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateMPICostResult" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleServicePricing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DealerId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q38:guid" />
+        <xs:element xmlns:q39="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="SW" nillable="true" type="q39:guid" />
+        <xs:element xmlns:q40="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="techGuid" nillable="true" type="q40:guid" />
+        <xs:element xmlns:q41="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="partsGuid" nillable="true" type="q41:guid" />
+        <xs:element minOccurs="0" name="ServiceTypeId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleServicePricingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehicleServicePricingResult" nillable="true" type="q42:ArrayOfuspSelVehicleServicePricing_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleServicePricingSW">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DealerId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q43="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q43:guid" />
+        <xs:element xmlns:q44="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="SW" nillable="true" type="q44:guid" />
+        <xs:element xmlns:q45="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="techGuid" nillable="true" type="q45:guid" />
+        <xs:element xmlns:q46="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="partsGuid" nillable="true" type="q46:guid" />
+        <xs:element minOccurs="0" name="ServiceTypeId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleServicePricingSWResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehicleServicePricingSWResult" nillable="true" type="q47:ArrayOfuspSelVehicleServicePricingSW_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleServicePricingTech">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DealerId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q48="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q48:guid" />
+        <xs:element xmlns:q49="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="SW" nillable="true" type="q49:guid" />
+        <xs:element xmlns:q50="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="techGuid" nillable="true" type="q50:guid" />
+        <xs:element xmlns:q51="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="partsGuid" nillable="true" type="q51:guid" />
+        <xs:element minOccurs="0" name="ServiceTypeId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleServicePricingTechResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehicleServicePricingTechResult" nillable="true" type="q52:ArrayOfuspSelVehicleServicePricingTech_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleServicePricingParts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DealerId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q53="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q53:guid" />
+        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="SW" nillable="true" type="q54:guid" />
+        <xs:element xmlns:q55="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="techGuid" nillable="true" type="q55:guid" />
+        <xs:element xmlns:q56="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="partsGuid" nillable="true" type="q56:guid" />
+        <xs:element minOccurs="0" name="ServiceTypeId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleServicePricingPartsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehicleServicePricingPartsResult" nillable="true" type="q57:ArrayOfuspSelVehicleServicePricingParts_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UPSertVehicleServicePricing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="m" nillable="true" type="q58:uspSelVehicleServicePricing_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UPSertVehicleServicePricingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UPSertVehicleServicePricingResult" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleServicesByDealerEmp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="serviceWriterGuid" nillable="true" type="q59:guid" />
+        <xs:element xmlns:q60="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="techGuid" nillable="true" type="q60:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleServicesByDealerEmpResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehicleServicesByDealerEmpResult" nillable="true" type="q61:ArrayOfuspSelVehicleServicesByDealerEmp_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateIsVehicleInShop">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="VehicleGuid" nillable="true" type="q62:guid" />
+        <xs:element minOccurs="0" name="isVehicleInShop" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateIsVehicleInShopResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateIsVehicleInShopResult" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelMPIImages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" type="xs:int" />
+        <xs:element xmlns:q63="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="personGuid" nillable="true" type="q63:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelMPIImagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelMPIImagesResult" nillable="true" type="q64:ArrayOfuspSelMPIImages_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="uspUpSertMPIImages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="m" nillable="true" type="q65:uspSelMPIImages_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="uspUpSertMPIImagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uspUpSertMPIImagesResult" nillable="true" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPersonGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPersonGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelPersonGroupResult" nillable="true" type="q66:ArrayOfuspSelPersonGroup_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDealerMsg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerid" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="msgId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q67="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="DealerEmployeeId" nillable="true" type="q67:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDealerMsgResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateDealerMsgResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDealerMsgBell">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerid" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="msgId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q68="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="DealerEmployeeId" nillable="true" type="q68:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDealerMsgBellResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateDealerMsgBellResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePersonVehicleLite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="m" nillable="true" type="q69:uspSelCustomerLite_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePersonVehicleLiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdatePersonVehicleLiteResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpsertDealerKiosk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="m" nillable="true" type="q70:uspSelDealerKiosks_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpsertDealerKioskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpsertDealerKioskResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpsertDealerContacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="m" nillable="true" type="q71:uspSelDealerDetailsById_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpsertDealerContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpsertDealerContactsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpsertDealerEmployee">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="m" nillable="true" type="q72:uspSelDealerEmployees_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpsertDealerEmployeeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpsertDealerEmployeeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelAdminMPIListByDealerId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelAdminMPIListByDealerIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelAdminMPIListByDealerIdResult" nillable="true" type="q73:ArrayOfuspSelAdminMPIListByDealerId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerKiosks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="valid" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dealerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerKiosksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelDealerKiosksResult" nillable="true" type="q74:ArrayOfuspSelDealerKiosks_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelAllMPIGroups">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelAllMPIGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelAllMPIGroupsResult" nillable="true" type="q75:ArrayOfuspSelAllMPIGroups_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelAllMPIItems">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelAllMPIItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelAllMPIItemsResult" nillable="true" type="q76:ArrayOfuspSelAllMPIItems_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpsertDealerMPIGroupItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="mPIGroupPosition" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="mPIGroupId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="mPIItemId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="isValid" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="sortOrder" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpsertDealerMPIGroupItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpsertDealerMPIGroupItemsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateKioskResetPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateKioskResetPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateKioskResetPasswordResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelMPIListByDealerId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q77="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" type="q77:guid" />
+        <xs:element xmlns:q78="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PersonGuid" type="q78:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelMPIListByDealerIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelMPIListByDealerIdResult" nillable="true" type="q79:ArrayOfuspSelMPIListByDealerId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelMPICountByServiceGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="VehicleServiceGuid" type="q80:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelMPICountByServiceGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SelMPICountByServiceGuidResult" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelKioskByMachineId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="machineId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelKioskByMachineIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelKioskByMachineIdResult" nillable="true" type="q81:ArrayOfuspSelKioskByMachineId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="gUID" nillable="true" type="q82:guid" />
+        <xs:element xmlns:q83="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="personGUID" nillable="true" type="q83:guid" />
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="typeId" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="sTPId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="preferred" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="line1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="line2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="line3" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="zipCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="zipPlus" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="longitude" nillable="true" type="xs:decimal" />
+        <xs:element minOccurs="0" name="latitude" nillable="true" type="xs:decimal" />
+        <xs:element minOccurs="0" name="valid" nillable="true" type="xs:boolean" />
+        <xs:element xmlns:q84="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="enteredBy" nillable="true" type="q84:guid" />
+        <xs:element minOccurs="0" name="entered" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="InsertAddressResult" nillable="true" type="q85:uspInsAddress_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDealerDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="machineId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDealerDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="GetDealerDetailsResult" nillable="true" type="q86:ArrayOfuspGetDealerDetails_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerByFamilyId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dealerGroupId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerByFamilyIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelDealerByFamilyIdResult" nillable="true" type="q87:ArrayOfuspSelDealerByFamilyId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerDetailsById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerDetailsByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelDealerDetailsByIdResult" nillable="true" type="q88:ArrayOfuspSelDealerDetailsById_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAllServiceStatusToComplete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAllServiceStatusToCompleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateAllServiceStatusToCompleteResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://www.AdamKiosks.com/Customer" minOccurs="0" name="jSonCustomer" nillable="true" type="q89:Customer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="RegisterCustomerResult" nillable="true" type="q90:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifySendAlertsUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dealerId" type="xs:int" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="roles" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifySendAlertsUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="VerifySendAlertsUserResult" nillable="true" type="q91:ArrayOfuspVerifySendAlertsUser_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerDept">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerDeptResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelDealerDeptResult" nillable="true" type="q92:ArrayOfuspSelDealerDept_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerEmployees">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerEmployeesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelDealerEmployeesResult" nillable="true" type="q93:ArrayOfuspSelDealerEmployees_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerPreTextMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerPreTextMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelDealerPreTextMessageResult" nillable="true" type="q94:ArrayOfuspSelDealerPreTextMessage_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="msg" nillable="true" type="q95:uspSelDealerMessage_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelDealerMessageResult" nillable="true" type="q96:ArrayOfuspSelDealerMessage_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerMsgHist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="msg" nillable="true" type="q97:uspSelDealerMsgHist_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerMsgHistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelDealerMsgHistResult" nillable="true" type="q98:ArrayOfuspSelDealerMsgHist_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelCustomerLite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="msg" nillable="true" type="q99:uspSelCustomerLite_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelCustomerLiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelCustomerLiteResult" nillable="true" type="q100:ArrayOfuspSelCustomerLite_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsDealerMsg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="msg" nillable="true" type="q101:uspSelDealerMsg_Result" />
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/ATP.DataModel.DataTables" minOccurs="0" name="dealerEmpMsgDataTable" nillable="true" type="q102:ArrayOfDealerEmpMsgDataTable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsDealerMsgResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsDealerMsgResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpsertPreTextMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="msg" nillable="true" type="q103:uspSelDealerPreTextMessage_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpsertPreTextMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpsertPreTextMessageResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginDealerEmployee">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginDealerEmployeeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="LoginDealerEmployeeResult" nillable="true" type="q104:ArrayOfuspLoginDealerEmployee_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginDealerEmployeeByEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginDealerEmployeeByEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="LoginDealerEmployeeByEmailResult" nillable="true" type="q105:ArrayOfuspLoginDealerEmployeeByEmail_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerEmpPages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q106="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="dealerEmpGuid" nillable="true" type="q106:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerEmpPagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelDealerEmpPagesResult" nillable="true" type="q107:ArrayOfuspSelDealerEmpPages_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerEmpPagesAdmin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q108="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="dealerEmpGuid" nillable="true" type="q108:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelDealerEmpPagesAdminResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelDealerEmpPagesAdminResult" nillable="true" type="q109:ArrayOfuspSelDealerEmpPagesAdmin_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmpPagesAdmin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q110="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="dealerEmpGuid" nillable="true" type="q110:guid" />
+        <xs:element minOccurs="0" name="pageId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="isEnabled" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateEmpPagesAdminResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateEmpPagesAdminResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelKeyLockerOpenPeg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="x" nillable="true" type="q111:uspSelKeyLockerOpenPeg_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelKeyLockerOpenPegResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelKeyLockerOpenPegResult" nillable="true" type="q112:ArrayOfuspSelKeyLockerOpenPeg_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdKeyLockerPeg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="x" nillable="true" type="q113:uspSelKeyLockerOpenPeg_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdKeyLockerPegResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdKeyLockerPegResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehSvcsWebARCH">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="x" nillable="true" type="q114:uspSelVehSvcsWebARCH_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehSvcsWebARCHResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehSvcsWebARCHResult" nillable="true" type="q115:ArrayOfuspSelVehSvcsWebARCH_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehSvcsForARCH">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dealerId" type="xs:int" />
+        <xs:element minOccurs="0" name="serviceDateFrom" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="serviceDateTo" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serviceStatusId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="showInServiceCustomer" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehSvcsForARCHResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehSvcsForARCHResult" nillable="true" type="q116:ArrayOfuspSelVehSvcsForARCH_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehAlertByVehsSvcGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q117="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" type="q117:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehAlertByVehsSvcGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehAlertByVehsSvcGuidResult" nillable="true" type="q118:ArrayOfuspSelVehAlertByVehSvcGuid_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScheduleService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="serviceDataMasterlist" nillable="true" type="q119:ATPServiceDataMasterKiosk" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScheduleServiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://www.AdamKiosks.com/ATPData" minOccurs="0" name="ScheduleServiceResult" nillable="true" type="q120:ATPData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelLookUpTable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tableName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelLookUpTableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelLookUpTableResult" nillable="true" type="q121:ArrayOfuspLkpTables_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelLookUpTableByDealerId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tableName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelLookUpTableByDealerIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelLookUpTableByDealerIdResult" nillable="true" type="q122:ArrayOfuspSelLookUpTableByDealerId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsVehAlert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="alert" nillable="true" type="q123:uspSelVehAlertByVehSvcGuid_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsVehAlertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsVehAlertResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpSertEmailAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="data" nillable="true" type="q124:uspSelVehSvcsForARCH_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpSertEmailAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpSertEmailAddressResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpSertPhoneNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="data" nillable="true" type="q125:uspSelVehSvcsForARCH_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpSertPhoneNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpSertPhoneNumberResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpSertPhoneByPersonGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="phoneGuid" nillable="true" type="q126:guid" />
+        <xs:element minOccurs="0" name="phoneNumber" nillable="true" type="xs:string" />
+        <xs:element xmlns:q127="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="updatedBy" nillable="true" type="q127:guid" />
+        <xs:element xmlns:q128="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="enteredBy" nillable="true" type="q128:guid" />
+        <xs:element xmlns:q129="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="personGuid" nillable="true" type="q129:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpSertPhoneByPersonGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpSertPhoneByPersonGuidResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpSertEmailByPersonGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q130="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="emailGuid" nillable="true" type="q130:guid" />
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element xmlns:q131="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="updatedBy" nillable="true" type="q131:guid" />
+        <xs:element xmlns:q132="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="enteredBy" nillable="true" type="q132:guid" />
+        <xs:element xmlns:q133="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="personGuid" nillable="true" type="q133:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpSertEmailByPersonGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpSertEmailByPersonGuidResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertVehicle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="vehicle" nillable="true" type="q134:uspSelVehicleByPersonId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertVehicleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="InsertVehicleResult" nillable="true" type="q135:ArrayOfuspInsVehicle_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertPerson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="person" nillable="true" type="q136:uspSelPersonById_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertPersonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="InsertPersonResult" nillable="true" type="q137:uspInsPerson_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleByPersonId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="personGuid" nillable="true" type="q138:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleByPersonIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehicleByPersonIdResult" nillable="true" type="q139:ArrayOfuspSelVehicleByPersonId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPersonByGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="personGuid" nillable="true" type="q140:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPersonByGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelPersonByGuidResult" nillable="true" type="q141:ArrayOfuspSelPersonByGuid_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPersonById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="personGuid" nillable="true" type="q142:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPersonByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelPersonByIdResult" nillable="true" type="q143:ArrayOfuspSelPersonById_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPersonByUserName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsValid" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPersonByUserNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelPersonByUserNameResult" nillable="true" type="q144:ArrayOfuspSelPersonByUserName_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPersonByLastFirstName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPersonByLastFirstNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelPersonByLastFirstNameResult" nillable="true" type="q145:ArrayOfuspSelPersonByLastFirstName_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q146="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleGuid" nillable="true" type="q146:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehicleByIdResult" nillable="true" type="q147:uspSelVehicleById_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpsertVehicleServiceMPI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DealerId" type="xs:int" />
+        <xs:element xmlns:q148="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="MPIMasterGuid" nillable="true" type="q148:guid" />
+        <xs:element xmlns:q149="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="VehicleServiceGuid" nillable="true" type="q149:guid" />
+        <xs:element xmlns:q150="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="Person" nillable="true" type="q150:guid" />
+        <xs:element xmlns:q151="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleGUID" nillable="true" type="q151:guid" />
+        <xs:element minOccurs="0" name="techComments" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="techWriterComments" nillable="true" type="xs:string" />
+        <xs:element xmlns:q152="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="EnteredBy" nillable="true" type="q152:guid" />
+        <xs:element minOccurs="0" name="MilesIn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MilesOut" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RoNum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FleetNumber" nillable="true" type="xs:string" />
+        <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="vehicleServiceMPIDataTable" nillable="true" type="q153:ArrayOfVehicleServiceMPIDataTable" />
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="mpiDetailTiresTableType" nillable="true" type="q154:MPIDetailTiresDataTable" />
+        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="mpiDetailBrakesDataTable" nillable="true" type="q155:MPIDetailBrakesDataTable" />
+        <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="mpiDetailChassisDataTable" nillable="true" type="q156:MPIDetailChassisDataTable" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpsertVehicleServiceMPIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpsertVehicleServiceMPIResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVehiceServiceStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q157="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGUID" nillable="true" type="q157:guid" />
+        <xs:element minOccurs="0" name="statusId" nillable="true" type="xs:unsignedByte" />
+        <xs:element xmlns:q158="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="updatedBy" nillable="true" type="q158:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVehiceServiceStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateVehiceServiceStatusResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServicePackages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="VIN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServicePackagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="GetServicePackagesResult" nillable="true" type="q159:ArrayOfuspSelPkgByDealerId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="VIN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="GetServiceTypesResult" nillable="true" type="q160:ArrayOfuspSelSvcTypeByDealerId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPackageByDealerId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelPackageByDealerIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelPackageByDealerIdResult" nillable="true" type="q161:ArrayOfuspSelPackageByDealerId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelNextExpressNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" type="xs:int" />
+        <xs:element minOccurs="0" name="scheduleDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelNextExpressNumberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelNextExpressNumberResult" nillable="true" type="q162:ArrayOfuspSelNextExpressNumber_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelServiceTypeEmails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="serviceTypes" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="packageIds" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelServiceTypeEmailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelServiceTypeEmailsResult" nillable="true" type="q163:ArrayOfuspSelServiceTypeEmails_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleSvcsByDealerId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="serviceStatusId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="pageNumber" nillable="true" type="xs:short" />
+        <xs:element minOccurs="0" name="pageSize" nillable="true" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleSvcsByDealerIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehicleSvcsByDealerIdResult" nillable="true" type="q164:ArrayOfuspSelVehicleSvcsByDealerId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleSvcsByPersonId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="svcs" nillable="true" type="q165:uspSelVehicleSvcsByPersonId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelVehicleSvcsByPersonIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehicleSvcsByPersonIdResult" nillable="true" type="q166:ArrayOfuspSelVehicleSvcsByPersonId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

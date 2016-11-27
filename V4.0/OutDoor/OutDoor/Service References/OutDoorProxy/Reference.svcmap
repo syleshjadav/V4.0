@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6334186a-1746-48d7-9577-766e9aa96865" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50000/OutDoor.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OutDoor.xsd" MetadataType="Schema" ID="72b906ef-342a-42be-83a0-d16b85d0b459" SourceId="1" SourceUrl="http://localhost:50000/OutDoor.svc?xsd=xsd0" />
+    <MetadataFile FileName="OutDoor.wsdl" MetadataType="Wsdl" ID="6035f5bc-06eb-4ba2-8a8b-026d370d8f0d" SourceId="1" SourceUrl="http://localhost:50000/OutDoor.svc?wsdl" />
+    <MetadataFile FileName="OutDoor1.xsd" MetadataType="Schema" ID="feeb40b9-3eb5-47b3-8b61-d458ecdac235" SourceId="1" SourceUrl="http://localhost:50000/OutDoor.svc?xsd=xsd1" />
+    <MetadataFile FileName="OutDoor.disco" MetadataType="Disco" ID="47139ddc-d073-4851-a691-f38ce36db5e7" SourceId="1" SourceUrl="http://localhost:50000/OutDoor.svc?disco" />
+    <MetadataFile FileName="OutDoor2.xsd" MetadataType="Schema" ID="d4142757-36f7-48c0-8367-6dd91c1eb8bc" SourceId="1" SourceUrl="http://localhost:50000/OutDoor.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="MyShopOutDoor.MenuWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MyShopOutDoor"
+             mc:Ignorable="d"
+             x:Name="CtrlMenuWindow"
+             
+             Height="900"
+           
+             Margin="0"
+             Unloaded="CtrlMenuWindow_Unloaded">
+  
+    <Grid x:Name="GrdMain"
+          Background="{DynamicResource BrushMainPageBackGround}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition Height="*" />
+            <RowDefinition  Height="auto" />
+        </Grid.RowDefinitions>
+        <Border BorderThickness="5"
+                BorderBrush="Gray"
+                CornerRadius="5"
+                Grid.RowSpan="3"></Border>
+        <Image Source="Image/DealerLogo/116.png" />
+        <GroupBox Grid.Row="1"
+                  Margin="10,0,10,0"
+                  Style="{DynamicResource DesignerGroupBoxSmallBk}">
+            <GroupBox.Header>
+                <TextBlock x:Name="TxtCustomerDetails"
+                           Text="AUTOMATED KEY DROP AND PICK UP SYSTEM"
+                           FontSize="36"
+                           Foreground="White"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center" />
+            </GroupBox.Header>
+            <Grid>
+                <Border BorderThickness="1,1,1,2"
+                        Margin="0,10,0,0"
+                        Grid.RowSpan="1"
+                        CornerRadius="6">
+                    <Border.Effect>
+                        <DropShadowEffect />
+                    </Border.Effect>
+                    <Button x:Name="cmdDropKeys"
+                            FontSize="40"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Width="300"
+                            Height="300"
+                            BorderBrush="#FFFFFF"
+                            BorderThickness="3"
+                            FontWeight="Bold"
+                            Foreground="#FFF3F3F3"
+                            Click="cmdDropKeys_Click">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1"
+                                                 StartPoint="0.5,0">
+                                <GradientStop Color="#FF196348"
+                                              Offset="1" />
+                                <GradientStop Color="White" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Bottom"
+                                       FontSize="30"
+                                       HorizontalAlignment="Center"
+                                       Foreground="White">DROP KEYS</TextBlock>
+                            <Image DockPanel.Dock="Top"
+                                   Source="Image/Keys1.png" />
+                        </DockPanel>
+                    </Button>
+                </Border>
+                <Border BorderThickness="1,1,1,2"
+                        Grid.RowSpan="1"
+                        CornerRadius="6">
+                    <Border.Effect>
+                        <DropShadowEffect />
+                    </Border.Effect>
+                    <Button x:Name="cmdKeysPickUp"
+                            
+                            FontSize="40"
+                            Margin="0,0,0,10"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Width="300"
+                            Height="300"
+                            BorderBrush="#FFFFFF"
+                            BorderThickness="3"
+                            FontWeight="Bold"
+                            Foreground="#FFF3F3F3"
+                            Click="cmdKeysPickUp_Click">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1"
+                                                 StartPoint="0.5,0">
+                                <GradientStop Color="#FF196348" />
+                                <GradientStop Color="White"
+                                              Offset="1" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Bottom"
+                                       FontSize="30"
+                                       HorizontalAlignment="Center"
+                                       Foreground="Black">PICK UP KEYS</TextBlock>
+                            <Image DockPanel.Dock="Top"
+                                   Source="Image/Keys-ParkingLot.png" />
+                        </DockPanel>
+                    </Button>
+                </Border>
+            </Grid>
+        </GroupBox>
+     
+    </Grid>
+</UserControl>

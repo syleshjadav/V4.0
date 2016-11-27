@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Dealer" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer" location="http://sylesh-001-site2.ctempurl.com/ATPServices/Dealer.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="ServicesFirstEndPoint" type="i0:IDealer">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SelExpSvcsStatByDealerId">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelExpSvcsStatByDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelSvcTypeByPkgId">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelSvcTypeByPkgId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehicleServiceImage">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelVehicleServiceImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelVehicleServiceImage">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/DelVehicleServiceImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsVehicleServiceImage">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/InsVehicleServiceImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogInByUserName">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/LogInByUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogInByVIN">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/LogInByVIN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogInByIdCard">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/LogInByIdCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogInByCreditCard">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/LogInByCreditCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/LogOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYears">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/GetYears" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMakes">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/GetMakes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModels">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/GetModels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrims">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/GetTrims" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogError">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/LogError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogInformation">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/LogInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PingMe">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/PingMe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewCustomer">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/CreateNewCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelMPISubmitHistory">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelMPISubmitHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseVehicleSericeRO">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/CloseVehicleSericeRO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehicleServiceMPIStatus">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelVehicleServiceMPIStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelMPIVehicleServiceByDealerId">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelMPIVehicleServiceByDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpsertMPIByPersonGuid">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpsertMPIByPersonGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelCustomerByGuid">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelCustomerByGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseVehicleSericeTask">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/CloseVehicleSericeTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMPICost">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpdateMPICost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehicleServicePricing">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelVehicleServicePricing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehicleServicePricingSW">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelVehicleServicePricingSW" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehicleServicePricingTech">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelVehicleServicePricingTech" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehicleServicePricingParts">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelVehicleServicePricingParts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UPSertVehicleServicePricing">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UPSertVehicleServicePricing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehicleServicesByDealerEmp">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelVehicleServicesByDealerEmp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIsVehicleInShop">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpdateIsVehicleInShop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelMPIImages">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelMPIImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uspUpSertMPIImages">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/uspUpSertMPIImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelPersonGroup">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelPersonGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerMsg">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpdateDealerMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDealerMsgBell">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpdateDealerMsgBell" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePersonVehicleLite">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpdatePersonVehicleLite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpsertDealerKiosk">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpsertDealerKiosk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpsertDealerContacts">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpsertDealerContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpsertDealerEmployee">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpsertDealerEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelAdminMPIListByDealerId">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelAdminMPIListByDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelDealerKiosks">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelDealerKiosks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelAllMPIGroups">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelAllMPIGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelAllMPIItems">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelAllMPIItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpsertDealerMPIGroupItems">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpsertDealerMPIGroupItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKioskResetPassword">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpdateKioskResetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelMPIListByDealerId">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelMPIListByDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelMPICountByServiceGuid">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelMPICountByServiceGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelKioskByMachineId">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelKioskByMachineId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAddress">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/InsertAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealerDetails">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/GetDealerDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelDealerByFamilyId">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelDealerByFamilyId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelDealerDetailsById">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelDealerDetailsById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAllServiceStatusToComplete">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpdateAllServiceStatusToComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterCustomer">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/RegisterCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifySendAlertsUser">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/VerifySendAlertsUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelDealerDept">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelDealerDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelDealerEmployees">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelDealerEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelDealerPreTextMessage">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelDealerPreTextMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelDealerMessage">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelDealerMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelDealerMsgHist">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelDealerMsgHist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelCustomerLite">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelCustomerLite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsDealerMsg">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/InsDealerMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpsertPreTextMessage">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpsertPreTextMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginDealerEmployee">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/LoginDealerEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginDealerEmployeeByEmail">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/LoginDealerEmployeeByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelDealerEmpPages">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelDealerEmpPages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelDealerEmpPagesAdmin">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelDealerEmpPagesAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmpPagesAdmin">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpdateEmpPagesAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelKeyLockerOpenPeg">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelKeyLockerOpenPeg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdKeyLockerPeg">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpdKeyLockerPeg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehSvcsWebARCH">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelVehSvcsWebARCH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehSvcsForARCH">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelVehSvcsForARCH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehAlertByVehsSvcGuid">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelVehAlertByVehsSvcGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScheduleService">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/ScheduleService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelLookUpTable">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelLookUpTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelLookUpTableByDealerId">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelLookUpTableByDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsVehAlert">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/InsVehAlert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpSertEmailAddress">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpSertEmailAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpSertPhoneNumber">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpSertPhoneNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpSertPhoneByPersonGuid">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpSertPhoneByPersonGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpSertEmailByPersonGuid">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpSertEmailByPersonGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertVehicle">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/InsertVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPerson">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/InsertPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehicleByPersonId">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelVehicleByPersonId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelPersonByGuid">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelPersonByGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelPersonById">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelPersonById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelPersonByUserName">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelPersonByUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelPersonByLastFirstName">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelPersonByLastFirstName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehicleById">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelVehicleById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpsertVehicleServiceMPI">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpsertVehicleServiceMPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVehiceServiceStatus">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/UpdateVehiceServiceStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServicePackages">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/GetServicePackages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceTypes">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/GetServiceTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelPackageByDealerId">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelPackageByDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelNextExpressNumber">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelNextExpressNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelServiceTypeEmails">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelServiceTypeEmails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehicleSvcsByDealerId">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelVehicleSvcsByDealerId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehicleSvcsByPersonId">
+      <soap:operation soapAction="http://www.ADAMCentralUSA.com/ADAM/Service/Dealer/IDealer/SelVehicleSvcsByPersonId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Dealer">
+    <wsdl:port name="ServicesFirstEndPoint" binding="tns:ServicesFirstEndPoint">
+      <soap:address location="http://sylesh-001-site2.ctempurl.com/ATPServices/Dealer.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

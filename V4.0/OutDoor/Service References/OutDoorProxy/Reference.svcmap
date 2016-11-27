@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="04cbb826-8b62-47f2-8955-08ceb2a4e4ad" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://www.myshopauto.com/ATPServices/OutDoor.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OutDoor.disco" MetadataType="Disco" ID="d059eb95-67c1-414e-a15d-249badf87aab" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/OutDoor.svc?disco" />
+    <MetadataFile FileName="OutDoor.xsd" MetadataType="Schema" ID="d1deab6f-d88a-4b3c-8c3c-796a8f5f8834" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd0" />
+    <MetadataFile FileName="OutDoor1.xsd" MetadataType="Schema" ID="c655061e-0afe-426c-9335-61b8d6265ff8" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd1" />
+    <MetadataFile FileName="OutDoor2.xsd" MetadataType="Schema" ID="ad4088bf-1f0c-4d60-8d61-07c9de686173" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd2" />
+    <MetadataFile FileName="OutDoor3.xsd" MetadataType="Schema" ID="d707e8eb-8cc6-41fc-bdf5-9d415efb7dff" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd3" />
+    <MetadataFile FileName="OutDoor.wsdl" MetadataType="Wsdl" ID="ac43a355-8294-4670-8efc-5f6c28139c51" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/OutDoor.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

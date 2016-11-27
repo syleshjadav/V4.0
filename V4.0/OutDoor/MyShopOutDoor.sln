@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyShopOutDoor", "MyShopOutDoor.csproj", "{737A4466-3333-4159-BA05-83A8FA161B6F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{325F09E7-8C02-410E-9F5D-C912A308252D} = {325F09E7-8C02-410E-9F5D-C912A308252D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATP.DataModel", "..\Data\ATP.DataModel\ATP.DataModel.csproj", "{AA7A2394-DF96-49C0-A6C5-47B98DA977F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATP.Services.Data", "..\Data\ATP.Services.Data\ATP.Services.Data.csproj", "{82D13D7F-CF80-40A2-AA3B-3479CEB2367E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATP.Rest", "..\Services\ATP.Rest\ATP.Rest.csproj", "{E48794B7-E668-41A3-BC6B-65DECB76EE7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATP.WCF.Svcs", "..\Services\ATP.WCF.Svcs\ATP.WCF.Svcs.csproj", "{325F09E7-8C02-410E-9F5D-C912A308252D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATP.SvcsLibrary", "..\Services\ATP.SvcsLibrary\ATP.SvcsLibrary.csproj", "{07FB51B0-35F0-4939-AF08-42B3D7DD8D0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAPITester", "..\..\..\ATPMainSource\Version1.3\Version1.3\Version1.3\RestAPITester\RestAPITester.csproj", "{3BD540F6-92B0-4247-A4A9-847EE9C68962}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{29D96E12-CC98-442A-B099-D21BF7AF9216}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfKb", "..\Common\WpfKb\WpfKb.csproj", "{0784CDC9-0F52-4B8B-9488-6589C11E94E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATP.Kiosk.Common", "..\Common\ATP.Kiosk.Common\ATP.Kiosk.Common.csproj", "{465721F9-2F5F-4B6F-A842-AC623C6452BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyShopOutDoorDealerSide", "..\MyShopOutDoorDealerSide\MyShopOutDoorDealerSide.csproj", "{5676813E-A73F-4C69-87AB-CF374D2B457B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{325F09E7-8C02-410E-9F5D-C912A308252D} = {325F09E7-8C02-410E-9F5D-C912A308252D}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{737A4466-3333-4159-BA05-83A8FA161B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{737A4466-3333-4159-BA05-83A8FA161B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{737A4466-3333-4159-BA05-83A8FA161B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{737A4466-3333-4159-BA05-83A8FA161B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA7A2394-DF96-49C0-A6C5-47B98DA977F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA7A2394-DF96-49C0-A6C5-47B98DA977F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA7A2394-DF96-49C0-A6C5-47B98DA977F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA7A2394-DF96-49C0-A6C5-47B98DA977F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82D13D7F-CF80-40A2-AA3B-3479CEB2367E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82D13D7F-CF80-40A2-AA3B-3479CEB2367E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82D13D7F-CF80-40A2-AA3B-3479CEB2367E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82D13D7F-CF80-40A2-AA3B-3479CEB2367E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E48794B7-E668-41A3-BC6B-65DECB76EE7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E48794B7-E668-41A3-BC6B-65DECB76EE7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E48794B7-E668-41A3-BC6B-65DECB76EE7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E48794B7-E668-41A3-BC6B-65DECB76EE7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{325F09E7-8C02-410E-9F5D-C912A308252D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{325F09E7-8C02-410E-9F5D-C912A308252D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{325F09E7-8C02-410E-9F5D-C912A308252D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{325F09E7-8C02-410E-9F5D-C912A308252D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07FB51B0-35F0-4939-AF08-42B3D7DD8D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07FB51B0-35F0-4939-AF08-42B3D7DD8D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07FB51B0-35F0-4939-AF08-42B3D7DD8D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07FB51B0-35F0-4939-AF08-42B3D7DD8D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BD540F6-92B0-4247-A4A9-847EE9C68962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BD540F6-92B0-4247-A4A9-847EE9C68962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BD540F6-92B0-4247-A4A9-847EE9C68962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BD540F6-92B0-4247-A4A9-847EE9C68962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0784CDC9-0F52-4B8B-9488-6589C11E94E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0784CDC9-0F52-4B8B-9488-6589C11E94E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0784CDC9-0F52-4B8B-9488-6589C11E94E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0784CDC9-0F52-4B8B-9488-6589C11E94E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{465721F9-2F5F-4B6F-A842-AC623C6452BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{465721F9-2F5F-4B6F-A842-AC623C6452BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{465721F9-2F5F-4B6F-A842-AC623C6452BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{465721F9-2F5F-4B6F-A842-AC623C6452BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5676813E-A73F-4C69-87AB-CF374D2B457B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5676813E-A73F-4C69-87AB-CF374D2B457B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5676813E-A73F-4C69-87AB-CF374D2B457B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5676813E-A73F-4C69-87AB-CF374D2B457B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0784CDC9-0F52-4B8B-9488-6589C11E94E2} = {29D96E12-CC98-442A-B099-D21BF7AF9216}
+		{465721F9-2F5F-4B6F-A842-AC623C6452BC} = {29D96E12-CC98-442A-B099-D21BF7AF9216}
+	EndGlobalSection
+EndGlobal
