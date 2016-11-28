@@ -6,11 +6,6 @@ using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 using Elmah;
-using System.Web.Http.Filters;
-using System.Web.Http.Controllers;
-using System.Net.Http;
-using System.Net;
-using System.Text;
 
 /// <summary>
 /// So we can decorate Services with the [ServiceErrorBehaviour(typeof(HttpErrorHandler))]
