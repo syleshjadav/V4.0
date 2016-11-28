@@ -6,11 +6,9 @@ using System.Runtime.Serialization;
 using ATP.DataModel;
 
 
-namespace ATP.Rest
-{
+namespace ATP.Rest {
     [System.ServiceModel.ServiceContract(Name = "IRestSvs", Namespace = "http://www.adamkiosks.com/ATPRestServices/RestSvs")]
-    public interface IRestSvs
-    {
+    public interface IRestSvs {
 
         [OperationContract]
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "LoginDealerEmployeeTest/{dealerid}/{empEmail}/{empPassword}", BodyStyle = WebMessageBodyStyle.Wrapped)]
@@ -18,17 +16,34 @@ namespace ATP.Rest
 
         [OperationContract]
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "SelMPIRedYellowByPersonGuid/{dealerid}/{pGuid}/{VehPhId}", BodyStyle = WebMessageBodyStyle.Wrapped)]
-        List<ATPDataMPIRedYellow> SelMPIRedYellowByPersonGuid(string dealerId, string pGuid,string VehPhId);
+        List<ATPDataMPIRedYellow> SelMPIRedYellowByPersonGuid(string dealerId, string pGuid, string VehPhId);
 
 
-   
+
         [OperationContract]
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "SelCustomerDetailsByGuid/{dealerid}/{pGuid}/{vehicleId}", BodyStyle = WebMessageBodyStyle.Wrapped)]
-        List<ATPCustomerDetailsByGuid> SelCustomerDetailsByGuid(string dealerId, string pGuid,string vehicleId);
+        List<ATPCustomerDetailsByGuid> SelCustomerDetailsByGuid(string dealerId, string pGuid, string vehicleId);
+
+
+
+        [OperationContract]
+        [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "VerifyOTP/{pGuid}/{OTP}", BodyStyle = WebMessageBodyStyle.Wrapped)]
+        List<ATPCustomerDetailsByGuid> VerifyOTP(string pGuid, string OTP);
+
+
+        [OperationContract]
+        [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "FindCustomerByPhPlateEmail/{plate}/{phone}/{email}", BodyStyle = WebMessageBodyStyle.Wrapped)]
+
+        List<ATPCustomerDetailsByGuid> FindCustomerByPhPlateEmail(string plate, string phone, string email);
+
+
+        [OperationContract]
+        [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "SendOTPEmail/{pGuid}/{vGuid}/{Email}", BodyStyle = WebMessageBodyStyle.Wrapped)]
+        ATPData SendOTPEmail(string pGuid, string vGuid, string Email);
 
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "UpdateMPIRedYellow")]
         ATPData UpdateMPIRedYellow(ATPDataMPIRedYellow updateMPI);
-              
+
 
         [OperationContract]
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "GetDealerGroups", BodyStyle = WebMessageBodyStyle.Wrapped)]
@@ -42,9 +57,9 @@ namespace ATP.Rest
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "GetDealers/{dealerGroupId}", BodyStyle = WebMessageBodyStyle.Wrapped)]
         List<ATPData> GetDealers(string dealerGroupId);
 
-        [OperationContract]
-        [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "GetVinDetails/{vin}", BodyStyle = WebMessageBodyStyle.Wrapped)]
-        string GetVinDetails(string vin);
+        //[OperationContract]
+        //[WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "GetVinDetails/{vin}", BodyStyle = WebMessageBodyStyle.Wrapped)]
+        //string GetVinDetails(string vin);
 
         [OperationContract]
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "GetDealerDetails/{dealerId}", BodyStyle = WebMessageBodyStyle.Wrapped)]
@@ -116,7 +131,7 @@ namespace ATP.Rest
             UriTemplate = "VerifyService")]
         ATPServiceDataMaster VerifyService(ATPServiceDataMaster ServiceDataMasterlist);
 
-        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json,UriTemplate = "ScheduleService")]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ScheduleService")]
         ATPData ScheduleService(ATPServiceDataMaster ServiceDataMasterlist);
 
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "DropKeys")]

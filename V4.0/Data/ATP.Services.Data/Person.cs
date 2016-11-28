@@ -35,6 +35,27 @@ namespace ATP.Services.Data
         }
 
 
+        public List<uspFindCustomerByPhPlateEmail_Result> FindCustomerByPhPlateEmail(string Plate, string Phone, string Email) {
+            using (var entity = new ATP.DataModel.Entities()) {
+
+                return entity.uspFindCustomerByPhPlateEmail(Plate, Phone, Email,null,null).ToList();
+            }
+        }
+
+        public List<string> GenerateOTP(Guid? personGuid) {
+            using (var entity = new ATP.DataModel.Entities()) {
+
+                return entity.uspGenerateOTP(personGuid).ToList();
+            }
+        }
+
+        public List<uspVerifyOTP_Result> VerifyOTP(Guid? personGuid,string OTP) {
+            using (var entity = new ATP.DataModel.Entities()) {
+
+                return entity.uspVerifyOTP(personGuid,OTP).ToList();
+            }
+        }
+
         public List<uspSelPersonGroup_Result> SelPersonGroup(int dealerId)
         {
 

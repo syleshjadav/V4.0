@@ -497,6 +497,9 @@
     <Compile Include="uspValidateCustomer_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="uspVerifyOTP_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="uspVerifyPinGetCustInfo_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

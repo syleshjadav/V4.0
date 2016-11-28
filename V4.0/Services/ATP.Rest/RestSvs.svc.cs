@@ -10,6 +10,7 @@ using System.ServiceModel.Activation;
 using ATP.DataModel;
 using System.Configuration;
 using System.Net;
+using System.Net.Mail;
 
 namespace ATP.Rest {
     [ServiceErrorBehaviour(typeof(HttpErrorHandler))]
@@ -18,38 +19,41 @@ namespace ATP.Rest {
         private const string Token = "m0QDEdNAtH0Kp/l1dsNAmXu1IZrrkPCLuYs1tpf8eGQ";
 
 
-        public string GetVinDetails(string vin) {
-            // var requestUrl = "https://demo.vinterpreter.us:9881/ords/demo/v1/get_vin_info?vin=1FMDU34E8VZA90882";
-            // var requestUrl = "https://demo.vinterpreter.us:9881/ords/demo/v1/get_recall_info_vin?vin=1ZVFT82H775283137";
-            var requestUrl = string.Format("{0}{1}", "https://demo.vinterpreter.us:9881/ords/demo/v1/get_vin_info?vin=", vin);
-            try {
-                string rtnvalue = "";
+        //public string GetVinDetails(string vin) {
+        //    // var requestUrl = "https://demo.vinterpreter.us:9881/ords/demo/v1/get_vin_info?vin=1FMDU34E8VZA90882";
+        //    // var requestUrl = "https://demo.vinterpreter.us:9881/ords/demo/v1/get_recall_info_vin?vin=1ZVFT82H775283137";
+        //    var requestUrl = string.Format("{0}{1}", "https://demo.vinterpreter.us:9881/ords/demo/v1/get_vin_info?vin=", vin);
+        //    try {
+        //        string rtnvalue = "";
 
-                var client = new WebClient();
-
-
-                // Synchronous Consumption
-                //  var client = new WebClient();
-                client.Headers.Add("API_ACT", "DEMOMYSHOP");
-                client.Headers.Add("API_KEY", "0C06A4EC8A71236336F1BCF401B50869");
-
-                rtnvalue = client.DownloadString(requestUrl);
+        //        var client = new WebClient();
 
 
-                // Create the Json serializer and parse the response
-                //DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(RootObject));
-                //using (var ms = new MemoryStream(Encoding.Unicode.GetBytes(content)))
-                //{
-                //    var weatherData = (RootObject)serializer.ReadObject(ms);
-                //}
-                return rtnvalue;
+        //        // Synchronous Consumption
+        //        //  var client = new WebClient();
+        //        client.Headers.Add("API_ACT", "DEMOMYSHOP");
+        //        client.Headers.Add("API_KEY", "0C06A4EC8A71236336F1BCF401B50869");
 
-            }
-            catch (Exception ex) {
-                //Console.WriteLine(ex.Message);
-                return ex.Message;
-            }
-        }
+        //        rtnvalue = client.DownloadString(requestUrl);
+
+
+        //        // Create the Json serializer and parse the response
+        //        //DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(RootObject));
+        //        //using (var ms = new MemoryStream(Encoding.Unicode.GetBytes(content)))
+        //        //{
+        //        //    var weatherData = (RootObject)serializer.ReadObject(ms);
+        //        //}
+        //        return rtnvalue;
+
+        //    }
+        //    catch (Exception ex) {
+        //        //Console.WriteLine(ex.Message);
+        //        return ex.Message;
+        //    }
+        //}
+
+
+
 
         public List<ATPDataMPIRedYellow> SelMPIRedYellowByPersonGuid(string dealerId, string pGuid, string VehPhId) {
             try {
@@ -187,6 +191,147 @@ namespace ATP.Rest {
 
         }
 
+        public List<ATPCustomerDetailsByGuid> FindCustomerByPhPlateEmail(string Plate, string Phone, string Email) {
+            try {
+
+
+                return new ATP.Services.Data.Person().FindCustomerByPhPlateEmail(Plate, Phone, Email)
+                     .Select(m =>
+                     new ATPCustomerDetailsByGuid {
+
+                         DealerFamilyId = "5",
+                         DealerId = m.DealerId.ToString(),
+                         // DeviceTypeId = m.DeviceTypeId.ToString(),
+                         // DealerPersonGroupId = m.DealerPersonGroupId,
+                         EmailAddress = m.EmailAddress,
+                         FirstName = m.FirstName,
+                         GoogleGuid = m.GoogleGuid,
+                         //  GroupName = m.GroupName,
+                         //  IsValid = m.IsValid.ToString(),
+                         LastName = m.LastName,
+                         MiddleName = m.MiddleName,
+                         //  NextInspectionDate = m.NextInspectionDate,
+                         //  NextServiceDate = m.NextServiceDate,
+                         PersonGuid = m.PersonGuid.ToString(),
+                         PhoneNumber = m.PhoneNumber,
+                         Plate = m.Plate,
+                         //  NextSvcInfo = m.NextSvcInfo,
+                         VehicleGuid = m.VehicleGuid.ToString(),
+                         VehicleMake = m.VehicleMake,
+                         VehicleModel = m.VehicleModel,
+                         VehicleName = m.VehicleName,
+                         VehicleTrim = m.VehicleTrim,
+                         VehicleYear = m.VehicleYear != null ? m.VehicleYear.ToString() : "",
+                         VehicleYrMkMod = m.VehicleYrMkMod,
+                         VIN = m.VIN,
+                         VehicleId = m.VehicleId.ToString(),
+                         VehPhId = m.VehPhId
+                     }).ToList();
+
+            }
+            catch (Exception ex) {
+
+                TraceLog("FindCustomerByPhPlateEmail", string.Format("{0} -  Error while SelCustomerDetailsByGuid  - {1}", Email, ex.Message));
+
+            }
+
+            return new List<ATPCustomerDetailsByGuid>();
+
+        }
+
+        public ATPData SendOTPEmail(string pGuid, string vGuid, string Email) {
+            var m = new ATPData { Id = "1" };
+
+
+            try {
+
+                var otp = new ATP.Services.Data.Person().GenerateOTP(new Guid(pGuid)).SingleOrDefault();
+
+                m.Value = "Email Send";
+
+                SendMail(Email, otp);
+            }
+            catch (Exception ex) {
+
+                TraceLog("FindCustomerByPhPlateEmail", string.Format("{0} -  Error while SelCustomerDetailsByGuid  - {1}", Email, ex.Message));
+                m.Value = "Error in sending Email";
+
+            }
+
+            return m;
+
+        }
+
+
+        public List<ATPCustomerDetailsByGuid> VerifyOTP(string pGuid, string OTP) {
+
+            List<ATPCustomerDetailsByGuid> rtr = new List<ATPCustomerDetailsByGuid>();
+
+            try {
+
+                rtr = new ATP.Services.Data.Person().VerifyOTP(new Guid(pGuid), OTP).ToList()
+                     .Select(m =>
+                     new ATPCustomerDetailsByGuid {
+
+                         DealerFamilyId = "5",
+                         DealerId = m.DealerId.ToString(),
+                         // DeviceTypeId = m.DeviceTypeId.ToString(),
+                         // DealerPersonGroupId = m.DealerPersonGroupId,
+                         EmailAddress = m.EmailAddress,
+                         FirstName = m.FirstName,
+                         GoogleGuid = m.GoogleGuid,
+                         //  GroupName = m.GroupName,
+                         //  IsValid = m.IsValid.ToString(),
+                         LastName = m.LastName,
+                         MiddleName = m.MiddleName,
+                         NextInspectionDate = m.NextInspectionDate,
+                         NextServiceDate = m.NextServiceDate,
+                         PersonGuid = m.PersonGuid.ToString(),
+                         PhoneNumber = m.PhoneNumber,
+                         Plate = m.Plate,
+                         NextSvcInfo = m.NextSvcInfo,
+                         VehicleGuid = m.VehicleGuid.ToString(),
+                         VehicleMake = m.VehicleMake,
+                         VehicleModel = m.VehicleModel,
+                         VehicleName = m.VehicleName,
+                         VehicleTrim = m.VehicleTrim,
+                         VehicleYear = m.VehicleYear != null ? m.VehicleYear.ToString() : "",
+                         VehicleYrMkMod = m.VehicleYrMkMod,
+                         VIN = m.VIN,
+                         VehicleId = m.VehicleId.ToString(),
+                         VehPhId = m.VehPhId
+                     }).ToList();
+
+            }
+            catch (Exception ex) {
+
+                TraceLog("VerifyOTP", string.Format("{0} -  Error while VerifyOTP  - {1}", pGuid, ex.Message));
+
+
+            }
+
+            return rtr;
+
+        }
+        private static void SendMail(string emailAddress, string OTP) {
+            //create the mail message 
+            MailMessage mail = new MailMessage();
+
+            //set the addresses 
+            mail.From = new MailAddress("postmaster@myshopauto.com"); //IMPORTANT: This must be same as your smtp authentication address.
+            mail.To.Add("syleshjadav@gmail.com");
+
+            //set the content 
+            mail.Subject = "One Time Password ";
+            mail.Body = "Your One Time Password is :  " + OTP;
+            //send the message 
+            SmtpClient smtp = new SmtpClient("mail.myshopauto.com");
+
+            //IMPORANT:  Your smtp login email MUST be same as your FROM address. 
+            NetworkCredential Credentials = new NetworkCredential("postmaster@myshopauto.com", "Password#1");
+            smtp.Credentials = Credentials;
+            smtp.Send(mail);
+        }
 
         public List<ATPData> GetDealerGroups() {
 
@@ -700,7 +845,7 @@ namespace ATP.Rest {
                 return new ATPData { Id = "1", Value = "Success" };
             }
             catch (Exception ex) {
-                  TraceLog(" PickUpKeys", string.Format("First:{0}- Last:{1}- Vin:{2}- Dealer{3}-PersonGuid{4}-DealerEmp{5} ", m.FirstName, m.LastName, m.VIN, m.DealerId, m.PersonGuid, null));
+                TraceLog(" PickUpKeys", string.Format("First:{0}- Last:{1}- Vin:{2}- Dealer{3}-PersonGuid{4}-DealerEmp{5} ", m.FirstName, m.LastName, m.VIN, m.DealerId, m.PersonGuid, null));
 
                 return new ATPData { Id = "-1", Value = ex.ToString() };
             }

@@ -4342,5 +4342,27 @@ namespace ATP.DataModel
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelAllKeyDropPegByDealerId_Result>("uspSelAllKeyDropPegByDealerId", dealerIdParameter);
         }
+    
+        public virtual ObjectResult<string> uspGenerateOTP(Nullable<System.Guid> personGuid)
+        {
+            var personGuidParameter = personGuid.HasValue ?
+                new ObjectParameter("PersonGuid", personGuid) :
+                new ObjectParameter("PersonGuid", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("uspGenerateOTP", personGuidParameter);
+        }
+    
+        public virtual ObjectResult<uspVerifyOTP_Result> uspVerifyOTP(Nullable<System.Guid> personGuid, string oTP)
+        {
+            var personGuidParameter = personGuid.HasValue ?
+                new ObjectParameter("PersonGuid", personGuid) :
+                new ObjectParameter("PersonGuid", typeof(System.Guid));
+    
+            var oTPParameter = oTP != null ?
+                new ObjectParameter("OTP", oTP) :
+                new ObjectParameter("OTP", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspVerifyOTP_Result>("uspVerifyOTP", personGuidParameter, oTPParameter);
+        }
     }
 }
