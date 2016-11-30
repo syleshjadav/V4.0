@@ -153,6 +153,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\ServiceReference1\MyShopOutDoorDealerSide.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference1\MyShopOutDoorDealerSide.ServiceReference1.uspGetKeyLockerSteps_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

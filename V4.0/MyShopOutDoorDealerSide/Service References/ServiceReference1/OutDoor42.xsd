@@ -163,4 +163,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="uspSelAllKeyDropPegByDealerId_Result" nillable="true" type="tns:uspSelAllKeyDropPegByDealerId_Result" />
+  <xs:complexType name="ArrayOfuspCreateSeviceAndKeyLockerBucket_TowTruck_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="uspCreateSeviceAndKeyLockerBucket_TowTruck_Result" nillable="true" type="tns:uspCreateSeviceAndKeyLockerBucket_TowTruck_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfuspCreateSeviceAndKeyLockerBucket_TowTruck_Result" nillable="true" type="tns:ArrayOfuspCreateSeviceAndKeyLockerBucket_TowTruck_Result" />
+  <xs:complexType name="uspCreateSeviceAndKeyLockerBucket_TowTruck_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PersonGUID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="uspCreateSeviceAndKeyLockerBucket_TowTruck_Result" nillable="true" type="tns:uspCreateSeviceAndKeyLockerBucket_TowTruck_Result" />
 </xs:schema>

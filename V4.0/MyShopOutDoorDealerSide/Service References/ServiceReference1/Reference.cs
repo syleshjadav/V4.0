@@ -1966,6 +1966,67 @@ namespace MyShopOutDoorDealerSide.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="uspCreateSeviceAndKeyLockerBucket_TowTruck_Result", Namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel")]
+    [System.SerializableAttribute()]
+    public partial class uspCreateSeviceAndKeyLockerBucket_TowTruck_Result : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.Guid> PersonGUIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> VehicleIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.Guid> PersonGUID {
+            get {
+                return this.PersonGUIDField;
+            }
+            set {
+                if ((this.PersonGUIDField.Equals(value) != true)) {
+                    this.PersonGUIDField = value;
+                    this.RaisePropertyChanged("PersonGUID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> VehicleID {
+            get {
+                return this.VehicleIDField;
+            }
+            set {
+                if ((this.VehicleIDField.Equals(value) != true)) {
+                    this.VehicleIDField = value;
+                    this.RaisePropertyChanged("VehicleID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IOutDoor")]
     public interface IOutDoor {
@@ -2005,6 +2066,12 @@ namespace MyShopOutDoorDealerSide.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdateVehiceServiceStatus", ReplyAction="http://tempuri.org/IOutDoor/UpdateVehiceServiceStatusResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdateVehiceServiceStatusAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGUID, System.Nullable<System.Guid> vehicleGUID, System.Nullable<System.Guid> personGUID, System.Nullable<byte> statusId, System.Nullable<System.Guid> updatedBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckResponse")]
+        System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2080,6 +2147,14 @@ namespace MyShopOutDoorDealerSide.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdateVehiceServiceStatusAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGUID, System.Nullable<System.Guid> vehicleGUID, System.Nullable<System.Guid> personGUID, System.Nullable<byte> statusId, System.Nullable<System.Guid> updatedBy) {
             return base.Channel.UpdateVehiceServiceStatusAsync(dealerId, vehicleServiceGUID, vehicleGUID, personGUID, statusId, updatedBy);
+        }
+        
+        public System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId) {
+            return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruck(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId) {
+            return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruckAsync(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
         }
     }
 }
