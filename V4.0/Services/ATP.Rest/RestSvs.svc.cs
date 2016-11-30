@@ -261,6 +261,24 @@ namespace ATP.Rest {
             return m;
 
         }
+        public ATPData DeleteCustomer(string pGuid) {
+
+            var m = new ATPData { Id = "1" };
+            try {
+
+                var rtn = new ATP.Services.Data.Person().DeleteCustomerByGuid(new Guid(pGuid));
+
+            }
+            catch (Exception ex) {
+
+                TraceLog("DeleteCustomer", string.Format("{0} -  Error while DeleteCustomer  - {1}", pGuid, ex.Message));
+
+            }
+
+            return m;
+
+        }
+
 
 
         public List<ATPCustomerDetailsByGuid> VerifyOTP(string pGuid, string OTP) {

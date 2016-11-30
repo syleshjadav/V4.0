@@ -14,7 +14,7 @@
         <Style TargetType="TextBlock"
                x:Key="StyleLabel">
             <Setter Property="FontSize"
-                    Value="25" />
+                    Value="35" />
             <Setter Property="Foreground"
                     Value="White" />
             <Setter Property="FontWeight"
@@ -55,8 +55,8 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="32*" />
-                        <ColumnDefinition Width="81*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="4*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1" />
@@ -90,7 +90,7 @@
                              BorderBrush="White"
                              x:Name="TxtPin"
                              FontWeight="Bold"
-                            
+                            FontSize="30"
                              Height="50"
                              Background="#FFFFFFE4" />
                     <TextBox Grid.Row="2"
@@ -98,21 +98,47 @@
                              BorderBrush="White"
                              x:Name="TxtPhone"
                              FontWeight="Bold"
-                            
+                            MaxWidth="400"
+                             MinWidth="300"
+                             FontSize="35"
+                             
                              Height="50"
-                             Background="#FFFFFFE4" />
-                    <TextBox Grid.Row="3"
-                             Grid.Column="1"
+                             Background="#FFFFFFE4"
+                   HorizontalAlignment="Left" />
+          <UniformGrid Grid.Row="3"
+                       Grid.Column="1"
+                       Columns="2">
+                    <TextBox 
                              BorderBrush="White"
+                      GotFocus="TxtNotes_GotFocus"
                              MinLines="3"
-                             x:Name="TxtNotes"
+                     FontSize="30"
+                     x:Name="TxtNotes"
                              FontWeight="Bold"
                              AcceptsReturn="True"
                              TextWrapping="Wrap"
                              Background="#FFFFFFE4"
                              SpellCheck.IsEnabled="True" />
-                </Grid>
-                <UniformGrid Grid.Row="1" Columns="2">
+            <Button Height="150"
+                    x:Name="cmdDropKeys"
+                    Width="250"
+                    VerticalAlignment="Bottom"
+                    Style="{DynamicResource PackageOrServicesButton }"
+                    Click="cmdDropKeys_Click">
+              <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom"
+                           x:Name="TxtcmdCustomerVerified"
+                           FontSize="50"
+                           HorizontalAlignment="Center"
+                           Foreground="Black">DROP KEY</TextBlock>
+                <Image DockPanel.Dock="Top"
+                       Source="Image/carkey.png"
+                       HorizontalAlignment="Center" />
+              </DockPanel>
+            </Button>
+          </UniformGrid>
+        </Grid>
+                <UniformGrid Grid.Row="1" Columns="1">
                     <Button x:Name="cmdBack"
                             Width="100"
                             Height="100"
@@ -134,33 +160,18 @@
                                        Text="ç" />
                         </DockPanel>
                     </Button>
-                    <Button Height="100"
-                            x:Name="cmdDropKeys"
-                            Width="250"
-                            VerticalAlignment="Bottom"
-                            Style="{DynamicResource PackageOrServicesButton }"
-                            Click="cmdDropKeys_Click">
-                        <DockPanel>
-                            <TextBlock DockPanel.Dock="Bottom"
-                                       x:Name="TxtcmdCustomerVerified"
-                                       FontSize="50"
-                                       HorizontalAlignment="Center"
-                                       Foreground="Black">DROP KEY</TextBlock>
-                            <Image DockPanel.Dock="Top"
-                                   Source="Image/carkey.png"
-                                   HorizontalAlignment="Center" />
-                        </DockPanel>
-                    </Button>
+                   
                 </UniformGrid>
-                <Grid  Background="Aqua"
+                <Grid  Background="Gray" Visibility="Visible"
                        Grid.Row="2"
                        x:Name="GrdKeyboard">
-                    <WpfKb:FloatingTouchScreenKeyboard x:Name="Keyboard"
+                    <WpfKb:FloatingTouchScreenKeyboard x:Name="MyKeyboard"
                                                        IsOpen="True"
-                                                       Width="700"
-                                                       Height="400"
+                                                      
                                                        PlacementTarget="{Binding ElementName=GrdKeyboard}"
-                                                       AreAnimationsEnabled="True" />
+                                                       AreAnimationsEnabled="False"
+                                             Height="500"
+                                             Width="800" />
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />

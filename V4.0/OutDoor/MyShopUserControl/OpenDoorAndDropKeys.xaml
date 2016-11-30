@@ -1,0 +1,113 @@
+﻿<Window x:Class="MyShopOutDoor.MyShopUserControl.OpenDoorAndDropKeys"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyShopOutDoor.MyShopUserControl"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Title="OpenDoorAndDropKeys" Height="700" Width="700">
+  <Grid x:Name="GrdVerifiedPinInfo"
+        Grid.Row="1"
+        Visibility="Visible">
+    <Grid.Background>
+      <ImageBrush Opacity="0.1"
+                  TileMode="Tile"
+                  ImageSource="/MyShopOutDoor;component/Image/DealerLogo/116.png">
+        <ImageBrush.Transform>
+          <ScaleTransform ScaleX=".2"
+                          ScaleY=".2" />
+        </ImageBrush.Transform>
+      </ImageBrush>
+    </Grid.Background>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition />
+      <ColumnDefinition />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <RichTextBox x:Name="TxtVerifyPinInfo2">
+      <FlowDocument FontSize="30"
+                    FontFamily="Segoe Marker">
+        <Paragraph LineHeight="10">1. Have your Keys ready and Click on Open Door Button.</Paragraph>
+        <Paragraph LineHeight="10">2. Place your Vehicle keys.</Paragraph>
+        <Paragraph LineHeight="10">3. Close the Door and finally Click DROP KEY Button.</Paragraph>
+      </FlowDocument>
+    </RichTextBox>
+    <Image x:Name="ImgKeyDropBox"
+           Grid.Column="1"
+           Width="250"
+           Height="250"
+           Source="/MyShopOutDoor;component/Image/KeyDropBox.jpg" />
+    <UniformGrid Grid.Row="1"
+                 Grid.ColumnSpan="2"
+                 VerticalAlignment="Center"
+                 Columns="2">
+      <Button x:Name="cmdOpenDoor"
+              Visibility="Visible"
+              Margin="5"
+              Click="cmdOpenDoor_Click"
+              Style="{DynamicResource PackageOrServicesButton }"
+              VerticalAlignment="Bottom"
+              Width="200"
+              Height="150">
+        <DockPanel>
+          <TextBlock DockPanel.Dock="Bottom"
+                     FontSize="30"
+                     HorizontalAlignment="Center"
+                     Foreground="Black">Open Door</TextBlock>
+          <Image DockPanel.Dock="Top"
+                 Height="75"
+                 Width="75"
+                 Source="/MyShopOutDoor;component/Image/OpenDoor.png" />
+        </DockPanel>
+      </Button>
+      <Button Height="150"
+              x:Name="cmdDropKeys"
+              IsEnabled="False"
+              Opacity=".5"
+              Width="250"
+              VerticalAlignment="Bottom"
+              Style="{DynamicResource PackageOrServicesButton }"
+              Click="cmdDropKeys_Click">
+        <DockPanel>
+          <TextBlock DockPanel.Dock="Bottom"
+                     x:Name="TxtcmdCustomerVerified"
+                     FontSize="50"
+                     HorizontalAlignment="Center"
+                     Foreground="Black">DROP KEY</TextBlock>
+          <Image DockPanel.Dock="Top"
+                 Source="/MyShopOutDoor;component/Image/carkey.png"
+                 HorizontalAlignment="Center" />
+        </DockPanel>
+      </Button>
+      
+    </UniformGrid>
+    <Button x:Name="cmdBack"
+            Grid.Row="2"
+            Width="150"
+            Height="150"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            FontWeight="Bold"
+            Style="{DynamicResource PackageOrServicesButton }"
+            Click="cmdBack_Click">
+      <DockPanel>
+        <TextBlock DockPanel.Dock="Bottom"
+                   FontSize="30"
+                   HorizontalAlignment="Center"
+                   Foreground="Black">BACK</TextBlock>
+        <TextBlock DockPanel.Dock="Top"
+                   FontSize="50"
+                   Foreground="Black"
+                   FontFamily="Wingdings"
+                   HorizontalAlignment="Center"
+                   Text="ç" />
+      </DockPanel>
+    </Button>
+  </Grid>
+</Window>

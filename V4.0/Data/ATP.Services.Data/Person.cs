@@ -49,6 +49,13 @@ namespace ATP.Services.Data
             }
         }
 
+        public int DeleteCustomerByGuid(Guid? personGuid) {
+            using (var entity = new ATP.DataModel.Entities()) {
+
+                return entity.uspDeleteCustomerByGuid(personGuid);
+            }
+        }
+
         public List<uspVerifyOTP_Result> VerifyOTP(Guid? personGuid,string OTP) {
             using (var entity = new ATP.DataModel.Entities()) {
 

@@ -63,6 +63,17 @@
           <Parameter Name="VehicleMake" Type="varchar" Mode="In" />
           <Parameter Name="VehicleModel" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="uspCreateSeviceAndKeyLockerBucket_TowTruck" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DealerId" Type="int" Mode="In" />
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="SvcInfo" Type="nvarchar" Mode="In" />
+          <Parameter Name="ServiceStatusId" Type="tinyint" Mode="In" />
+          <Parameter Name="AssignedKeyLockerBucketId" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="uspDeleteCustomerByGuid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pGuid" Type="uniqueidentifier" Mode="In" />
+        </Function>
         <Function Name="uspDelVehicleServiceImage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DealerId" Type="int" Mode="In" />
           <Parameter Name="ImageDeletedBy" Type="uniqueidentifier" Mode="In" />
@@ -2330,11 +2341,22 @@
           <Parameter Name="DealerId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspGenerateOTP" ReturnType="Collection(String)">
-            <Parameter Name="PersonGuid" Mode="In" Type="Guid" />
+          <Parameter Name="PersonGuid" Mode="In" Type="Guid" />
           </FunctionImport>
           <FunctionImport Name="uspVerifyOTP" ReturnType="Collection(ModelContainer.uspVerifyOTP_Result)">
             <Parameter Name="PersonGuid" Mode="In" Type="Guid" />
             <Parameter Name="OTP" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspDeleteCustomerByGuid">
+          <Parameter Name="pGuid" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="uspCreateSeviceAndKeyLockerBucket_TowTruck" ReturnType="Collection(ModelContainer.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result)">
+            <Parameter Name="DealerId" Mode="In" Type="Int32" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="SvcInfo" Mode="In" Type="String" />
+            <Parameter Name="ServiceStatusId" Mode="In" Type="Byte" />
+            <Parameter Name="AssignedKeyLockerBucketId" Mode="In" Type="Byte" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="uspSelVehAlertByVehGuid_Result">
@@ -4474,6 +4496,10 @@
           <Property Type="Boolean" Name="IsVehicleInShop" Nullable="true" />
           <Property Type="Int32" Name="VehicleId" Nullable="true" />
           <Property Type="String" Name="VehPhId" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="uspCreateSeviceAndKeyLockerBucket_TowTruck_Result">
+          <Property Type="Guid" Name="PersonGUID" Nullable="true" />
+          <Property Type="Int32" Name="VehicleID" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -6866,6 +6892,15 @@
                 <ScalarProperty Name="IsVehicleInShop" ColumnName="IsVehicleInShop" />
                 <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
                 <ScalarProperty Name="VehPhId" ColumnName="VehPhId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspDeleteCustomerByGuid" FunctionName="ModelContainer.Store.uspDeleteCustomerByGuid" />
+          <FunctionImportMapping FunctionImportName="uspCreateSeviceAndKeyLockerBucket_TowTruck" FunctionName="ModelContainer.Store.uspCreateSeviceAndKeyLockerBucket_TowTruck">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContainer.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result">
+                <ScalarProperty Name="PersonGUID" ColumnName="PersonGUID" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

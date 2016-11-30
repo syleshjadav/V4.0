@@ -191,6 +191,9 @@
     <Compile Include="uspAssignKeylockerPin_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="uspCreateSeviceAndKeyLockerBucket_TowTruck_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="uspFindCustomerByPhPlateEmail_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

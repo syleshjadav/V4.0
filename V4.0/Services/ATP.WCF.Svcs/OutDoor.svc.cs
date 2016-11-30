@@ -36,5 +36,10 @@ namespace ATP.WCF.Svcs {
             return new ATP.Services.Data.VehicleService().UpdateVehiceServiceStatus(dealerId, vehicleServiceGUID,vehicleGUID,personGUID, statusId, updatedBy);
 
         }
+
+        public List<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId, byte? assignedKeyLockerBucketId) {
+            return new ATP.Services.Data.OutDoor().CreateSeviceAndKeyLockerBucket_TowTruck(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+
+        }
     }
 }

@@ -40,5 +40,15 @@ namespace ATP.Services.Data {
         }
 
 
+        public List<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId, byte? assignedKeyLockerBucketId) {
+
+            using (var entity = new ATP.DataModel.Entities()) {
+
+                var xx = entity.uspCreateSeviceAndKeyLockerBucket_TowTruck( dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId).ToList();
+
+                return xx;
+            }
+        }
+
     }
 }

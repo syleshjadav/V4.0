@@ -43,6 +43,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -100,6 +101,9 @@
     <Compile Include="Common\ConfigClass.cs" />
     <Compile Include="Common\ProxyHelper.cs" />
     <Compile Include="Helper\ColorToSolidBrushConverter.cs" />
+    <Compile Include="MyShopUserControl\OpenDoorAndDropKeys.xaml.cs">
+      <DependentUpon>OpenDoorAndDropKeys.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyShopUserControl\ValidatePinUC.xaml.cs">
       <DependentUpon>ValidatePinUC.xaml</DependentUpon>
     </Compile>
@@ -114,6 +118,10 @@
     <Page Include="AdamMessageBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MyShopUserControl\OpenDoorAndDropKeys.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -183,6 +191,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Service References\OutDoorProxy\MyShopOutDoor.OutDoorProxy.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\OutDoorProxy\MyShopOutDoor.OutDoorProxy.uspGetKeyLockerSteps_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

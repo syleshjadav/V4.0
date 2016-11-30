@@ -4364,5 +4364,43 @@ namespace ATP.DataModel
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspVerifyOTP_Result>("uspVerifyOTP", personGuidParameter, oTPParameter);
         }
+    
+        public virtual int uspDeleteCustomerByGuid(Nullable<System.Guid> pGuid)
+        {
+            var pGuidParameter = pGuid.HasValue ?
+                new ObjectParameter("pGuid", pGuid) :
+                new ObjectParameter("pGuid", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspDeleteCustomerByGuid", pGuidParameter);
+        }
+    
+        public virtual ObjectResult<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> uspCreateSeviceAndKeyLockerBucket_TowTruck(Nullable<int> dealerId, string firstName, string phone, string svcInfo, Nullable<byte> serviceStatusId, Nullable<byte> assignedKeyLockerBucketId)
+        {
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            var firstNameParameter = firstName != null ?
+                new ObjectParameter("FirstName", firstName) :
+                new ObjectParameter("FirstName", typeof(string));
+    
+            var phoneParameter = phone != null ?
+                new ObjectParameter("Phone", phone) :
+                new ObjectParameter("Phone", typeof(string));
+    
+            var svcInfoParameter = svcInfo != null ?
+                new ObjectParameter("SvcInfo", svcInfo) :
+                new ObjectParameter("SvcInfo", typeof(string));
+    
+            var serviceStatusIdParameter = serviceStatusId.HasValue ?
+                new ObjectParameter("ServiceStatusId", serviceStatusId) :
+                new ObjectParameter("ServiceStatusId", typeof(byte));
+    
+            var assignedKeyLockerBucketIdParameter = assignedKeyLockerBucketId.HasValue ?
+                new ObjectParameter("AssignedKeyLockerBucketId", assignedKeyLockerBucketId) :
+                new ObjectParameter("AssignedKeyLockerBucketId", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>("uspCreateSeviceAndKeyLockerBucket_TowTruck", dealerIdParameter, firstNameParameter, phoneParameter, svcInfoParameter, serviceStatusIdParameter, assignedKeyLockerBucketIdParameter);
+        }
     }
 }
