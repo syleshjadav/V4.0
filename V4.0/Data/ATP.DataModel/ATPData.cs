@@ -174,5 +174,8 @@ namespace ATP.DataModel {
 
         [DataMember]
         public string VehPhId { get; set; }
+
+        [DataMember]
+        public string DealerName { get; set; }
     }
 }

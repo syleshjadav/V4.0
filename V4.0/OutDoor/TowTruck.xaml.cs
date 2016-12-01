@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Navigation;
 
 namespace MyShopOutDoor {
@@ -20,7 +21,7 @@ namespace MyShopOutDoor {
 
          
             wnd.BtnNo.Click += BtnNo_Click;
-            wnd.cmdDropKeys.Click += CmdDropKeys_Click;
+            
             
         
             this.Loaded += TowTruck_Loaded;
@@ -53,16 +54,21 @@ namespace MyShopOutDoor {
        
 
 
-        private void CmdDropKeys_Click(object sender, RoutedEventArgs e) {
+        //private void CmdDropKeys_Click(object sender, RoutedEventArgs e) {
 
-            ConfigClass.SendCommandToBoard("FH" + FindHomeAndMoveStepsReading, "C");
-            // _serialPort.Write("KF170000 \n");
-            ConfigClass.SendCommandToBoard(RotateKeyFloorReading, "C");
-        }
+        //    ConfigClass.SendCommandToBoard("FH" + FindHomeAndMoveStepsReading );
+        //    // _serialPort.Write("KF170000 \n");
+        //    ConfigClass.SendCommandToBoard(RotateKeyFloorReading);
+        //}
 
 
         private void cmdDropKeys_Click(object sender, RoutedEventArgs e) {
-           // wnd = new AdamMessageBox();
+            // wnd = new AdamMessageBox();
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                if (Mouse.OverrideCursor != Cursors.Wait)
+                    Mouse.OverrideCursor = Cursors.Wait;
+            });
 
 
             var stepsLst = ATP.Common.ProxyHelper.Service<OutDoorProxy.IOutDoor>.Use(svcs => {
@@ -84,6 +90,7 @@ namespace MyShopOutDoor {
                
                 MyKeyboard.IsOpen = false;
 
+           
                 var wnd = new OpenDoorAndDropKeys();
                 wnd.CustomerInfo = new OutDoorProxy.uspVerifyPinGetCustInfo_Result { FirstName=TxtCustomerDetails.Text,PhoneNumber=TxtPhone.Text,Comments=TxtNotes.Text};
 
@@ -107,7 +114,10 @@ namespace MyShopOutDoor {
             }
 
 
-           
+            Application.Current.Dispatcher.Invoke(() => {
+                if (Mouse.OverrideCursor != Cursors.Arrow)
+                    Mouse.OverrideCursor = Cursors.Arrow;
+            });
         }
 
         private static void MessageBox(string msg, string header = "Information") {

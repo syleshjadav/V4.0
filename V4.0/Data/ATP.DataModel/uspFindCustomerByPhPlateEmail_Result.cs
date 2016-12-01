@@ -41,7 +41,6 @@ namespace ATP.DataModel
         public Nullable<bool> IsVehicleInShop { get; set; }
         public Nullable<int> VehicleId { get; set; }
         public string VehPhId { get; set; }
-        public long CustomerId { get; set; }
         public Nullable<short> InsuranceId { get; set; }
         public string InsuranceCompanyName { get; set; }
         public string NAIC { get; set; }
@@ -51,5 +50,6 @@ namespace ATP.DataModel
         public string VehBodyType { get; set; }
         public string InspectionExpMnth { get; set; }
         public string InspectionExpYr { get; set; }
+        public string DealerName { get; set; }
     }
 }

@@ -4076,31 +4076,6 @@ namespace ATP.DataModel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelAllRelatedCustomerVehicleInfo_Result>("uspSelAllRelatedCustomerVehicleInfo", relatedIdParameter, emailAddressParameter, phoneNumberParameter);
         }
     
-        public virtual ObjectResult<uspFindCustomerByPhPlateEmail_Result> uspFindCustomerByPhPlateEmail(string plate, string phone, string email, Nullable<System.Guid> personGuid, Nullable<System.Guid> vehicleGuid)
-        {
-            var plateParameter = plate != null ?
-                new ObjectParameter("Plate", plate) :
-                new ObjectParameter("Plate", typeof(string));
-    
-            var phoneParameter = phone != null ?
-                new ObjectParameter("Phone", phone) :
-                new ObjectParameter("Phone", typeof(string));
-    
-            var emailParameter = email != null ?
-                new ObjectParameter("Email", email) :
-                new ObjectParameter("Email", typeof(string));
-    
-            var personGuidParameter = personGuid.HasValue ?
-                new ObjectParameter("PersonGuid", personGuid) :
-                new ObjectParameter("PersonGuid", typeof(System.Guid));
-    
-            var vehicleGuidParameter = vehicleGuid.HasValue ?
-                new ObjectParameter("VehicleGuid", vehicleGuid) :
-                new ObjectParameter("VehicleGuid", typeof(System.Guid));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspFindCustomerByPhPlateEmail_Result>("uspFindCustomerByPhPlateEmail", plateParameter, phoneParameter, emailParameter, personGuidParameter, vehicleGuidParameter);
-        }
-    
         public virtual ObjectResult<uspLoginDealerEmp_Result> uspLoginDealerEmp(Nullable<int> dealerId, string userEmail, string password)
         {
             var dealerIdParameter = dealerId.HasValue ?
@@ -4401,6 +4376,98 @@ namespace ATP.DataModel
                 new ObjectParameter("AssignedKeyLockerBucketId", typeof(byte));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>("uspCreateSeviceAndKeyLockerBucket_TowTruck", dealerIdParameter, firstNameParameter, phoneParameter, svcInfoParameter, serviceStatusIdParameter, assignedKeyLockerBucketIdParameter);
+        }
+    
+        public virtual ObjectResult<uspInsDealerPaymentTransaction_Result> uspInsDealerPaymentTransaction(Nullable<double> amount, Nullable<int> dealerId, Nullable<int> deptId, Nullable<System.Guid> dealerEmpGuid, string paymentGateway, string paymentStatus, Nullable<bool> recurringPayment)
+        {
+            var amountParameter = amount.HasValue ?
+                new ObjectParameter("Amount", amount) :
+                new ObjectParameter("Amount", typeof(double));
+    
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            var deptIdParameter = deptId.HasValue ?
+                new ObjectParameter("DeptId", deptId) :
+                new ObjectParameter("DeptId", typeof(int));
+    
+            var dealerEmpGuidParameter = dealerEmpGuid.HasValue ?
+                new ObjectParameter("DealerEmpGuid", dealerEmpGuid) :
+                new ObjectParameter("DealerEmpGuid", typeof(System.Guid));
+    
+            var paymentGatewayParameter = paymentGateway != null ?
+                new ObjectParameter("PaymentGateway", paymentGateway) :
+                new ObjectParameter("PaymentGateway", typeof(string));
+    
+            var paymentStatusParameter = paymentStatus != null ?
+                new ObjectParameter("PaymentStatus", paymentStatus) :
+                new ObjectParameter("PaymentStatus", typeof(string));
+    
+            var recurringPaymentParameter = recurringPayment.HasValue ?
+                new ObjectParameter("RecurringPayment", recurringPayment) :
+                new ObjectParameter("RecurringPayment", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspInsDealerPaymentTransaction_Result>("uspInsDealerPaymentTransaction", amountParameter, dealerIdParameter, deptIdParameter, dealerEmpGuidParameter, paymentGatewayParameter, paymentStatusParameter, recurringPaymentParameter);
+        }
+    
+        public virtual ObjectResult<uspFindCustomerByPhPlateEmail_Result> uspFindCustomerByPhPlateEmail(string plate, string phone, string email, Nullable<System.Guid> personGuid, Nullable<System.Guid> vehicleGuid)
+        {
+            var plateParameter = plate != null ?
+                new ObjectParameter("Plate", plate) :
+                new ObjectParameter("Plate", typeof(string));
+    
+            var phoneParameter = phone != null ?
+                new ObjectParameter("Phone", phone) :
+                new ObjectParameter("Phone", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var personGuidParameter = personGuid.HasValue ?
+                new ObjectParameter("PersonGuid", personGuid) :
+                new ObjectParameter("PersonGuid", typeof(System.Guid));
+    
+            var vehicleGuidParameter = vehicleGuid.HasValue ?
+                new ObjectParameter("VehicleGuid", vehicleGuid) :
+                new ObjectParameter("VehicleGuid", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspFindCustomerByPhPlateEmail_Result>("uspFindCustomerByPhPlateEmail", plateParameter, phoneParameter, emailParameter, personGuidParameter, vehicleGuidParameter);
+        }
+    
+        public virtual int uspUpdateGoogleGuid(Nullable<System.Guid> personGuid, string googleGuid, Nullable<byte> deviceTypeID)
+        {
+            var personGuidParameter = personGuid.HasValue ?
+                new ObjectParameter("personGuid", personGuid) :
+                new ObjectParameter("personGuid", typeof(System.Guid));
+    
+            var googleGuidParameter = googleGuid != null ?
+                new ObjectParameter("googleGuid", googleGuid) :
+                new ObjectParameter("googleGuid", typeof(string));
+    
+            var deviceTypeIDParameter = deviceTypeID.HasValue ?
+                new ObjectParameter("deviceTypeID", deviceTypeID) :
+                new ObjectParameter("deviceTypeID", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateGoogleGuid", personGuidParameter, googleGuidParameter, deviceTypeIDParameter);
+        }
+    
+        public virtual int uspUpdateGoogleGuid1(Nullable<System.Guid> personGuid, string googleGuid, Nullable<byte> deviceTypeID)
+        {
+            var personGuidParameter = personGuid.HasValue ?
+                new ObjectParameter("personGuid", personGuid) :
+                new ObjectParameter("personGuid", typeof(System.Guid));
+    
+            var googleGuidParameter = googleGuid != null ?
+                new ObjectParameter("googleGuid", googleGuid) :
+                new ObjectParameter("googleGuid", typeof(string));
+    
+            var deviceTypeIDParameter = deviceTypeID.HasValue ?
+                new ObjectParameter("deviceTypeID", deviceTypeID) :
+                new ObjectParameter("deviceTypeID", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateGoogleGuid1", personGuidParameter, googleGuidParameter, deviceTypeIDParameter);
         }
     }
 }

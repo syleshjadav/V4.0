@@ -201,7 +201,7 @@ namespace ATP.Rest {
 
                          DealerFamilyId = "5",
                          DealerId = m.DealerId.ToString(),
-                         // DeviceTypeId = m.DeviceTypeId.ToString(),
+                         DealerName = m.DealerName,
                          // DealerPersonGroupId = m.DealerPersonGroupId,
                          EmailAddress = m.EmailAddress,
                          FirstName = m.FirstName,
@@ -231,7 +231,7 @@ namespace ATP.Rest {
             }
             catch (Exception ex) {
 
-                TraceLog("FindCustomerByPhPlateEmail", string.Format("{0} -  Error while SelCustomerDetailsByGuid  - {1}", Email, ex.Message));
+                TraceLog("FindCustomerByPhPlateEmail", string.Format("{0} -  Error while FindCustomerByPhPlateEmail  - {1}", Email, ex.Message));
 
             }
 
@@ -253,7 +253,7 @@ namespace ATP.Rest {
             }
             catch (Exception ex) {
 
-                TraceLog("FindCustomerByPhPlateEmail", string.Format("{0} -  Error while SelCustomerDetailsByGuid  - {1}", Email, ex.Message));
+                TraceLog("FindCustomerByPhPlateEmail", string.Format("{0} -  Error while SendOTPEmail  - {1}", Email, ex.Message));
                 m.Value = "Error in sending Email";
 
             }
@@ -281,7 +281,7 @@ namespace ATP.Rest {
 
 
 
-        public List<ATPCustomerDetailsByGuid> VerifyOTP(string pGuid, string OTP) {
+        public List<ATPCustomerDetailsByGuid> VerifyOTP(string pGuid, string OTP, string GoogleGuid,string DeviceTypeId) {
 
             List<ATPCustomerDetailsByGuid> rtr = new List<ATPCustomerDetailsByGuid>();
 
@@ -319,6 +319,15 @@ namespace ATP.Rest {
                          VehicleId = m.VehicleId.ToString(),
                          VehPhId = m.VehPhId
                      }).ToList();
+
+
+                if(rtr != null && rtr.Count ==1) {
+                    var pguid = new Guid(rtr.SingleOrDefault().PersonGuid);
+                    byte deviceTypeId = 0;
+                    var res = byte.TryParse(DeviceTypeId, out deviceTypeId);
+                    var m = new ATP.Services.Data.Person().UpdateGoogleGuid(pguid, GoogleGuid, deviceTypeId);
+
+                }
 
             }
             catch (Exception ex) {

@@ -83,7 +83,7 @@ namespace MyShopOutDoor {
   //  private bool _IsDoorClosed = false;
 
     private void cmdOpenDoorLatch_Click(object sender, RoutedEventArgs e) {
-      ConfigClass.SendCommandToBoard("DL" + DoorLatchReading, "C");
+      ConfigClass.SendCommandToBoard("DL" + DoorLatchReading);
     }
 
 

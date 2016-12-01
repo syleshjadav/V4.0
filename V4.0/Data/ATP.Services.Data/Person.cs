@@ -63,6 +63,14 @@ namespace ATP.Services.Data
             }
         }
 
+
+        public int UpdateGoogleGuid(Guid? personGuid, string googleGuid,byte deviceTypeId) {
+            using (var entity = new ATP.DataModel.Entities()) {
+
+                return entity.uspUpdateGoogleGuid(personGuid, googleGuid,deviceTypeId);
+            }
+        }
+
         public List<uspSelPersonGroup_Result> SelPersonGroup(int dealerId)
         {
 

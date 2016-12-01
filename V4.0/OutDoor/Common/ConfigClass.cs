@@ -14,19 +14,16 @@ namespace MyShopOutDoor.Common {
         public static SerialPort CustomerSerialPort { get; set; }
 
 
-        public static void SendCommandToBoard(string scommand, string custOrDealer) {
+        public static void SendCommandToBoard(string scommand) {
 
             return;
 
-            if (custOrDealer == "C") {
-                if (!CustomerSerialPort.IsOpen) { CustomerSerialPort.Open(); }
-                CustomerSerialPort.Write(scommand + "\n");
-            }
 
-            if (custOrDealer == "D") {
-                if (!DealerSerialPort.IsOpen) { DealerSerialPort.Open(); }
-                DealerSerialPort.Write(scommand + "\n");
-            }
+            if (!CustomerSerialPort.IsOpen) { CustomerSerialPort.Open(); }
+            CustomerSerialPort.Write(scommand + "\n");
+
+
+
 
 
         }

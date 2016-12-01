@@ -27,8 +27,8 @@ namespace ATP.Rest {
 
 
         [OperationContract]
-        [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "VerifyOTP/{pGuid}/{OTP}", BodyStyle = WebMessageBodyStyle.Wrapped)]
-        List<ATPCustomerDetailsByGuid> VerifyOTP(string pGuid, string OTP);
+        [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "VerifyOTP/{pGuid}/{OTP}/{gGuid}/{deviceTypeId}", BodyStyle = WebMessageBodyStyle.Wrapped)]
+        List<ATPCustomerDetailsByGuid> VerifyOTP(string pGuid, string OTP, string gGuid, string deviceTypeId);
 
         [OperationContract]
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "DeleteCustomer/{pGuid}", BodyStyle = WebMessageBodyStyle.Wrapped)]

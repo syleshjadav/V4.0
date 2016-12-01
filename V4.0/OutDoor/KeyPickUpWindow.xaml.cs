@@ -76,9 +76,9 @@ namespace MyShopOutDoor {
 
 
             //ConfigClass.CustomerSerialPort.Write("BT75000 \n");
-            ConfigClass.SendCommandToBoard("FH" + FindHomeAndMoveStepsReading, "C");
+            ConfigClass.SendCommandToBoard("FH" + FindHomeAndMoveStepsReading);
 
-            ConfigClass.SendCommandToBoard(BucketToppleReading, "C");
+            ConfigClass.SendCommandToBoard(BucketToppleReading);
 
             var msg = "PICKUP your keys now. Thanks for using our automated Key system. ";
             var msgType = "Chat";
