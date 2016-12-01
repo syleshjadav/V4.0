@@ -68,7 +68,7 @@ namespace MyShopOutDoor.DealerSide {
 
       ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading);
 
-      ConfigClass.SendCommandToBoard("BT75000 \n");
+      ConfigClass.SendCommandToBoard("BC0075000 \n");
 
       UpdateVehicleServiceStatus(3);//Currently being serviced
 
