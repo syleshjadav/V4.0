@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using ATP.DataModel;
+using Elmah;
 
 namespace ATP.WCF.Svcs {
     [ServiceErrorBehaviour(typeof(HttpErrorHandler))]
@@ -40,6 +41,25 @@ namespace ATP.WCF.Svcs {
         public List<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId, byte? assignedKeyLockerBucketId) {
             return new ATP.Services.Data.OutDoor().CreateSeviceAndKeyLockerBucket_TowTruck(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
 
+        }
+
+
+        public string PingMe(string s) {
+            return s;
+        }
+
+        public bool LogError(string msg) {
+            Elmah.ErrorLog.GetDefault(null).Log(new Error { Message = msg, Source = "Unknown", Type = "Exception", Time = DateTime.UtcNow });
+
+            // throw new Exception(msg);
+            return true;
+        }
+
+        public bool LogInformation(string msg) {
+            Elmah.ErrorLog.GetDefault(null).Log(new Error { Message = msg, Source = "Unknown", Type = "Information", Time = DateTime.UtcNow });
+
+            // throw new Exception(msg);
+            return true;
         }
     }
 }

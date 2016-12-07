@@ -39,7 +39,7 @@
                   Margin="5"
                   Style="{DynamicResource DesignerGroupBoxSmallBk}">
             <GroupBox.Header>
-                <TextBlock x:Name="TxtCustomerDetails"
+                <TextBlock 
                            Text="TOW TRUCK / EASY DROP"
                            FontSize="36"
                            FontWeight="Bold"
@@ -88,7 +88,7 @@
                     <TextBox Grid.Row="1"
                              Grid.Column="1"
                              BorderBrush="White"
-                             x:Name="TxtPin"
+                             x:Name="TxtName"
                              FontWeight="Bold"
                             FontSize="30"
                              Height="50"

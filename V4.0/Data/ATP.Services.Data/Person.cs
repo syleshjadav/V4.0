@@ -35,10 +35,10 @@ namespace ATP.Services.Data
         }
 
 
-        public List<uspFindCustomerByPhPlateEmail_Result> FindCustomerByPhPlateEmail(string Plate, string Phone, string Email) {
+        public List<uspFindCustomerByPhPlateEmail_Result> FindCustomerByPhPlateEmail(int dealerId,string Plate, string Phone, string Email) {
             using (var entity = new ATP.DataModel.Entities()) {
 
-                return entity.uspFindCustomerByPhPlateEmail(Plate, Phone, Email,null,null).ToList();
+                return entity.uspFindCustomerByPhPlateEmail(dealerId,Plate, Phone, Email,null,null).ToList();
             }
         }
 

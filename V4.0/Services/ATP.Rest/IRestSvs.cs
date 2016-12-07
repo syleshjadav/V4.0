@@ -35,9 +35,9 @@ namespace ATP.Rest {
         ATPData DeleteCustomer(string pGuid);
 
         [OperationContract]
-        [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "FindCustomerByPhPlateEmail/{plate}/{phone}/{email}", BodyStyle = WebMessageBodyStyle.Wrapped)]
+        [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "FindCustomerByPhPlateEmail/{dealerId},{plate}/{phone}/{email}", BodyStyle = WebMessageBodyStyle.Wrapped)]
 
-        List<ATPCustomerDetailsByGuid> FindCustomerByPhPlateEmail(string plate, string phone, string email);
+        List<ATPCustomerDetailsByGuid> FindCustomerByPhPlateEmail(string dealerId, string plate, string phone, string email);
 
 
         [OperationContract]

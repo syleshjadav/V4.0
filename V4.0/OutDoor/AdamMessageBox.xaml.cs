@@ -13,11 +13,12 @@ namespace ATP.Kiosk.Views {
         public AdamMessageBox() {
             InitializeComponent();
             this.Loaded += MessageBox_Loaded;
-
+           
+           
             //dispatcherTimer.Tick += DispatcherTimer_Tick;
             //dispatcherTimer.Interval = new TimeSpan(0, 0, 30);
             //dispatcherTimer.Start();
-           // this.DataContext = this;
+            // this.DataContext = this;
 
         }
 

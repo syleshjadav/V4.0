@@ -4327,19 +4327,6 @@ namespace ATP.DataModel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("uspGenerateOTP", personGuidParameter);
         }
     
-        public virtual ObjectResult<uspVerifyOTP_Result> uspVerifyOTP(Nullable<System.Guid> personGuid, string oTP)
-        {
-            var personGuidParameter = personGuid.HasValue ?
-                new ObjectParameter("PersonGuid", personGuid) :
-                new ObjectParameter("PersonGuid", typeof(System.Guid));
-    
-            var oTPParameter = oTP != null ?
-                new ObjectParameter("OTP", oTP) :
-                new ObjectParameter("OTP", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspVerifyOTP_Result>("uspVerifyOTP", personGuidParameter, oTPParameter);
-        }
-    
         public virtual int uspDeleteCustomerByGuid(Nullable<System.Guid> pGuid)
         {
             var pGuidParameter = pGuid.HasValue ?
@@ -4347,35 +4334,6 @@ namespace ATP.DataModel
                 new ObjectParameter("pGuid", typeof(System.Guid));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspDeleteCustomerByGuid", pGuidParameter);
-        }
-    
-        public virtual ObjectResult<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> uspCreateSeviceAndKeyLockerBucket_TowTruck(Nullable<int> dealerId, string firstName, string phone, string svcInfo, Nullable<byte> serviceStatusId, Nullable<byte> assignedKeyLockerBucketId)
-        {
-            var dealerIdParameter = dealerId.HasValue ?
-                new ObjectParameter("DealerId", dealerId) :
-                new ObjectParameter("DealerId", typeof(int));
-    
-            var firstNameParameter = firstName != null ?
-                new ObjectParameter("FirstName", firstName) :
-                new ObjectParameter("FirstName", typeof(string));
-    
-            var phoneParameter = phone != null ?
-                new ObjectParameter("Phone", phone) :
-                new ObjectParameter("Phone", typeof(string));
-    
-            var svcInfoParameter = svcInfo != null ?
-                new ObjectParameter("SvcInfo", svcInfo) :
-                new ObjectParameter("SvcInfo", typeof(string));
-    
-            var serviceStatusIdParameter = serviceStatusId.HasValue ?
-                new ObjectParameter("ServiceStatusId", serviceStatusId) :
-                new ObjectParameter("ServiceStatusId", typeof(byte));
-    
-            var assignedKeyLockerBucketIdParameter = assignedKeyLockerBucketId.HasValue ?
-                new ObjectParameter("AssignedKeyLockerBucketId", assignedKeyLockerBucketId) :
-                new ObjectParameter("AssignedKeyLockerBucketId", typeof(byte));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>("uspCreateSeviceAndKeyLockerBucket_TowTruck", dealerIdParameter, firstNameParameter, phoneParameter, svcInfoParameter, serviceStatusIdParameter, assignedKeyLockerBucketIdParameter);
         }
     
         public virtual ObjectResult<uspInsDealerPaymentTransaction_Result> uspInsDealerPaymentTransaction(Nullable<double> amount, Nullable<int> dealerId, Nullable<int> deptId, Nullable<System.Guid> dealerEmpGuid, string paymentGateway, string paymentStatus, Nullable<bool> recurringPayment)
@@ -4411,31 +4369,6 @@ namespace ATP.DataModel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspInsDealerPaymentTransaction_Result>("uspInsDealerPaymentTransaction", amountParameter, dealerIdParameter, deptIdParameter, dealerEmpGuidParameter, paymentGatewayParameter, paymentStatusParameter, recurringPaymentParameter);
         }
     
-        public virtual ObjectResult<uspFindCustomerByPhPlateEmail_Result> uspFindCustomerByPhPlateEmail(string plate, string phone, string email, Nullable<System.Guid> personGuid, Nullable<System.Guid> vehicleGuid)
-        {
-            var plateParameter = plate != null ?
-                new ObjectParameter("Plate", plate) :
-                new ObjectParameter("Plate", typeof(string));
-    
-            var phoneParameter = phone != null ?
-                new ObjectParameter("Phone", phone) :
-                new ObjectParameter("Phone", typeof(string));
-    
-            var emailParameter = email != null ?
-                new ObjectParameter("Email", email) :
-                new ObjectParameter("Email", typeof(string));
-    
-            var personGuidParameter = personGuid.HasValue ?
-                new ObjectParameter("PersonGuid", personGuid) :
-                new ObjectParameter("PersonGuid", typeof(System.Guid));
-    
-            var vehicleGuidParameter = vehicleGuid.HasValue ?
-                new ObjectParameter("VehicleGuid", vehicleGuid) :
-                new ObjectParameter("VehicleGuid", typeof(System.Guid));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspFindCustomerByPhPlateEmail_Result>("uspFindCustomerByPhPlateEmail", plateParameter, phoneParameter, emailParameter, personGuidParameter, vehicleGuidParameter);
-        }
-    
         public virtual int uspUpdateGoogleGuid(Nullable<System.Guid> personGuid, string googleGuid, Nullable<byte> deviceTypeID)
         {
             var personGuidParameter = personGuid.HasValue ?
@@ -4468,6 +4401,77 @@ namespace ATP.DataModel
                 new ObjectParameter("deviceTypeID", typeof(byte));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateGoogleGuid1", personGuidParameter, googleGuidParameter, deviceTypeIDParameter);
+        }
+    
+        public virtual ObjectResult<uspVerifyOTP_Result> uspVerifyOTP(Nullable<System.Guid> personGuid, string oTP)
+        {
+            var personGuidParameter = personGuid.HasValue ?
+                new ObjectParameter("PersonGuid", personGuid) :
+                new ObjectParameter("PersonGuid", typeof(System.Guid));
+    
+            var oTPParameter = oTP != null ?
+                new ObjectParameter("OTP", oTP) :
+                new ObjectParameter("OTP", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspVerifyOTP_Result>("uspVerifyOTP", personGuidParameter, oTPParameter);
+        }
+    
+        public virtual ObjectResult<uspFindCustomerByPhPlateEmail_Result> uspFindCustomerByPhPlateEmail(Nullable<int> dealerId, string plate, string phone, string email, Nullable<System.Guid> personGuid, Nullable<System.Guid> vehicleGuid)
+        {
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            var plateParameter = plate != null ?
+                new ObjectParameter("Plate", plate) :
+                new ObjectParameter("Plate", typeof(string));
+    
+            var phoneParameter = phone != null ?
+                new ObjectParameter("Phone", phone) :
+                new ObjectParameter("Phone", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var personGuidParameter = personGuid.HasValue ?
+                new ObjectParameter("PersonGuid", personGuid) :
+                new ObjectParameter("PersonGuid", typeof(System.Guid));
+    
+            var vehicleGuidParameter = vehicleGuid.HasValue ?
+                new ObjectParameter("VehicleGuid", vehicleGuid) :
+                new ObjectParameter("VehicleGuid", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspFindCustomerByPhPlateEmail_Result>("uspFindCustomerByPhPlateEmail", dealerIdParameter, plateParameter, phoneParameter, emailParameter, personGuidParameter, vehicleGuidParameter);
+        }
+    
+        public virtual ObjectResult<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> uspCreateSeviceAndKeyLockerBucket_TowTruck(Nullable<int> dealerId, string firstName, string phone, string svcInfo, Nullable<byte> serviceStatusId, Nullable<byte> assignedKeyLockerBucketId)
+        {
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            var firstNameParameter = firstName != null ?
+                new ObjectParameter("FirstName", firstName) :
+                new ObjectParameter("FirstName", typeof(string));
+    
+            var phoneParameter = phone != null ?
+                new ObjectParameter("Phone", phone) :
+                new ObjectParameter("Phone", typeof(string));
+    
+            var svcInfoParameter = svcInfo != null ?
+                new ObjectParameter("SvcInfo", svcInfo) :
+                new ObjectParameter("SvcInfo", typeof(string));
+    
+            var serviceStatusIdParameter = serviceStatusId.HasValue ?
+                new ObjectParameter("ServiceStatusId", serviceStatusId) :
+                new ObjectParameter("ServiceStatusId", typeof(byte));
+    
+            var assignedKeyLockerBucketIdParameter = assignedKeyLockerBucketId.HasValue ?
+                new ObjectParameter("AssignedKeyLockerBucketId", assignedKeyLockerBucketId) :
+                new ObjectParameter("AssignedKeyLockerBucketId", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>("uspCreateSeviceAndKeyLockerBucket_TowTruck", dealerIdParameter, firstNameParameter, phoneParameter, svcInfoParameter, serviceStatusIdParameter, assignedKeyLockerBucketIdParameter);
         }
     }
 }

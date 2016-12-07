@@ -2072,6 +2072,24 @@ namespace MyShopOutDoor.OutDoorProxy {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.OutDoorProxy.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/LogError", ReplyAction="http://tempuri.org/IOutDoor/LogErrorResponse")]
+        bool LogError(string msg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/LogError", ReplyAction="http://tempuri.org/IOutDoor/LogErrorResponse")]
+        System.Threading.Tasks.Task<bool> LogErrorAsync(string msg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/LogInformation", ReplyAction="http://tempuri.org/IOutDoor/LogInformationResponse")]
+        bool LogInformation(string msg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/LogInformation", ReplyAction="http://tempuri.org/IOutDoor/LogInformationResponse")]
+        System.Threading.Tasks.Task<bool> LogInformationAsync(string msg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/PingMe", ReplyAction="http://tempuri.org/IOutDoor/PingMeResponse")]
+        string PingMe(string s);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/PingMe", ReplyAction="http://tempuri.org/IOutDoor/PingMeResponse")]
+        System.Threading.Tasks.Task<string> PingMeAsync(string s);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2155,6 +2173,30 @@ namespace MyShopOutDoor.OutDoorProxy {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.OutDoorProxy.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId) {
             return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruckAsync(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+        }
+        
+        public bool LogError(string msg) {
+            return base.Channel.LogError(msg);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LogErrorAsync(string msg) {
+            return base.Channel.LogErrorAsync(msg);
+        }
+        
+        public bool LogInformation(string msg) {
+            return base.Channel.LogInformation(msg);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LogInformationAsync(string msg) {
+            return base.Channel.LogInformationAsync(msg);
+        }
+        
+        public string PingMe(string s) {
+            return base.Channel.PingMe(s);
+        }
+        
+        public System.Threading.Tasks.Task<string> PingMeAsync(string s) {
+            return base.Channel.PingMeAsync(s);
         }
     }
 }

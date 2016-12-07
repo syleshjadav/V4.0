@@ -13,8 +13,8 @@ namespace ATP.DataModel
     
     public partial class uspVerifyOTP_Result
     {
-        public long CustomerId { get; set; }
-        public Nullable<long> RelatedId { get; set; }
+        public string CustomerId { get; set; }
+        public string RelatedId { get; set; }
         public System.Guid VehicleGuid { get; set; }
         public string VehicleMake { get; set; }
         public string VehicleModel { get; set; }

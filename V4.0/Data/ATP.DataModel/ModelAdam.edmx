@@ -80,6 +80,7 @@
           <Parameter Name="ImageId" Type="bigint" Mode="In" />
         </Function>
         <Function Name="uspFindCustomerByPhPlateEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DealerId" Type="int" Mode="In" />
           <Parameter Name="Plate" Type="varchar" Mode="In" />
           <Parameter Name="Phone" Type="varchar" Mode="In" />
           <Parameter Name="Email" Type="varchar" Mode="In" />
@@ -2350,20 +2351,8 @@
           <FunctionImport Name="uspGenerateOTP" ReturnType="Collection(String)">
           <Parameter Name="PersonGuid" Mode="In" Type="Guid" />
           </FunctionImport>
-          <FunctionImport Name="uspVerifyOTP" ReturnType="Collection(ModelContainer.uspVerifyOTP_Result)">
-            <Parameter Name="PersonGuid" Mode="In" Type="Guid" />
-            <Parameter Name="OTP" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="uspDeleteCustomerByGuid">
           <Parameter Name="pGuid" Mode="In" Type="Guid" />
-          </FunctionImport>
-          <FunctionImport Name="uspCreateSeviceAndKeyLockerBucket_TowTruck" ReturnType="Collection(ModelContainer.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result)">
-            <Parameter Name="DealerId" Mode="In" Type="Int32" />
-            <Parameter Name="FirstName" Mode="In" Type="String" />
-            <Parameter Name="Phone" Mode="In" Type="String" />
-            <Parameter Name="SvcInfo" Mode="In" Type="String" />
-            <Parameter Name="ServiceStatusId" Mode="In" Type="Byte" />
-            <Parameter Name="AssignedKeyLockerBucketId" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="uspInsDealerPaymentTransaction" ReturnType="Collection(ModelContainer.uspInsDealerPaymentTransaction_Result)">
             <Parameter Name="Amount" Mode="In" Type="Double" />
@@ -2374,13 +2363,6 @@
             <Parameter Name="PaymentStatus" Mode="In" Type="String" />
             <Parameter Name="RecurringPayment" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="uspFindCustomerByPhPlateEmail" ReturnType="Collection(ModelContainer.uspFindCustomerByPhPlateEmail_Result)">
-            <Parameter Name="Plate" Mode="In" Type="String" />
-            <Parameter Name="Phone" Mode="In" Type="String" />
-            <Parameter Name="Email" Mode="In" Type="String" />
-            <Parameter Name="PersonGuid" Mode="In" Type="Guid" />
-            <Parameter Name="VehicleGuid" Mode="In" Type="Guid" />
-          </FunctionImport>
           <FunctionImport Name="uspUpdateGoogleGuid">
             <Parameter Name="personGuid" Mode="In" Type="Guid" />
             <Parameter Name="googleGuid" Mode="In" Type="String" />
@@ -2390,6 +2372,26 @@
             <Parameter Name="personGuid" Mode="In" Type="Guid" />
             <Parameter Name="googleGuid" Mode="In" Type="String" />
             <Parameter Name="deviceTypeID" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="uspVerifyOTP" ReturnType="Collection(ModelContainer.uspVerifyOTP_Result)">
+            <Parameter Name="PersonGuid" Mode="In" Type="Guid" />
+            <Parameter Name="OTP" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspFindCustomerByPhPlateEmail" ReturnType="Collection(ModelContainer.uspFindCustomerByPhPlateEmail_Result)">
+            <Parameter Name="DealerId" Mode="In" Type="Int32" />
+            <Parameter Name="Plate" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="PersonGuid" Mode="In" Type="Guid" />
+            <Parameter Name="VehicleGuid" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="uspCreateSeviceAndKeyLockerBucket_TowTruck" ReturnType="Collection(ModelContainer.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result)">
+            <Parameter Name="DealerId" Mode="In" Type="Int32" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="SvcInfo" Mode="In" Type="String" />
+            <Parameter Name="ServiceStatusId" Mode="In" Type="Byte" />
+            <Parameter Name="AssignedKeyLockerBucketId" Mode="In" Type="Byte" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="uspSelVehAlertByVehGuid_Result">
@@ -4458,9 +4460,16 @@
           <Property Type="String" Name="ServiceStatusDesc" Nullable="false" MaxLength="250" />
           <Property Type="String" Name="Code" Nullable="true" MaxLength="5" />
         </ComplexType>
+        <ComplexType Name="uspInsDealerPaymentTransaction_Result">
+          <Property Type="Int32" Name="TransactionId" Nullable="false" />
+          <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="DealerId" Nullable="false" />
+          <Property Type="Int32" Name="DeptId" Nullable="false" />
+          <Property Type="String" Name="PaymentStatus" Nullable="true" MaxLength="50" />
+        </ComplexType>
         <ComplexType Name="uspVerifyOTP_Result">
-          <Property Type="Int64" Name="CustomerId" Nullable="false" />
-          <Property Type="Int64" Name="RelatedId" Nullable="true" />
+          <Property Type="String" Name="CustomerId" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="RelatedId" Nullable="true" MaxLength="10" />
           <Property Type="Guid" Name="VehicleGuid" Nullable="false" />
           <Property Type="String" Name="VehicleMake" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="VehicleModel" Nullable="true" MaxLength="50" />
@@ -4476,7 +4485,7 @@
           <Property Type="Int32" Name="DealerId" Nullable="false" />
           <Property Type="String" Name="VehicleYrMkMod" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="GoogleGuid" Nullable="true" MaxLength="2000" />
-          <Property Type="String" Name="LastName" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="255" />
           <Property Type="String" Name="FirstName" Nullable="true" MaxLength="255" />
           <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="255" />
           <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="128" />
@@ -4489,17 +4498,6 @@
           <Property Type="Boolean" Name="IsVehicleInShop" Nullable="true" />
           <Property Type="Int32" Name="VehicleId" Nullable="true" />
           <Property Type="String" Name="VehPhId" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="uspCreateSeviceAndKeyLockerBucket_TowTruck_Result">
-          <Property Type="Guid" Name="PersonGUID" Nullable="true" />
-          <Property Type="Int32" Name="VehicleID" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="uspInsDealerPaymentTransaction_Result">
-          <Property Type="Int32" Name="TransactionId" Nullable="false" />
-          <Property Type="Decimal" Name="Amount" Nullable="false" Precision="18" Scale="2" />
-          <Property Type="Int32" Name="DealerId" Nullable="false" />
-          <Property Type="Int32" Name="DeptId" Nullable="false" />
-          <Property Type="String" Name="PaymentStatus" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="uspFindCustomerByPhPlateEmail_Result">
           <Property Type="Guid" Name="VehicleGuid" Nullable="false" />
@@ -4515,6 +4513,7 @@
           <Property Type="String" Name="NextEmissionDate" Nullable="false" MaxLength="1" />
           <Property Type="String" Name="NextSvcInfo" Nullable="true" MaxLength="255" />
           <Property Type="Int32" Name="DealerId" Nullable="false" />
+          <Property Type="String" Name="DealerName" Nullable="false" MaxLength="80" />
           <Property Type="String" Name="VehicleYrMkMod" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="GoogleGuid" Nullable="true" MaxLength="2000" />
           <Property Type="String" Name="LastName" Nullable="true" MaxLength="255" />
@@ -4539,7 +4538,10 @@
           <Property Type="String" Name="VehBodyType" Nullable="true" MaxLength="4" />
           <Property Type="String" Name="InspectionExpMnth" Nullable="true" MaxLength="2" />
           <Property Type="String" Name="InspectionExpYr" Nullable="true" MaxLength="4" />
-          <Property Type="String" Name="DealerName" Nullable="false" MaxLength="80" />
+        </ComplexType>
+        <ComplexType Name="uspCreateSeviceAndKeyLockerBucket_TowTruck_Result">
+          <Property Type="Guid" Name="PersonGUID" Nullable="true" />
+          <Property Type="Int32" Name="VehicleID" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -6855,6 +6857,19 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="uspGenerateOTP" FunctionName="ModelContainer.Store.uspGenerateOTP" />
+          <FunctionImportMapping FunctionImportName="uspDeleteCustomerByGuid" FunctionName="ModelContainer.Store.uspDeleteCustomerByGuid" />
+          <FunctionImportMapping FunctionImportName="uspInsDealerPaymentTransaction" FunctionName="ModelContainer.Store.uspInsDealerPaymentTransaction">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContainer.uspInsDealerPaymentTransaction_Result">
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="DealerId" ColumnName="DealerId" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspUpdateGoogleGuid1" FunctionName="ModelContainer.Store.uspUpdateGoogleGuid" />
           <FunctionImportMapping FunctionImportName="uspVerifyOTP" FunctionName="ModelContainer.Store.uspVerifyOTP">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ModelContainer.uspVerifyOTP_Result">
@@ -6891,26 +6906,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="uspDeleteCustomerByGuid" FunctionName="ModelContainer.Store.uspDeleteCustomerByGuid" />
-          <FunctionImportMapping FunctionImportName="uspCreateSeviceAndKeyLockerBucket_TowTruck" FunctionName="ModelContainer.Store.uspCreateSeviceAndKeyLockerBucket_TowTruck">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ModelContainer.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result">
-                <ScalarProperty Name="PersonGUID" ColumnName="PersonGUID" />
-                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="uspInsDealerPaymentTransaction" FunctionName="ModelContainer.Store.uspInsDealerPaymentTransaction">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ModelContainer.uspInsDealerPaymentTransaction_Result">
-                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="DealerId" ColumnName="DealerId" />
-                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
-                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="uspFindCustomerByPhPlateEmail" FunctionName="ModelContainer.Store.uspFindCustomerByPhPlateEmail">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ModelContainer.uspFindCustomerByPhPlateEmail_Result">
@@ -6927,6 +6922,7 @@
                 <ScalarProperty Name="NextEmissionDate" ColumnName="NextEmissionDate" />
                 <ScalarProperty Name="NextSvcInfo" ColumnName="NextSvcInfo" />
                 <ScalarProperty Name="DealerId" ColumnName="DealerId" />
+                <ScalarProperty Name="DealerName" ColumnName="DealerName" />
                 <ScalarProperty Name="VehicleYrMkMod" ColumnName="VehicleYrMkMod" />
                 <ScalarProperty Name="GoogleGuid" ColumnName="GoogleGuid" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -6951,11 +6947,17 @@
                 <ScalarProperty Name="VehBodyType" ColumnName="VehBodyType" />
                 <ScalarProperty Name="InspectionExpMnth" ColumnName="InspectionExpMnth" />
                 <ScalarProperty Name="InspectionExpYr" ColumnName="InspectionExpYr" />
-                <ScalarProperty Name="DealerName" ColumnName="DealerName" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="uspUpdateGoogleGuid1" FunctionName="ModelContainer.Store.uspUpdateGoogleGuid" />
+          <FunctionImportMapping FunctionImportName="uspCreateSeviceAndKeyLockerBucket_TowTruck" FunctionName="ModelContainer.Store.uspCreateSeviceAndKeyLockerBucket_TowTruck">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContainer.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result">
+                <ScalarProperty Name="PersonGUID" ColumnName="PersonGUID" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

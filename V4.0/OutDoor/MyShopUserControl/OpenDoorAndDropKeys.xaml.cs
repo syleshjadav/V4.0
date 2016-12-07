@@ -69,7 +69,7 @@ namespace MyShopOutDoor.MyShopUserControl {
         }
         private void FindHomeAndRotateKeyFloor() {
             // ConfigClass.SendCommandToBoard("FH" + FindHomeAndMoveStepsReading, "C");
-            ConfigClass.SendCommandToBoard("KF170000"); // key floor
+            ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading); // key floor
         }
 
         private void cmdDropKeys_Click(object sender, RoutedEventArgs e) {
@@ -81,11 +81,11 @@ namespace MyShopOutDoor.MyShopUserControl {
             MessageBox("We have your information and Keys.\n  Thanks for using our automated key system", "Key Drop Information");
             IsKeyDroppedClcked = true;
 
-            var firstName = "";
-            var phone = "";
-            var svcInfo = "";
+            var firstName = CustomerInfo.FirstName;
+            var phone = CustomerInfo.PhoneNumber;
+            var svcInfo = CustomerInfo.Comments;
             byte? serviceStatusId = 4;
-            byte? assignedKeyLockerBucketId = 2;
+            byte? assignedKeyLockerBucketId = Convert.ToByte(FindHomeAndMoveStepsReading.Substring(2,2));
 
             try {
                 var res = ATP.Common.ProxyHelper.Service<OutDoorProxy.IOutDoor>.Use(svcs => {
@@ -93,7 +93,7 @@ namespace MyShopOutDoor.MyShopUserControl {
                 });
 
             }
-            catch (Exception ex) {
+             catch (Exception ex) {
                 MessageBox(ex.Message.ToString(), "Error !");
             }
             // _serialPort.Write("BT75000 \n");
@@ -128,8 +128,6 @@ namespace MyShopOutDoor.MyShopUserControl {
                 }
             }
             this.Close();
-            // NavigationService nav = NavigationService.GetNavigationService(this);
-            //nav.Navigate(new Uri("MenuWindow.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private static void MessageBox(string msg, string header = "Information") {
