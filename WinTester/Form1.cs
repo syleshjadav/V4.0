@@ -21,40 +21,40 @@ namespace WinTester {
             string Email = "sasi@ibc.com";
             try {
 
-                var mx = new ATP.Services.Data.Person().FindCustomerByPhPlateEmail(Plate, Phone, Email);
+                //var mx = new ATP.Services.Data.Person().FindCustomerByPhPlateEmail(Plate, Phone, Email);
 
-                var xx = mx
-                     .Select(m =>
-                     new ATPCustomerDetailsByGuid {
+                //var xx = mx
+                //     .Select(m =>
+                //     new ATPCustomerDetailsByGuid {
 
-                         DealerFamilyId = "5",
-                         DealerId = m.DealerId.ToString(),
-                         DealerName = m.DealerName,
-                         // DealerPersonGroupId = m.DealerPersonGroupId,
-                         EmailAddress = m.EmailAddress,
-                         FirstName = m.FirstName,
-                         GoogleGuid = m.GoogleGuid,
-                         //  GroupName = m.GroupName,
-                         //  IsValid = m.IsValid.ToString(),
-                         LastName = m.LastName,
-                         MiddleName = m.MiddleName,
-                         //  NextInspectionDate = m.NextInspectionDate,
-                         //  NextServiceDate = m.NextServiceDate,
-                         PersonGuid = m.PersonGuid.ToString(),
-                         PhoneNumber = m.PhoneNumber,
-                         Plate = m.Plate,
-                         //  NextSvcInfo = m.NextSvcInfo,
-                         VehicleGuid = m.VehicleGuid.ToString(),
-                         VehicleMake = m.VehicleMake,
-                         VehicleModel = m.VehicleModel,
-                         VehicleName = m.VehicleName,
-                         VehicleTrim = m.VehicleTrim,
-                         VehicleYear = m.VehicleYear != null ? m.VehicleYear.ToString() : "",
-                         VehicleYrMkMod = m.VehicleYrMkMod,
-                         VIN = m.VIN,
-                         VehicleId = m.VehicleId.ToString(),
-                         VehPhId = m.VehPhId
-                     }).ToList();
+                //         DealerFamilyId = "5",
+                //         DealerId = m.DealerId.ToString(),
+                //         DealerName = m.DealerName,
+                //         // DealerPersonGroupId = m.DealerPersonGroupId,
+                //         EmailAddress = m.EmailAddress,
+                //         FirstName = m.FirstName,
+                //         GoogleGuid = m.GoogleGuid,
+                //         //  GroupName = m.GroupName,
+                //         //  IsValid = m.IsValid.ToString(),
+                //         LastName = m.LastName,
+                //         MiddleName = m.MiddleName,
+                //         //  NextInspectionDate = m.NextInspectionDate,
+                //         //  NextServiceDate = m.NextServiceDate,
+                //         PersonGuid = m.PersonGuid.ToString(),
+                //         PhoneNumber = m.PhoneNumber,
+                //         Plate = m.Plate,
+                //         //  NextSvcInfo = m.NextSvcInfo,
+                //         VehicleGuid = m.VehicleGuid.ToString(),
+                //         VehicleMake = m.VehicleMake,
+                //         VehicleModel = m.VehicleModel,
+                //         VehicleName = m.VehicleName,
+                //         VehicleTrim = m.VehicleTrim,
+                //         VehicleYear = m.VehicleYear != null ? m.VehicleYear.ToString() : "",
+                //         VehicleYrMkMod = m.VehicleYrMkMod,
+                //         VIN = m.VIN,
+                //         VehicleId = m.VehicleId.ToString(),
+                //         VehPhId = m.VehPhId
+                //     }).ToList();
 
             }
             catch (Exception ex) {
