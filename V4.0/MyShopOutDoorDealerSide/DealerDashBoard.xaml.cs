@@ -34,17 +34,17 @@ namespace MyShopOutDoor {
 
 
             var dir = @"c:\Sites";
-            var filedir = dir + "\\MyShopApp.xml";
+            var filedir = dir + "\\MyShopAppDealer.xml";
             XmlDocument xdoc = new XmlDocument();
             try {
                 if (!Directory.Exists(dir)) {
                     Directory.CreateDirectory(dir);
                 }
                 if (!File.Exists(filedir)) {
-                    string s = "<ROOT><DEALERID>116</DEALERID><DEALERCOMMPORT>COM4</DEALERCOMMPORT><CUSTCOMMPORT>COM5</CUSTCOMMPORT></ROOT>";
+                    string s = "<ROOT><DEALERID>116</DEALERID><DEALERCOMMPORT>COM11</DEALERCOMMPORT><CUSTCOMMPORT>COM5</CUSTCOMMPORT></ROOT>";
 
                     xdoc.LoadXml(s);
-                    xdoc.Save(@"c:\Sites\MyShopApp.xml");
+                    xdoc.Save(@"c:\Sites\MyShopAppDealer.xml");
                 }
 
                 xdoc.Load(filedir);
