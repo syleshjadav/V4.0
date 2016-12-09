@@ -4309,15 +4309,6 @@ namespace ATP.DataModel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspGetKeyLockerSteps_Result>("uspGetKeyLockerSteps", dealerIdParameter, keyLockerIdParameter, isDropOrPickUpParameter);
         }
     
-        public virtual ObjectResult<uspSelAllKeyDropPegByDealerId_Result> uspSelAllKeyDropPegByDealerId(Nullable<int> dealerId)
-        {
-            var dealerIdParameter = dealerId.HasValue ?
-                new ObjectParameter("DealerId", dealerId) :
-                new ObjectParameter("DealerId", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelAllKeyDropPegByDealerId_Result>("uspSelAllKeyDropPegByDealerId", dealerIdParameter);
-        }
-    
         public virtual ObjectResult<string> uspGenerateOTP(Nullable<System.Guid> personGuid)
         {
             var personGuidParameter = personGuid.HasValue ?
@@ -4472,6 +4463,15 @@ namespace ATP.DataModel
                 new ObjectParameter("AssignedKeyLockerBucketId", typeof(byte));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>("uspCreateSeviceAndKeyLockerBucket_TowTruck", dealerIdParameter, firstNameParameter, phoneParameter, svcInfoParameter, serviceStatusIdParameter, assignedKeyLockerBucketIdParameter);
+        }
+    
+        public virtual ObjectResult<uspSelAllKeyDropPegByDealerId_Result> uspSelAllKeyDropPegByDealerId(Nullable<int> dealerId)
+        {
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelAllKeyDropPegByDealerId_Result>("uspSelAllKeyDropPegByDealerId", dealerIdParameter);
         }
     }
 }

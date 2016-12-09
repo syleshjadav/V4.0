@@ -55,7 +55,7 @@ namespace MyShopOutDoor {
 
                // return;
 
-               // SerialPortInterface sp = new SerialPortInterface(); // load port details
+                SerialPortInterface sp = new SerialPortInterface(); // load port details
                 ConfigClass.DealerSerialPort.PortName = xmlnode["DEALERCOMMPORT"].InnerText;
                // ConfigClass.CustomerSerialPort.PortName = xmlnode["CUSTCOMMPORT"].InnerText;
 

@@ -35,7 +35,7 @@ namespace MyShopOutDoor.DealerSide {
             GrdSelection.DataContext = SelectedPerson;
 
             //Ready for pickup
-            if (SelectedPerson.ServiceStatus == 10) {
+            if (SelectedPerson.ServiceStatus == 10 ||  SelectedPerson.ServiceStatus == 4 ) {
                 TxtPlaceKeysInfo.Visibility = Visibility.Collapsed;
                 cmdPlaceKeys.Visibility = Visibility.Collapsed;
                 cmdOpenDoor.Visibility = Visibility.Collapsed;
@@ -69,7 +69,7 @@ namespace MyShopOutDoor.DealerSide {
 
             ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading);
 
-            ConfigClass.SendCommandToBoard("BT75000 \n");
+            //ConfigClass.SendCommandToBoard("BT75000 \n");
 
             UpdateVehicleServiceStatus(3);//Currently being serviced
 

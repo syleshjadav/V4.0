@@ -12,7 +12,7 @@
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Height="900"
         Width="900"
-        WindowState="Maximized"
+        WindowState="Normal"
         WindowStyle="None"
         Margin="0">
   <Window.Resources>
@@ -30,14 +30,14 @@
                     BorderBrush="Brown">
               <Grid Grid.Row="0"
                     Width="325"
-                    Height="150"
+                    Height="140"
                     Margin="1"
                     Background="White"
                     VerticalAlignment="Top">
                 <Grid.RowDefinitions>
                   <RowDefinition Height="Auto" />
                   <RowDefinition Height="*"/>
-                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="30" />
                 </Grid.RowDefinitions>
                 <Border Grid.Row="0"
                         CornerRadius="4"
@@ -90,9 +90,10 @@
                 </StackPanel>
                 <Grid 
                   Grid.Row="2"
-                  Background="{Binding ServiceStatusColor, Converter={StaticResource ColorToSolidColorBrush_ValueConverter}}">
+                  Background="{Binding ServiceStatusColor, Converter={StaticResource ColorToSolidColorBrush_ValueConverter}}"
+                      >
                   <TextBlock Text="{Binding ServiceStatusDesc}"
-                             Foreground="Black"
+                             Foreground="{Binding ServiceStatusColorForeGround, Converter={StaticResource ColorToSolidColorBrush_ValueConverter}}"
                              FontSize="20" />
                 </Grid>
               </Grid>

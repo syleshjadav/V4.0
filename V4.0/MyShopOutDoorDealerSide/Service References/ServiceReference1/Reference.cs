@@ -1589,6 +1589,9 @@ namespace MyShopOutDoorDealerSide.ServiceReference1 {
         private string ServiceStatusColorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ServiceStatusColorForeGroundField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ServiceStatusDescField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1809,6 +1812,19 @@ namespace MyShopOutDoorDealerSide.ServiceReference1 {
                 if ((object.ReferenceEquals(this.ServiceStatusColorField, value) != true)) {
                     this.ServiceStatusColorField = value;
                     this.RaisePropertyChanged("ServiceStatusColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ServiceStatusColorForeGround {
+            get {
+                return this.ServiceStatusColorForeGroundField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ServiceStatusColorForeGroundField, value) != true)) {
+                    this.ServiceStatusColorForeGroundField = value;
+                    this.RaisePropertyChanged("ServiceStatusColorForeGround");
                 }
             }
         }

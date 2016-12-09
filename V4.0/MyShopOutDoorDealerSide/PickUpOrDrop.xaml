@@ -102,8 +102,8 @@
                         </StackPanel>
                         <Grid Background="{Binding ServiceStatusColor, Converter={StaticResource ColorToSolidColorBrush_ValueConverter}}">
                             <TextBlock Text="{Binding ServiceStatusDesc}"
-                                       Foreground="Black"
-                                       FontSize="30" />
+                           Foreground="{Binding ServiceStatusColorForeGround, Converter={StaticResource ColorToSolidColorBrush_ValueConverter}}"
+                           FontSize="30" />
                         </Grid>
                     </StackPanel>
                   

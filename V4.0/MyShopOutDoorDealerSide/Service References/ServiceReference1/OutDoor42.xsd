@@ -149,6 +149,7 @@
       <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ServiceStatus" nillable="true" type="xs:unsignedByte" />
       <xs:element minOccurs="0" name="ServiceStatusColor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceStatusColorForeGround" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ServiceStatusDesc" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="StatusDesc" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="StatusId" nillable="true" type="xs:unsignedByte" />

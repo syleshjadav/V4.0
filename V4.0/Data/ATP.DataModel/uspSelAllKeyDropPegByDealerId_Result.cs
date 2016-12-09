@@ -25,6 +25,7 @@ namespace ATP.DataModel
         public Nullable<System.Guid> VehicleServiceGuid { get; set; }
         public Nullable<byte> ServiceStatus { get; set; }
         public string ServiceStatusColor { get; set; }
+        public string ServiceStatusColorForeGround { get; set; }
         public string PhoneNumber { get; set; }
         public string EmailAddress { get; set; }
         public byte KeyLockerPegId { get; set; }
