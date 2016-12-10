@@ -92,6 +92,7 @@
                   Grid.Row="2"
                   Background="{Binding ServiceStatusColor, Converter={StaticResource ColorToSolidColorBrush_ValueConverter}}"
                       >
+                  <!--Sylesh-->
                   <TextBlock Text="{Binding ServiceStatusDesc}"
                              Foreground="{Binding ServiceStatusColorForeGround, Converter={StaticResource ColorToSolidColorBrush_ValueConverter}}"
                              FontSize="20" />
