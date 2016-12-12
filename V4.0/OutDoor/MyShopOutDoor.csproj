@@ -196,6 +196,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Image\KeyDropBox.png" />
     <Resource Include="Logo-medium.ico" />
     <None Include="Service References\OutDoorProxy\MyShopOutDoor.OutDoorProxy.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -306,9 +307,6 @@
   <ItemGroup>
     <Resource Include="Image\DropKey.jpg" />
     <Resource Include="Image\PickUpKey.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\KeyDropBox.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\OpenDoor.png" />

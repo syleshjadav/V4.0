@@ -8,18 +8,9 @@
       mc:Ignorable="d"
       Height="800">
   <Grid x:Name="GrdMain">
-    <Grid.Background>
-      <ImageBrush Opacity="0.1"
-                  TileMode="Tile"
-                  ImageSource="Image/DealerLogo/116.png">
-        <ImageBrush.Transform>
-          <ScaleTransform ScaleX=".2"
-                          ScaleY=".2" />
-        </ImageBrush.Transform>
-      </ImageBrush>
-    </Grid.Background>
+    
     <Grid.RowDefinitions>
-      <RowDefinition  Height="100" />
+      <RowDefinition  Height="auto" />
       <RowDefinition Height="*" />
       <RowDefinition  Height="100" />
     </Grid.RowDefinitions>
@@ -39,10 +30,16 @@
                    HorizontalAlignment="Center" />
       </GroupBox.Header>
       <Grid>
-        <!--<Grid.Background>
-          <SolidColorBrush Opacity="0.1"
-                           Color="#FFB89E9E" />
-        </Grid.Background>-->
+        <Grid.Background>
+          <ImageBrush Opacity="0.1"
+                      TileMode="Tile"
+                      ImageSource="Image/DealerLogo/116.png">
+            <ImageBrush.Transform>
+              <ScaleTransform ScaleX=".2"
+                              ScaleY=".2" />
+            </ImageBrush.Transform>
+          </ImageBrush>
+        </Grid.Background>
         <Border BorderThickness="1,1,1,2"
                 Margin="0,10,0,0"
                 Grid.RowSpan="1"
@@ -52,6 +49,8 @@
           </Border.Effect>
           <Button x:Name="cmdCustomer"
                   FontSize="40"
+                  IsEnabled="False"
+                  Opacity=".1"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Bottom"
                   Width="300"

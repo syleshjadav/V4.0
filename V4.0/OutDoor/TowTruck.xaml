@@ -170,7 +170,7 @@
                                                       
                                                        PlacementTarget="{Binding ElementName=GrdKeyboard}"
                                                        AreAnimationsEnabled="False"
-                                             Height="500"
+                                             Height="400"
                                              Width="800" />
                     <Grid>
                         <Grid.ColumnDefinitions>

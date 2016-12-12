@@ -43,11 +43,11 @@ namespace ATP.Kiosk.Views {
         }
 
         void MessageBox_Loaded(object sender, RoutedEventArgs e) {
-            var w = System.Windows.SystemParameters.WorkArea.Width;
-            var h = System.Windows.SystemParameters.WorkArea.Height;
-            // PrintPopUpwindow.WindowState = WindowState.Maximized;
-            this.Width = w * .5;
-            this.Height = h * .4;
+            //var w = System.Windows.SystemParameters.WorkArea.Width;
+            //var h = System.Windows.SystemParameters.WorkArea.Height;
+            //// PrintPopUpwindow.WindowState = WindowState.Maximized;
+            //this.Width = w * .5;
+            //this.Height = h * .4;
         }
 
         public string ErrorMessage {

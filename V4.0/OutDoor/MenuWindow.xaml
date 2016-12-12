@@ -44,6 +44,16 @@
                    HorizontalAlignment="Center" />
       </GroupBox.Header>
       <Grid >
+        <Grid.Background>
+          <ImageBrush Opacity="0.1"
+                      TileMode="Tile"
+                      ImageSource="Image/DealerLogo/116.png">
+            <ImageBrush.Transform>
+              <ScaleTransform ScaleX=".2"
+                              ScaleY=".2" />
+            </ImageBrush.Transform>
+          </ImageBrush>
+        </Grid.Background>
         <Border BorderThickness="1,1,1,2"
                 Margin="0,10,0,0"
                 Grid.RowSpan="1"

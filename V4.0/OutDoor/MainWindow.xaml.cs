@@ -68,7 +68,7 @@ namespace MyShopOutDoor {
                 ConfigClass.DealerId = Convert.ToInt32(xmlnode["DEALERID"].InnerText);
 
 
-                return;
+                
 
                 SerialPortInterface sp = new SerialPortInterface(); // load port details
                                                                     // ConfigClass.DealerSerialPort.PortName = xmlnode["DEALERCOMMPORT"].InnerText;
@@ -82,7 +82,7 @@ namespace MyShopOutDoor {
 
             }
             catch (Exception ex) {
-                System.Windows.MessageBox.Show(ex.Message);
+             //   System.Windows.MessageBox.Show(ex.Message);
 
 
 

@@ -78,7 +78,7 @@ namespace MyShopOutDoor.MyShopUserControl {
 
 
 
-            MessageBox("We have your information and Keys.\n  Thanks for using our automated key system", "Key Drop Information");
+            MessageBox("WE HAVE YOUR INFORMATION.\nTHANKS FOR USING OUR AUTOMATED KEY SYSTEM", "KEY DROP INFORMATION");
             IsKeyDroppedClcked = true;
 
             var firstName = CustomerInfo.FirstName;
@@ -98,7 +98,7 @@ namespace MyShopOutDoor.MyShopUserControl {
             }
             // _serialPort.Write("BT75000 \n");
 
-            var msg = "We have your information now. Thanks for using our automated Key system. ";
+            var msg = "WE HAVE YOUR INFORMATION NOW. THANKS FOR USING OUR AUTOMATED KEY SYSTEM. ";
             var msgType = "Chat";
             if (CustomerInfo.PersonGuid != null) {
                 var finalResult = SendMsgToDevice(CustomerInfo, "Key Drop Info ..", msgType, "MsgToCust", msg);
@@ -130,7 +130,7 @@ namespace MyShopOutDoor.MyShopUserControl {
             this.Close();
         }
 
-        private static void MessageBox(string msg, string header = "Information") {
+        private static void MessageBox(string msg, string header = "INFORMATION") {
             var wnd = new AdamMessageBox();
             wnd.TxtError.Text = msg;
             wnd.TxtHeader.Text = header;

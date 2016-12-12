@@ -57,17 +57,15 @@ namespace MyShopOutDoor {
 
                 SerialPortInterface sp = new SerialPortInterface(); // load port details
                 ConfigClass.DealerSerialPort.PortName = xmlnode["DEALERCOMMPORT"].InnerText;
-               // ConfigClass.CustomerSerialPort.PortName = xmlnode["CUSTCOMMPORT"].InnerText;
 
 
                 if (!ConfigClass.DealerSerialPort.IsOpen) { ConfigClass.DealerSerialPort.Open(); }
-              //  if (!ConfigClass.CustomerSerialPort.IsOpen) { ConfigClass.CustomerSerialPort.Open(); }
 
 
 
             }
             catch (Exception ex) {
-                System.Windows.MessageBox.Show(ex.Message);
+               System.Windows.MessageBox.Show(ex.Message);
 
 
 
@@ -82,32 +80,32 @@ namespace MyShopOutDoor {
             RefreshGrid();
         }
         private void DealerDashBoard_Loaded(object sender, RoutedEventArgs e) {
-     // //satish added
-     // var allScreen = Screen.AllScreens;
-     // Screen scr1 = allScreen[0];
-     // Screen scr2 = allScreen[0];
-     // Screen primary = allScreen[0];
-     // if (allScreen.Length >= 2) {
-     //   scr2 = allScreen[1];
-     // }
-     // else {
-     //   scr1 = allScreen[0];
-     // }
-     // if (scr1.Primary) {
-     //   primary = scr1;
-     // }
-     // else {
-     //   primary = scr2;
-     // }
-     //// System.Windows.MessageBox.Show(primary.DeviceName);
-     // Rectangle r = primary.WorkingArea;
-     // this.WindowState = WindowState.Maximized;
-     // this.WindowStyle = WindowStyle.None;
-     // this.Width = r.Width;
-     // this.Height = r.Height;
-     // this.Top = r.Top;
-     // this.Left = r.Left;
-     // // satish end
+      // //satish added
+      //var allScreen = Screen.AllScreens;
+      //Screen scr1 = allScreen[0];
+      //Screen scr2 = allScreen[1];
+      //Screen primary = allScreen[1];
+      //if (allScreen.Length >= 2) {
+      //  scr2 = allScreen[1];
+      //}
+      //else {
+      //  scr1 = allScreen[0];
+      //}
+      //if (scr1.Primary) {
+      //  primary = scr2;
+      //}
+      //else {
+      //  primary = scr2;
+      //}
+      //// System.Windows.MessageBox.Show(primary.DeviceName);
+      //Rectangle r = primary.WorkingArea;
+      //this.WindowState = WindowState.Maximized;
+      //this.WindowStyle = WindowStyle.None;
+      //this.Width = r.Width;
+      //this.Height = r.Height;
+      //this.Top = r.Top;
+      //this.Left = r.Left;
+      // satish end
       RefreshGrid();
             dispatcherTimer.Start();
         }

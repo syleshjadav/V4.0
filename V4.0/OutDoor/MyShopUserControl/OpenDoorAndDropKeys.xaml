@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Title="OpenDoorAndDropKeys" Height="700" Width="700">
+        Title="OpenDoorAndDropKeys" Height="800" Width="700">
   <Grid x:Name="GrdVerifiedPinInfo"
         Grid.Row="1"
         Visibility="Visible">
@@ -42,7 +42,7 @@
            Grid.Column="1"
            Width="250"
            Height="250"
-           Source="/MyShopOutDoor;component/Image/KeyDropBox.jpg" />
+           Source="/MyShopOutDoor;component/Image/KeyDropBox.PNG" />
     <UniformGrid Grid.Row="1"
                  Grid.ColumnSpan="2"
                  VerticalAlignment="Center"
@@ -52,40 +52,63 @@
               Margin="5"
               Click="cmdOpenDoor_Click"
               Style="{DynamicResource PackageOrServicesButton }"
-              VerticalAlignment="Bottom"
-              Width="200"
-              Height="150">
-        <DockPanel>
-          <TextBlock DockPanel.Dock="Bottom"
-                     FontSize="30"
+              VerticalAlignment="Bottom">
+        <Grid  Width="250"
+               Height="250">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+          </Grid.RowDefinitions>
+          <TextBlock VerticalAlignment="Top"
+                     FontSize="50"
                      HorizontalAlignment="Center"
-                     Foreground="Black">Open Door</TextBlock>
-          <Image DockPanel.Dock="Top"
-                 Height="75"
-                 Width="75"
-                 Source="/MyShopOutDoor;component/Image/OpenDoor.png" />
-        </DockPanel>
+                     Foreground="Maroon"
+                     FontWeight="Bold"
+                     Grid.Row="0">Step 1</TextBlock>
+          <Image  HorizontalAlignment="Center"
+                  Width="100"
+                  Source="/MyShopOutDoor;component/Image/OpenDoor.png"
+                  Grid.Row="1" />
+          <TextBlock FontSize="40"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Bottom"
+                     Foreground="Black"
+                     FontWeight="Bold"
+                     Grid.Row="2">OPEN DOOR</TextBlock>
+        </Grid>
       </Button>
-      <Button Height="150"
-              x:Name="cmdDropKeys"
+      <Button x:Name="cmdDropKeys"
               IsEnabled="False"
-              Opacity=".5"
-              Width="250"
+              Opacity=".4"
+             
               VerticalAlignment="Bottom"
               Style="{DynamicResource PackageOrServicesButton }"
               Click="cmdDropKeys_Click">
-        <DockPanel>
+        <Grid  Width="250"
+               Height="250">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+          </Grid.RowDefinitions>
+          <TextBlock VerticalAlignment="Top"
+                     FontSize="50"
+                     HorizontalAlignment="Center"
+                     Foreground="Maroon"
+                     FontWeight="Bold"
+                     Grid.Row="0">Step 2</TextBlock>
           <TextBlock DockPanel.Dock="Bottom"
                      x:Name="TxtcmdCustomerVerified"
                      FontSize="50"
                      HorizontalAlignment="Center"
+                     Grid.Row="2"
                      Foreground="Black">DROP KEY</TextBlock>
-          <Image DockPanel.Dock="Top"
-                 Source="/MyShopOutDoor;component/Image/carkey.png"
-                 HorizontalAlignment="Center" />
-        </DockPanel>
+          <Image  Grid.Row="1"
+                  HorizontalAlignment="Center"
+                  Source="/MyShopOutDoor;component/Image/carkey.png" />
+        </Grid>
       </Button>
-      
     </UniformGrid>
     <Button x:Name="cmdBack"
             Grid.Row="2"
