@@ -68,21 +68,21 @@ namespace MyShopOutDoor {
                 ConfigClass.DealerId = Convert.ToInt32(xmlnode["DEALERID"].InnerText);
 
 
-                
+
 
                 SerialPortInterface sp = new SerialPortInterface(); // load port details
                                                                     // ConfigClass.DealerSerialPort.PortName = xmlnode["DEALERCOMMPORT"].InnerText;
                 ConfigClass.CustomerSerialPort.PortName = xmlnode["CUSTCOMMPORT"].InnerText;
 
 
-                if (!ConfigClass.DealerSerialPort.IsOpen) { ConfigClass.DealerSerialPort.Open(); }
+                // if (!ConfigClass.DealerSerialPort.IsOpen) { ConfigClass.DealerSerialPort.Open(); }
                 if (!ConfigClass.CustomerSerialPort.IsOpen) { ConfigClass.CustomerSerialPort.Open(); }
 
 
 
             }
             catch (Exception ex) {
-             //   System.Windows.MessageBox.Show(ex.Message);
+                System.Windows.MessageBox.Show(ex.Message);
 
 
 
@@ -90,8 +90,8 @@ namespace MyShopOutDoor {
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
-            return;
-            if (!ConfigClass.DealerSerialPort.IsOpen) { ConfigClass.DealerSerialPort.Close(); }
+            //  return;
+            // if (!ConfigClass.DealerSerialPort.IsOpen) { ConfigClass.DealerSerialPort.Close(); }
             if (!ConfigClass.CustomerSerialPort.IsOpen) { ConfigClass.CustomerSerialPort.Close(); }
 
         }

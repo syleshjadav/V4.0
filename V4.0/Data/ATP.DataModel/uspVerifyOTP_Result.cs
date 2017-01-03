@@ -43,5 +43,20 @@ namespace ATP.DataModel
         public Nullable<bool> IsVehicleInShop { get; set; }
         public Nullable<int> VehicleId { get; set; }
         public string VehPhId { get; set; }
+        public Nullable<short> InsuranceId { get; set; }
+        public string InsuranceCompanyName { get; set; }
+        public string NAIC { get; set; }
+        public string InsuranceState { get; set; }
+        public Nullable<System.DateTime> InsuranceExpDate { get; set; }
+        public string PolicyNumber { get; set; }
+        public string VehBodyType { get; set; }
+        public string InspectionExpMnth { get; set; }
+        public string InspectionExpYr { get; set; }
+        public string GoogleGuid1 { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string ZipCode { get; set; }
     }
 }

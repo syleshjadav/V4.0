@@ -19,7 +19,7 @@
     <PublishUrl>C:\Sites\OutDoorC\</PublishUrl>
     <Install>false</Install>
     <InstallFrom>Web</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
@@ -29,11 +29,12 @@
     <InstallUrl>http://www.MyShopAuto.com/OutDoorC/</InstallUrl>
     <SupportUrl>http:\\www.myshopauto.com</SupportUrl>
     <ErrorReportUrl>http:\\www.myshopauto.com</ErrorReportUrl>
+    <ProductName>oo</ProductName>
     <PublisherName>MyShopAuto,LLC</PublisherName>
     <SuiteName>MyShop</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>24</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

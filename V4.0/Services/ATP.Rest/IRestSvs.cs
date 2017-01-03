@@ -10,6 +10,11 @@ namespace ATP.Rest {
     [System.ServiceModel.ServiceContract(Name = "IRestSvs", Namespace = "http://www.adamkiosks.com/ATPRestServices/RestSvs")]
     public interface IRestSvs {
 
+
+
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "FindCustByPhPlateEmail")]
+        List<ATPCustomerDetailsByGuid> FindCustByPhPlateEmail(ATPFindExistingCutomer m);
+
         [OperationContract]
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "LoginDealerEmployeeTest/{dealerid}/{empEmail}/{empPassword}", BodyStyle = WebMessageBodyStyle.Wrapped)]
         ATPLoginDealerEmp LoginDealerEmployeeTest(string dealerId, string empEmail, string empPassword);
@@ -35,9 +40,9 @@ namespace ATP.Rest {
         ATPData DeleteCustomer(string pGuid);
 
         [OperationContract]
-        [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "FindCustomerByPhPlateEmail/{dealerId},{plate}/{phone}/{email}", BodyStyle = WebMessageBodyStyle.Wrapped)]
+        [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "FindCustomerByPhPlateEmail/{plate}/{phone}/{email}/{GoogleGuid}", BodyStyle = WebMessageBodyStyle.Wrapped)]
 
-        List<ATPCustomerDetailsByGuid> FindCustomerByPhPlateEmail(string dealerId, string plate, string phone, string email);
+        List<ATPCustomerDetailsByGuid> FindCustomerByPhPlateEmail( string plate, string phone, string email, string GoogleGuid);
 
 
         [OperationContract]

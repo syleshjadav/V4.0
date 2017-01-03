@@ -80,12 +80,12 @@
           <Parameter Name="ImageId" Type="bigint" Mode="In" />
         </Function>
         <Function Name="uspFindCustomerByPhPlateEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="DealerId" Type="int" Mode="In" />
           <Parameter Name="Plate" Type="varchar" Mode="In" />
           <Parameter Name="Phone" Type="varchar" Mode="In" />
           <Parameter Name="Email" Type="varchar" Mode="In" />
           <Parameter Name="PersonGuid" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="VehicleGuid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="GoogleGuid" Type="varchar" Mode="In" />
         </Function>
         <Function Name="uspGenerateOTP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="PersonGuid" Type="uniqueidentifier" Mode="In" />
@@ -2370,18 +2370,6 @@
             <Parameter Name="googleGuid" Mode="In" Type="String" />
             <Parameter Name="deviceTypeID" Mode="In" Type="Byte" />
           </FunctionImport>
-          <FunctionImport Name="uspVerifyOTP" ReturnType="Collection(ModelContainer.uspVerifyOTP_Result)">
-            <Parameter Name="PersonGuid" Mode="In" Type="Guid" />
-            <Parameter Name="OTP" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="uspFindCustomerByPhPlateEmail" ReturnType="Collection(ModelContainer.uspFindCustomerByPhPlateEmail_Result)">
-            <Parameter Name="DealerId" Mode="In" Type="Int32" />
-            <Parameter Name="Plate" Mode="In" Type="String" />
-            <Parameter Name="Phone" Mode="In" Type="String" />
-            <Parameter Name="Email" Mode="In" Type="String" />
-            <Parameter Name="PersonGuid" Mode="In" Type="Guid" />
-            <Parameter Name="VehicleGuid" Mode="In" Type="Guid" />
-          </FunctionImport>
           <FunctionImport Name="uspCreateSeviceAndKeyLockerBucket_TowTruck" ReturnType="Collection(ModelContainer.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result)">
             <Parameter Name="DealerId" Mode="In" Type="Int32" />
             <Parameter Name="FirstName" Mode="In" Type="String" />
@@ -2391,7 +2379,19 @@
             <Parameter Name="AssignedKeyLockerBucketId" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="uspSelAllKeyDropPegByDealerId" ReturnType="Collection(ModelContainer.uspSelAllKeyDropPegByDealerId_Result)">
-            <Parameter Name="DealerId" Mode="In" Type="Int32" />
+          <Parameter Name="DealerId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspFindCustomerByPhPlateEmail" ReturnType="Collection(ModelContainer.uspFindCustomerByPhPlateEmail_Result)">
+            <Parameter Name="Plate" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="PersonGuid" Mode="In" Type="Guid" />
+            <Parameter Name="VehicleGuid" Mode="In" Type="Guid" />
+            <Parameter Name="GoogleGuid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspVerifyOTP" ReturnType="Collection(ModelContainer.uspVerifyOTP_Result)">
+            <Parameter Name="PersonGuid" Mode="In" Type="Guid" />
+            <Parameter Name="OTP" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="uspSelVehAlertByVehGuid_Result">
@@ -4440,78 +4440,6 @@
           <Property Type="Int32" Name="DeptId" Nullable="false" />
           <Property Type="String" Name="PaymentStatus" Nullable="true" MaxLength="50" />
         </ComplexType>
-        <ComplexType Name="uspVerifyOTP_Result">
-          <Property Type="String" Name="CustomerId" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="RelatedId" Nullable="true" MaxLength="10" />
-          <Property Type="Guid" Name="VehicleGuid" Nullable="false" />
-          <Property Type="String" Name="VehicleMake" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="VehicleModel" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="VehicleTrim" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="VIN" Nullable="true" MaxLength="17" />
-          <Property Type="String" Name="VehicleYear" Nullable="true" MaxLength="4" />
-          <Property Type="String" Name="VehicleName" Nullable="true" MaxLength="80" />
-          <Property Type="String" Name="Plate" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="NextServiceDate" Nullable="true" MaxLength="24" />
-          <Property Type="String" Name="NextInspectionDate" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="NextEmissionDate" Nullable="false" MaxLength="1" />
-          <Property Type="String" Name="NextSvcInfo" Nullable="true" MaxLength="255" />
-          <Property Type="Int32" Name="DealerId" Nullable="false" />
-          <Property Type="String" Name="VehicleYrMkMod" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="GoogleGuid" Nullable="true" MaxLength="2000" />
-          <Property Type="String" Name="LastName" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="15" />
-          <Property Type="Guid" Name="PersonGuid" Nullable="false" />
-          <Property Type="Byte" Name="DeviceTypeId" Nullable="true" />
-          <Property Type="String" Name="DealerPersonGroupId" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="GroupName" Nullable="true" MaxLength="50" />
-          <Property Type="Boolean" Name="IsValid" Nullable="false" />
-          <Property Type="Boolean" Name="IsVehicleInShop" Nullable="true" />
-          <Property Type="Int32" Name="VehicleId" Nullable="true" />
-          <Property Type="String" Name="VehPhId" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="uspFindCustomerByPhPlateEmail_Result">
-          <Property Type="Guid" Name="VehicleGuid" Nullable="false" />
-          <Property Type="String" Name="VehicleMake" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="VehicleModel" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="VehicleTrim" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="VIN" Nullable="true" MaxLength="17" />
-          <Property Type="String" Name="VehicleYear" Nullable="true" MaxLength="4" />
-          <Property Type="String" Name="VehicleName" Nullable="true" MaxLength="80" />
-          <Property Type="String" Name="Plate" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="NextServiceDate" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="NextInspectionDate" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="NextEmissionDate" Nullable="false" MaxLength="1" />
-          <Property Type="String" Name="NextSvcInfo" Nullable="true" MaxLength="255" />
-          <Property Type="Int32" Name="DealerId" Nullable="false" />
-          <Property Type="String" Name="DealerName" Nullable="false" MaxLength="80" />
-          <Property Type="String" Name="VehicleYrMkMod" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="GoogleGuid" Nullable="true" MaxLength="2000" />
-          <Property Type="String" Name="LastName" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="15" />
-          <Property Type="Guid" Name="PersonGuid" Nullable="false" />
-          <Property Type="Byte" Name="DeviceTypeId" Nullable="true" />
-          <Property Type="String" Name="DealerPersonGroupId" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="GroupName" Nullable="true" MaxLength="50" />
-          <Property Type="Boolean" Name="IsValid" Nullable="false" />
-          <Property Type="Boolean" Name="IsVehicleInShop" Nullable="true" />
-          <Property Type="Int32" Name="VehicleId" Nullable="true" />
-          <Property Type="String" Name="VehPhId" Nullable="true" MaxLength="50" />
-          <Property Type="Int16" Name="InsuranceId" Nullable="true" />
-          <Property Type="String" Name="InsuranceCompanyName" Nullable="true" MaxLength="255" />
-          <Property Type="String" Name="NAIC" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="InsuranceState" Nullable="true" MaxLength="255" />
-          <Property Type="DateTime" Name="InsuranceExpDate" Nullable="true" />
-          <Property Type="String" Name="PolicyNumber" Nullable="true" MaxLength="25" />
-          <Property Type="String" Name="VehBodyType" Nullable="true" MaxLength="4" />
-          <Property Type="String" Name="InspectionExpMnth" Nullable="true" MaxLength="2" />
-          <Property Type="String" Name="InspectionExpYr" Nullable="true" MaxLength="4" />
-        </ComplexType>
         <ComplexType Name="uspCreateSeviceAndKeyLockerBucket_TowTruck_Result">
           <Property Type="Guid" Name="PersonGUID" Nullable="true" />
           <Property Type="Int32" Name="VehicleID" Nullable="true" />
@@ -4543,6 +4471,98 @@
           <Property Type="String" Name="VehicleYear" Nullable="true" MaxLength="4" />
           <Property Type="String" Name="ServiceStatusDesc" Nullable="false" MaxLength="250" />
           <Property Type="String" Name="Code" Nullable="true" MaxLength="5" />
+        </ComplexType>
+        <ComplexType Name="uspFindCustomerByPhPlateEmail_Result">
+          <Property Type="Guid" Name="VehicleGuid" Nullable="false" />
+          <Property Type="String" Name="VehicleMake" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="VehicleModel" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="VehicleTrim" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="VIN" Nullable="false" MaxLength="17" />
+          <Property Type="String" Name="VehicleYear" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="VehicleName" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Plate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="NextServiceDate" Nullable="true" MaxLength="24" />
+          <Property Type="String" Name="NextInspectionDate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NextEmissionDate" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="NextSvcInfo" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="DealerId" Nullable="false" />
+          <Property Type="String" Name="DealerName" Nullable="false" MaxLength="80" />
+          <Property Type="String" Name="VehicleYrMkMod" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="GoogleGuid" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="15" />
+          <Property Type="Guid" Name="PersonGuid" Nullable="false" />
+          <Property Type="Byte" Name="DeviceTypeId" Nullable="true" />
+          <Property Type="String" Name="DealerPersonGroupId" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GroupName" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsValid" Nullable="false" />
+          <Property Type="Boolean" Name="IsVehicleInShop" Nullable="true" />
+          <Property Type="Int32" Name="VehicleId" Nullable="true" />
+          <Property Type="String" Name="VehPhId" Nullable="true" MaxLength="50" />
+          <Property Type="Int16" Name="InsuranceId" Nullable="true" />
+          <Property Type="String" Name="InsuranceCompanyName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="NAIC" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="InsuranceState" Nullable="true" MaxLength="255" />
+          <Property Type="DateTime" Name="InsuranceExpDate" Nullable="true" />
+          <Property Type="String" Name="PolicyNumber" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="VehBodyType" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="InspectionExpMnth" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="InspectionExpYr" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="Address1" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="Address2" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ZipCode" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="uspVerifyOTP_Result">
+          <Property Type="String" Name="CustomerId" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="RelatedId" Nullable="true" MaxLength="10" />
+          <Property Type="Guid" Name="VehicleGuid" Nullable="false" />
+          <Property Type="String" Name="VehicleMake" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="VehicleModel" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="VehicleTrim" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="VIN" Nullable="false" MaxLength="17" />
+          <Property Type="String" Name="VehicleYear" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="VehicleName" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Plate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="NextServiceDate" Nullable="true" MaxLength="24" />
+          <Property Type="String" Name="NextInspectionDate" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NextEmissionDate" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="NextSvcInfo" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="DealerId" Nullable="false" />
+          <Property Type="String" Name="VehicleYrMkMod" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="GoogleGuid" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="15" />
+          <Property Type="Guid" Name="PersonGuid" Nullable="false" />
+          <Property Type="Byte" Name="DeviceTypeId" Nullable="true" />
+          <Property Type="String" Name="DealerPersonGroupId" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GroupName" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="IsValid" Nullable="false" />
+          <Property Type="Boolean" Name="IsVehicleInShop" Nullable="true" />
+          <Property Type="Int32" Name="VehicleId" Nullable="true" />
+          <Property Type="String" Name="VehPhId" Nullable="true" MaxLength="50" />
+          <Property Type="Int16" Name="InsuranceId" Nullable="true" />
+          <Property Type="String" Name="InsuranceCompanyName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="NAIC" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="InsuranceState" Nullable="true" MaxLength="255" />
+          <Property Type="DateTime" Name="InsuranceExpDate" Nullable="true" />
+          <Property Type="String" Name="PolicyNumber" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="VehBodyType" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="InspectionExpMnth" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="InspectionExpYr" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="GoogleGuid1" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="Address1" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="Address2" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="State" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ZipCode" Nullable="false" MaxLength="10" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -6840,39 +6860,43 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="uspUpdateGoogleGuid1" FunctionName="ModelContainer.Store.uspUpdateGoogleGuid" />
-          <FunctionImportMapping FunctionImportName="uspVerifyOTP" FunctionName="ModelContainer.Store.uspVerifyOTP">
+          <FunctionImportMapping FunctionImportName="uspCreateSeviceAndKeyLockerBucket_TowTruck" FunctionName="ModelContainer.Store.uspCreateSeviceAndKeyLockerBucket_TowTruck">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ModelContainer.uspVerifyOTP_Result">
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-                <ScalarProperty Name="RelatedId" ColumnName="RelatedId" />
+              <ComplexTypeMapping TypeName="ModelContainer.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result">
+                <ScalarProperty Name="PersonGUID" ColumnName="PersonGUID" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelAllKeyDropPegByDealerId" FunctionName="ModelContainer.Store.uspSelAllKeyDropPegByDealerId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContainer.uspSelAllKeyDropPegByDealerId_Result">
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="VehicleYrMkMod" ColumnName="VehicleYrMkMod" />
+                <ScalarProperty Name="LicensePlate" ColumnName="LicensePlate" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="GoogleGuid" ColumnName="GoogleGuid" />
+                <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
+                <ScalarProperty Name="PersonGuid" ColumnName="PersonGuid" />
                 <ScalarProperty Name="VehicleGuid" ColumnName="VehicleGuid" />
+                <ScalarProperty Name="VehicleServiceGuid" ColumnName="VehicleServiceGuid" />
+                <ScalarProperty Name="ServiceStatus" ColumnName="ServiceStatus" />
+                <ScalarProperty Name="ServiceStatusColor" ColumnName="ServiceStatusColor" />
+                <ScalarProperty Name="ServiceStatusColorForeGround" ColumnName="ServiceStatusColorForeGround" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="KeyLockerPegId" ColumnName="KeyLockerPegId" />
+                <ScalarProperty Name="NoOfRotationCustomer" ColumnName="NoOfRotationCustomer" />
+                <ScalarProperty Name="NoOfRotationDealer" ColumnName="NoOfRotationDealer" />
+                <ScalarProperty Name="StatusDesc" ColumnName="StatusDesc" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
                 <ScalarProperty Name="VehicleMake" ColumnName="VehicleMake" />
                 <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
                 <ScalarProperty Name="VehicleTrim" ColumnName="VehicleTrim" />
-                <ScalarProperty Name="VIN" ColumnName="VIN" />
                 <ScalarProperty Name="VehicleYear" ColumnName="VehicleYear" />
-                <ScalarProperty Name="VehicleName" ColumnName="VehicleName" />
-                <ScalarProperty Name="Plate" ColumnName="Plate" />
-                <ScalarProperty Name="NextServiceDate" ColumnName="NextServiceDate" />
-                <ScalarProperty Name="NextInspectionDate" ColumnName="NextInspectionDate" />
-                <ScalarProperty Name="NextEmissionDate" ColumnName="NextEmissionDate" />
-                <ScalarProperty Name="NextSvcInfo" ColumnName="NextSvcInfo" />
-                <ScalarProperty Name="DealerId" ColumnName="DealerId" />
-                <ScalarProperty Name="VehicleYrMkMod" ColumnName="VehicleYrMkMod" />
-                <ScalarProperty Name="GoogleGuid" ColumnName="GoogleGuid" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="PersonGuid" ColumnName="PersonGuid" />
-                <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
-                <ScalarProperty Name="DealerPersonGroupId" ColumnName="DealerPersonGroupId" />
-                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
-                <ScalarProperty Name="IsValid" ColumnName="IsValid" />
-                <ScalarProperty Name="IsVehicleInShop" ColumnName="IsVehicleInShop" />
-                <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
-                <ScalarProperty Name="VehPhId" ColumnName="VehPhId" />
+                <ScalarProperty Name="ServiceStatusDesc" ColumnName="ServiceStatusDesc" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -6917,46 +6941,62 @@
                 <ScalarProperty Name="VehBodyType" ColumnName="VehBodyType" />
                 <ScalarProperty Name="InspectionExpMnth" ColumnName="InspectionExpMnth" />
                 <ScalarProperty Name="InspectionExpYr" ColumnName="InspectionExpYr" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="uspCreateSeviceAndKeyLockerBucket_TowTruck" FunctionName="ModelContainer.Store.uspCreateSeviceAndKeyLockerBucket_TowTruck">
+          <FunctionImportMapping FunctionImportName="uspVerifyOTP" FunctionName="ModelContainer.Store.uspVerifyOTP">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="ModelContainer.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result">
-                <ScalarProperty Name="PersonGUID" ColumnName="PersonGUID" />
-                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="uspSelAllKeyDropPegByDealerId" FunctionName="ModelContainer.Store.uspSelAllKeyDropPegByDealerId">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ModelContainer.uspSelAllKeyDropPegByDealerId_Result">
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="VehicleYrMkMod" ColumnName="VehicleYrMkMod" />
-                <ScalarProperty Name="LicensePlate" ColumnName="LicensePlate" />
-                <ScalarProperty Name="VIN" ColumnName="VIN" />
-                <ScalarProperty Name="GoogleGuid" ColumnName="GoogleGuid" />
-                <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
-                <ScalarProperty Name="PersonGuid" ColumnName="PersonGuid" />
+              <ComplexTypeMapping TypeName="ModelContainer.uspVerifyOTP_Result">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="RelatedId" ColumnName="RelatedId" />
                 <ScalarProperty Name="VehicleGuid" ColumnName="VehicleGuid" />
-                <ScalarProperty Name="VehicleServiceGuid" ColumnName="VehicleServiceGuid" />
-                <ScalarProperty Name="ServiceStatus" ColumnName="ServiceStatus" />
-                <ScalarProperty Name="ServiceStatusColor" ColumnName="ServiceStatusColor" />
-                <ScalarProperty Name="ServiceStatusColorForeGround" ColumnName="ServiceStatusColorForeGround" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-                <ScalarProperty Name="KeyLockerPegId" ColumnName="KeyLockerPegId" />
-                <ScalarProperty Name="NoOfRotationCustomer" ColumnName="NoOfRotationCustomer" />
-                <ScalarProperty Name="NoOfRotationDealer" ColumnName="NoOfRotationDealer" />
-                <ScalarProperty Name="StatusDesc" ColumnName="StatusDesc" />
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
                 <ScalarProperty Name="VehicleMake" ColumnName="VehicleMake" />
                 <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
                 <ScalarProperty Name="VehicleTrim" ColumnName="VehicleTrim" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
                 <ScalarProperty Name="VehicleYear" ColumnName="VehicleYear" />
-                <ScalarProperty Name="ServiceStatusDesc" ColumnName="ServiceStatusDesc" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="VehicleName" ColumnName="VehicleName" />
+                <ScalarProperty Name="Plate" ColumnName="Plate" />
+                <ScalarProperty Name="NextServiceDate" ColumnName="NextServiceDate" />
+                <ScalarProperty Name="NextInspectionDate" ColumnName="NextInspectionDate" />
+                <ScalarProperty Name="NextEmissionDate" ColumnName="NextEmissionDate" />
+                <ScalarProperty Name="NextSvcInfo" ColumnName="NextSvcInfo" />
+                <ScalarProperty Name="DealerId" ColumnName="DealerId" />
+                <ScalarProperty Name="VehicleYrMkMod" ColumnName="VehicleYrMkMod" />
+                <ScalarProperty Name="GoogleGuid" ColumnName="GoogleGuid" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PersonGuid" ColumnName="PersonGuid" />
+                <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
+                <ScalarProperty Name="DealerPersonGroupId" ColumnName="DealerPersonGroupId" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+                <ScalarProperty Name="IsVehicleInShop" ColumnName="IsVehicleInShop" />
+                <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+                <ScalarProperty Name="VehPhId" ColumnName="VehPhId" />
+                <ScalarProperty Name="InsuranceId" ColumnName="InsuranceId" />
+                <ScalarProperty Name="InsuranceCompanyName" ColumnName="InsuranceCompanyName" />
+                <ScalarProperty Name="NAIC" ColumnName="NAIC" />
+                <ScalarProperty Name="InsuranceState" ColumnName="InsuranceState" />
+                <ScalarProperty Name="InsuranceExpDate" ColumnName="InsuranceExpDate" />
+                <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+                <ScalarProperty Name="VehBodyType" ColumnName="VehBodyType" />
+                <ScalarProperty Name="InspectionExpMnth" ColumnName="InspectionExpMnth" />
+                <ScalarProperty Name="InspectionExpYr" ColumnName="InspectionExpYr" />
+                <ScalarProperty Name="GoogleGuid1" ColumnName="GoogleGuid1" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -28,7 +28,7 @@ namespace MyShopOutDoor {
     private string DoorLatchReading { get; set; }
 
 
-    SerialPort _serialPort = ConfigClass.DealerSerialPort;
+    SerialPort _serialPort = ConfigClass.CustomerSerialPort;
     int _dealerId = ConfigClass.DealerId;
     public CustomerKeyDropWindow() {
       InitializeComponent();

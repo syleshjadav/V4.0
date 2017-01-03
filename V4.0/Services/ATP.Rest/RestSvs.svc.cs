@@ -191,32 +191,30 @@ namespace ATP.Rest {
 
         }
 
-        public List<ATPCustomerDetailsByGuid> FindCustomerByPhPlateEmail(string dealerId, string Plate, string Phone, string Email) {
+        public List<ATPCustomerDetailsByGuid> FindCustByPhPlateEmail(ATPFindExistingCutomer x) {
+
             try {
-                var dId = Convert.ToInt32(dealerId);
+                //  var dId = Convert.ToInt32(dealerId);
 
 
-                return new ATP.Services.Data.Person().FindCustomerByPhPlateEmail(dId, Plate, Phone, Email)
+                return new ATP.Services.Data.Person().FindCustomerByPhPlateEmail(x.Plate, x.Phone, x.EmailAddress, x.DeviceId)
                      .Select(m =>
                      new ATPCustomerDetailsByGuid {
 
                          DealerFamilyId = "5",
                          DealerId = m.DealerId.ToString(),
                          DealerName = m.DealerName,
-                         // DealerPersonGroupId = m.DealerPersonGroupId,
+
                          EmailAddress = m.EmailAddress,
                          FirstName = m.FirstName,
                          GoogleGuid = m.GoogleGuid,
-                         //  GroupName = m.GroupName,
-                         //  IsValid = m.IsValid.ToString(),
                          LastName = m.LastName,
                          MiddleName = m.MiddleName,
-                         //  NextInspectionDate = m.NextInspectionDate,
-                         //  NextServiceDate = m.NextServiceDate,
+                         NextInspectionDate = m.NextInspectionDate,
+                         NextServiceDate = m.NextServiceDate,
                          PersonGuid = m.PersonGuid.ToString(),
                          PhoneNumber = m.PhoneNumber,
                          Plate = m.Plate,
-                         //  NextSvcInfo = m.NextSvcInfo,
                          VehicleGuid = m.VehicleGuid.ToString(),
                          VehicleMake = m.VehicleMake,
                          VehicleModel = m.VehicleModel,
@@ -226,7 +224,72 @@ namespace ATP.Rest {
                          VehicleYrMkMod = m.VehicleYrMkMod,
                          VIN = m.VIN,
                          VehicleId = m.VehicleId.ToString(),
-                         VehPhId = m.VehPhId
+                         VehPhId = m.VehPhId,
+                         Address1 = m.Address1,
+                         Address2 = m.Address2,
+                         City = m.City,
+                         Zip = m.ZipCode,
+                         State = m.State,
+                         NextSvcInfo = m.NextSvcInfo,
+                         DeviceTypeId = m.DeviceTypeId != null ? m.DeviceTypeId.ToString() : "0"
+
+                     }).ToList();
+
+            }
+            catch (Exception ex) {
+
+                TraceLog("FindCustByPhPlateEmail", string.Format("{0} -  Error while FindCustByPhPlateEmail  - {1}", x.EmailAddress, ex.Message));
+
+            }
+
+            return new List<ATPCustomerDetailsByGuid>();
+
+        }
+
+
+        public List<ATPCustomerDetailsByGuid> FindCustomerByPhPlateEmail(string Plate, string Phone, string Email, string GoogleGuid) {
+
+            try {
+                //  var dId = Convert.ToInt32(dealerId);
+
+
+                return new ATP.Services.Data.Person().FindCustomerByPhPlateEmail(Plate, Phone, Email, GoogleGuid)
+                     .Select(m =>
+                     new ATPCustomerDetailsByGuid {
+
+                         DealerFamilyId = "5",
+                         DealerId = m.DealerId.ToString(),
+                         DealerName = m.DealerName,
+
+                         EmailAddress = m.EmailAddress,
+                         FirstName = m.FirstName,
+                         GoogleGuid = m.GoogleGuid,
+                         LastName = m.LastName,
+                         MiddleName = m.MiddleName,
+                         NextInspectionDate = m.NextInspectionDate,
+                         NextServiceDate = m.NextServiceDate,
+                         PersonGuid = m.PersonGuid.ToString(),
+                         PhoneNumber = m.PhoneNumber,
+                         Plate = m.Plate,
+                         VehicleGuid = m.VehicleGuid.ToString(),
+                         VehicleMake = m.VehicleMake,
+                         VehicleModel = m.VehicleModel,
+                         VehicleName = m.VehicleName,
+                         VehicleTrim = m.VehicleTrim,
+                         VehicleYear = m.VehicleYear != null ? m.VehicleYear.ToString() : "",
+                         VehicleYrMkMod = m.VehicleYrMkMod,
+                         VIN = m.VIN,
+                         VehicleId = m.VehicleId.ToString(),
+                         VehPhId = m.VehPhId,
+                         Address1 = m.Address1,
+                         Address2 = m.Address2,
+                         City = m.City,
+                         Zip = m.ZipCode,
+                         State = m.State,
+                         NextSvcInfo = m.NextSvcInfo,
+                         DeviceTypeId = m.DeviceTypeId != null ? m.DeviceTypeId.ToString() : "0"
+
+
                      }).ToList();
 
             }
@@ -286,44 +349,48 @@ namespace ATP.Rest {
 
             List<ATPCustomerDetailsByGuid> rtr = new List<ATPCustomerDetailsByGuid>();
 
-           // return rtr;
+            // return rtr;
 
             try {
 
                 var mx = new ATP.Services.Data.Person().VerifyOTP(new Guid(pGuid), OTP).ToList();
 
                 if (mx != null && mx.Count() > 0) {
-                   rtr= mx.Select(m =>
-                    new ATPCustomerDetailsByGuid {
+                    rtr = mx.Select(m =>
+                      new ATPCustomerDetailsByGuid {
 
-                        DealerFamilyId = "5",
-                        DealerId = m.DealerId.ToString(),
-                        // DeviceTypeId = m.DeviceTypeId.ToString(),
-                        // DealerPersonGroupId = m.DealerPersonGroupId,
-                        EmailAddress = m.EmailAddress,
-                        FirstName = m.FirstName,
-                        GoogleGuid = m.GoogleGuid,
-                        //  GroupName = m.GroupName,
-                        //  IsValid = m.IsValid.ToString(),
-                        LastName = m.LastName,
-                        MiddleName = m.MiddleName,
-                        NextInspectionDate = m.NextInspectionDate,
-                        NextServiceDate = m.NextServiceDate,
-                        PersonGuid = m.PersonGuid.ToString(),
-                        PhoneNumber = m.PhoneNumber,
-                        Plate = m.Plate,
-                        NextSvcInfo = m.NextSvcInfo,
-                        VehicleGuid = m.VehicleGuid.ToString(),
-                        VehicleMake = m.VehicleMake,
-                        VehicleModel = m.VehicleModel,
-                        VehicleName = m.VehicleName,
-                        VehicleTrim = m.VehicleTrim,
-                        VehicleYear = m.VehicleYear != null ? m.VehicleYear.ToString() : "",
-                        VehicleYrMkMod = m.VehicleYrMkMod,
-                        VIN = m.VIN,
-                        //VehicleId = m.VehicleId.ToString(),
-                        VehPhId = m.VehPhId
-                    }).ToList();
+                          DealerFamilyId = "5",
+                          DealerId = m.DealerId.ToString(),
+                          DealerName = "",
+
+                          EmailAddress = m.EmailAddress,
+                          FirstName = m.FirstName,
+                          GoogleGuid = m.GoogleGuid,
+                          LastName = m.LastName,
+                          MiddleName = m.MiddleName,
+                          NextInspectionDate = m.NextInspectionDate,
+                          NextServiceDate = m.NextServiceDate,
+                          PersonGuid = m.PersonGuid.ToString(),
+                          PhoneNumber = m.PhoneNumber,
+                          Plate = m.Plate,
+                          VehicleGuid = m.VehicleGuid.ToString(),
+                          VehicleMake = m.VehicleMake,
+                          VehicleModel = m.VehicleModel,
+                          VehicleName = m.VehicleName,
+                          VehicleTrim = m.VehicleTrim,
+                          VehicleYear = m.VehicleYear != null ? m.VehicleYear.ToString() : "",
+                          VehicleYrMkMod = m.VehicleYrMkMod,
+                          VIN = m.VIN,
+                          VehicleId = m.VehicleId.ToString(),
+                          VehPhId = m.VehPhId,
+                          Address1 = m.Address1,
+                          Address2 = m.Address2,
+                          City = m.City,
+                          Zip = m.ZipCode,
+                          State = m.State,
+                          NextSvcInfo = m.NextSvcInfo,
+                          DeviceTypeId = m.DeviceTypeId != null ? m.DeviceTypeId.ToString() : "0"
+                      }).ToList();
                 }
 
                 if (mx != null && mx.Count > 0) {
@@ -788,43 +855,64 @@ namespace ATP.Rest {
 
         public ATPServiceDataMaster VerifyService(ATPServiceDataMaster ServiceDataMasterlist) {
             string dealerId; //string VIN;
+            var svcMaster = new ATPServiceDataMaster();
+            try {
+                TraceLog("  VerifyService", string.Format("DealerId:{0}- Last:{1}- Vin:{2}- VIN:{3}  -  Called", ServiceDataMasterlist.DealerId, ServiceDataMasterlist.FirstName, ServiceDataMasterlist.LastName, ServiceDataMasterlist.VIN));
 
-            dealerId = ServiceDataMasterlist.DealerId;
-            var svcMaster = new ATPServiceDataMaster {
-                DealerId = ServiceDataMasterlist.DealerId,
-                FirstName = ServiceDataMasterlist.FirstName,
-                LastName = ServiceDataMasterlist.LastName,
-                VIN = ServiceDataMasterlist.VIN,
-                ATPServiceDataList = new List<ATPServiceData>()
-            };
 
-            var selectedServices = ServiceDataMasterlist.ATPServiceDataList.Where(x => x.IsPackage == "0").ToList();
-            var selectedPackages = ServiceDataMasterlist.ATPServiceDataList.Where(x => x.IsPackage == "1");
+                dealerId = ServiceDataMasterlist.DealerId;
+                svcMaster = new ATPServiceDataMaster {
+                    DealerId = ServiceDataMasterlist.DealerId,
+                    FirstName = ServiceDataMasterlist.FirstName,
+                    LastName = ServiceDataMasterlist.LastName,
+                    VIN = ServiceDataMasterlist.VIN,
+                    ATPServiceDataList = new List<ATPServiceData>()
+                };
 
-            string packageList = "";
-            foreach (var pkg in selectedPackages) {
-                packageList += pkg.Id + ",";
+                if (ServiceDataMasterlist.ATPServiceDataList == null || ServiceDataMasterlist.ATPServiceDataList.Count == 0) {
+                    TraceLog(" Error VerifyService", "ServiceDataMasterlist.ATPServiceDataList is empty or null");
+
+                }
+                else {
+                    var selectedServices = ServiceDataMasterlist.ATPServiceDataList.Where(x => x.IsPackage == "0").ToList();
+                    var selectedPackages = ServiceDataMasterlist.ATPServiceDataList.Where(x => x.IsPackage == "1");
+
+                    string packageList = "";
+                    foreach (var pkg in selectedPackages) {
+                        packageList += pkg.Id + ",";
+                    }
+
+                    var serviceToEliminate = new ATP.Services.Data.VehicleService().GetSeviceTypesByPackageIds(dealerId, packageList);
+
+                    if (serviceToEliminate != null && serviceToEliminate.Any()) {
+                        var xx = selectedServices.RemoveAll(x => serviceToEliminate.Exists(m => m.ServiceTypeId.ToString() == x.Id.ToString()));
+                    }
+
+
+                    var newlist = selectedServices.Union(selectedPackages);
+
+                    if (newlist.Any()) {
+                        //return newlist.ToList();
+                        svcMaster.ATPServiceDataList = newlist.ToList();
+                    }
+                    else {
+                        svcMaster.ATPServiceDataList = new List<ATPServiceData> { new ATPServiceData { Id = "1", Value = "Error" } };
+
+                    }
+                }
+                return svcMaster;
+
+
             }
+            catch (Exception ex) {
 
-            var serviceToEliminate = new ATP.Services.Data.VehicleService().GetSeviceTypesByPackageIds(dealerId, packageList);
+                TraceLog(" Error VerifyService", string.Format("DealerId:{0}- fn:{1}- lm:{2}- Vin:{3}-  err {4} ", ServiceDataMasterlist.DealerId, ServiceDataMasterlist.FirstName, ServiceDataMasterlist.LastName, ServiceDataMasterlist.VIN, ex.Message));
 
-            if (serviceToEliminate != null && serviceToEliminate.Any()) {
-                var xx = selectedServices.RemoveAll(x => serviceToEliminate.Exists(m => m.ServiceTypeId.ToString() == x.Id.ToString()));
-            }
-
-
-            var newlist = selectedServices.Union(selectedPackages);
-
-            if (newlist.Any()) {
-                //return newlist.ToList();
-                svcMaster.ATPServiceDataList = newlist.ToList();
-            }
-            else {
                 svcMaster.ATPServiceDataList = new List<ATPServiceData> { new ATPServiceData { Id = "1", Value = "Error" } };
+                return svcMaster;
+
 
             }
-
-            return svcMaster;
 
         }
 
@@ -848,7 +936,7 @@ namespace ATP.Rest {
 
 
             TraceLog("DropKeys", string.Format("DealerId:{0} , PersonGuid : {1} VehicleGuid:{2} ", m.DealerId, m.PersonGuid, m.VehicleGuid));
-            
+
 
             return new ATP.Services.Data.VehicleService().SetServiceAndGeneratePin(m);
         }

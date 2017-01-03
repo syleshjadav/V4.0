@@ -28,8 +28,7 @@ namespace MyShopOutDoor.MyShopUserControl {
         }
 
         private void OpenDoorAndDropKeys_Loaded(object sender, RoutedEventArgs e) {
-            Application.Current.Dispatcher.Invoke(() =>
-            {
+            Application.Current.Dispatcher.Invoke(() => {
                 if (Mouse.OverrideCursor != Cursors.Arrow)
                     Mouse.OverrideCursor = Cursors.Arrow;
             });
@@ -43,10 +42,9 @@ namespace MyShopOutDoor.MyShopUserControl {
         public bool IsKeyDroppedClcked { get; set; }
         public OutDoorProxy.uspVerifyPinGetCustInfo_Result CustomerInfo { get; set; }
         private void cmdOpenDoor_Click(object sender, RoutedEventArgs e) {
-
-            // _serialPort.Write("FH47500 \n"); // jadav
-            //ConfigClass.SendCommandToBoard("DL5000", "C");
-            Thread t = new Thread(OpenDoorLatchAndBringToHomePosition);
+           
+            ConfigClass.SendCommandToBoard("DL005000");
+          
 
             MessageBox("The Door is now open, Place the key and click DROP KEY button", "Information");
 
@@ -61,7 +59,7 @@ namespace MyShopOutDoor.MyShopUserControl {
         }
 
         private void OpenDoorLatchAndBringToHomePosition() {
-            ConfigClass.SendCommandToBoard("DL5000");
+          
 
 
             ConfigClass.SendCommandToBoard("FH" + FindHomeAndMoveStepsReading);
@@ -69,14 +67,18 @@ namespace MyShopOutDoor.MyShopUserControl {
         }
         private void FindHomeAndRotateKeyFloor() {
             // ConfigClass.SendCommandToBoard("FH" + FindHomeAndMoveStepsReading, "C");
+
+            MessageBox(FindHomeAndMoveStepsReading, "dfd");
             ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading); // key floor
         }
 
         private void cmdDropKeys_Click(object sender, RoutedEventArgs e) {
 
-            Thread t = new Thread(FindHomeAndRotateKeyFloor);
+            // Thread t = new Thread(FindHomeAndRotateKeyFloor);
 
-
+            MessageBox(RotateKeyFloorReading, "dfd");
+            ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading); // key floor
+            ConfigClass.SendCommandToBoard(RotateKeyFloorReading);
 
             MessageBox("WE HAVE YOUR INFORMATION.\nTHANKS FOR USING OUR AUTOMATED KEY SYSTEM", "KEY DROP INFORMATION");
             IsKeyDroppedClcked = true;
@@ -85,7 +87,7 @@ namespace MyShopOutDoor.MyShopUserControl {
             var phone = CustomerInfo.PhoneNumber;
             var svcInfo = CustomerInfo.Comments;
             byte? serviceStatusId = 4;
-            byte? assignedKeyLockerBucketId = Convert.ToByte(FindHomeAndMoveStepsReading.Substring(2,2));
+            byte? assignedKeyLockerBucketId = Convert.ToByte(FindHomeAndMoveStepsReading.Substring(2, 2));
 
             try {
                 var res = ATP.Common.ProxyHelper.Service<OutDoorProxy.IOutDoor>.Use(svcs => {
@@ -93,7 +95,7 @@ namespace MyShopOutDoor.MyShopUserControl {
                 });
 
             }
-             catch (Exception ex) {
+            catch (Exception ex) {
                 MessageBox(ex.Message.ToString(), "Error !");
             }
             // _serialPort.Write("BT75000 \n");

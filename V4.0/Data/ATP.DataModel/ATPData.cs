@@ -14,6 +14,22 @@ namespace ATP.DataModel {
     //    //[DataMember]
     //    //public string VehId { get; set; }
     //}
+    [System.Runtime.Serialization.DataContract(Name = "ATPFindExistingCutomer", Namespace = "http://www.AdamKiosks.com/ATPFindExistingCutomer")]
+    [System.Serializable]
+    public partial class ATPFindExistingCutomer {
+        public ATPFindExistingCutomer() { }
+
+        [DataMember]
+        public string DealerId { get; set; }
+        [DataMember]
+        public string Plate { get; set; }
+        [DataMember]
+        public string Phone { get; set; }
+        [DataMember]
+        public string EmailAddress { get; set; }
+        [DataMember]
+        public string DeviceId { get; set; }
+    }
 
     [System.Runtime.Serialization.DataContract(Name = "ATPData", Namespace = "http://www.AdamKiosks.com/ATPData")]
     [System.Serializable]
