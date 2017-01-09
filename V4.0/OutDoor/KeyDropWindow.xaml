@@ -31,7 +31,7 @@
       </GroupBox.Header>
       <Grid>
         <Grid.Background>
-          <ImageBrush Opacity="0.1"
+          <ImageBrush Opacity=".51"
                       TileMode="Tile"
                       ImageSource="Image/DealerLogo/116.png">
             <ImageBrush.Transform>
@@ -49,8 +49,8 @@
           </Border.Effect>
           <Button x:Name="cmdCustomer"
                   FontSize="40"
-                  IsEnabled="False"
-                  Opacity=".1"
+                  IsEnabled="True"
+                  Opacity="1"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Bottom"
                   Width="300"
@@ -58,7 +58,7 @@
                   BorderBrush="#FFFFFF"
                   BorderThickness="3"
                   FontWeight="Bold"
-                  Foreground="#FFF3F3F3"
+                
                   Click="cmdCustomer_Click">
             <Button.Background>
               <LinearGradientBrush EndPoint="0.5,1"

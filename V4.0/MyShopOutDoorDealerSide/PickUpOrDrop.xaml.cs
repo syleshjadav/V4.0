@@ -49,14 +49,9 @@ namespace MyShopOutDoor.DealerSide {
 
             }
         }
-
-
-
+        
         public uspSelAllKeyDropPegByDealerId_Result SelectedPerson { get; set; }
-
-
-
-
+        
         private void cmdBack_Click(object sender, RoutedEventArgs e) {
             this.Close();
             this.Close();
@@ -70,7 +65,7 @@ namespace MyShopOutDoor.DealerSide {
 
             ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading);
 
-            //ConfigClass.SendCommandToBoard("BT75000 \n");
+           ConfigClass.SendCommandToBoard("BD0075000");
             // sylesh
             UpdateVehicleServiceStatus(3);//Currently being serviced
 

@@ -42,9 +42,9 @@ namespace MyShopOutDoor.MyShopUserControl {
         public bool IsKeyDroppedClcked { get; set; }
         public OutDoorProxy.uspVerifyPinGetCustInfo_Result CustomerInfo { get; set; }
         private void cmdOpenDoor_Click(object sender, RoutedEventArgs e) {
-           
+
             ConfigClass.SendCommandToBoard("DL005000");
-          
+
 
             MessageBox("The Door is now open, Place the key and click DROP KEY button", "Information");
 
@@ -59,28 +59,29 @@ namespace MyShopOutDoor.MyShopUserControl {
         }
 
         private void OpenDoorLatchAndBringToHomePosition() {
-          
 
 
-            ConfigClass.SendCommandToBoard("FH" + FindHomeAndMoveStepsReading);
+
+            ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading);
             //Thread.Sleep(TimeSpan.FromHours(1));
         }
         private void FindHomeAndRotateKeyFloor() {
             // ConfigClass.SendCommandToBoard("FH" + FindHomeAndMoveStepsReading, "C");
 
-            MessageBox(FindHomeAndMoveStepsReading, "dfd");
+            //  MessageBox(FindHomeAndMoveStepsReading, "dfd");
             ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading); // key floor
+
         }
 
         private void cmdDropKeys_Click(object sender, RoutedEventArgs e) {
 
             // Thread t = new Thread(FindHomeAndRotateKeyFloor);
 
-            MessageBox(RotateKeyFloorReading, "dfd");
+            // MessageBox(RotateKeyFloorReading, "dfd");
             ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading); // key floor
             ConfigClass.SendCommandToBoard(RotateKeyFloorReading);
 
-            MessageBox("WE HAVE YOUR INFORMATION.\nTHANKS FOR USING OUR AUTOMATED KEY SYSTEM", "KEY DROP INFORMATION");
+
             IsKeyDroppedClcked = true;
 
             var firstName = CustomerInfo.FirstName;
@@ -99,10 +100,11 @@ namespace MyShopOutDoor.MyShopUserControl {
                 MessageBox(ex.Message.ToString(), "Error !");
             }
             // _serialPort.Write("BT75000 \n");
+            MessageBox("WE HAVE YOUR INFORMATION.\nTHANKS FOR USING OUR AUTOMATED KEY SYSTEM", "KEY DROP INFORMATION");
 
             var msg = "WE HAVE YOUR INFORMATION NOW. THANKS FOR USING OUR AUTOMATED KEY SYSTEM. ";
             var msgType = "Chat";
-            if (CustomerInfo.PersonGuid != null) {
+            if (CustomerInfo.PersonGuid != null || !string.IsNullOrEmpty(CustomerInfo.GoogleGuid)) {
                 var finalResult = SendMsgToDevice(CustomerInfo, "Key Drop Info ..", msgType, "MsgToCust", msg);
 
                 try {

@@ -29,6 +29,23 @@ namespace ATP.DataModel {
         public string EmailAddress { get; set; }
         [DataMember]
         public string DeviceId { get; set; }
+        
+    }
+
+    [System.Runtime.Serialization.DataContract(Name = "ATPVerifyCutomerOTP", Namespace = "http://www.AdamKiosks.com/ATPVerifyCutomerOTP")]
+    [System.Serializable]
+    public partial class ATPVerifyCutomerOTP {
+        public ATPVerifyCutomerOTP() { }
+
+        [DataMember]
+        public string PersonGuid { get; set; }
+      
+       
+        public string DeviceTypeId { get; set; }
+        [DataMember]
+        public string DeviceId { get; set; }
+        [DataMember]
+        public string OTP { get; set; }
     }
 
     [System.Runtime.Serialization.DataContract(Name = "ATPData", Namespace = "http://www.AdamKiosks.com/ATPData")]

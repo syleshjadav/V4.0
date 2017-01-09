@@ -29,7 +29,6 @@ namespace ATP.DataModel
         public string NextSvcInfo { get; set; }
         public int DealerId { get; set; }
         public string VehicleYrMkMod { get; set; }
-        public string GoogleGuid { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
@@ -52,7 +51,7 @@ namespace ATP.DataModel
         public string VehBodyType { get; set; }
         public string InspectionExpMnth { get; set; }
         public string InspectionExpYr { get; set; }
-        public string GoogleGuid1 { get; set; }
+        public string GoogleGuid { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string City { get; set; }

@@ -887,6 +887,7 @@
           <Parameter Name="LaborCost" Type="decimal" Mode="In" />
           <Parameter Name="TotalCost" Type="decimal" Mode="In" />
           <Parameter Name="IsSendToCust" Type="bit" Mode="In" />
+          <Parameter Name="PartDesc" Type="varchar(max)" Mode="In" />
         </Function>
         <Function Name="uspUpdateMPIRedYellow" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DealerId" Type="int" Mode="In" />
@@ -1021,6 +1022,13 @@
           <Parameter Name="OperatorLicExpDate" Type="varchar" Mode="In" />
           <Parameter Name="MechanicLicExpDate" Type="varchar" Mode="In" />
           <Parameter Name="LicClass" Type="varchar" Mode="In" />
+          <Parameter Name="LicNum" Type="varchar" Mode="In" />
+          <Parameter Name="EmissionLicNum" Type="varchar" Mode="In" />
+          <Parameter Name="EmissionLicClass" Type="varchar" Mode="In" />
+          <Parameter Name="DLNum" Type="varchar" Mode="In" />
+          <Parameter Name="DLState" Type="varchar" Mode="In" />
+          <Parameter Name="DLClass" Type="varchar" Mode="In" />
+          <Parameter Name="DLExpDate" Type="varchar" Mode="In" />
         </Function>
         <Function Name="uspUpsertDealerKiosk" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KioskId" Type="int" Mode="In" />
@@ -1946,6 +1954,13 @@
             <Parameter Name="OperatorLicExpDate" Mode="In" Type="String" />
             <Parameter Name="MechanicLicExpDate" Mode="In" Type="String" />
             <Parameter Name="LicClass" Mode="In" Type="String" />
+            <Parameter Name="LicNum" Mode="In" Type="String" />
+            <Parameter Name="EmissionLicNum" Mode="In" Type="String" />
+            <Parameter Name="EmissionLicClass" Mode="In" Type="String" />
+            <Parameter Name="DLNum" Mode="In" Type="String" />
+            <Parameter Name="DLState" Mode="In" Type="String" />
+            <Parameter Name="DLClass" Mode="In" Type="String" />
+            <Parameter Name="DLExpDate" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="uspUpdateCustomerLite" ReturnType="Collection(Guid)">
             <Parameter Name="DealerId" Mode="In" Type="Int32" />
@@ -2163,6 +2178,7 @@
             <Parameter Name="LaborCost" Mode="In" Type="Decimal" />
             <Parameter Name="TotalCost" Mode="In" Type="Decimal" />
             <Parameter Name="IsSendToCust" Mode="In" Type="Boolean" />
+            <Parameter Name="PartDesc" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="uspSelVehicleServiceMPIStatus" ReturnType="Collection(ModelContainer.uspSelVehicleServiceMPIStatus_Result)">
             <Parameter Name="DealerId" Mode="In" Type="Int32" />
@@ -4418,6 +4434,7 @@
           <Property Type="String" Name="PinStatus" Nullable="true" MaxLength="1" />
           <Property Type="String" Name="GoogleGuid" Nullable="true" MaxLength="2000" />
           <Property Type="Byte" Name="DeviceTypeId" Nullable="true" />
+          <Property Type="String" Name="NoOfRotationCustomer" Nullable="true" MaxLength="15" />
         </ComplexType>
         <ComplexType Name="uspGetKeyLockerSteps_Result">
           <Property Type="Byte" Name="StepId" Nullable="false" />
@@ -4534,7 +4551,6 @@
           <Property Type="String" Name="NextSvcInfo" Nullable="true" MaxLength="255" />
           <Property Type="Int32" Name="DealerId" Nullable="false" />
           <Property Type="String" Name="VehicleYrMkMod" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="GoogleGuid" Nullable="true" MaxLength="2000" />
           <Property Type="String" Name="LastName" Nullable="true" MaxLength="255" />
           <Property Type="String" Name="FirstName" Nullable="true" MaxLength="255" />
           <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="255" />
@@ -4557,7 +4573,7 @@
           <Property Type="String" Name="VehBodyType" Nullable="true" MaxLength="4" />
           <Property Type="String" Name="InspectionExpMnth" Nullable="true" MaxLength="2" />
           <Property Type="String" Name="InspectionExpYr" Nullable="true" MaxLength="4" />
-          <Property Type="String" Name="GoogleGuid1" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="GoogleGuid" Nullable="true" MaxLength="2000" />
           <Property Type="String" Name="Address1" Nullable="false" MaxLength="128" />
           <Property Type="String" Name="Address2" Nullable="true" MaxLength="128" />
           <Property Type="String" Name="City" Nullable="true" MaxLength="80" />
@@ -6825,6 +6841,7 @@
                 <ScalarProperty Name="PinStatus" ColumnName="PinStatus" />
                 <ScalarProperty Name="GoogleGuid" ColumnName="GoogleGuid" />
                 <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
+                <ScalarProperty Name="NoOfRotationCustomer" ColumnName="NoOfRotationCustomer" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -6968,7 +6985,6 @@
                 <ScalarProperty Name="NextSvcInfo" ColumnName="NextSvcInfo" />
                 <ScalarProperty Name="DealerId" ColumnName="DealerId" />
                 <ScalarProperty Name="VehicleYrMkMod" ColumnName="VehicleYrMkMod" />
-                <ScalarProperty Name="GoogleGuid" ColumnName="GoogleGuid" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
@@ -6991,7 +7007,7 @@
                 <ScalarProperty Name="VehBodyType" ColumnName="VehBodyType" />
                 <ScalarProperty Name="InspectionExpMnth" ColumnName="InspectionExpMnth" />
                 <ScalarProperty Name="InspectionExpYr" ColumnName="InspectionExpYr" />
-                <ScalarProperty Name="GoogleGuid1" ColumnName="GoogleGuid1" />
+                <ScalarProperty Name="GoogleGuid" ColumnName="GoogleGuid" />
                 <ScalarProperty Name="Address1" ColumnName="Address1" />
                 <ScalarProperty Name="Address2" ColumnName="Address2" />
                 <ScalarProperty Name="City" ColumnName="City" />

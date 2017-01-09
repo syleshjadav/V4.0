@@ -53,5 +53,6 @@ namespace ATP.DataModel
         public string PinStatus { get; set; }
         public string GoogleGuid { get; set; }
         public Nullable<byte> DeviceTypeId { get; set; }
+        public string NoOfRotationCustomer { get; set; }
     }
 }

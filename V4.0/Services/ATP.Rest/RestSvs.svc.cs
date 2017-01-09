@@ -345,7 +345,12 @@ namespace ATP.Rest {
 
 
 
-        public List<ATPCustomerDetailsByGuid> VerifyOTP(string pGuid, string OTP, string GoogleGuid, string DeviceTypeId) {
+        public List<ATPCustomerDetailsByGuid> VerifyOTP(ATPVerifyCutomerOTP x) {
+
+            string pGuid =x.PersonGuid;
+            string OTP=x.OTP; string GoogleGuid=x.DeviceId; string DeviceTypeId=x.DeviceTypeId;
+
+
 
             List<ATPCustomerDetailsByGuid> rtr = new List<ATPCustomerDetailsByGuid>();
 
@@ -392,19 +397,23 @@ namespace ATP.Rest {
                           DeviceTypeId = m.DeviceTypeId != null ? m.DeviceTypeId.ToString() : "0"
                       }).ToList();
                 }
-
+                try { 
                 if (mx != null && mx.Count > 0) {
-                    var pguid = new Guid(rtr.SingleOrDefault().PersonGuid);
+                    var pguid = new Guid(pGuid);
                     byte deviceTypeId = 0;
                     var res = byte.TryParse(DeviceTypeId, out deviceTypeId);
                     var m = new ATP.Services.Data.Person().UpdateGoogleGuid(pguid, GoogleGuid, deviceTypeId);
 
                 }
+                }
+                catch (Exception ex) {
 
+                    TraceLog("VerifyOTPUpdate", string.Format("{0} -  Error while VerifyOTPupdt  - {1}", pGuid, ex.StackTrace));
+                }
             }
             catch (Exception ex) {
 
-                TraceLog("VerifyOTP", string.Format("{0} -  Error while VerifyOTP  - {1}", pGuid, ex.Message));
+                TraceLog("VerifyOTP", string.Format("{0} -  Error while VerifyOTP  - {1}", pGuid, ex.StackTrace));
             }
 
             return rtr;
@@ -933,12 +942,24 @@ namespace ATP.Rest {
             int? dealid = Convert.ToInt32(m.DealerId);
             var personGuid = new Guid(m.PersonGuid);
             var vehicleGuid = new Guid(m.VehicleGuid);
+            var rtn = new ATPData();
+
+            try {
+                TraceLog("DropKeys", string.Format("DealerId:{0} , PersonGuid : {1} VehicleGuid:{2} , Dealer:{3} ", m.DealerId, m.PersonGuid, m.VehicleGuid, m.DealerId));
+
+                //rtnValue = entity.uspAssignKeylockerPin(dealid, personGuid, vehicleGuid, bGetPin).SingleOrDefault(); // true - drop , false - pickup
 
 
-            TraceLog("DropKeys", string.Format("DealerId:{0} , PersonGuid : {1} VehicleGuid:{2} ", m.DealerId, m.PersonGuid, m.VehicleGuid));
+               rtn = new ATP.Services.Data.VehicleService().SetServiceAndGeneratePin(m);
 
+            }
+            catch (Exception ex) {
+                TraceLog("DropKeys", string.Format("DealerId:{0} , PersonGuid : {1} VehicleGuid:{2} , Dealer:{3} {4} ", m.DealerId, m.PersonGuid, m.VehicleGuid, m.DealerId,ex.StackTrace));
 
-            return new ATP.Services.Data.VehicleService().SetServiceAndGeneratePin(m);
+            }
+
+            return rtn;
+
         }
 
 
@@ -960,6 +981,7 @@ namespace ATP.Rest {
                 using (var entity = new ATP.DataModel.Entities()) {
                     rtnValue = entity.uspAssignKeylockerPin(dealid, personGuid, vehicleGuid, bGetPin).SingleOrDefault(); // true - drop , false - pickup
                 }
+                
 
                 var msg = "Your Pin for Key Locker " + pickordrop + rtnValue.KeyLockerPin;
 

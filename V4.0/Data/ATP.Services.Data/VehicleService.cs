@@ -50,7 +50,7 @@ namespace ATP.Services.Data {
 
         public int? UpdateMPICost(Guid? vehicleServiceMPIMasterGuid, int? mPIItemId, decimal? cost, decimal? laborCost, decimal? totalCost, bool? IsSendToCust) {
             using (var entity = new ATP.DataModel.Entities()) {
-                return entity.uspUpdateMPICost(vehicleServiceMPIMasterGuid, mPIItemId, cost, laborCost, totalCost, IsSendToCust);
+                return entity.uspUpdateMPICost(vehicleServiceMPIMasterGuid, mPIItemId, cost, laborCost, totalCost, IsSendToCust,null);
             }
         }
 
@@ -267,7 +267,7 @@ namespace ATP.Services.Data {
             var rtnValue = new uspAssignKeylockerPin_Result();
             try {
                 using (var entity = new ATP.DataModel.Entities()) {
-                    rtnValue = entity.uspAssignKeylockerPin(dealid, personGuid, vehicleGuid, false).SingleOrDefault();
+                    rtnValue = entity.uspAssignKeylockerPin(dealid, personGuid, vehicleGuid, true).SingleOrDefault();
                 }
 
                 if (rtnValue != null && !String.IsNullOrEmpty(rtnValue.KeyLockerPin)) {

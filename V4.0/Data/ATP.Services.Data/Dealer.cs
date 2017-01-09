@@ -207,7 +207,7 @@ namespace ATP.Services.Data {
 
         public int UpsertDealerEmployee(uspSelDealerEmployees_Result m) {
             using (var entity = new ATP.DataModel.Entities()) {
-                return entity.uspUpsertDealerEmployee(m.DealerId, m.EmployeeGuid, m.LoginName, m.EmployeeName, m.EmailAddress, m.PhoneNumber, m.DeptId, m.Password, m.IsValid, m.SiteRole, m.IsEnableDoorBell, m.GoogleGuid, m.DeviceTypeId, null, null, null, null, null);
+                return entity.uspUpsertDealerEmployee(m.DealerId, m.EmployeeGuid, m.LoginName, m.EmployeeName, m.EmailAddress, m.PhoneNumber, m.DeptId, m.Password, m.IsValid, m.SiteRole, m.IsEnableDoorBell, m.GoogleGuid, m.DeviceTypeId,null, null, null, null, null, null,null,null,null,null,null,null);
             }
         }
 

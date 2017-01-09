@@ -31,9 +31,7 @@ namespace ATP.Rest {
 
 
 
-        [OperationContract]
-        [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "VerifyOTP/{pGuid}/{OTP}/{gGuid}/{deviceTypeId}", BodyStyle = WebMessageBodyStyle.Wrapped)]
-        List<ATPCustomerDetailsByGuid> VerifyOTP(string pGuid, string OTP, string gGuid, string deviceTypeId);
+   
 
         [OperationContract]
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "DeleteCustomer/{pGuid}", BodyStyle = WebMessageBodyStyle.Wrapped)]
@@ -127,6 +125,9 @@ namespace ATP.Rest {
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "RegisterCustomerLite")]
         ATPData RegisterCustomerLite(CustomerForRestSvcLite jSonCust);
 
+
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "VerifyOTP")]
+        List<ATPCustomerDetailsByGuid> VerifyOTP(ATPVerifyCutomerOTP x);
 
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "RegisterCustomerMyShopAuto")]
         MyShopRegisterCustomerData RegisterCustomerMyShopAuto(ATPCustomerDetailsByGuid jsonCust);

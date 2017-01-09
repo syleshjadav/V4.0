@@ -2757,7 +2757,7 @@ namespace ATP.DataModel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpsertDealerContacts", dealeridParameter, dealerNameParameter, descriptionParameter, imageOSPathParameter, imageHttpPathParameter, serviceEmailFromIdParameter, serviceEmailFromNameParameter, serviceEmailSubjectParameter, emailAddressParameter, webURLParameter, address1Parameter, address2Parameter, cityParameter, stateParameter, zipCodeParameter, salesPhoneParameter, servicePhoneParameter, generalInquryPhoneParameter, managerNameParameter, managerPhoneParameter, isValidParameter);
         }
     
-        public virtual int uspUpsertDealerEmployee(Nullable<int> dealerid, Nullable<System.Guid> dealerEmpGuid, string loginName, string name, string emailAddress, string phoneNumber, Nullable<int> deptId, string password, Nullable<bool> isValid, Nullable<int> siteRole, Nullable<bool> isEnableDoorBell, string googleGuid, Nullable<int> deviceTypeId, string inspectionLicExpDate, string emisisonLicExpDate, string operatorLicExpDate, string mechanicLicExpDate, string licClass)
+        public virtual int uspUpsertDealerEmployee(Nullable<int> dealerid, Nullable<System.Guid> dealerEmpGuid, string loginName, string name, string emailAddress, string phoneNumber, Nullable<int> deptId, string password, Nullable<bool> isValid, Nullable<int> siteRole, Nullable<bool> isEnableDoorBell, string googleGuid, Nullable<int> deviceTypeId, string inspectionLicExpDate, string emisisonLicExpDate, string operatorLicExpDate, string mechanicLicExpDate, string licClass, string licNum, string emissionLicNum, string emissionLicClass, string dLNum, string dLState, string dLClass, string dLExpDate)
         {
             var dealeridParameter = dealerid.HasValue ?
                 new ObjectParameter("dealerid", dealerid) :
@@ -2831,7 +2831,35 @@ namespace ATP.DataModel
                 new ObjectParameter("LicClass", licClass) :
                 new ObjectParameter("LicClass", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpsertDealerEmployee", dealeridParameter, dealerEmpGuidParameter, loginNameParameter, nameParameter, emailAddressParameter, phoneNumberParameter, deptIdParameter, passwordParameter, isValidParameter, siteRoleParameter, isEnableDoorBellParameter, googleGuidParameter, deviceTypeIdParameter, inspectionLicExpDateParameter, emisisonLicExpDateParameter, operatorLicExpDateParameter, mechanicLicExpDateParameter, licClassParameter);
+            var licNumParameter = licNum != null ?
+                new ObjectParameter("LicNum", licNum) :
+                new ObjectParameter("LicNum", typeof(string));
+    
+            var emissionLicNumParameter = emissionLicNum != null ?
+                new ObjectParameter("EmissionLicNum", emissionLicNum) :
+                new ObjectParameter("EmissionLicNum", typeof(string));
+    
+            var emissionLicClassParameter = emissionLicClass != null ?
+                new ObjectParameter("EmissionLicClass", emissionLicClass) :
+                new ObjectParameter("EmissionLicClass", typeof(string));
+    
+            var dLNumParameter = dLNum != null ?
+                new ObjectParameter("DLNum", dLNum) :
+                new ObjectParameter("DLNum", typeof(string));
+    
+            var dLStateParameter = dLState != null ?
+                new ObjectParameter("DLState", dLState) :
+                new ObjectParameter("DLState", typeof(string));
+    
+            var dLClassParameter = dLClass != null ?
+                new ObjectParameter("DLClass", dLClass) :
+                new ObjectParameter("DLClass", typeof(string));
+    
+            var dLExpDateParameter = dLExpDate != null ?
+                new ObjectParameter("DLExpDate", dLExpDate) :
+                new ObjectParameter("DLExpDate", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpsertDealerEmployee", dealeridParameter, dealerEmpGuidParameter, loginNameParameter, nameParameter, emailAddressParameter, phoneNumberParameter, deptIdParameter, passwordParameter, isValidParameter, siteRoleParameter, isEnableDoorBellParameter, googleGuidParameter, deviceTypeIdParameter, inspectionLicExpDateParameter, emisisonLicExpDateParameter, operatorLicExpDateParameter, mechanicLicExpDateParameter, licClassParameter, licNumParameter, emissionLicNumParameter, emissionLicClassParameter, dLNumParameter, dLStateParameter, dLClassParameter, dLExpDateParameter);
         }
     
         public virtual ObjectResult<Nullable<System.Guid>> uspUpdateCustomerLite(Nullable<int> dealerId, Nullable<System.Guid> personGUID, string firstName, string middleName, string lastName, string email, string phone, string addressLine1, string addressLine2, string city, string state, string zip, string vehicleYrMkMod)
@@ -3616,7 +3644,7 @@ namespace ATP.DataModel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpsertMPIByPersonGuid", dealerIdParameter, personGuidParameter, vehicleGUIDParameter, vehicleServiceGuidParameter, mPIMasterGuidParameter, techCommentsParameter, techWriterCommentsParameter, enteredByParameter, milesInParameter, milesOutParameter, roNumParameter, fleetNumberParameter, tirePressureParameter, xmlStrParameter);
         }
     
-        public virtual int uspUpdateMPICost(Nullable<System.Guid> vehicleServiceMPIMasterGuid, Nullable<int> mPIItemId, Nullable<decimal> cost, Nullable<decimal> laborCost, Nullable<decimal> totalCost, Nullable<bool> isSendToCust)
+        public virtual int uspUpdateMPICost(Nullable<System.Guid> vehicleServiceMPIMasterGuid, Nullable<int> mPIItemId, Nullable<decimal> cost, Nullable<decimal> laborCost, Nullable<decimal> totalCost, Nullable<bool> isSendToCust, string partDesc)
         {
             var vehicleServiceMPIMasterGuidParameter = vehicleServiceMPIMasterGuid.HasValue ?
                 new ObjectParameter("VehicleServiceMPIMasterGuid", vehicleServiceMPIMasterGuid) :
@@ -3642,7 +3670,11 @@ namespace ATP.DataModel
                 new ObjectParameter("IsSendToCust", isSendToCust) :
                 new ObjectParameter("IsSendToCust", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateMPICost", vehicleServiceMPIMasterGuidParameter, mPIItemIdParameter, costParameter, laborCostParameter, totalCostParameter, isSendToCustParameter);
+            var partDescParameter = partDesc != null ?
+                new ObjectParameter("PartDesc", partDesc) :
+                new ObjectParameter("PartDesc", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateMPICost", vehicleServiceMPIMasterGuidParameter, mPIItemIdParameter, costParameter, laborCostParameter, totalCostParameter, isSendToCustParameter, partDescParameter);
         }
     
         public virtual ObjectResult<uspSelVehicleServiceMPIStatus_Result> uspSelVehicleServiceMPIStatus(Nullable<int> dealerId, Nullable<System.Guid> vehicleServiceGuid, Nullable<System.Guid> vehicleGuid, Nullable<System.Guid> sWGuid, Nullable<System.Guid> techGuid, Nullable<System.Guid> partGuid, Nullable<int> serviceTypeId)
