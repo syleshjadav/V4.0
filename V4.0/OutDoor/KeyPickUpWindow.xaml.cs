@@ -26,7 +26,7 @@ namespace MyShopOutDoor {
         public KeyPickUpWindow() {
             InitializeComponent();
             CtrlValidatePin.cmdVerifyPIN.Click += CmdVerifyPIN_Click;
-            
+
         }
 
 
@@ -62,10 +62,6 @@ namespace MyShopOutDoor {
 
                     if (CustomerInfo.PinStatus == "G") {
 
-
-
-
-
                         //var stepsLst = ATP.Common.ProxyHelper.Service<OutDoorProxy.IOutDoor>.Use(svcs => {
                         //    return svcs.GetKeyLockerSteps(_dealerId, null, true).ToList();
                         //});
@@ -73,57 +69,53 @@ namespace MyShopOutDoor {
 
                         FindHomeAndMoveStepsReading = CustomerInfo.NoOfRotationCustomer;
 
-                       if(String.IsNullOrEmpty(FindHomeAndMoveStepsReading)) {
+                        if (String.IsNullOrEmpty(FindHomeAndMoveStepsReading)) {
 
                             MessageBox("No Key location Information found");
                         }
 
-                        MessageBox(FindHomeAndMoveStepsReading, "Info !");
+                      //  MessageBox(FindHomeAndMoveStepsReading, "Info !");
 
                         ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading);
 
                         ConfigClass.SendCommandToBoard("BC0055000");
 
-                      
-                     
-
-                        var msg = "PICKUP your keys now. Thanks for using our automated Key system. ";
-                        var msgType = "Chat";
-
-                        try {
-                            var finalResult = SendMsgToDevice(CustomerInfo, "Key Pickup Info ..", msgType, "MsgToCust", msg);
+                        UpdateVehicleServiceStatus(11); // Key Released
 
 
-                            if (finalResult.ToUpper() == "SUCCESS" && msgType != "Notification") {
+                        if (!String.IsNullOrEmpty(CustomerInfo.GoogleGuid)) {
+                            var msg = "PICKUP your keys now. Thanks for using our automated Key system. ";
+                            var msgType = "Chat";
 
-                                var x = new uspSelDealerMsg_Result();
-                                x.DealerId = _dealerId;
-                                x.TxtMsg = msg;
-                                x.IsMsgToCust = true;
-                                x.IsCustMsg = false;
-                                x.VehicleGuid = CustomerInfo.VehicleGuid;
-                                x.VehicleServiceGuid = CustomerInfo.VehicleServiceGuid;
-                                x.PersonGuid = CustomerInfo.PersonGuid;
+                            try {
+                                var finalResult = SendMsgToDevice(CustomerInfo, "Key Pickup Info ..", msgType, "MsgToCust", msg);
 
 
-                                var res1 = ATP.Common.ProxyHelper.Service<OutDoorProxy.IOutDoor>.Use(svcs => {
-                                    return svcs.InsDealerMsg(x);
-                                });
+                                if (finalResult.ToUpper() == "SUCCESS" && msgType != "Notification") {
 
+                                    var x = new uspSelDealerMsg_Result();
+                                    x.DealerId = _dealerId;
+                                    x.TxtMsg = msg;
+                                    x.IsMsgToCust = true;
+                                    x.IsCustMsg = false;
+                                    x.VehicleGuid = CustomerInfo.VehicleGuid;
+                                    x.VehicleServiceGuid = CustomerInfo.VehicleServiceGuid;
+                                    x.PersonGuid = CustomerInfo.PersonGuid;
+                                    
+                                    var res1 = ATP.Common.ProxyHelper.Service<OutDoorProxy.IOutDoor>.Use(svcs => {
+                                        return svcs.InsDealerMsg(x);
+                                    });
+
+                                }
+
+                              
                             }
 
-
-
-                            MessageBox(" PICKUP your keys now...\n  Thanks for using our automated key system", "Key PICKUP Information");
-                            NavigationService nav = NavigationService.GetNavigationService(this);
-
-
-                            nav.Navigate(new Uri("MenuWindow.xaml", UriKind.RelativeOrAbsolute));
+                            catch (Exception ex) {
+                                MessageBox(ex.Message.ToString(), "Error !");
+                            }
                         }
-
-                        catch (Exception ex) {
-                            MessageBox(ex.Message.ToString(), "Error !");
-                        }
+                        MessageBox(" PICKUP your keys now...\n  Thanks for using our automated key system", "Key PICKUP Information");
                     }
 
                     else {
@@ -132,7 +124,9 @@ namespace MyShopOutDoor {
                         MessageBox(s, "ERROR");
                     }
 
+                    NavigationService nav = NavigationService.GetNavigationService(this);
 
+                    nav.Navigate(new Uri("MenuWindow.xaml", UriKind.RelativeOrAbsolute));
                 }
                 else {
                     MessageBox("I did not find any PINS, Please request again from your MyShopAuto phone App.");
@@ -144,6 +138,20 @@ namespace MyShopOutDoor {
                 // lstStatus.Items.Add(ex.Message);
                 MessageBox(ex.Source, "ERROR");
             }
+        }
+       
+        private void UpdateVehicleServiceStatus(byte? serviceStatusId) {
+            try {
+
+                var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+                    return svcs.UpdateVehiceServiceStatus(_dealerId, CustomerInfo.VehicleServiceGuid, CustomerInfo.VehicleGuid, CustomerInfo.PersonGuid, serviceStatusId, CustomerInfo.VehicleGuid);
+                });
+
+            }
+            catch (Exception ex) {
+                MessageBox(ex.Message.ToString(), "Error !");
+            }
+           
         }
 
         public string SendMsgToDevice(OutDoorProxy.uspVerifyPinGetCustInfo_Result currPerson, string contentTitle, string msgType, string MsgToCust, string message) {

@@ -92,6 +92,9 @@ namespace MyShopOutDoorDealerSide.ServiceReference1 {
         private string NextSvcInfoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NoOfRotationCustomerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.Guid> PersonGuidField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -447,6 +450,19 @@ namespace MyShopOutDoorDealerSide.ServiceReference1 {
                 if ((object.ReferenceEquals(this.NextSvcInfoField, value) != true)) {
                     this.NextSvcInfoField = value;
                     this.RaisePropertyChanged("NextSvcInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NoOfRotationCustomer {
+            get {
+                return this.NoOfRotationCustomerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NoOfRotationCustomerField, value) != true)) {
+                    this.NoOfRotationCustomerField = value;
+                    this.RaisePropertyChanged("NoOfRotationCustomer");
                 }
             }
         }

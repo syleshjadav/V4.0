@@ -10,21 +10,15 @@ namespace MyShopOutDoor.Common {
 
         public static int DealerId { get; set; }
 
-      //  public static SerialPort DealerSerialPort { get; set; }
+        //  public static SerialPort DealerSerialPort { get; set; }
         public static SerialPort CustomerSerialPort { get; set; }
 
 
         public static void SendCommandToBoard(string scommand) {
 
-           // return;
-
 
             if (!CustomerSerialPort.IsOpen) { CustomerSerialPort.Open(); }
             CustomerSerialPort.Write(scommand + "\n");
-
-
-
-
 
         }
     }
@@ -41,20 +35,7 @@ namespace MyShopOutDoor.Common {
             Parity _parity = Parity.None;
             StopBits _stopBits = StopBits.One;
 
-            //ConfigClass.DealerSerialPort = new SerialPort();
-
-            //// MyShopSerialPort = new SerialPort();
-            //ConfigClass.DealerSerialPort.BaudRate = _baudRate;
-            //ConfigClass.DealerSerialPort.DataBits = _dataBits;
-            //ConfigClass.DealerSerialPort.Handshake = _handshake;
-            //ConfigClass.DealerSerialPort.Parity = _parity;
-            //ConfigClass.DealerSerialPort.PortName = _portName;
-            //ConfigClass.DealerSerialPort.StopBits = _stopBits;
-            //ConfigClass.DealerSerialPort.Encoding = System.Text.Encoding.Default;
-            //ConfigClass.DealerSerialPort.ReadTimeout = 10000;
-
-            //ConfigClass.DealerSerialPort.DtrEnable = true;
-            //ConfigClass.DealerSerialPort.RtsEnable = true;
+           
 
 
             ConfigClass.CustomerSerialPort = new SerialPort();

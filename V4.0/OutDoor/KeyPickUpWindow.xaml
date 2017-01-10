@@ -4,12 +4,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:MyShopOutDoor.MyShopUserControl"
-      ShowsNavigationUI="False"
       mc:Ignorable="d"
       MinHeight="600"
       d:DesignWidth="700"
       MinWidth="800">
-    <Page.Resources>
+  <Page.Resources>
         <Style TargetType="Button"
                x:Key="BtnKeyBoard">
             <Setter Property="Margin"

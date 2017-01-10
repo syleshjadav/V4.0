@@ -92,6 +92,9 @@ namespace MyShopOutDoor.OutDoorProxy {
         private string NextSvcInfoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NoOfRotationCustomerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.Guid> PersonGuidField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -447,6 +450,19 @@ namespace MyShopOutDoor.OutDoorProxy {
                 if ((object.ReferenceEquals(this.NextSvcInfoField, value) != true)) {
                     this.NextSvcInfoField = value;
                     this.RaisePropertyChanged("NextSvcInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NoOfRotationCustomer {
+            get {
+                return this.NoOfRotationCustomerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NoOfRotationCustomerField, value) != true)) {
+                    this.NoOfRotationCustomerField = value;
+                    this.RaisePropertyChanged("NoOfRotationCustomer");
                 }
             }
         }
@@ -1589,6 +1605,9 @@ namespace MyShopOutDoor.OutDoorProxy {
         private string ServiceStatusColorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ServiceStatusColorForeGroundField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ServiceStatusDescField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1809,6 +1828,19 @@ namespace MyShopOutDoor.OutDoorProxy {
                 if ((object.ReferenceEquals(this.ServiceStatusColorField, value) != true)) {
                     this.ServiceStatusColorField = value;
                     this.RaisePropertyChanged("ServiceStatusColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ServiceStatusColorForeGround {
+            get {
+                return this.ServiceStatusColorForeGroundField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ServiceStatusColorForeGroundField, value) != true)) {
+                    this.ServiceStatusColorForeGroundField = value;
+                    this.RaisePropertyChanged("ServiceStatusColorForeGround");
                 }
             }
         }
