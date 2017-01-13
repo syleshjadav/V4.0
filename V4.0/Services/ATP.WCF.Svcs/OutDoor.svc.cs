@@ -43,6 +43,11 @@ namespace ATP.WCF.Svcs {
 
         }
 
+        public List<String> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, string svcInfo, byte? serviceStatusId, byte? assignedKeyLockerBucketId) {
+            return new ATP.Services.Data.OutDoor().UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+
+        }
+
 
         public string PingMe(string s) {
             return s;

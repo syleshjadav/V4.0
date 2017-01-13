@@ -50,5 +50,17 @@ namespace ATP.Services.Data {
             }
         }
 
+
+        public List<String> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, string svcInfo, byte? serviceStatusId,  byte? assignedKeyLockerBucketId) {
+
+            using (var entity = new ATP.DataModel.Entities()) {
+
+                var xx = entity.uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId).ToList();
+
+                return xx;
+            }
+        }
+
+
     }
 }

@@ -2105,6 +2105,14 @@ namespace MyShopOutDoor.OutDoorProxy {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.OutDoorProxy.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer", ReplyAction="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerRes" +
+            "ponse")]
+        System.Collections.Generic.List<string> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer", ReplyAction="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/LogError", ReplyAction="http://tempuri.org/IOutDoor/LogErrorResponse")]
         bool LogError(string msg);
         
@@ -2205,6 +2213,14 @@ namespace MyShopOutDoor.OutDoorProxy {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.OutDoorProxy.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId) {
             return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruckAsync(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+        }
+        
+        public System.Collections.Generic.List<string> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId) {
+            return base.Channel.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId) {
+            return base.Channel.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
         }
         
         public bool LogError(string msg) {

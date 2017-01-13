@@ -33,6 +33,8 @@ namespace ATP.WCF.Svcs {
 
         [OperationContract]
         List<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId, byte? assignedKeyLockerBucketId);
+        [OperationContract]
+        List<String> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, string svcInfo, byte? serviceStatusId, byte? assignedKeyLockerBucketId);
 
 
         [OperationContract]

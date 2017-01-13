@@ -4505,5 +4505,34 @@ namespace ATP.DataModel
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspVerifyOTP_Result>("uspVerifyOTP", personGuidParameter, oTPParameter);
         }
+    
+        public virtual ObjectResult<string> uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(Nullable<int> dealerId, Nullable<System.Guid> vehicleServiceGuid, Nullable<System.Guid> vehicleGuid, string svcInfo, Nullable<byte> serviceStatusId, Nullable<byte> assignedKeyLockerBucketId)
+        {
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            var vehicleServiceGuidParameter = vehicleServiceGuid.HasValue ?
+                new ObjectParameter("VehicleServiceGuid", vehicleServiceGuid) :
+                new ObjectParameter("VehicleServiceGuid", typeof(System.Guid));
+    
+            var vehicleGuidParameter = vehicleGuid.HasValue ?
+                new ObjectParameter("VehicleGuid", vehicleGuid) :
+                new ObjectParameter("VehicleGuid", typeof(System.Guid));
+    
+            var svcInfoParameter = svcInfo != null ?
+                new ObjectParameter("SvcInfo", svcInfo) :
+                new ObjectParameter("SvcInfo", typeof(string));
+    
+            var serviceStatusIdParameter = serviceStatusId.HasValue ?
+                new ObjectParameter("ServiceStatusId", serviceStatusId) :
+                new ObjectParameter("ServiceStatusId", typeof(byte));
+    
+            var assignedKeyLockerBucketIdParameter = assignedKeyLockerBucketId.HasValue ?
+                new ObjectParameter("AssignedKeyLockerBucketId", assignedKeyLockerBucketId) :
+                new ObjectParameter("AssignedKeyLockerBucketId", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer", dealerIdParameter, vehicleServiceGuidParameter, vehicleGuidParameter, svcInfoParameter, serviceStatusIdParameter, assignedKeyLockerBucketIdParameter);
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace MyShopOutDoor.Common {
 
 
         public static void SendCommandToBoard(string scommand) {
-
+          //  return;
 
             if (!CustomerSerialPort.IsOpen) { CustomerSerialPort.Open(); }
             CustomerSerialPort.Write(scommand + "\n");

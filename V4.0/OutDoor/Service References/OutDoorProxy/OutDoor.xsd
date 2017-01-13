@@ -116,6 +116,25 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q12:guid" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleGuid" nillable="true" type="q13:guid" />
+        <xs:element minOccurs="0" name="svcInfo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serviceStatusId" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="assignedKeyLockerBucketId" nillable="true" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerResult" nillable="true" type="q14:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="LogError">
     <xs:complexType>
       <xs:sequence>

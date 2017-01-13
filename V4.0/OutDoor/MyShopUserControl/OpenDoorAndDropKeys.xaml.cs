@@ -90,15 +90,34 @@ namespace MyShopOutDoor.MyShopUserControl {
             byte? serviceStatusId = 4;
             byte? assignedKeyLockerBucketId = Convert.ToByte(FindHomeAndMoveStepsReading.Substring(2, 2));
 
-            try {
-                var res = ATP.Common.ProxyHelper.Service<OutDoorProxy.IOutDoor>.Use(svcs => {
-                    return svcs.CreateSeviceAndKeyLockerBucket_TowTruck(_dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
-                });
 
+            // Phone customer will have service guid // towtruck no guid
+            if (CustomerInfo.VehicleServiceGuid != null) {
+                try {
+
+                    var res = ATP.Common.ProxyHelper.Service<OutDoorProxy.IOutDoor>.Use(svcs => {
+                        return svcs.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(_dealerId, CustomerInfo.VehicleServiceGuid, CustomerInfo.VehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+                    });
+
+                }
+                catch (Exception ex) {
+                    MessageBox(ex.Message.ToString(), "Error !");
+                }
             }
-            catch (Exception ex) {
-                MessageBox(ex.Message.ToString(), "Error !");
+            else {
+
+                try {
+
+                    var res = ATP.Common.ProxyHelper.Service<OutDoorProxy.IOutDoor>.Use(svcs => {
+                        return svcs.CreateSeviceAndKeyLockerBucket_TowTruck(_dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+                    });
+
+                }
+                catch (Exception ex) {
+                    MessageBox(ex.Message.ToString(), "Error !");
+                }
             }
+
             // _serialPort.Write("BT75000 \n");
             MessageBox("WE HAVE YOUR INFORMATION.\nTHANKS FOR USING OUR AUTOMATED KEY SYSTEM", "KEY DROP INFORMATION");
 

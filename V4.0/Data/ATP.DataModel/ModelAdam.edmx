@@ -972,6 +972,14 @@
           <Parameter Name="StatusId" Type="tinyint" Mode="In" />
           <Parameter Name="IsOpen" Type="bit" Mode="In" />
         </Function>
+        <Function Name="uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DealerId" Type="int" Mode="In" />
+          <Parameter Name="VehicleServiceGuid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="VehicleGuid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="SvcInfo" Type="nvarchar" Mode="In" />
+          <Parameter Name="ServiceStatusId" Type="tinyint" Mode="In" />
+          <Parameter Name="AssignedKeyLockerBucketId" Type="tinyint" Mode="In" />
+        </Function>
         <Function Name="uspUpdVehSvcStatusByVehSvcId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DealerId" Type="int" Mode="In" />
           <Parameter Name="VehicleServiceGUID" Type="uniqueidentifier" Mode="In" />
@@ -2408,6 +2416,14 @@
           <FunctionImport Name="uspVerifyOTP" ReturnType="Collection(ModelContainer.uspVerifyOTP_Result)">
             <Parameter Name="PersonGuid" Mode="In" Type="Guid" />
             <Parameter Name="OTP" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer" ReturnType="Collection(String)">
+            <Parameter Name="DealerId" Mode="In" Type="Int32" />
+            <Parameter Name="VehicleServiceGuid" Mode="In" Type="Guid" />
+            <Parameter Name="VehicleGuid" Mode="In" Type="Guid" />
+            <Parameter Name="SvcInfo" Mode="In" Type="String" />
+            <Parameter Name="ServiceStatusId" Mode="In" Type="Byte" />
+            <Parameter Name="AssignedKeyLockerBucketId" Mode="In" Type="Byte" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="uspSelVehAlertByVehGuid_Result">
@@ -7016,6 +7032,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer" FunctionName="ModelContainer.Store.uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

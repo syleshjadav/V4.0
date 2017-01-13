@@ -54,7 +54,7 @@ namespace MyShopOutDoor {
 
             try {
                 res = ATP.Common.ProxyHelper.Service<OutDoorProxy.IOutDoor>.Use(svcs => {
-                    return svcs.VerifyPinGetCustInfo(_dealerId, true, CtrlValidatePin.TxtPin.Text).ToList();
+                    return svcs.VerifyPinGetCustInfo(_dealerId, false, CtrlValidatePin.TxtPin.Text).ToList();
                 });
 
                 if (res != null && res.Count == 1) {
