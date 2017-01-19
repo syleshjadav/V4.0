@@ -178,4 +178,49 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="uspCreateSeviceAndKeyLockerBucket_TowTruck_Result" nillable="true" type="tns:uspCreateSeviceAndKeyLockerBucket_TowTruck_Result" />
+  <xs:complexType name="ArrayOfuspSelVehicleServiceDetails_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="uspSelVehicleServiceDetails_Result" nillable="true" type="tns:uspSelVehicleServiceDetails_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfuspSelVehicleServiceDetails_Result" nillable="true" type="tns:ArrayOfuspSelVehicleServiceDetails_Result" />
+  <xs:complexType name="uspSelVehicleServiceDetails_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceTypeId" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GoogleGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LicensePlate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="RONumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceStatusId" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="VEHSVCS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehPhId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="VehicleId" type="xs:int" />
+      <xs:element minOccurs="0" name="VehicleServiceGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="VehicleYrMkMod" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="uspSelVehicleServiceDetails_Result" nillable="true" type="tns:uspSelVehicleServiceDetails_Result" />
+  <xs:complexType name="ArrayOfuspSelKioskInUSE_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="uspSelKioskInUSE_Result" nillable="true" type="tns:uspSelKioskInUSE_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfuspSelKioskInUSE_Result" nillable="true" type="tns:ArrayOfuspSelKioskInUSE_Result" />
+  <xs:complexType name="uspSelKioskInUSE_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DealerID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsMachineInUse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastUsedBy" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="LastUsedDateTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UsedBy" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="uspSelKioskInUSE_Result" nillable="true" type="tns:uspSelKioskInUSE_Result" />
 </xs:schema>

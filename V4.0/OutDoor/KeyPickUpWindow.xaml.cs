@@ -234,7 +234,8 @@ namespace MyShopOutDoor {
         }
 
         private void cmdBack_Click(object sender, RoutedEventArgs e) {
-
+            var nav = NavigationService.GetNavigationService(this);
+            nav.Navigate(new Uri("MenuWindow.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void cmdNext_Click(object sender, RoutedEventArgs e) {

@@ -28,6 +28,16 @@ namespace ATP.Services.Data {
             }
         }
 
+        public List<uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, Guid? personGuid, string svcFromDt, string svcToDt) {
+
+            using (var entity = new ATP.DataModel.Entities()) {
+
+                var xx = entity.uspSelVehicleServiceDetails(dealerId, vehicleServiceGuid, vehicleGuid, personGuid,svcFromDt,svcFromDt).ToList();
+
+                return xx;
+            }
+        }
+
 
         public List<uspSelAllKeyDropPegByDealerId_Result> SelAllKeyDropPegByDealerId(int? dealerId) {
 
@@ -56,6 +66,29 @@ namespace ATP.Services.Data {
             using (var entity = new ATP.DataModel.Entities()) {
 
                 var xx = entity.uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId).ToList();
+
+                return xx;
+            }
+        }
+
+
+
+        public List<uspSelKioskInUSE_Result> SelKioskInUSE(int? dealerId) {
+
+            using (var entity = new ATP.DataModel.Entities()) {
+
+                var xx = entity.uspSelKioskInUSE(dealerId).ToList();
+
+                return xx;
+            }
+        }
+
+
+        public int UpsertKioskInUSE(int? dealerId, string usedBy, Guid? lastUsedB) {
+
+            using (var entity = new ATP.DataModel.Entities()) {
+
+                var xx = entity.uspUpsertKioskInUSE(dealerId, usedBy,lastUsedB);
 
                 return xx;
             }

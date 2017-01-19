@@ -298,7 +298,7 @@ namespace ATP.Services.Data
             {
                 return entity.uspRegisterCustomerMyShopAuto(
                                   deal, dealFmly, m.FirstName, null, m.LastName, m.EmailAddress, m.PhoneNumber, m.Address1, m.Address2, null,
-                                  m.City, m.State, m.Zip, m.VehicleYrMkMod, m.NextInspectionDate, m.NextServiceDate, m.NextSvcInfo,m.VehPhId).FirstOrDefault();
+                                  m.City, m.State, m.Zip, m.VehicleYear,m.VehicleMake,m.VehicleModel,m.Plate, m.NextInspectionDate, m.NextServiceDate, m.NextSvcInfo,m.VehPhId).FirstOrDefault();
             }
         }
 
@@ -339,7 +339,7 @@ namespace ATP.Services.Data
             {
                 var X = entity.uspUpdateCustomerMyShopAuto(deal, personGuid, vehId, m.FirstName, null, m.LastName, m.EmailAddress, m.PhoneNumber,
                                    m.Address1, m.Address2, m.City, m.State, m.Zip, m.VehicleYrMkMod, m.NextInspectionDate, m.NextServiceDate,
-                                   m.NextSvcInfo,m.VehPhId).FirstOrDefault();
+                                   m.NextSvcInfo,m.VehPhId,m.VehicleYear,m.VehicleMake,m.VehicleModel,m.Plate).FirstOrDefault();
                 return X;
             }
         }

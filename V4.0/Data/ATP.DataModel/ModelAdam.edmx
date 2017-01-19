@@ -356,7 +356,10 @@
           <Parameter Name="City" Type="nvarchar" Mode="In" />
           <Parameter Name="State" Type="nvarchar" Mode="In" />
           <Parameter Name="Zip" Type="nvarchar" Mode="In" />
-          <Parameter Name="VehicleYrMkMod" Type="nvarchar" Mode="In" />
+          <Parameter Name="VehYr" Type="nvarchar" Mode="In" />
+          <Parameter Name="Mk" Type="nvarchar" Mode="In" />
+          <Parameter Name="Mod" Type="nvarchar" Mode="In" />
+          <Parameter Name="Plate" Type="nvarchar" Mode="In" />
           <Parameter Name="NextInspectionDate" Type="nvarchar" Mode="In" />
           <Parameter Name="NextServiceDate" Type="nvarchar" Mode="In" />
           <Parameter Name="NextSvcInfo" Type="nvarchar" Mode="In" />
@@ -558,6 +561,9 @@
         <Function Name="uspSelKioskByMachineId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="machineId" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="uspSelKioskInUSE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DealerId" Type="int" Mode="In" />
+        </Function>
         <Function Name="uspSelLookUpTableByDealerId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tableName" Type="varchar" Mode="In" />
           <Parameter Name="DealerId" Type="int" Mode="In" />
@@ -687,6 +693,14 @@
           <Parameter Name="Year" Type="smallint" Mode="In" />
           <Parameter Name="PageNumber" Type="smallint" Mode="In" />
           <Parameter Name="PageSize" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="uspSelVehicleServiceDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DealerId" Type="int" Mode="In" />
+          <Parameter Name="VehicleServiceGuid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="VehicleGuid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="personGuid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="SvcFromDt" Type="varchar" Mode="In" />
+          <Parameter Name="SvcToDt" Type="varchar" Mode="In" />
         </Function>
         <Function Name="uspSelVehicleServiceImage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DealerId" Type="int" Mode="In" />
@@ -846,6 +860,10 @@
           <Parameter Name="NextServiceDate" Type="nvarchar" Mode="In" />
           <Parameter Name="NextSvcInfo" Type="nvarchar" Mode="In" />
           <Parameter Name="VehPhId" Type="nvarchar" Mode="In" />
+          <Parameter Name="VehYr" Type="nvarchar" Mode="In" />
+          <Parameter Name="Mk" Type="nvarchar" Mode="In" />
+          <Parameter Name="Mod" Type="nvarchar" Mode="In" />
+          <Parameter Name="Plate" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="uspUpdateDealerMsg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="dealerid" Type="int" Mode="In" />
@@ -1071,6 +1089,11 @@
           <Parameter Name="enteredBy" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="personGuid" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="EmailType" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="uspUpsertKioskInUSE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DealerId" Type="int" Mode="In" />
+          <Parameter Name="UsedBy" Type="varchar" Mode="In" />
+          <Parameter Name="LastUsedBy" Type="uniqueidentifier" Mode="In" />
         </Function>
         <Function Name="uspUpsertMPIByPersonGuid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DealerId" Type="int" Mode="In" />
@@ -2073,7 +2096,10 @@
             <Parameter Name="City" Mode="In" Type="String" />
             <Parameter Name="State" Mode="In" Type="String" />
             <Parameter Name="Zip" Mode="In" Type="String" />
-            <Parameter Name="VehicleYrMkMod" Mode="In" Type="String" />
+            <Parameter Name="VehYr" Mode="In" Type="String" />
+            <Parameter Name="Mk" Mode="In" Type="String" />
+            <Parameter Name="Mod" Mode="In" Type="String" />
+            <Parameter Name="Plate" Mode="In" Type="String" />
             <Parameter Name="NextInspectionDate" Mode="In" Type="String" />
             <Parameter Name="NextServiceDate" Mode="In" Type="String" />
             <Parameter Name="NextSvcInfo" Mode="In" Type="String" />
@@ -2098,6 +2124,10 @@
             <Parameter Name="NextServiceDate" Mode="In" Type="String" />
             <Parameter Name="NextSvcInfo" Mode="In" Type="String" />
             <Parameter Name="VehPhId" Mode="In" Type="String" />
+            <Parameter Name="VehYr" Mode="In" Type="String" />
+            <Parameter Name="Mk" Mode="In" Type="String" />
+            <Parameter Name="Mod" Mode="In" Type="String" />
+            <Parameter Name="Plate" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="uspSelMPIRedYellowByPersonGuid" ReturnType="Collection(ModelContainer.uspSelMPIRedYellowByPersonGuid_Result)">
             <Parameter Name="DealerId" Mode="In" Type="Int32" />
@@ -2384,11 +2414,6 @@
             <Parameter Name="PaymentStatus" Mode="In" Type="String" />
             <Parameter Name="RecurringPayment" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="uspUpdateGoogleGuid">
-            <Parameter Name="personGuid" Mode="In" Type="Guid" />
-            <Parameter Name="googleGuid" Mode="In" Type="String" />
-            <Parameter Name="deviceTypeID" Mode="In" Type="Byte" />
-          </FunctionImport>
           <FunctionImport Name="uspUpdateGoogleGuid1">
             <Parameter Name="personGuid" Mode="In" Type="Guid" />
             <Parameter Name="googleGuid" Mode="In" Type="String" />
@@ -2424,6 +2449,27 @@
             <Parameter Name="SvcInfo" Mode="In" Type="String" />
             <Parameter Name="ServiceStatusId" Mode="In" Type="Byte" />
             <Parameter Name="AssignedKeyLockerBucketId" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateGoogleGuid">
+            <Parameter Name="personGuid" Mode="In" Type="Guid" />
+            <Parameter Name="googleGuid" Mode="In" Type="String" />
+            <Parameter Name="deviceTypeID" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelVehicleServiceDetails" ReturnType="Collection(ModelContainer.uspSelVehicleServiceDetails_Result)">
+            <Parameter Name="DealerId" Mode="In" Type="Int32" />
+            <Parameter Name="VehicleServiceGuid" Mode="In" Type="Guid" />
+            <Parameter Name="VehicleGuid" Mode="In" Type="Guid" />
+            <Parameter Name="personGuid" Mode="In" Type="Guid" />
+            <Parameter Name="SvcFromDt" Mode="In" Type="String" />
+            <Parameter Name="SvcToDt" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelKioskInUSE" ReturnType="Collection(ModelContainer.uspSelKioskInUSE_Result)">
+          <Parameter Name="DealerId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpsertKioskInUSE">
+            <Parameter Name="DealerId" Mode="In" Type="Int32" />
+            <Parameter Name="UsedBy" Mode="In" Type="String" />
+            <Parameter Name="LastUsedBy" Mode="In" Type="Guid" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="uspSelVehAlertByVehGuid_Result">
@@ -4595,6 +4641,33 @@
           <Property Type="String" Name="City" Nullable="true" MaxLength="80" />
           <Property Type="String" Name="State" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="ZipCode" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="uspSelVehicleServiceDetails_Result">
+          <Property Type="Guid" Name="VehicleServiceGuid" Nullable="false" />
+          <Property Type="String" Name="ServiceDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Comments" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="RONumber" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="VehicleYrMkMod" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="LicensePlate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="VIN" Nullable="true" MaxLength="17" />
+          <Property Type="String" Name="GoogleGuid" Nullable="true" MaxLength="2000" />
+          <Property Type="Byte" Name="DeviceTypeId" Nullable="true" />
+          <Property Type="Guid" Name="PersonGuid" Nullable="false" />
+          <Property Type="String" Name="VehPhId" Nullable="true" MaxLength="50" />
+          <Property Type="Guid" Name="VehicleGuid" Nullable="false" />
+          <Property Type="Int32" Name="VehicleId" Nullable="false" />
+          <Property Type="Byte" Name="ServiceStatusId" Nullable="false" />
+          <Property Type="String" Name="VEHSVCS" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="uspSelKioskInUSE_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="DealerID" Nullable="true" />
+          <Property Type="Boolean" Name="IsMachineInUse" Nullable="true" />
+          <Property Type="String" Name="UsedBy" Nullable="true" MaxLength="1" />
+          <Property Type="Guid" Name="LastUsedBy" Nullable="true" />
+          <Property Type="DateTime" Name="LastUsedDateTime" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -6892,7 +6965,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="uspUpdateGoogleGuid1" FunctionName="ModelContainer.Store.uspUpdateGoogleGuid" />
           <FunctionImportMapping FunctionImportName="uspCreateSeviceAndKeyLockerBucket_TowTruck" FunctionName="ModelContainer.Store.uspCreateSeviceAndKeyLockerBucket_TowTruck">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ModelContainer.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result">
@@ -7033,6 +7105,43 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer" FunctionName="ModelContainer.Store.uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer" />
+          <FunctionImportMapping FunctionImportName="uspUpdateGoogleGuid" FunctionName="ModelContainer.Store.uspUpdateGoogleGuid" />
+          <FunctionImportMapping FunctionImportName="uspSelVehicleServiceDetails" FunctionName="ModelContainer.Store.uspSelVehicleServiceDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContainer.uspSelVehicleServiceDetails_Result">
+                <ScalarProperty Name="VehicleServiceGuid" ColumnName="VehicleServiceGuid" />
+                <ScalarProperty Name="ServiceDate" ColumnName="ServiceDate" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="RONumber" ColumnName="RONumber" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="VehicleYrMkMod" ColumnName="VehicleYrMkMod" />
+                <ScalarProperty Name="LicensePlate" ColumnName="LicensePlate" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="GoogleGuid" ColumnName="GoogleGuid" />
+                <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
+                <ScalarProperty Name="PersonGuid" ColumnName="PersonGuid" />
+                <ScalarProperty Name="VehPhId" ColumnName="VehPhId" />
+                <ScalarProperty Name="VehicleGuid" ColumnName="VehicleGuid" />
+                <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+                <ScalarProperty Name="ServiceStatusId" ColumnName="ServiceStatusId" />
+                <ScalarProperty Name="VEHSVCS" ColumnName="VEHSVCS" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspSelKioskInUSE" FunctionName="ModelContainer.Store.uspSelKioskInUSE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContainer.uspSelKioskInUSE_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DealerID" ColumnName="DealerID" />
+                <ScalarProperty Name="IsMachineInUse" ColumnName="IsMachineInUse" />
+                <ScalarProperty Name="UsedBy" ColumnName="UsedBy" />
+                <ScalarProperty Name="LastUsedBy" ColumnName="LastUsedBy" />
+                <ScalarProperty Name="LastUsedDateTime" ColumnName="LastUsedDateTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspUpsertKioskInUSE" FunctionName="ModelContainer.Store.uspUpsertKioskInUSE" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

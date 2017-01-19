@@ -46,7 +46,7 @@ namespace MyShopOutDoor.MyShopUserControl {
             ConfigClass.SendCommandToBoard("DL005000");
 
 
-            MessageBox("The Door is now open, Place the key and click DROP KEY button", "Information");
+            MessageBox("The Door is now open..., Place the key and click DROP KEY button", "Information");
 
             cmdDropKeys.IsEnabled = true;
 
@@ -78,8 +78,8 @@ namespace MyShopOutDoor.MyShopUserControl {
             // Thread t = new Thread(FindHomeAndRotateKeyFloor);
 
             // MessageBox(RotateKeyFloorReading, "dfd");
-            ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading); // key floor
-            ConfigClass.SendCommandToBoard(RotateKeyFloorReading);
+            ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading); //careousel
+            ConfigClass.SendCommandToBoard("KC00170000");// key floor
 
 
             IsKeyDroppedClcked = true;
@@ -150,6 +150,8 @@ namespace MyShopOutDoor.MyShopUserControl {
                     MessageBox(ex.Message.ToString(), "Error !");
                 }
             }
+            this.Close();
+            this.Close();
             this.Close();
         }
 
@@ -230,6 +232,8 @@ namespace MyShopOutDoor.MyShopUserControl {
         }
 
         private void cmdBack_Click(object sender, RoutedEventArgs e) {
+            this.Close();
+            this.Close();
             this.Close();
         }
     }

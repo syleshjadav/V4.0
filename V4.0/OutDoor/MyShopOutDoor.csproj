@@ -34,7 +34,7 @@
     <SuiteName>MyShop</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>34</ApplicationRevision>
+    <ApplicationRevision>40</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -208,7 +208,13 @@
     <None Include="Service References\OutDoorProxy\MyShopOutDoor.OutDoorProxy.uspSelAllKeyDropPegByDealerId_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\OutDoorProxy\MyShopOutDoor.OutDoorProxy.uspSelKioskInUSE_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\OutDoorProxy\MyShopOutDoor.OutDoorProxy.uspSelVehicleMakes_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OutDoorProxy\MyShopOutDoor.OutDoorProxy.uspSelVehicleServiceDetails_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\OutDoorProxy\MyShopOutDoor.OutDoorProxy.uspVerifyPinGetCustInfo_Result.datasource">

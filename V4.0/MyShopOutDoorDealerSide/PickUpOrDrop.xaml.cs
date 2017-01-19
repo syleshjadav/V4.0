@@ -46,6 +46,7 @@ namespace MyShopOutDoor.DealerSide {
                 TxtTakeKeysInfo.Visibility = Visibility.Visible;
                 GrdButtons.Columns = 1;
                 GrpHeaderName.Text = "TAKE CUSTOMER KEYS";
+                CheckIfKioskIsInUse();
 
             }
         }
@@ -86,6 +87,37 @@ namespace MyShopOutDoor.DealerSide {
             this.Close();
         }
 
+        private bool CheckIfKioskIsInUse() {
+            var res = new List<uspSelKioskInUSE_Result>();
+            try {
+                res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+                    return svcs.SelKioskInUSE(dealerid).ToList();
+                });
+
+
+                if (res != null && res.Count == 1) {
+                    if (res.FirstOrDefault().IsMachineInUse == true) {
+                        MessageBox("Kiosk InUse by Customer, Please try in few minutes ...");
+                        cmdBack_Click(new object(), new RoutedEventArgs());
+                        return false;
+
+                    }
+                    else {
+
+                        var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+                            return svcs.UpsertKioskInUSE(dealerid, "D", new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
+                        });
+
+                    }
+                }
+            }
+
+            catch (Exception ex) {
+                MessageBox(ex.Message.ToString(), "Error !");
+            }
+
+            return true;
+        }
 
 
         private bool? MessageBox(string msg, string header = "Information") {

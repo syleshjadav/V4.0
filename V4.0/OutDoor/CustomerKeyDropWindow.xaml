@@ -10,67 +10,66 @@
              d:DesignHeight="300"
              d:DesignWidth="700"
              Unloaded="CtrlCustomerKeyDrop_Unloaded">
-    <UserControl.Resources>
-        <Style TargetType="Button"
-               x:Key="BtnKeyBoard">
-            <Setter Property="Margin"
-                    Value="0,0,5,5" />
-            <Setter Property="FontSize"
-                    Value="70" />
-            <Setter Property="Width"
-                    Value="70" />
-            <Setter Property="FontWeight"
-                    Value="Bold" />
-        </Style>
-        <Style TargetType="TextBlock"
-               x:Key="StyleCustHdr">
-            <Setter Property="FontSize"
-                    Value="20" />
-            <Setter Property="Foreground"
-                    Value="White" />
-            <Setter Property="FontWeight"
-                    Value="Bold" />
-        </Style>
-    </UserControl.Resources>
-    <Grid x:Name="GrdMain"
-          Background="{DynamicResource BrushMainPageBackGround}">
+  <UserControl.Resources>
+    <Style TargetType="Button"
+           x:Key="BtnKeyBoard">
+      <Setter Property="Margin"
+              Value="0,0,5,5" />
+      <Setter Property="FontSize"
+              Value="70" />
+      <Setter Property="Width"
+              Value="70" />
+      <Setter Property="FontWeight"
+              Value="Bold" />
+    </Style>
+    <Style TargetType="TextBlock"
+           x:Key="StyleCustHdr">
+      <Setter Property="FontSize"
+              Value="25" />
+      <Setter Property="Foreground"
+              Value="White" />
+      <Setter Property="FontWeight"
+              Value="Bold" />
+    </Style>
+  </UserControl.Resources>
+  <Grid x:Name="GrdMain"
+        Background="{DynamicResource BrushMainPageBackGround}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Border BorderThickness="5"
+            BorderBrush="Gray"
+            CornerRadius="5"
+            Grid.RowSpan="3"></Border>
+    <GroupBox Grid.Row="1"
+              Margin="5"
+              Style="{DynamicResource DesignerGroupBoxSmallBk}">
+      <GroupBox.Header>
+        <TextBlock x:Name="TxtCustomerDetails"
+                   Text="KEY DROP - CUSTOMER  "
+                   FontSize="36"
+                   FontWeight="Bold"
+                   Foreground="Black"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center" />
+      </GroupBox.Header>
+      <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-     
-        <Border BorderThickness="5"
-                BorderBrush="Gray"
-                CornerRadius="5"
-                Grid.RowSpan="3"></Border>
-        <GroupBox Grid.Row="1"
-                  Margin="5"
-                  Style="{DynamicResource DesignerGroupBoxSmallBk}">
-            <GroupBox.Header>
-                <TextBlock x:Name="TxtCustomerDetails"
-                           Text="KEY DROP - CUSTOMER  "
-                           FontSize="36"
-                           FontWeight="Bold"
-                           Foreground="Black"
-                           TextAlignment="Center"
-                           HorizontalAlignment="Center" />
-            </GroupBox.Header>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid x:Name="GrdEnterPin"
-                      Visibility="Visible">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <StackPanel>
+        <Grid x:Name="GrdEnterPin"
+              Visibility="Visible">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <StackPanel>
             <RichTextBox x:Name="TxtPlaceKeysInfo"
                          Grid.Row="2"
                          Grid.ColumnSpan="2"
@@ -82,144 +81,178 @@
                 <Paragraph LineHeight="10">3. Finally verify the PIN.</Paragraph>
               </FlowDocument>
             </RichTextBox>
-            
-                        <Image Source="Image/DropKey.jpg"
-                               Height="Auto"
-                               Width="125" />
-                    </StackPanel>
-                    <local:ValidatePinUC x:Name="CtrlValidatePin"
-                                         Grid.Column="1" />
-                   
-                </Grid>
-                <Grid x:Name="GrdKeyDrop"
-                      Visibility="Collapsed">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0"
-                          Margin="0,10,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <TextBlock  Text="Name :"
-                                    Style="{StaticResource StyleCustHdr}" />
-                        <TextBlock  Text="Contacts :"
-                                    Grid.Row="1"
-                                    Style="{StaticResource StyleCustHdr}" />
-                        <TextBlock  Text="Address :"
-                                    Grid.Row="0"
-                                    Grid.Column="2"
-                                    Style="{StaticResource StyleCustHdr}" />
-                        <TextBlock  Text="Vehicle :"
-                                    Grid.Row="1"
-                                    Grid.Column="2"
-                                    Style="{StaticResource StyleCustHdr}" />
-                        <TextBlock  x:Name="TxtName"
-                                    Grid.Row="0"
-                                    Grid.Column="1"
-                                    TextWrapping="Wrap"
-                                    Style="{StaticResource StyleCustHdr}" />
-                        <TextBlock   x:Name="TxtContacts"
-                                     Grid.Row="1"
-                                     Grid.Column="1"
-                                     TextWrapping="Wrap"
-                                     Style="{StaticResource StyleCustHdr}" />
-                        <TextBlock   x:Name="TxtAddress"
-                                     Grid.Row="0"
-                                     Grid.Column="3"
-                                     TextWrapping="Wrap"
-                                     Style="{StaticResource StyleCustHdr}" />
-                        <TextBlock   x:Name="TxtVehicle"
-                                     Grid.Row="1"
-                                     Grid.Column="3"
-                                     TextWrapping="Wrap"
-                                     Style="{StaticResource StyleCustHdr}" />
-                    </Grid>
-                    <Grid  Grid.Row="1"
-                           VerticalAlignment="Center">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid x:Name="GrdVerifyPinInfo"
-                              Visibility="Visible">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2*" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <RichTextBox x:Name="TxtVerifyPinInfo1">
-                                <FlowDocument>
-                                    <Paragraph FontSize="30"
-                                               FontWeight="Bold"
-                                               FontFamily="Segoe Marker">If your information is correct, have your keys ready and  proceed futher by clicking NEXT button.</Paragraph>
-                                </FlowDocument>
-                            </RichTextBox>
-                            <Button x:Name="cmdNext"
-                                    Grid.Column="1"
-                                    Width="150"
-                                    Height="150"
-                                    Style="{DynamicResource PackageOrServicesButton }"
-                                    HorizontalAlignment="Right"
-                                    VerticalAlignment="Bottom"
-                                    FontWeight="Bold"
-                                    Click="cmdNext_Click">
-                                <DockPanel>
-                                    <TextBlock DockPanel.Dock="Bottom"
-                                               FontSize="30"
-                                               HorizontalAlignment="Center"
-                                               Foreground="Black">NEXT</TextBlock>
-                                    <TextBlock DockPanel.Dock="Top"
-                                               FontSize="50"
-                                               Foreground="Black"
-                                               FontFamily="Wingdings"
-                                               HorizontalAlignment="Center"
-                                               Text="è" />
-                                </DockPanel>
-                            </Button>
-                        </Grid>
-                       
-                    </Grid>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
+            <Image Source="Image/DropKey.jpg"
+                   Height="Auto"
+                   Width="250" />
+          </StackPanel>
+          <local:ValidatePinUC x:Name="CtrlValidatePin"
+                               Grid.Column="1" />
+        </Grid>
+        <Grid x:Name="GrdKeyDrop"
+              Visibility="Collapsed">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <Grid Grid.Row="0"
+                Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition />
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock  Text="Name :"
+                        Style="{StaticResource StyleCustHdr}" />
+            <TextBlock  Text="Contacts :"
+                        Grid.Row="1"
+                        Style="{StaticResource StyleCustHdr}" />
+            <!--<TextBlock  Text="Address :"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Style="{StaticResource StyleCustHdr}" />-->
+            <TextBlock  Text="Vehicle :"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Style="{StaticResource StyleCustHdr}" />
+            <TextBlock  x:Name="TxtName"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        TextWrapping="Wrap"
+                        Style="{StaticResource StyleCustHdr}" />
+            <TextBlock   x:Name="TxtContacts"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         TextWrapping="Wrap"
+                         Style="{StaticResource StyleCustHdr}" />
+            <!--<TextBlock   x:Name="TxtAddress"
+                         Grid.Row="0"
+                         Grid.Column="3"
+                         TextWrapping="Wrap"
+                         Style="{StaticResource StyleCustHdr}" />-->
+            <TextBlock   x:Name="TxtVehicle"
+                         Grid.Row="1"
+                         Grid.Column="3"
+                         TextWrapping="Wrap"
+                         Style="{StaticResource StyleCustHdr}" />
+          </Grid>
+          <Grid Grid.Row="1">
+            <GroupBox MinWidth="450"
+                      Width="auto"
+                      HorizontalAlignment="Left"
+                      Margin="10,10,0,0"
+                      >
+              <GroupBox.Header>
+                <TextBlock Foreground="White" FontSize="25" FontWeight="Bold">Service Requested</TextBlock>
+              </GroupBox.Header>
+              <Grid >
+                <Grid.RowDefinitions>
+                  <RowDefinition />
+                  <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <ListBox Name="LstServiceItems"
+                       HorizontalContentAlignment="Stretch"
+                       SelectionMode="Extended"
+                       >
+                <ListBox.ItemTemplate>
+                  <DataTemplate>
+                    <Grid Margin="0,2">
+                      <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="3*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <Button x:Name="cmdBack"
-                                Width="150"
-                                Height="150"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Bottom"
-                                FontWeight="Bold"
-                                Style="{DynamicResource PackageOrServicesButton }"
-                                Click="cmdBack_Click">
-                            <DockPanel>
-                                <TextBlock DockPanel.Dock="Bottom"
-                                           FontSize="30"
-                                           HorizontalAlignment="Center"
-                                           Foreground="Black">BACK</TextBlock>
-                                <TextBlock DockPanel.Dock="Top"
-                                           FontSize="50"
-                                           Foreground="Black"
-                                           FontFamily="Wingdings"
-                                           HorizontalAlignment="Center"
-                                           Text="ç" />
-                            </DockPanel>
-                        </Button>
+                   
+                      </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding ShortName}" Foreground="Black" FontSize="20"/>
+                    
                     </Grid>
-                </Grid>
+                  </DataTemplate>
+                </ListBox.ItemTemplate>
+              </ListBox>
+                <TextBlock x:Name="TxtComments" Style="{StaticResource StyleCustHdr}"  Grid.Row="1"></TextBlock>
+              </Grid>
+            </GroupBox>
+          </Grid>
+          <Grid  Grid.Row="2"
+                 VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid x:Name="GrdVerifyPinInfo"
+                  Visibility="Visible">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition />
+              </Grid.ColumnDefinitions>
+              <RichTextBox x:Name="TxtVerifyPinInfo1">
+                <FlowDocument>
+                  <Paragraph FontSize="30"
+                             FontWeight="Bold"
+                             FontFamily="Segoe Marker">If your information is correct, have your keys ready and  proceed futher by clicking NEXT button. 
+                      If you need to change the service requested,cancel this transaction and make the change using MyshopAuto phone App and then drop the keys.</Paragraph>
+                </FlowDocument>
+              </RichTextBox>
+              <Button x:Name="cmdNext"
+                      Grid.Column="1"
+                      Width="150"
+                      Height="150"
+                      Style="{DynamicResource PackageOrServicesButton }"
+                      HorizontalAlignment="Right"
+                      VerticalAlignment="Bottom"
+                      FontWeight="Bold"
+                      Click="cmdNext_Click">
+                <DockPanel>
+                  <TextBlock DockPanel.Dock="Bottom"
+                             FontSize="30"
+                             HorizontalAlignment="Center"
+                             Foreground="Black">NEXT</TextBlock>
+                  <TextBlock DockPanel.Dock="Top"
+                             FontSize="50"
+                             Foreground="Black"
+                             FontFamily="Wingdings"
+                             HorizontalAlignment="Center"
+                             Text="è" />
+                </DockPanel>
+              </Button>
             </Grid>
-        </GroupBox>
-    </Grid>
+          </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+          </Grid.ColumnDefinitions>
+          <Grid Grid.Column="0">
+            <Button x:Name="cmdBack"
+                    Width="150"
+                    Height="150"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    FontWeight="Bold"
+                    Style="{DynamicResource PackageOrServicesButton }"
+                    Click="cmdBack_Click">
+              <DockPanel>
+                <TextBlock DockPanel.Dock="Bottom"
+                           FontSize="30"
+                           HorizontalAlignment="Center"
+                           Foreground="Black">BACK</TextBlock>
+                <TextBlock DockPanel.Dock="Top"
+                           FontSize="50"
+                           Foreground="Black"
+                           FontFamily="Wingdings"
+                           HorizontalAlignment="Center"
+                           Text="ç" />
+              </DockPanel>
+            </Button>
+          </Grid>
+        </Grid>
+      </Grid>
+    </GroupBox>
+  </Grid>
 </UserControl>

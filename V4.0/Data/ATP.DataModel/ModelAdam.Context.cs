@@ -3200,7 +3200,7 @@ namespace ATP.DataModel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelVehicleServicesByDealerEmp_Result>("uspSelVehicleServicesByDealerEmp", serviceWriterGuidParameter, techGuidParameter);
         }
     
-        public virtual ObjectResult<uspRegisterCustomerMyShopAuto_Result> uspRegisterCustomerMyShopAuto(Nullable<int> dealerId, Nullable<int> dealerFamilyId, string firstName, string middleName, string lastName, string email, string phone, string addressLine1, string addressLine2, string addressLine3, string city, string state, string zip, string vehicleYrMkMod, string nextInspectionDate, string nextServiceDate, string nextSvcInfo, string vehPhId)
+        public virtual ObjectResult<uspRegisterCustomerMyShopAuto_Result> uspRegisterCustomerMyShopAuto(Nullable<int> dealerId, Nullable<int> dealerFamilyId, string firstName, string middleName, string lastName, string email, string phone, string addressLine1, string addressLine2, string addressLine3, string city, string state, string zip, string vehYr, string mk, string mod, string plate, string nextInspectionDate, string nextServiceDate, string nextSvcInfo, string vehPhId)
         {
             var dealerIdParameter = dealerId.HasValue ?
                 new ObjectParameter("DealerId", dealerId) :
@@ -3254,9 +3254,21 @@ namespace ATP.DataModel
                 new ObjectParameter("Zip", zip) :
                 new ObjectParameter("Zip", typeof(string));
     
-            var vehicleYrMkModParameter = vehicleYrMkMod != null ?
-                new ObjectParameter("VehicleYrMkMod", vehicleYrMkMod) :
-                new ObjectParameter("VehicleYrMkMod", typeof(string));
+            var vehYrParameter = vehYr != null ?
+                new ObjectParameter("VehYr", vehYr) :
+                new ObjectParameter("VehYr", typeof(string));
+    
+            var mkParameter = mk != null ?
+                new ObjectParameter("Mk", mk) :
+                new ObjectParameter("Mk", typeof(string));
+    
+            var modParameter = mod != null ?
+                new ObjectParameter("Mod", mod) :
+                new ObjectParameter("Mod", typeof(string));
+    
+            var plateParameter = plate != null ?
+                new ObjectParameter("Plate", plate) :
+                new ObjectParameter("Plate", typeof(string));
     
             var nextInspectionDateParameter = nextInspectionDate != null ?
                 new ObjectParameter("NextInspectionDate", nextInspectionDate) :
@@ -3274,10 +3286,10 @@ namespace ATP.DataModel
                 new ObjectParameter("VehPhId", vehPhId) :
                 new ObjectParameter("VehPhId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspRegisterCustomerMyShopAuto_Result>("uspRegisterCustomerMyShopAuto", dealerIdParameter, dealerFamilyIdParameter, firstNameParameter, middleNameParameter, lastNameParameter, emailParameter, phoneParameter, addressLine1Parameter, addressLine2Parameter, addressLine3Parameter, cityParameter, stateParameter, zipParameter, vehicleYrMkModParameter, nextInspectionDateParameter, nextServiceDateParameter, nextSvcInfoParameter, vehPhIdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspRegisterCustomerMyShopAuto_Result>("uspRegisterCustomerMyShopAuto", dealerIdParameter, dealerFamilyIdParameter, firstNameParameter, middleNameParameter, lastNameParameter, emailParameter, phoneParameter, addressLine1Parameter, addressLine2Parameter, addressLine3Parameter, cityParameter, stateParameter, zipParameter, vehYrParameter, mkParameter, modParameter, plateParameter, nextInspectionDateParameter, nextServiceDateParameter, nextSvcInfoParameter, vehPhIdParameter);
         }
     
-        public virtual ObjectResult<uspUpdateCustomerMyShopAuto_Result> uspUpdateCustomerMyShopAuto(Nullable<int> dealerId, Nullable<System.Guid> personGUID, Nullable<int> vehicleId, string firstName, string middleName, string lastName, string email, string phone, string addressLine1, string addressLine2, string city, string state, string zip, string vehicleYrMkMod, string nextInspectionDate, string nextServiceDate, string nextSvcInfo, string vehPhId)
+        public virtual ObjectResult<uspUpdateCustomerMyShopAuto_Result> uspUpdateCustomerMyShopAuto(Nullable<int> dealerId, Nullable<System.Guid> personGUID, Nullable<int> vehicleId, string firstName, string middleName, string lastName, string email, string phone, string addressLine1, string addressLine2, string city, string state, string zip, string vehicleYrMkMod, string nextInspectionDate, string nextServiceDate, string nextSvcInfo, string vehPhId, string vehYr, string mk, string mod, string plate)
         {
             var dealerIdParameter = dealerId.HasValue ?
                 new ObjectParameter("DealerId", dealerId) :
@@ -3351,7 +3363,23 @@ namespace ATP.DataModel
                 new ObjectParameter("VehPhId", vehPhId) :
                 new ObjectParameter("VehPhId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspUpdateCustomerMyShopAuto_Result>("uspUpdateCustomerMyShopAuto", dealerIdParameter, personGUIDParameter, vehicleIdParameter, firstNameParameter, middleNameParameter, lastNameParameter, emailParameter, phoneParameter, addressLine1Parameter, addressLine2Parameter, cityParameter, stateParameter, zipParameter, vehicleYrMkModParameter, nextInspectionDateParameter, nextServiceDateParameter, nextSvcInfoParameter, vehPhIdParameter);
+            var vehYrParameter = vehYr != null ?
+                new ObjectParameter("VehYr", vehYr) :
+                new ObjectParameter("VehYr", typeof(string));
+    
+            var mkParameter = mk != null ?
+                new ObjectParameter("Mk", mk) :
+                new ObjectParameter("Mk", typeof(string));
+    
+            var modParameter = mod != null ?
+                new ObjectParameter("Mod", mod) :
+                new ObjectParameter("Mod", typeof(string));
+    
+            var plateParameter = plate != null ?
+                new ObjectParameter("Plate", plate) :
+                new ObjectParameter("Plate", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspUpdateCustomerMyShopAuto_Result>("uspUpdateCustomerMyShopAuto", dealerIdParameter, personGUIDParameter, vehicleIdParameter, firstNameParameter, middleNameParameter, lastNameParameter, emailParameter, phoneParameter, addressLine1Parameter, addressLine2Parameter, cityParameter, stateParameter, zipParameter, vehicleYrMkModParameter, nextInspectionDateParameter, nextServiceDateParameter, nextSvcInfoParameter, vehPhIdParameter, vehYrParameter, mkParameter, modParameter, plateParameter);
         }
     
         public virtual ObjectResult<uspSelMPIRedYellowByPersonGuid_Result> uspSelMPIRedYellowByPersonGuid(Nullable<int> dealerId, Nullable<System.Guid> personGuid, string vehPhId)
@@ -4392,23 +4420,6 @@ namespace ATP.DataModel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspInsDealerPaymentTransaction_Result>("uspInsDealerPaymentTransaction", amountParameter, dealerIdParameter, deptIdParameter, dealerEmpGuidParameter, paymentGatewayParameter, paymentStatusParameter, recurringPaymentParameter);
         }
     
-        public virtual int uspUpdateGoogleGuid(Nullable<System.Guid> personGuid, string googleGuid, Nullable<byte> deviceTypeID)
-        {
-            var personGuidParameter = personGuid.HasValue ?
-                new ObjectParameter("personGuid", personGuid) :
-                new ObjectParameter("personGuid", typeof(System.Guid));
-    
-            var googleGuidParameter = googleGuid != null ?
-                new ObjectParameter("googleGuid", googleGuid) :
-                new ObjectParameter("googleGuid", typeof(string));
-    
-            var deviceTypeIDParameter = deviceTypeID.HasValue ?
-                new ObjectParameter("deviceTypeID", deviceTypeID) :
-                new ObjectParameter("deviceTypeID", typeof(byte));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateGoogleGuid", personGuidParameter, googleGuidParameter, deviceTypeIDParameter);
-        }
-    
         public virtual int uspUpdateGoogleGuid1(Nullable<System.Guid> personGuid, string googleGuid, Nullable<byte> deviceTypeID)
         {
             var personGuidParameter = personGuid.HasValue ?
@@ -4533,6 +4544,78 @@ namespace ATP.DataModel
                 new ObjectParameter("AssignedKeyLockerBucketId", typeof(byte));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer", dealerIdParameter, vehicleServiceGuidParameter, vehicleGuidParameter, svcInfoParameter, serviceStatusIdParameter, assignedKeyLockerBucketIdParameter);
+        }
+    
+        public virtual int uspUpdateGoogleGuid(Nullable<System.Guid> personGuid, string googleGuid, Nullable<byte> deviceTypeID)
+        {
+            var personGuidParameter = personGuid.HasValue ?
+                new ObjectParameter("personGuid", personGuid) :
+                new ObjectParameter("personGuid", typeof(System.Guid));
+    
+            var googleGuidParameter = googleGuid != null ?
+                new ObjectParameter("googleGuid", googleGuid) :
+                new ObjectParameter("googleGuid", typeof(string));
+    
+            var deviceTypeIDParameter = deviceTypeID.HasValue ?
+                new ObjectParameter("deviceTypeID", deviceTypeID) :
+                new ObjectParameter("deviceTypeID", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateGoogleGuid", personGuidParameter, googleGuidParameter, deviceTypeIDParameter);
+        }
+    
+        public virtual ObjectResult<uspSelVehicleServiceDetails_Result> uspSelVehicleServiceDetails(Nullable<int> dealerId, Nullable<System.Guid> vehicleServiceGuid, Nullable<System.Guid> vehicleGuid, Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt)
+        {
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            var vehicleServiceGuidParameter = vehicleServiceGuid.HasValue ?
+                new ObjectParameter("VehicleServiceGuid", vehicleServiceGuid) :
+                new ObjectParameter("VehicleServiceGuid", typeof(System.Guid));
+    
+            var vehicleGuidParameter = vehicleGuid.HasValue ?
+                new ObjectParameter("VehicleGuid", vehicleGuid) :
+                new ObjectParameter("VehicleGuid", typeof(System.Guid));
+    
+            var personGuidParameter = personGuid.HasValue ?
+                new ObjectParameter("personGuid", personGuid) :
+                new ObjectParameter("personGuid", typeof(System.Guid));
+    
+            var svcFromDtParameter = svcFromDt != null ?
+                new ObjectParameter("SvcFromDt", svcFromDt) :
+                new ObjectParameter("SvcFromDt", typeof(string));
+    
+            var svcToDtParameter = svcToDt != null ?
+                new ObjectParameter("SvcToDt", svcToDt) :
+                new ObjectParameter("SvcToDt", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelVehicleServiceDetails_Result>("uspSelVehicleServiceDetails", dealerIdParameter, vehicleServiceGuidParameter, vehicleGuidParameter, personGuidParameter, svcFromDtParameter, svcToDtParameter);
+        }
+    
+        public virtual ObjectResult<uspSelKioskInUSE_Result> uspSelKioskInUSE(Nullable<int> dealerId)
+        {
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelKioskInUSE_Result>("uspSelKioskInUSE", dealerIdParameter);
+        }
+    
+        public virtual int uspUpsertKioskInUSE(Nullable<int> dealerId, string usedBy, Nullable<System.Guid> lastUsedBy)
+        {
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            var usedByParameter = usedBy != null ?
+                new ObjectParameter("UsedBy", usedBy) :
+                new ObjectParameter("UsedBy", typeof(string));
+    
+            var lastUsedByParameter = lastUsedBy.HasValue ?
+                new ObjectParameter("LastUsedBy", lastUsedBy) :
+                new ObjectParameter("LastUsedBy", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpsertKioskInUSE", dealerIdParameter, usedByParameter, lastUsedByParameter);
         }
     }
 }

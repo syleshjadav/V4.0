@@ -195,7 +195,8 @@ namespace ATP.Rest {
 
             try {
                 //  var dId = Convert.ToInt32(dealerId);
-
+               var str = string.Format("GoogleGuid:{0} PLate: {1} Phone : {2} Email: {3}", x.DeviceId, x.Plate, x.Phone,x.EmailAddress);
+                TraceLog("FindCustByPhPlateEmail", str);
 
                 return new ATP.Services.Data.Person().FindCustomerByPhPlateEmail(x.Plate, x.Phone, x.EmailAddress, x.DeviceId)
                      .Select(m =>
@@ -347,16 +348,15 @@ namespace ATP.Rest {
 
         public List<ATPCustomerDetailsByGuid> VerifyOTP(ATPVerifyCutomerOTP x) {
 
-            string pGuid =x.PersonGuid;
-            string OTP=x.OTP; string GoogleGuid=x.DeviceId; string DeviceTypeId=x.DeviceTypeId;
-
-
-
+          
             List<ATPCustomerDetailsByGuid> rtr = new List<ATPCustomerDetailsByGuid>();
 
             // return rtr;
+            string pGuid = "";
 
             try {
+                pGuid = x.PersonGuid;
+                string OTP = x.OTP; string GoogleGuid = x.DeviceId; string DeviceTypeId = x.DeviceTypeId;
 
                 var mx = new ATP.Services.Data.Person().VerifyOTP(new Guid(pGuid), OTP).ToList();
 
@@ -638,9 +638,9 @@ namespace ATP.Rest {
         public MyShopRegisterCustomerData RegisterCustomerMyShopAuto(ATPCustomerDetailsByGuid m) {
             try {
                 //TraceLog("RegisterCustomer", string.Format("{0} -  Before RegisterCustomer Insert Called", jsonCust.LastName));
-                var str = string.Format("Deal:{0}-DealFmly:{1}-VehYrMkMod:{2}-Fn:{3}-Lm:{4}-Email:{5}-Ph:{6}--Add{7}--City{8}--state{9}--zip{10}--PGuid{11}--vehid{12}--VehPhId:{13}-- NextSvcDt:{14}--NextInsMonth:{15}--NextSvcInfo:{16}--Plate:{17}",
+                var str = string.Format("Deal:{0}-DealFmly:{1}-VehYrMkMod:{2}-Fn:{3}-Lm:{4}-Email:{5}-Ph:{6}--Add{7}--City{8}--state{9}--zip{10}--PGuid{11}--vehid{12}--VehPhId:{13}-- NextSvcDt:{14}--NextInsMonth:{15}--NextSvcInfo:{16}--Plate:{17},yr{18},mk{19},md{20}",
                      m.DealerId, m.DealerFamilyId, m.VehicleYrMkMod, m.FirstName, m.LastName,
-                     m.EmailAddress, m.PhoneNumber, m.Address1, m.City, m.State, m.Zip, m.PersonGuid, m.VehicleId, m.VehPhId, m.NextServiceDate, m.NextInspectionDate, m.NextSvcInfo, m.Plate);
+                     m.EmailAddress, m.PhoneNumber, m.Address1, m.City, m.State, m.Zip, m.PersonGuid, m.VehicleId, m.VehPhId, m.NextServiceDate, m.NextInspectionDate, m.NextSvcInfo, m.Plate,m.VehicleYear,m.VehicleMake,m.VehicleModel);
 
                 TraceLog("RegisterCustomerMyShopAuto", str);
                 if (String.IsNullOrEmpty(m.PersonGuid)) {
@@ -945,12 +945,22 @@ namespace ATP.Rest {
             var rtn = new ATPData();
 
             try {
-                TraceLog("DropKeys", string.Format("DealerId:{0} , PersonGuid : {1} VehicleGuid:{2} , Dealer:{3} ", m.DealerId, m.PersonGuid, m.VehicleGuid, m.DealerId));
+
+                string svcreq = "";
+
+                if(m.ATPServiceDataList != null) {
+
+                    foreach( var x in m.ATPServiceDataList) {
+                        svcreq += x.Id + ",";
+                    }
+
+                }
+                TraceLog("DropKeys", string.Format("DealerId:{0} , PersonGuid : {1} VehicleGuid:{2} , Dealer:{3} , SvcReq:{4} ", m.DealerId, m.PersonGuid, m.VehicleGuid, m.DealerId,svcreq));
 
                 //rtnValue = entity.uspAssignKeylockerPin(dealid, personGuid, vehicleGuid, bGetPin).SingleOrDefault(); // true - drop , false - pickup
 
 
-               rtn = new ATP.Services.Data.VehicleService().SetServiceAndGeneratePin(m);
+                rtn = new ATP.Services.Data.VehicleService().SetServiceAndGeneratePin(m);
 
             }
             catch (Exception ex) {
@@ -985,7 +995,7 @@ namespace ATP.Rest {
 
                 var msg = "Your Pin for Key Locker " + pickordrop + rtnValue.KeyLockerPin;
 
-                TraceLog(" PickUpKeys", string.Format("First:{0}- Last:{1}- Vin:{2}- Dealer{3}-PersonGuid{4}-DealerEmp{5} ", m.FirstName, m.LastName, m.VIN, m.DealerId, m.PersonGuid, null));
+                TraceLog(" PickUpKeys", string.Format("First:{0} Last:{1}  Vin:{2}- Dealer:{3} PersonGuid:{4} DealerEmp: {5} ", m.FirstName, m.LastName, m.VIN, m.DealerId, m.PersonGuid, null));
 
                 if (String.IsNullOrEmpty(rtnValue.KeyLockerPin)) {
                     msg = rtnValue.Comments;

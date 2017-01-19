@@ -36,6 +36,15 @@ namespace ATP.WCF.Svcs {
         [OperationContract]
         List<String> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, string svcInfo, byte? serviceStatusId, byte? assignedKeyLockerBucketId);
 
+        [OperationContract]
+        List<uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, Guid? personGuid, string svcFromDt, string svcToDt);
+
+
+        [OperationContract]
+         List<uspSelKioskInUSE_Result> SelKioskInUSE(int? dealerId);
+        [OperationContract]
+        int UpsertKioskInUSE(int? dealerId, string usedBy, Guid? lastUsedBy);
+
 
         [OperationContract]
         bool LogError(string msg);

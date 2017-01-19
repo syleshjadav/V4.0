@@ -33,10 +33,10 @@
     <Grid x:Name="GrdMain"
           Background="{DynamicResource BrushMainPageBackGround}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <ListBox x:Name="lstStatus"
+        <!--<ListBox x:Name="lstStatus"
                  Height="150"
                  BorderBrush="Black"
                  FontWeight="Bold"
@@ -45,7 +45,7 @@
         <Border BorderThickness="5"
                 BorderBrush="Gray"
                 CornerRadius="5"
-                Grid.RowSpan="3"></Border>
+                Grid.RowSpan="3"></Border>-->
         <GroupBox Grid.Row="1"
                   Margin="10,0,10,0"
                   Style="{DynamicResource DesignerGroupBoxSmallBk}">
@@ -80,9 +80,9 @@
                                    FontFamily="Tw Cen MT Condensed Extra Bold"
                                    FontSize="20"
                                    Margin="5,10,5,10" />
-                        <Image Source="Image/DropKey.jpg"
+                        <Image Source="Image/PickUpkey.jpg"
                                Height="Auto"
-                               Width="125" />
+                               Width="300" />
                     </StackPanel>
                     <local:ValidatePinUC x:Name="CtrlValidatePin"  Grid.Column="1"/>
                 </Grid>

@@ -53,7 +53,7 @@ namespace MyShopOutDoor {
                 ConfigClass.DealerId = Convert.ToInt32(xmlnode["DEALERID"].InnerText);
 
 
-               // return;
+                // return;
 
                 SerialPortInterface sp = new SerialPortInterface(); // load port details
                 ConfigClass.DealerSerialPort.PortName = xmlnode["DEALERCOMMPORT"].InnerText;
@@ -65,7 +65,7 @@ namespace MyShopOutDoor {
 
             }
             catch (Exception ex) {
-               System.Windows.MessageBox.Show(ex.Message);
+                System.Windows.MessageBox.Show(ex.Message);
 
 
 
@@ -80,33 +80,39 @@ namespace MyShopOutDoor {
             RefreshGrid();
         }
         private void DealerDashBoard_Loaded(object sender, RoutedEventArgs e) {
-      // //satish added
-      //var allScreen = Screen.AllScreens;
-      //Screen scr1 = allScreen[0];
-      //Screen scr2 = allScreen[1];
-      //Screen primary = allScreen[1];
-      //if (allScreen.Length >= 2) {
-      //  scr2 = allScreen[1];
-      //}
-      //else {
-      //  scr1 = allScreen[0];
-      //}
-      //if (scr1.Primary) {
-      //  primary = scr2;
-      //}
-      //else {
-      //  primary = scr2;
-      //}
-      //// System.Windows.MessageBox.Show(primary.DeviceName);
-      //Rectangle r = primary.WorkingArea;
-      //this.WindowState = WindowState.Maximized;
-      //this.WindowStyle = WindowStyle.None;
-      //this.Width = r.Width;
-      //this.Height = r.Height;
-      //this.Top = r.Top;
-      //this.Left = r.Left;
-      // satish end
-      RefreshGrid();
+            // //satish added
+            //var allScreen = Screen.AllScreens;
+            //Screen scr1 = allScreen[0];
+            //Screen scr2 = allScreen[1];
+            //Screen primary = allScreen[1];
+            //if (allScreen.Length >= 2) {
+            //  scr2 = allScreen[1];
+            //}
+            //else {
+            //  scr1 = allScreen[0];
+            //}
+            //if (scr1.Primary) {
+            //  primary = scr2;
+            //}
+            //else {
+            //  primary = scr2;
+            //}
+            //// System.Windows.MessageBox.Show(primary.DeviceName);
+            //Rectangle r = primary.WorkingArea;
+            //this.WindowState = WindowState.Maximized;
+            //this.WindowStyle = WindowStyle.None;
+            //this.Width = r.Width;
+            //this.Height = r.Height;
+            //this.Top = r.Top;
+            //this.Left = r.Left;
+            // satish end
+            RefreshGrid();
+
+
+            var res1 = ATP.Common.ProxyHelper.Service<MyShopOutDoorDealerSide.ServiceReference1.IOutDoor>.Use(svcs => {
+                return svcs.UpsertKioskInUSE(_dealerId, null, new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
+            });
+
             dispatcherTimer.Start();
         }
 
@@ -117,9 +123,9 @@ namespace MyShopOutDoor {
                     return svcs.SelAllKeyDropPegByDealerId(ConfigClass.DealerId);
                 });
                 LstPerson.ItemsSource = null;
-               // LstPerson.Items.Clear();
-               LstPerson.ItemsSource = res;
-              //  LstPerson.Items.Refresh();
+                // LstPerson.Items.Clear();
+                LstPerson.ItemsSource = res;
+                //  LstPerson.Items.Refresh();
             }
             catch (Exception ex) {
                 MessageBox(ex.Message.ToString(), "Error !");
@@ -128,7 +134,7 @@ namespace MyShopOutDoor {
 
         private void LstPerson_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 
-            if(LstPerson.SelectedItem == null) { return; }
+            if (LstPerson.SelectedItem == null) { return; }
 
             var wnd = new MyShopOutDoor.DealerSide.PickUpOrDrop();
             this.Opacity = 0.5;
@@ -143,8 +149,14 @@ namespace MyShopOutDoor {
             else {
                 wnd.SelectedPerson = selectedPerson;
 
-              
+
                 var confirm = wnd.ShowDialog();
+
+               
+                    var res1 = ATP.Common.ProxyHelper.Service<MyShopOutDoorDealerSide.ServiceReference1.IOutDoor>.Use(svcs => {
+                        return svcs.UpsertKioskInUSE(116, null, new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
+                    });
+                
             }
             // LstPerson.UnselectAll();
             this.Opacity = 1;
@@ -161,6 +173,8 @@ namespace MyShopOutDoor {
             wnd.CmdOk.Visibility = System.Windows.Visibility.Visible;
 
             var confirm = wnd.ShowDialog();
+
+         
         }
     }
 }

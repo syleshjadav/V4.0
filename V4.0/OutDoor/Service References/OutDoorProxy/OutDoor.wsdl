@@ -56,6 +56,24 @@
   <wsdl:message name="IOutDoor_UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerResponse" />
   </wsdl:message>
+  <wsdl:message name="IOutDoor_SelVehicleServiceDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelVehicleServiceDetails" />
+  </wsdl:message>
+  <wsdl:message name="IOutDoor_SelVehicleServiceDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelVehicleServiceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOutDoor_SelKioskInUSE_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelKioskInUSE" />
+  </wsdl:message>
+  <wsdl:message name="IOutDoor_SelKioskInUSE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelKioskInUSEResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOutDoor_UpsertKioskInUSE_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpsertKioskInUSE" />
+  </wsdl:message>
+  <wsdl:message name="IOutDoor_UpsertKioskInUSE_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpsertKioskInUSEResponse" />
+  </wsdl:message>
   <wsdl:message name="IOutDoor_LogError_InputMessage">
     <wsdl:part name="parameters" element="tns:LogError" />
   </wsdl:message>
@@ -106,6 +124,18 @@
     <wsdl:operation name="UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer" message="tns:IOutDoor_UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerResponse" message="tns:IOutDoor_UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelVehicleServiceDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOutDoor/SelVehicleServiceDetails" message="tns:IOutDoor_SelVehicleServiceDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOutDoor/SelVehicleServiceDetailsResponse" message="tns:IOutDoor_SelVehicleServiceDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelKioskInUSE">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOutDoor/SelKioskInUSE" message="tns:IOutDoor_SelKioskInUSE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOutDoor/SelKioskInUSEResponse" message="tns:IOutDoor_SelKioskInUSE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpsertKioskInUSE">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOutDoor/UpsertKioskInUSE" message="tns:IOutDoor_UpsertKioskInUSE_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOutDoor/UpsertKioskInUSEResponse" message="tns:IOutDoor_UpsertKioskInUSE_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="LogError">
       <wsdl:input wsaw:Action="http://tempuri.org/IOutDoor/LogError" message="tns:IOutDoor_LogError_InputMessage" />
@@ -187,6 +217,33 @@
     </wsdl:operation>
     <wsdl:operation name="UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer">
       <soap:operation soapAction="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelVehicleServiceDetails">
+      <soap:operation soapAction="http://tempuri.org/IOutDoor/SelVehicleServiceDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelKioskInUSE">
+      <soap:operation soapAction="http://tempuri.org/IOutDoor/SelKioskInUSE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpsertKioskInUSE">
+      <soap:operation soapAction="http://tempuri.org/IOutDoor/UpsertKioskInUSE" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

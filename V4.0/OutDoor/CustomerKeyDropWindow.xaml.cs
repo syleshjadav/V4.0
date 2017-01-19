@@ -15,6 +15,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using MyShopOutDoor.Common;
 using MyShopOutDoor.MyShopUserControl;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace MyShopOutDoor {
     /// <summary>
@@ -37,6 +39,13 @@ namespace MyShopOutDoor {
             _serialPort = new SerialPort();
             _serialPort.DataReceived += _serialPort_DataReceived;
             _serialPort.ErrorReceived += _serialPort_ErrorReceived;
+
+
+            this.Loaded += CustomerKeyDropWindow_Loaded;
+        }
+
+        private void CustomerKeyDropWindow_Loaded(object sender, RoutedEventArgs e) {
+           // CmdVerifyPIN_Click(sender,e);
         }
 
         private void Current_SessionEnding(object sender, SessionEndingCancelEventArgs e) {
@@ -105,6 +114,8 @@ namespace MyShopOutDoor {
             var res = new List<OutDoorProxy.uspVerifyPinGetCustInfo_Result>();
             var x = new List<uspSelVehicleMakes_Result>();
 
+           // CtrlValidatePin.TxtPin.Text = "30372";
+
             try {
                 res = ATP.Common.ProxyHelper.Service<OutDoorProxy.IOutDoor>.Use(svcs => {
                     return svcs.VerifyPinGetCustInfo(_dealerId, true, CtrlValidatePin.TxtPin.Text).ToList();
@@ -143,6 +154,50 @@ namespace MyShopOutDoor {
                                 return;
                             }
 
+                            var svclist = new List<uspSelVehicleServiceDetails_Result>();
+                           
+                            try {
+                                svclist = ATP.Common.ProxyHelper.Service<OutDoorProxy.IOutDoor>.Use(svcs => {
+                                    return svcs.SelVehicleServiceDetails(_dealerId, vsGuid, vGuid, pGuid, null, null).ToList();
+                                });
+                            }
+                            catch (Exception ex) {
+                                MessageBox(ex.Message);
+                            }
+
+                            if (LstServiceItems != null && svclist !=null ) {
+                                   
+
+
+                               // Serializer ser = new Serializer();
+
+
+                                if (svclist.FirstOrDefault().VEHSVCS != null) {
+
+                                   // var selectedSvcList = ser.Deserialize<VEHSVCS>(svclist.FirstOrDefault().VEHSVCS.ToString());
+
+
+                                    var ser = new XmlSerializer(typeof(VEHSVCS));
+                                 
+                                    using (TextReader reader = new StringReader(svclist.FirstOrDefault().VEHSVCS.ToString())) {
+                                       var result = (VEHSVCS) ser.Deserialize(reader);
+                                        LstServiceItems.ItemsSource = result.VEHSVC;
+                                        LstServiceItems.Items.Refresh();
+                                    }
+
+                                   
+                                }
+                               // xmlOutputData = ser.Serialize<Customer>(customer)
+
+
+                                
+
+                                TxtComments.Text = svclist.FirstOrDefault().Comments;
+
+                            }
+
+
+
                             //foreach (var itm in stepsLst) {
                             //    var txt = String.Format("{0} {1} {2}", itm.StepCode, itm.StepDesc, itm.NoOfRotation);
 
@@ -169,6 +224,8 @@ namespace MyShopOutDoor {
             catch (Exception ex) {
                 MessageBox(ex.Message);
             }
+
+           
         }
         // int iOpenDoorPressedCount = 0;
 
@@ -223,8 +280,8 @@ namespace MyShopOutDoor {
                 CustomerInfo = CustomerInfo
             };
 
-            wnd.Show();
-
+            wnd.ShowDialog();
+            GoHome();
 
         }
 
@@ -233,4 +290,23 @@ namespace MyShopOutDoor {
         }
     }
 
+
+    [XmlRoot(ElementName = "VEHSVC")]
+    public class VEHSVC {
+        [XmlElement(ElementName = "VehicleServiceGUID")]
+        public string VehicleServiceGUID { get; set; }
+        [XmlElement(ElementName = "ServiceTypeId")]
+        public string ServiceTypeId { get; set; }
+        [XmlElement(ElementName = "Sequence")]
+        public string Sequence { get; set; }
+        [XmlElement(ElementName = "ShortName")]
+        public string ShortName { get; set; }
+    }
+
+    [XmlRoot(ElementName = "VEHSVCS")]
+    [Serializable]
+    public class VEHSVCS {
+        [XmlElement(ElementName = "VEHSVC")]
+        public List<VEHSVC> VEHSVC { get; set; }
+    }
 }

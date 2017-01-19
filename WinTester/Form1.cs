@@ -28,7 +28,7 @@ namespace WinTester {
             if (!File.Exists(path)) {
                 // Create a file to write to.
                 using (StreamWriter sw = File.CreateText(path)) {
-                    sw.WriteLine("VIN ,RECALLDT, MSG");
+                    sw.WriteLine("VIN ,RECALLDT, MFG,NHSTA,DESC");
                 }
             }
 
@@ -48,7 +48,7 @@ namespace WinTester {
 
 
 
-                var filePath = @"C:\temp\0308-REM.csv";
+                var filePath = @"C:\temp\CustomerList2017-01-14.csv";
 
                 StreamReader streamreader = new StreamReader(filePath);
                 DataTable datatable = new DataTable();
@@ -88,7 +88,7 @@ namespace WinTester {
 
                             var rtn = GetVinDetails(vinToCheck);
 
-                            if (rtn != null) {
+                            if (rtn != null && rtn.Length > 22) {
                                 RecallFound(rtn);
                             }
                         }
@@ -159,7 +159,7 @@ namespace WinTester {
             var requestUrl = string.Format("{0}{1}", "https://prd.vinterpreter.us:9881/ords/prd/v1/get_recall_info_vin?vin=", vin);
             try {
                 string rtnvalue = "";
-                string rtn="";
+                string rtn = "";
                 var client = new WebClient();
 
 
@@ -183,16 +183,35 @@ namespace WinTester {
                 var results = JsonConvert.DeserializeObject<SampleClass>(rtnvalue);
 
                 if (results.OEM_DATA != null && results.OEM_DATA.OPEN_RECALLS != null && results.OEM_DATA.OPEN_RECALLS.Count() > 0) {
-                    foreach (var m in results.OEM_DATA.OPEN_RECALLS) {
-                        var dt = "";
-                        if (m != null && m.RECALL_DATE != null) {
-                            if (m.RECALL_DATE.Length > 9) {
-                                dt = m.RECALL_DATE.Substring(0, 10);
+                    var dt = ""; var mfg = ""; var nhsta = ""; var desc = "";
+                    if (results.OEM_DATA.OPEN_RECALLS != null && results.OEM_DATA.OPEN_RECALLS.Count() >= 1) {
+                        foreach (var m in results.OEM_DATA.OPEN_RECALLS) {
+
+
+                            if (m != null && m.RECALL_DATE != null) {
+                                if (m.RECALL_DATE.Length > 9) {
+                                    dt += m.RECALL_DATE.Substring(0, 10);
+                                }
+
+                                if (m != null && m.MFR_RECALL_NUMBER != null) {
+                                    mfg += m.MFR_RECALL_NUMBER + " ";
+                                }
+                                if (m != null && m.NHTSA_RECALL_NUMBER != null) {
+                                    nhsta += m.NHTSA_RECALL_NUMBER + " ";
+                                }
+
+                                if (m != null && m.RECALL_DESCRIPTION != null) {
+                                    desc += m.RECALL_DESCRIPTION + " ";
+                                }
+
+                                //, MFG,NHSTA,DESC, MFG,NHSTA,DESC
+
                             }
 
-                            rtn += string.Format("{0},{1},{2}", vin, dt, m.RECALL_TITLE);
                         }
+                        rtn = string.Format("{0},{1},{2},{3},{4}", vin, dt, mfg, nhsta, desc);
                     }
+
 
                 }
 

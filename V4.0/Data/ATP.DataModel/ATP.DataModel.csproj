@@ -362,6 +362,9 @@
     <Compile Include="uspSelKioskByMachineId_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="uspSelKioskInUSE_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="uspSelLookUpTableByDealerId_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -450,6 +453,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="uspSelVehicleModels_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="uspSelVehicleServiceDetails_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="uspSelVehicleServiceImage_Result.cs">

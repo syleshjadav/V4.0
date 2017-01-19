@@ -2059,6 +2059,432 @@ namespace MyShopOutDoorDealerSide.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="uspSelVehicleServiceDetails_Result", Namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel")]
+    [System.SerializableAttribute()]
+    public partial class uspSelVehicleServiceDetails_Result : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CommentsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<byte> DeviceTypeIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GoogleGuidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LicensePlateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid PersonGuidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RONumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ServiceDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte ServiceStatusIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VEHSVCSField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VINField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VehPhIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid VehicleGuidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int VehicleIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid VehicleServiceGuidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VehicleYrMkModField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Comments {
+            get {
+                return this.CommentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CommentsField, value) != true)) {
+                    this.CommentsField = value;
+                    this.RaisePropertyChanged("Comments");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<byte> DeviceTypeId {
+            get {
+                return this.DeviceTypeIdField;
+            }
+            set {
+                if ((this.DeviceTypeIdField.Equals(value) != true)) {
+                    this.DeviceTypeIdField = value;
+                    this.RaisePropertyChanged("DeviceTypeId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GoogleGuid {
+            get {
+                return this.GoogleGuidField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GoogleGuidField, value) != true)) {
+                    this.GoogleGuidField = value;
+                    this.RaisePropertyChanged("GoogleGuid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LicensePlate {
+            get {
+                return this.LicensePlateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LicensePlateField, value) != true)) {
+                    this.LicensePlateField = value;
+                    this.RaisePropertyChanged("LicensePlate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid PersonGuid {
+            get {
+                return this.PersonGuidField;
+            }
+            set {
+                if ((this.PersonGuidField.Equals(value) != true)) {
+                    this.PersonGuidField = value;
+                    this.RaisePropertyChanged("PersonGuid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RONumber {
+            get {
+                return this.RONumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RONumberField, value) != true)) {
+                    this.RONumberField = value;
+                    this.RaisePropertyChanged("RONumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ServiceDate {
+            get {
+                return this.ServiceDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ServiceDateField, value) != true)) {
+                    this.ServiceDateField = value;
+                    this.RaisePropertyChanged("ServiceDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte ServiceStatusId {
+            get {
+                return this.ServiceStatusIdField;
+            }
+            set {
+                if ((this.ServiceStatusIdField.Equals(value) != true)) {
+                    this.ServiceStatusIdField = value;
+                    this.RaisePropertyChanged("ServiceStatusId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VEHSVCS {
+            get {
+                return this.VEHSVCSField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VEHSVCSField, value) != true)) {
+                    this.VEHSVCSField = value;
+                    this.RaisePropertyChanged("VEHSVCS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VIN {
+            get {
+                return this.VINField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VINField, value) != true)) {
+                    this.VINField = value;
+                    this.RaisePropertyChanged("VIN");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VehPhId {
+            get {
+                return this.VehPhIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VehPhIdField, value) != true)) {
+                    this.VehPhIdField = value;
+                    this.RaisePropertyChanged("VehPhId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid VehicleGuid {
+            get {
+                return this.VehicleGuidField;
+            }
+            set {
+                if ((this.VehicleGuidField.Equals(value) != true)) {
+                    this.VehicleGuidField = value;
+                    this.RaisePropertyChanged("VehicleGuid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int VehicleId {
+            get {
+                return this.VehicleIdField;
+            }
+            set {
+                if ((this.VehicleIdField.Equals(value) != true)) {
+                    this.VehicleIdField = value;
+                    this.RaisePropertyChanged("VehicleId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid VehicleServiceGuid {
+            get {
+                return this.VehicleServiceGuidField;
+            }
+            set {
+                if ((this.VehicleServiceGuidField.Equals(value) != true)) {
+                    this.VehicleServiceGuidField = value;
+                    this.RaisePropertyChanged("VehicleServiceGuid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VehicleYrMkMod {
+            get {
+                return this.VehicleYrMkModField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VehicleYrMkModField, value) != true)) {
+                    this.VehicleYrMkModField = value;
+                    this.RaisePropertyChanged("VehicleYrMkMod");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="uspSelKioskInUSE_Result", Namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel")]
+    [System.SerializableAttribute()]
+    public partial class uspSelKioskInUSE_Result : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> DealerIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> IsMachineInUseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.Guid> LastUsedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> LastUsedDateTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsedByField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> DealerID {
+            get {
+                return this.DealerIDField;
+            }
+            set {
+                if ((this.DealerIDField.Equals(value) != true)) {
+                    this.DealerIDField = value;
+                    this.RaisePropertyChanged("DealerID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> IsMachineInUse {
+            get {
+                return this.IsMachineInUseField;
+            }
+            set {
+                if ((this.IsMachineInUseField.Equals(value) != true)) {
+                    this.IsMachineInUseField = value;
+                    this.RaisePropertyChanged("IsMachineInUse");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.Guid> LastUsedBy {
+            get {
+                return this.LastUsedByField;
+            }
+            set {
+                if ((this.LastUsedByField.Equals(value) != true)) {
+                    this.LastUsedByField = value;
+                    this.RaisePropertyChanged("LastUsedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastUsedDateTime {
+            get {
+                return this.LastUsedDateTimeField;
+            }
+            set {
+                if ((this.LastUsedDateTimeField.Equals(value) != true)) {
+                    this.LastUsedDateTimeField = value;
+                    this.RaisePropertyChanged("LastUsedDateTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UsedBy {
+            get {
+                return this.UsedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsedByField, value) != true)) {
+                    this.UsedByField = value;
+                    this.RaisePropertyChanged("UsedBy");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IOutDoor")]
     public interface IOutDoor {
@@ -2104,6 +2530,32 @@ namespace MyShopOutDoorDealerSide.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer", ReplyAction="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerRes" +
+            "ponse")]
+        System.Collections.Generic.List<string> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer", ReplyAction="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelVehicleServiceDetails", ReplyAction="http://tempuri.org/IOutDoor/SelVehicleServiceDetailsResponse")]
+        System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelVehicleServiceDetails", ReplyAction="http://tempuri.org/IOutDoor/SelVehicleServiceDetailsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelVehicleServiceDetails_Result>> SelVehicleServiceDetailsAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelKioskInUSE", ReplyAction="http://tempuri.org/IOutDoor/SelKioskInUSEResponse")]
+        System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelKioskInUSE_Result> SelKioskInUSE(System.Nullable<int> dealerId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelKioskInUSE", ReplyAction="http://tempuri.org/IOutDoor/SelKioskInUSEResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelKioskInUSE_Result>> SelKioskInUSEAsync(System.Nullable<int> dealerId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpsertKioskInUSE", ReplyAction="http://tempuri.org/IOutDoor/UpsertKioskInUSEResponse")]
+        int UpsertKioskInUSE(System.Nullable<int> dealerId, string usedBy, System.Nullable<System.Guid> lastUsedBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpsertKioskInUSE", ReplyAction="http://tempuri.org/IOutDoor/UpsertKioskInUSEResponse")]
+        System.Threading.Tasks.Task<int> UpsertKioskInUSEAsync(System.Nullable<int> dealerId, string usedBy, System.Nullable<System.Guid> lastUsedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/LogError", ReplyAction="http://tempuri.org/IOutDoor/LogErrorResponse")]
         bool LogError(string msg);
@@ -2205,6 +2657,38 @@ namespace MyShopOutDoorDealerSide.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId) {
             return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruckAsync(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+        }
+        
+        public System.Collections.Generic.List<string> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId) {
+            return base.Channel.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId) {
+            return base.Channel.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+        }
+        
+        public System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt) {
+            return base.Channel.SelVehicleServiceDetails(dealerId, vehicleServiceGuid, vehicleGuid, personGuid, svcFromDt, svcToDt);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelVehicleServiceDetails_Result>> SelVehicleServiceDetailsAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt) {
+            return base.Channel.SelVehicleServiceDetailsAsync(dealerId, vehicleServiceGuid, vehicleGuid, personGuid, svcFromDt, svcToDt);
+        }
+        
+        public System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelKioskInUSE_Result> SelKioskInUSE(System.Nullable<int> dealerId) {
+            return base.Channel.SelKioskInUSE(dealerId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelKioskInUSE_Result>> SelKioskInUSEAsync(System.Nullable<int> dealerId) {
+            return base.Channel.SelKioskInUSEAsync(dealerId);
+        }
+        
+        public int UpsertKioskInUSE(System.Nullable<int> dealerId, string usedBy, System.Nullable<System.Guid> lastUsedBy) {
+            return base.Channel.UpsertKioskInUSE(dealerId, usedBy, lastUsedBy);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpsertKioskInUSEAsync(System.Nullable<int> dealerId, string usedBy, System.Nullable<System.Guid> lastUsedBy) {
+            return base.Channel.UpsertKioskInUSEAsync(dealerId, usedBy, lastUsedBy);
         }
         
         public bool LogError(string msg) {

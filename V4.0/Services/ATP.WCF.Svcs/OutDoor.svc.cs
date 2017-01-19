@@ -48,6 +48,21 @@ namespace ATP.WCF.Svcs {
 
         }
 
+        public List<uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, Guid? personGuid, string svcFromDt, string svcToDt) {
+            return new ATP.Services.Data.OutDoor().SelVehicleServiceDetails(dealerId, vehicleServiceGuid, vehicleGuid, personGuid, svcFromDt, svcFromDt);
+        }
+
+
+        public List<uspSelKioskInUSE_Result> SelKioskInUSE(int? dealerId) {
+
+            return new ATP.Services.Data.OutDoor().SelKioskInUSE(dealerId);
+        }
+
+
+        public int UpsertKioskInUSE(int? dealerId, string usedBy, Guid? lastUsedBy) {
+
+            return new ATP.Services.Data.OutDoor().UpsertKioskInUSE(dealerId, usedBy, lastUsedBy);
+        }
 
         public string PingMe(string s) {
             return s;
