@@ -103,6 +103,7 @@ namespace MyShopOutDoor {
           wnd.SelectedPerson = new uspSelAllKeyDropPegByDealerId_Result {
             FirstName = TxtName.Text,
             PhoneNumber = TxtPhone.Text,
+
             NoOfRotationDealer = FindHomeAndMoveStepsReading,
             ServiceStatus = 4
           };
@@ -110,8 +111,8 @@ namespace MyShopOutDoor {
           wnd.CustomerInfo = new uspVerifyPinGetCustInfo_Result {
             FirstName = TxtName.Text,
             PhoneNumber = TxtPhone.Text,
-            NoOfRotationCustomer = FindHomeAndMoveStepsReading
-           
+            NoOfRotationCustomer = FindHomeAndMoveStepsReading,
+            Comments = TxtNotes.Text
           };
 
           wnd.ShowDialog();
