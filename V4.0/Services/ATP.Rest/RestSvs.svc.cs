@@ -1003,10 +1003,10 @@ namespace ATP.Rest {
 
 
                 var deviceId = new ATP.Services.Data.Person().InsChatMessage(8, m.FirstName, m.LastName, m.VIN, msg, m.DealerId, m.PersonGuid, null, out outMgs);
-                return new ATPData { Id = "1", Value = "Success" };
+                return new ATPData { Id = rtnValue.KeyLockerPin, Value = rtnValue.Comments };
             }
             catch (Exception ex) {
-                TraceLog(" PickUpKeys", string.Format("First:{0}- Last:{1}- Vin:{2}- Dealer{3}-PersonGuid{4}-DealerEmp{5} ", m.FirstName, m.LastName, m.VIN, m.DealerId, m.PersonGuid, null));
+                TraceLog(" PickUpKeys Error", string.Format("First:{0}- Last:{1}- Vin:{2}- Dealer{3}-PersonGuid{4}-DealerEmp{5} ", m.FirstName, m.LastName, m.VIN, m.DealerId, m.PersonGuid, null));
 
                 return new ATPData { Id = "-1", Value = ex.ToString() };
             }

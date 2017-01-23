@@ -149,9 +149,11 @@ namespace MyShopOutDoor.DealerSide {
 
         private void OpenDoorLatchAndBringToHomePosition() {
 
+           
+
             ConfigClass.SendCommandToBoard("DL005000");
 
-
+            //DL005000
 
             var FindHomeAndMoveStepsReading = SelectedPerson.NoOfRotationDealer;
             ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading);

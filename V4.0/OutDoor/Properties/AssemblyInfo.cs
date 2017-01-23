@@ -7,13 +7,13 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OutDoor")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("MyShopOutDoor")]
+[assembly: AssemblyDescription("MyShop Technologeis LLC")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("OutDoor")]
+[assembly: AssemblyCompany("MyShop Technologeis LLC")]
+[assembly: AssemblyProduct("MyShopOutDoor")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("tm")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
