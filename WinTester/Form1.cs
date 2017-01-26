@@ -23,12 +23,12 @@ namespace WinTester {
 
         }
         private void RecallFound(string msg) {
-            string path = @"c:\temp\recallFound.csv";
+            string path = @"C:\Sylesh\recallFound.csv";
             // This text is added only once to the file.
             if (!File.Exists(path)) {
                 // Create a file to write to.
                 using (StreamWriter sw = File.CreateText(path)) {
-                    sw.WriteLine("VIN ,RECALLDT, MFG,NHSTA,DESC");
+                    sw.WriteLine("StoreNum,VIN,RECALLDT,MFG,NHSTA,DESC");
                 }
             }
 
@@ -48,7 +48,7 @@ namespace WinTester {
 
 
 
-                var filePath = @"C:\temp\CustomerList2017-01-14.csv";
+                var filePath = @"C:\Sylesh\ToRecallSearch.csv";
 
                 StreamReader streamreader = new StreamReader(filePath);
                 DataTable datatable = new DataTable();
@@ -86,9 +86,11 @@ namespace WinTester {
                         if (csvcolumns == "VIN") {
                             string vinToCheck = dr[csvcolumns].ToString();
 
-                            var rtn = GetVinDetails(vinToCheck);
+                            string storeNum = dr[0].ToString();
 
-                            if (rtn != null && rtn.Length > 22) {
+                            var rtn = GetVinDetails(storeNum,vinToCheck);
+
+                            if (rtn != null && rtn.Length > 35) {
                                 RecallFound(rtn);
                             }
                         }
@@ -153,7 +155,7 @@ namespace WinTester {
         }
 
 
-        public string GetVinDetails(string vin) {
+        public string GetVinDetails(string Storenum, string vin) {
             // var requestUrl = "https://demo.vinterpreter.us:9881/ords/demo/v1/get_vin_info?vin=1FMDU34E8VZA90882";
             // var requestUrl = "https://demo.vinterpreter.us:9881/ords/demo/v1/get_recall_info_vin?vin=1ZVFT82H775283137";
             var requestUrl = string.Format("{0}{1}", "https://prd.vinterpreter.us:9881/ords/prd/v1/get_recall_info_vin?vin=", vin);
@@ -209,7 +211,8 @@ namespace WinTester {
                             }
 
                         }
-                        rtn = string.Format("{0},{1},{2},{3},{4}", vin, dt, mfg, nhsta, desc);
+
+                        rtn = string.Format("{0},{1},{2},{3},{4},{5}", Storenum,vin, dt, mfg, nhsta, desc.Replace(","," "));
                     }
 
 

@@ -56,8 +56,8 @@ namespace MyShopOutDoor {
         SerialPortInterface sp = new SerialPortInterface(); // load port details
         ConfigClass.MyShopSerialPort.PortName = xmlnode["MYSHOPCOMMPORT"].InnerText;
 
-        //ConfigClass.SendCommandToBoard("DL003000");
-     //    if (!ConfigClass.MyShopSerialPort.IsOpen) { ConfigClass.MyShopSerialPort.Open(); }
+        
+        if (!ConfigClass.MyShopSerialPort.IsOpen) { ConfigClass.MyShopSerialPort.Open(); }
 
 
         if (xmlnode["DEALORCUST"].InnerText == "C") {
