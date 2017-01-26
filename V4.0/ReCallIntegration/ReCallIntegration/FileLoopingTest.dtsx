@@ -1,0 +1,2195 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/20/2008 6:35:28 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="NPLAPTOP"
+  DTS:CreatorName="NPLAPTOP\Administrator"
+  DTS:DTSID="{CDE743D8-0947-40D6-A102-04F0D2ABC828}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2165.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FileLoopingTest"
+  DTS:PackageType="5"
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{A8840310-F489-4119-B4BF-98205EDAF8E2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[NightlyDataFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{4C0B0006-9FD8-4DB2-92C4-4199A06C9F44}"
+      DTS:ObjectName="NightlyDataFile">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::varFilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Sylesh\">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="InvoiceDate"
+              DTS:DTSID="{485749AE-D518-485D-B8E6-60228C6DDA14}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="InvoiceWorkOrderNumber"
+              DTS:DTSID="{23F096AD-B4A3-4D72-94A3-2DD628B01AB0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{5F225E41-EC84-4721-86D8-2A50EF74DCFA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{01DFB58B-8308-4FE4-9A5B-0179431B51C1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Address1"
+              DTS:DTSID="{C8A71514-447B-41CD-B31C-DA18698F73C3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Address2"
+              DTS:DTSID="{3FBBA613-FE66-4DC7-9D11-634C9021AEFF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="City"
+              DTS:DTSID="{04DDD040-DD47-44D8-8417-5C40A0238C11}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="State"
+              DTS:DTSID="{6FC39168-57EB-495A-83BD-169F10F718AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Zip"
+              DTS:DTSID="{555717CF-FA6A-4076-8D91-C7980ECEFCAB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VIN"
+              DTS:DTSID="{80B7E87B-05E6-43D9-8707-1BB6B4C79740}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Plate"
+              DTS:DTSID="{3A1B4E81-9EF1-42C5-B0DF-30EFE6F3D865}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VehicleYear"
+              DTS:DTSID="{27A09D1B-223B-4C58-80C1-C1475B3531BC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VehicleMake"
+              DTS:DTSID="{29FAE951-EF72-44FA-9DB2-F0F9D75BF3DC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VehicleModel"
+              DTS:DTSID="{F7A5537E-39CA-410E-97C5-2989319A8439}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VehicleBody"
+              DTS:DTSID="{481A6459-C966-4C89-87BF-D73EFD8CF5B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CurrentOdometer"
+              DTS:DTSID="{9EDFC687-D3BC-43FD-9C3C-D0AD8DFC610B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Inspectiondate"
+              DTS:DTSID="{CF2CF9A0-D7B5-476A-99CA-ED6292B3D3F3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ExpiresMonth"
+              DTS:DTSID="{3D966643-D448-423F-AE9C-14E47DF04004}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ExpiresYear"
+              DTS:DTSID="{FDE5A83C-22B3-4237-B387-2F0F8071F38A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StickerNumber"
+              DTS:DTSID="{A313ABA1-188F-43C8-B2E8-BA9BB77CE8F7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmissionStickerNumber"
+              DTS:DTSID="{082C3A81-E9F2-4326-B7BD-1BC750330621}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FleetNumber"
+              DTS:DTSID="{B7BD667B-942C-4490-A52F-0D82A0E32196}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UserWorkOrder"
+              DTS:DTSID="{3C1129F1-090B-4BBF-A4B3-D9E987751F76}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" LFBrake"
+              DTS:DTSID="{57B25C71-F3F0-41CA-80FC-B04A611650B3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" LFBrakeBondRivet"
+              DTS:DTSID="{E2CE7BBF-F6D1-4D83-B3B9-2DC28C55061D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" RFBrake"
+              DTS:DTSID="{2014A642-48A0-4F93-8294-7BB5FCA6A96F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" RFBrakeBondRivet"
+              DTS:DTSID="{6B43ADAD-BCBF-4BDA-A1DE-03B945103DAB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" LRBrake"
+              DTS:DTSID="{1D932956-9A2F-4574-A840-FB5D382990E8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" LRBrakeBondRivet"
+              DTS:DTSID="{BBC091FE-B122-49C7-B068-505F01F38B97}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" RRBrake"
+              DTS:DTSID="{FCBB665B-4579-4DC3-AAAB-2B9240D6841F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" RRBrakeBondRivet"
+              DTS:DTSID="{1E5D818B-3AC8-4E34-AD09-5F7CC254410E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" LFTire"
+              DTS:DTSID="{3D33B91F-E29E-44E4-8CDA-5F93DC7F95CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" RFTire"
+              DTS:DTSID="{0C2C9D5A-776A-4091-AE11-74180C03C786}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" LRTire"
+              DTS:DTSID="{5C6C0CC1-2EF3-43E5-8D7D-5C3CC2CFDC0A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" RRTire"
+              DTS:DTSID="{7455A374-AED0-47AB-8AA6-7DED9156B5AC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ExpireMonthName"
+              DTS:DTSID="{B9C073A3-881B-4116-AC57-94970295061E}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[VM3-A034847\SQL2014.TEST]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B6786FE3-06A9-4168-AA75-D55ACAD3ECD9}"
+      DTS:ObjectName="VM3-A034847\SQL2014.TEST">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=VM3-A034847\SQL2014;Initial Catalog=TEST;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A784AC5C-40CE-43DE-910B-75E8E9475722}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::varSourceFolder] + &quot;\\Archive&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varArchiveFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Sylesh\Archive</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D8FCA192-EF0B-42B8-8EBD-364688DC10B2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::varArchiveFolder] + &quot;\\&quot; +  @[User::varFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varArchivePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Sylesh\Archive\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{85647B9A-7E37-43AD-BFE0-B64D5FFF274A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1A7FA3E0-FFB6-414D-91D1-B7D66952CE17}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::varSourceFolder] + &quot;\\&quot; +  @[User::varFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varFilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Sylesh\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AC4DD392-425D-40A5-A461-35802084E4D9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="varSourceFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Sylesh</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create or Truncate Staging table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{08CEE4FA-DCC2-4D1D-BB85-A5E6FD06D7B2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create or Truncate Staging table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B6786FE3-06A9-4168-AA75-D55ACAD3ECD9}"
+          SQLTask:SqlStatementSource="IF OBJECT_ID('dbo.RECALL', 'U')  IS NULL&#xA;begin&#xA;CREATE TABLE [dbo].[RECALL](&#xA;&#x9;[CustId] [nvarchar](150) NULL,&#xA;&#x9;[LastName] [varchar](50) NULL,&#xA;&#x9;[FirstName] [varchar](50) NULL,&#xA;&#x9;[Address1] [varchar](50) NULL,&#xA;&#x9;[Address2] [varchar](50) NULL,&#xA;&#x9;[City] [varchar](50) NULL,&#xA;&#x9;[State] [varchar](50) NULL,&#xA;&#x9;[Zip] [varchar](50) NULL,&#xA;&#x9;[VIN] [varchar](50) NULL,&#xA;&#x9;[Plate] [varchar](50) NULL,&#xA;&#x9;[VehicleYear] [varchar](50) NULL,&#xA;&#x9;[VehicleMake] [varchar](50) NULL,&#xA;&#x9;[VehicleModel] [varchar](50) NULL,&#xA;&#x9;[VehicleBody] [varchar](50) NULL&#xA;) &#xA;END&#xA;&#xA;GO&#xA;&#xA;&#xA;&#xA;truncate table RECALL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Nighly Data Files"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{F1C59A0A-6D45-4FEB-950F-F2CF4AD27944}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Nighly Data Files">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{AAB50F3B-E8C8-4E26-A3E0-9F3A277E5511}"
+        DTS:ObjectName="{F6B3DE64-0D8C-4F99-852C-10F2AD30CED3}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Sylesh" />
+            <FEFEProperty
+              FileSpec="*.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Load Nighly Data Files\Load Data File"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{5F79A26B-D010-48B8-BB0E-21F7934A1906}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Data File"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v9; (C) 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              engineThreads="5"
+              version="1">
+              <components>
+                <component
+                  refId="Package\Load Nighly Data Files\Load Data File\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Load Nighly Data Files\Load Data File\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load Nighly Data Files\Load Data File\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Load Nighly Data Files\Load Data File\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]"
+                          name="Derived Column 1"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,100)@[User::varFileName]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,100)@[User::varFileName]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Load Nighly Data Files\Load Data File\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Load Nighly Data Files\Load Data File\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load Nighly Data Files\Load Data File\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[NightlyDataFile]"
+                      connectionManagerRefId="Package.ConnectionManagers[NightlyDataFile]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[InvoiceDate]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[InvoiceDate]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[InvoiceDate]"
+                          name="InvoiceDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[InvoiceWorkOrderNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[InvoiceWorkOrderNumber]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[InvoiceWorkOrderNumber]"
+                          name="InvoiceWorkOrderNumber"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
+                          name="LastName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                          name="FirstName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[Address1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Address1]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[Address1]"
+                          name="Address1"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[Address2]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Address2]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[Address2]"
+                          name="Address2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[City]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[City]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[City]"
+                          name="City"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[State]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[State]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[State]"
+                          name="State"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[Zip]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Zip]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[Zip]"
+                          name="Zip"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VIN]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VIN]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VIN]"
+                          name="VIN"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[Plate]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Plate]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[Plate]"
+                          name="Plate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleYear]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleYear]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleYear]"
+                          name="VehicleYear"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleMake]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleMake]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleMake]"
+                          name="VehicleMake"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleModel]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleModel]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleModel]"
+                          name="VehicleModel"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleBody]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleBody]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleBody]"
+                          name="VehicleBody"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[CurrentOdometer]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CurrentOdometer]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[CurrentOdometer]"
+                          name="CurrentOdometer"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[Inspectiondate]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Inspectiondate]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[Inspectiondate]"
+                          name="Inspectiondate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ExpiresMonth]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ExpiresMonth]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ExpiresMonth]"
+                          name="ExpiresMonth"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ExpiresYear]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ExpiresYear]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ExpiresYear]"
+                          name="ExpiresYear"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[StickerNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StickerNumber]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[StickerNumber]"
+                          name="StickerNumber"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[EmissionStickerNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmissionStickerNumber]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[EmissionStickerNumber]"
+                          name="EmissionStickerNumber"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[FleetNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FleetNumber]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[FleetNumber]"
+                          name="FleetNumber"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[UserWorkOrder]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[UserWorkOrder]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[UserWorkOrder]"
+                          name="UserWorkOrder"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ LFBrake]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LFBrake]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ LFBrake]"
+                          name=" LFBrake"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ LFBrakeBondRivet]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LFBrakeBondRivet]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ LFBrakeBondRivet]"
+                          name=" LFBrakeBondRivet"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ RFBrake]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RFBrake]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ RFBrake]"
+                          name=" RFBrake"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ RFBrakeBondRivet]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RFBrakeBondRivet]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ RFBrakeBondRivet]"
+                          name=" RFBrakeBondRivet"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ LRBrake]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LRBrake]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ LRBrake]"
+                          name=" LRBrake"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ LRBrakeBondRivet]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LRBrakeBondRivet]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ LRBrakeBondRivet]"
+                          name=" LRBrakeBondRivet"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ RRBrake]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RRBrake]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ RRBrake]"
+                          name=" RRBrake"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ RRBrakeBondRivet]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RRBrakeBondRivet]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ RRBrakeBondRivet]"
+                          name=" RRBrakeBondRivet"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ LFTire]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LFTire]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ LFTire]"
+                          name=" LFTire"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ RFTire]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RFTire]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ RFTire]"
+                          name=" RFTire"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ LRTire]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LRTire]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ LRTire]"
+                          name=" LRTire"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ RRTire]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RRTire]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ RRTire]"
+                          name=" RRTire"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ExpireMonthName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ExpireMonthName]"
+                          length="50"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[ExpireMonthName]"
+                          name="ExpireMonthName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[InvoiceDate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="InvoiceDate" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[InvoiceWorkOrderNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="InvoiceWorkOrderNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Address1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Address1" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Address2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Address2" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[City]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="City" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[State]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="State" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Zip]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Zip" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VIN]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="VIN" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Plate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Plate" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleYear]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="VehicleYear" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleMake]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="VehicleMake" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleModel]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="VehicleModel" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleBody]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="VehicleBody" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CurrentOdometer]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="CurrentOdometer" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Inspectiondate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Inspectiondate" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ExpiresMonth]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ExpiresMonth" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ExpiresYear]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ExpiresYear" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StickerNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="StickerNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmissionStickerNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="EmissionStickerNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FleetNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="FleetNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[UserWorkOrder]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="UserWorkOrder" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LFBrake]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name=" LFBrake" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LFBrakeBondRivet]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name=" LFBrakeBondRivet" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RFBrake]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name=" RFBrake" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RFBrakeBondRivet]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name=" RFBrakeBondRivet" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LRBrake]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name=" LRBrake" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LRBrakeBondRivet]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name=" LRBrakeBondRivet" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RRBrake]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name=" RRBrake" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RRBrakeBondRivet]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name=" RRBrakeBondRivet" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LFTire]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name=" LFTire" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RFTire]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name=" RFTire" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LRTire]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name=" LRTire" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RRTire]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name=" RRTire" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ExpireMonthName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ExpireMonthName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[RECALL]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destinaton. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">0</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[VM3-A034847\SQL2014.TEST]"
+                      connectionManagerRefId="Package.ConnectionManagers[VM3-A034847\SQL2014.TEST]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="LastName"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]" />
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="FirstName"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]" />
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Address1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Address1"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address1]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[Address1]" />
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Address2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Address2"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address2]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[Address2]" />
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[City]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="City"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[City]" />
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="State"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[State]" />
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Zip]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Zip"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Zip]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[Zip]" />
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VIN]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="VIN"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VIN]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VIN]" />
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Plate]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Plate"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Plate]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[Plate]" />
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VehicleYear]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="VehicleYear"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VehicleYear]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleYear]" />
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VehicleMake]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="VehicleMake"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VehicleMake]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleMake]" />
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VehicleModel]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="VehicleModel"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VehicleModel]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleModel]" />
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VehicleBody]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="VehicleBody"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VehicleBody]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleBody]" />
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrentOdometer]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="CurrentOdometer"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentOdometer]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output].Columns[CurrentOdometer]" />
+                        <inputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Derived Column 1]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="Derived Column 1"
+                          externalMetadataColumnId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustId]"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustId]"
+                          dataType="wstr"
+                          length="150"
+                          name="CustId" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Address1" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Address2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Address2" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="City" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="State" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Zip]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Zip" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VIN]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="VIN" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Plate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Plate" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VehicleYear]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="VehicleYear" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VehicleMake]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="VehicleMake" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VehicleModel]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="VehicleModel" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VehicleBody]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="VehicleBody" />
+                        <externalMetadataColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentOdometer]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="CurrentOdometer" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Load Nighly Data Files\Load Data File.Paths[Derived Column Output]"
+                  endId="Package\Load Nighly Data Files\Load Data File\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Load Nighly Data Files\Load Data File\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Load Nighly Data Files\Load Data File.Paths[Flat File Source Output]"
+                  endId="Package\Load Nighly Data Files\Load Data File\Derived Column.Inputs[Derived Column Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Load Nighly Data Files\Load Data File\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Nighly Data Files\Move File to Archive"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{19CD3703-7AF6-40D8-8823-91E118F74BA9}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Move File to Archive"
+          DTS:TaskContact="File System Task;Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::varFilePath"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::varArchiveFolder"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Nighly Data Files.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{00908134-0F7D-40AF-B6F9-8253A7F8A026}"
+          DTS:From="Package\Load Nighly Data Files\Load Data File"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Load Nighly Data Files\Move File to Archive" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{3B33104C-2F8D-4044-B1E8-09558C8A6247}"
+          DTS:ObjectName="{3B33104C-2F8D-4044-B1E8-09558C8A6247}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::varFileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3C1D424A-6DC4-44D6-B316-AF4A13BC216B}"
+      DTS:From="Package\Create or Truncate Staging table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load Nighly Data Files" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="174,44"
+          Id="Package\Create or Truncate Staging table"
+          TopLeft="12.1037735849057,5.5" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Load Nighly Data Files\Load Data File"
+          TopLeft="28.3018867924528,21.1509433962264" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Load Nighly Data Files\Move File to Archive"
+          TopLeft="29.2452830188679,102.018867924528" />
+        <EdgeLayout
+          Id="Package\Load Nighly Data Files.PrecedenceConstraints[Constraint]"
+          TopLeft="96.188679245283,65.0754716981132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0.943396226415103,36.9433962264151"
+              Start="0,0"
+              End="0.943396226415103,29.4433962264151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.4905660377358" />
+                  <mssgle:LineSegment
+                    End="0.943396226415103,18.4905660377358" />
+                  <mssgle:LineSegment
+                    End="0.943396226415103,29.4433962264151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43.924528301886795"
+          IsExpanded="True"
+          PanelSize="188,159"
+          Size="188,203"
+          Id="Package\Load Nighly Data Files"
+          TopLeft="5.5,75.6132075471698" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="98.9339622641509,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0.452830188679258,26.188679245283"
+              Start="0,0"
+              End="0.452830188679258,18.688679245283">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.0943396226415" />
+                  <mssgle:LineSegment
+                    End="0.452830188679258,13.0943396226415" />
+                  <mssgle:LineSegment
+                    End="0.452830188679258,18.688679245283" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Nighly Data Files\Load Data File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Load Nighly Data Files\Load Data File\OLE DB Destination"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Load Nighly Data Files\Load Data File\Flat File Source"
+          TopLeft="15.5,5.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Load Nighly Data Files\Load Data File\Derived Column"
+          TopLeft="175,65" />
+        <EdgeLayout
+          Id="Package\Load Nighly Data Files\Load Data File.Paths[Flat File Source Output]"
+          TopLeft="168.5,26.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84.5,38.5"
+              Start="0,0"
+              End="84.5,31">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="80.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="80.5,0"
+                    Point2="84.5,0"
+                    Point3="84.5,4" />
+                  <mssgle:LineSegment
+                    End="84.5,31" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Nighly Data Files\Load Data File.Paths[Derived Column Output]"
+          TopLeft="175,85">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-83,22.5"
+              Start="0,0"
+              End="-83,15">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-79,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-79,0"
+                    Point2="-83,0"
+                    Point3="-83,4" />
+                  <mssgle:LineSegment
+                    End="-83,15" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Nighly Data Files\Load Data File\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
