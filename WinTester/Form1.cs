@@ -14,6 +14,8 @@ using System.Data.OleDb;
 using System.Configuration;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using ATP.Kiosk.Common;
+using System.Web.Script.Serialization;
 
 namespace WinTester {
     public partial class Form1 : Form {
@@ -39,8 +41,74 @@ namespace WinTester {
 
             }
         }
-
+        //
         private void Form1_Load(object sender, EventArgs e) {
+
+         //   var jsonCustomMsg = new ATP.Kiosk.Common.GeneratePhoneMessage().GetMessageToSend("103", "t", "t", "t", "t", "t", "t", "0", "TxtRoNum", "TxtROAmount", "t", "t");
+
+            var deviceId = "eBqC1Jsk7Rg:APA91bGD5wXR8aYPRUL3drnx0u2WBsxCph6x1airyV42Cz9ZU3EIeZYY2-W6peOTOfUBQcKv0TDROmXUMIXugU78JeMXwL9qzndgt2iTb-dHthFd-a93AJB6UBvVNsNqFL2WzTEIKpon";
+
+            // var msgret = new ATP.Kiosk.Common.FCMPushNotification().SendMessageToAndroid(deviceId, jsonCustomMsg, "sdf", "sdfdf");
+            //var gcmReturn = ATP.Kiosk.Common.JSonHelpers.FromJson<ATP.Kiosk.Common.GCMReturn>(msgret);
+
+
+            try {
+
+               // string fcmServerAPIKey = "AAAAAop4Xr4:APA91bE2tiRVWcqOvs14oSmE7ZEO3cs6K8Dg0Zp763ZTcXtqMcR1XvNT_aspAbz44OJN21hrmXiMDIgFmBVpjJNyB8RDr1QKChN2FJZM63_xoCmHQEp-7eIoqkT-C6cvUWT4MRwKP71z";
+                string senderId = "1:10913078974:android:ed63dd5f4b2ea584";
+
+                var applicationID = "AIzaSyAsRZTXai-c6SrxuYpbY-FLXXpJRAaTOmo";
+               // var senderId = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+               // string deviceId = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+                WebRequest tRequest = WebRequest.Create("https://fcm.googleapis.com/fcm/send");
+                tRequest.Method = "post";
+                tRequest.ContentType = "application/json";
+                var data = new {
+                    to = deviceId,
+                    notification = new {
+                        body = "This is the message Body",
+                        title = "This is the title of Message",
+                        icon = "myicon"
+                    },
+                    priority = "high"
+
+                };
+
+                var serializer = new JavaScriptSerializer();
+                var json = serializer.Serialize(data);
+                Byte[] byteArray = Encoding.UTF8.GetBytes(json);
+                tRequest.Headers.Add(string.Format("Authorization: key={0}", applicationID));
+                tRequest.Headers.Add(string.Format("Sender: id={0}", senderId));
+                tRequest.ContentLength = byteArray.Length;
+
+                using (Stream dataStream = tRequest.GetRequestStream()) {
+                    dataStream.Write(byteArray, 0, byteArray.Length);
+
+                    using (WebResponse tResponse = tRequest.GetResponse()) {
+                        using (Stream dataStreamResponse = tResponse.GetResponseStream()) {
+                            using (StreamReader tReader = new StreamReader(dataStreamResponse)) {
+                                String sResponseFromServer = tReader.ReadToEnd();
+                                //Response.Write(sResponseFromServer);
+                               // Label3.Text = sResponseFromServer;
+                            }
+                        }
+                    }
+                }
+            }
+
+            catch (Exception ex) {
+                // Response.Write(ex.Message);
+                Console.Write(ex.Message);
+            }
+
+
+        
+
+
+
+    }
+
+        private void VerifyRecall() {
             string Plate = string.Empty;
             string Phone = string.Empty;
             string Email = "sasi@ibc.com";
@@ -88,7 +156,7 @@ namespace WinTester {
 
                             string storeNum = dr[0].ToString();
 
-                            var rtn = GetVinDetails(storeNum,vinToCheck);
+                            var rtn = GetVinDetails(storeNum, vinToCheck);
 
                             if (rtn != null && rtn.Length > 35) {
                                 RecallFound(rtn);
@@ -212,7 +280,7 @@ namespace WinTester {
 
                         }
 
-                        rtn = string.Format("{0},{1},{2},{3},{4},{5}", Storenum,vin, dt, mfg, nhsta, desc.Replace(","," "));
+                        rtn = string.Format("{0},{1},{2},{3},{4},{5}", Storenum, vin, dt, mfg, nhsta, desc.Replace(",", " "));
                     }
 
 
@@ -233,7 +301,16 @@ namespace WinTester {
 
     }
 }
+public class FCMResponse {
+    public long multicast_id { get; set; }
+    public int success { get; set; }
+    public int failure { get; set; }
+    public int canonical_ids { get; set; }
+    public List<FCMResult> results { get; set; }
+}
 
+public class FCMResult {
+}
 
 public class VINDATA {
     public int VIN_CORRECTED;

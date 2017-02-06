@@ -17,7 +17,7 @@ namespace MyShopOutDoor.Common {
 
      // System.Windows.Forms.MessageBox.Show(scommand);
 
-      //return;
+     // return;
 
       if (!MyShopSerialPort.IsOpen) { MyShopSerialPort.Open(); }
       MyShopSerialPort.Write(scommand + "\n");

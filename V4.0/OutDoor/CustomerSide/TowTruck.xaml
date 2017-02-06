@@ -160,8 +160,10 @@
                                              IsOpen="True"
                                              PlacementTarget="{Binding ElementName=GrdKeyboard}"
                                              AreAnimationsEnabled="False"
+                                             
                                              Height="400"
-                                             Width="800" />
+                                             Width="800"
+                                             IsAllowedToFade="False" />
           <Grid>
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="*" />

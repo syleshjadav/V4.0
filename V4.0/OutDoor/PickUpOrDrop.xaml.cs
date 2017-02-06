@@ -13,7 +13,7 @@ namespace MyShopOutDoor {
     public partial class PickUpOrDrop : Window {
 
         int _dealerId = 116;
-
+        public byte? OutDoorKeyDroppedBy { get; set; }
         public PickUpOrDrop() {
             InitializeComponent();
 
@@ -222,7 +222,8 @@ namespace MyShopOutDoor {
                 try {
 
                     var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
-                        return svcs.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(_dealerId, CustomerInfo.VehicleServiceGuid, CustomerInfo.VehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+                        return svcs.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(_dealerId, CustomerInfo.VehicleServiceGuid, CustomerInfo.VehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId,
+                            OutDoorKeyDroppedBy);
                     });
 
                 }
@@ -235,7 +236,7 @@ namespace MyShopOutDoor {
                 try {
 
                     var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
-                        return svcs.CreateSeviceAndKeyLockerBucket_TowTruck(_dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+                        return svcs.CreateSeviceAndKeyLockerBucket_TowTruck(_dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, OutDoorKeyDroppedBy);
                     });
 
                 }

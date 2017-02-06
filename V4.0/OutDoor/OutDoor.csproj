@@ -36,7 +36,7 @@
     <SuiteName>MyShopAuto</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>16</ApplicationRevision>
+    <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -306,7 +306,9 @@
   <ItemGroup>
     <Resource Include="Image\TakeKeys.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Image\NoPhone.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\back.png" />
     <Resource Include="Image\BackArrow1.png" />
@@ -318,6 +320,9 @@
     <Resource Include="Image\MyShopAuto.jpg" />
     <Resource Include="Image\PickUpKey.jpg" />
     <Resource Include="Image\TowTruck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\NoPhone1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

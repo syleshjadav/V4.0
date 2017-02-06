@@ -3983,7 +3983,7 @@ namespace ATP.DataModel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelMPIVehicleServiceByDealerId_Result>("uspSelMPIVehicleServiceByDealerId", dealerIdParameter, personGuidParameter, vehicleGuidParameter, vehicleServiceGuidParameter, vehicleServiceMPIMasterGuidParameter);
         }
     
-        public virtual int uspUPSertVehicleServicePricing(Nullable<long> servicePricingId, Nullable<System.Guid> vehicleServiceGuid, Nullable<int> serviceTypeId, Nullable<int> mPIItem, Nullable<System.Guid> vehicleServiceMPIMasterGuid, string partNumber, string partDesc, string timeTaken, string techComments, Nullable<decimal> partCost, string partComments, Nullable<System.DateTime> priceRequestedDt, Nullable<System.DateTime> priceQuotedDt, Nullable<bool> isSendToPricing, Nullable<System.Guid> techGuid, Nullable<System.Guid> partGuid, Nullable<System.Guid> svcsWriterGuid, Nullable<decimal> totalCost, Nullable<bool> isSendToCust)
+        public virtual int uspUPSertVehicleServicePricing(Nullable<long> servicePricingId, Nullable<System.Guid> vehicleServiceGuid, Nullable<int> serviceTypeId, string mPIItem, Nullable<System.Guid> vehicleServiceMPIMasterGuid, string partNumber, string partDesc, string timeTaken, string techComments, Nullable<decimal> partCost, string partComments, Nullable<System.DateTime> priceRequestedDt, Nullable<System.DateTime> priceQuotedDt, Nullable<bool> isSendToPricing, Nullable<System.Guid> techGuid, Nullable<System.Guid> partGuid, Nullable<System.Guid> svcsWriterGuid, Nullable<decimal> totalCost, Nullable<bool> isSendToCust, Nullable<bool> isDMVItem, Nullable<int> dealerId)
         {
             var servicePricingIdParameter = servicePricingId.HasValue ?
                 new ObjectParameter("ServicePricingId", servicePricingId) :
@@ -3997,9 +3997,9 @@ namespace ATP.DataModel
                 new ObjectParameter("ServiceTypeId", serviceTypeId) :
                 new ObjectParameter("ServiceTypeId", typeof(int));
     
-            var mPIItemParameter = mPIItem.HasValue ?
+            var mPIItemParameter = mPIItem != null ?
                 new ObjectParameter("MPIItem", mPIItem) :
-                new ObjectParameter("MPIItem", typeof(int));
+                new ObjectParameter("MPIItem", typeof(string));
     
             var vehicleServiceMPIMasterGuidParameter = vehicleServiceMPIMasterGuid.HasValue ?
                 new ObjectParameter("VehicleServiceMPIMasterGuid", vehicleServiceMPIMasterGuid) :
@@ -4061,7 +4061,15 @@ namespace ATP.DataModel
                 new ObjectParameter("IsSendToCust", isSendToCust) :
                 new ObjectParameter("IsSendToCust", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUPSertVehicleServicePricing", servicePricingIdParameter, vehicleServiceGuidParameter, serviceTypeIdParameter, mPIItemParameter, vehicleServiceMPIMasterGuidParameter, partNumberParameter, partDescParameter, timeTakenParameter, techCommentsParameter, partCostParameter, partCommentsParameter, priceRequestedDtParameter, priceQuotedDtParameter, isSendToPricingParameter, techGuidParameter, partGuidParameter, svcsWriterGuidParameter, totalCostParameter, isSendToCustParameter);
+            var isDMVItemParameter = isDMVItem.HasValue ?
+                new ObjectParameter("IsDMVItem", isDMVItem) :
+                new ObjectParameter("IsDMVItem", typeof(bool));
+    
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUPSertVehicleServicePricing", servicePricingIdParameter, vehicleServiceGuidParameter, serviceTypeIdParameter, mPIItemParameter, vehicleServiceMPIMasterGuidParameter, partNumberParameter, partDescParameter, timeTakenParameter, techCommentsParameter, partCostParameter, partCommentsParameter, priceRequestedDtParameter, priceQuotedDtParameter, isSendToPricingParameter, techGuidParameter, partGuidParameter, svcsWriterGuidParameter, totalCostParameter, isSendToCustParameter, isDMVItemParameter, dealerIdParameter);
         }
     
         public virtual ObjectResult<uspAssignKeylockerPin_Result> uspAssignKeylockerPin(Nullable<int> dealerId, Nullable<System.Guid> customerGuid, Nullable<System.Guid> vehicleGuid, Nullable<bool> isPickUpOrDrop)
@@ -4437,7 +4445,7 @@ namespace ATP.DataModel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdateGoogleGuid1", personGuidParameter, googleGuidParameter, deviceTypeIDParameter);
         }
     
-        public virtual ObjectResult<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> uspCreateSeviceAndKeyLockerBucket_TowTruck(Nullable<int> dealerId, string firstName, string phone, string svcInfo, Nullable<byte> serviceStatusId, Nullable<byte> assignedKeyLockerBucketId)
+        public virtual ObjectResult<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> uspCreateSeviceAndKeyLockerBucket_TowTruck(Nullable<int> dealerId, string firstName, string phone, string svcInfo, Nullable<byte> serviceStatusId, Nullable<byte> assignedKeyLockerBucketId, Nullable<byte> outDoorKeyDroppedBy)
         {
             var dealerIdParameter = dealerId.HasValue ?
                 new ObjectParameter("DealerId", dealerId) :
@@ -4463,7 +4471,11 @@ namespace ATP.DataModel
                 new ObjectParameter("AssignedKeyLockerBucketId", assignedKeyLockerBucketId) :
                 new ObjectParameter("AssignedKeyLockerBucketId", typeof(byte));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>("uspCreateSeviceAndKeyLockerBucket_TowTruck", dealerIdParameter, firstNameParameter, phoneParameter, svcInfoParameter, serviceStatusIdParameter, assignedKeyLockerBucketIdParameter);
+            var outDoorKeyDroppedByParameter = outDoorKeyDroppedBy.HasValue ?
+                new ObjectParameter("OutDoorKeyDroppedBy", outDoorKeyDroppedBy) :
+                new ObjectParameter("OutDoorKeyDroppedBy", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>("uspCreateSeviceAndKeyLockerBucket_TowTruck", dealerIdParameter, firstNameParameter, phoneParameter, svcInfoParameter, serviceStatusIdParameter, assignedKeyLockerBucketIdParameter, outDoorKeyDroppedByParameter);
         }
     
         public virtual ObjectResult<uspSelAllKeyDropPegByDealerId_Result> uspSelAllKeyDropPegByDealerId(Nullable<int> dealerId)
@@ -4517,7 +4529,7 @@ namespace ATP.DataModel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspVerifyOTP_Result>("uspVerifyOTP", personGuidParameter, oTPParameter);
         }
     
-        public virtual ObjectResult<string> uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(Nullable<int> dealerId, Nullable<System.Guid> vehicleServiceGuid, Nullable<System.Guid> vehicleGuid, string svcInfo, Nullable<byte> serviceStatusId, Nullable<byte> assignedKeyLockerBucketId)
+        public virtual ObjectResult<string> uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(Nullable<int> dealerId, Nullable<System.Guid> vehicleServiceGuid, Nullable<System.Guid> vehicleGuid, string svcInfo, Nullable<byte> serviceStatusId, Nullable<byte> assignedKeyLockerBucketId, Nullable<byte> outDoorKeyDroppedBy)
         {
             var dealerIdParameter = dealerId.HasValue ?
                 new ObjectParameter("DealerId", dealerId) :
@@ -4543,7 +4555,11 @@ namespace ATP.DataModel
                 new ObjectParameter("AssignedKeyLockerBucketId", assignedKeyLockerBucketId) :
                 new ObjectParameter("AssignedKeyLockerBucketId", typeof(byte));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer", dealerIdParameter, vehicleServiceGuidParameter, vehicleGuidParameter, svcInfoParameter, serviceStatusIdParameter, assignedKeyLockerBucketIdParameter);
+            var outDoorKeyDroppedByParameter = outDoorKeyDroppedBy.HasValue ?
+                new ObjectParameter("OutDoorKeyDroppedBy", outDoorKeyDroppedBy) :
+                new ObjectParameter("OutDoorKeyDroppedBy", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer", dealerIdParameter, vehicleServiceGuidParameter, vehicleGuidParameter, svcInfoParameter, serviceStatusIdParameter, assignedKeyLockerBucketIdParameter, outDoorKeyDroppedByParameter);
         }
     
         public virtual int uspUpdateGoogleGuid(Nullable<System.Guid> personGuid, string googleGuid, Nullable<byte> deviceTypeID)

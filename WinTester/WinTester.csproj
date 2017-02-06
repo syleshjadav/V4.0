@@ -104,6 +104,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\V4.0\Common\ATP.Kiosk.Common\ATP.Kiosk.Common.csproj">
+      <Project>{465721f9-2f5f-4b6f-a842-ac623c6452bc}</Project>
+      <Name>ATP.Kiosk.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\V4.0\Data\ATP.DataModel\ATP.DataModel.csproj">
       <Project>{aa7a2394-df96-49c0-a6c5-47b98da977f4}</Project>
       <Name>ATP.DataModel</Name>

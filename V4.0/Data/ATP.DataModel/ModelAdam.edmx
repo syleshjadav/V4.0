@@ -70,6 +70,7 @@
           <Parameter Name="SvcInfo" Type="nvarchar" Mode="In" />
           <Parameter Name="ServiceStatusId" Type="tinyint" Mode="In" />
           <Parameter Name="AssignedKeyLockerBucketId" Type="tinyint" Mode="In" />
+          <Parameter Name="OutDoorKeyDroppedBy" Type="tinyint" Mode="In" />
         </Function>
         <Function Name="uspDeleteCustomerByGuid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="pGuid" Type="uniqueidentifier" Mode="In" />
@@ -997,6 +998,7 @@
           <Parameter Name="SvcInfo" Type="nvarchar" Mode="In" />
           <Parameter Name="ServiceStatusId" Type="tinyint" Mode="In" />
           <Parameter Name="AssignedKeyLockerBucketId" Type="tinyint" Mode="In" />
+          <Parameter Name="OutDoorKeyDroppedBy" Type="tinyint" Mode="In" />
         </Function>
         <Function Name="uspUpdVehSvcStatusByVehSvcId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DealerId" Type="int" Mode="In" />
@@ -1163,7 +1165,7 @@
           <Parameter Name="ServicePricingId" Type="bigint" Mode="In" />
           <Parameter Name="VehicleServiceGuid" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="ServiceTypeId" Type="int" Mode="In" />
-          <Parameter Name="MPIItem" Type="int" Mode="In" />
+          <Parameter Name="MPIItem" Type="varchar" Mode="In" />
           <Parameter Name="VehicleServiceMPIMasterGuid" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="PartNumber" Type="varchar" Mode="In" />
           <Parameter Name="PartDesc" Type="varchar(max)" Mode="In" />
@@ -1179,6 +1181,8 @@
           <Parameter Name="SvcsWriterGuid" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="TotalCost" Type="numeric" Mode="In" />
           <Parameter Name="IsSendToCust" Type="bit" Mode="In" />
+          <Parameter Name="IsDMVItem" Type="bit" Mode="In" />
+          <Parameter Name="DealerId" Type="int" Mode="In" />
         </Function>
         <Function Name="uspValidateCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
@@ -2296,7 +2300,7 @@
             <Parameter Name="ServicePricingId" Mode="In" Type="Int64" />
             <Parameter Name="VehicleServiceGuid" Mode="In" Type="Guid" />
             <Parameter Name="ServiceTypeId" Mode="In" Type="Int32" />
-            <Parameter Name="MPIItem" Mode="In" Type="Int32" />
+            <Parameter Name="MPIItem" Mode="In" Type="String" />
             <Parameter Name="VehicleServiceMPIMasterGuid" Mode="In" Type="Guid" />
             <Parameter Name="PartNumber" Mode="In" Type="String" />
             <Parameter Name="PartDesc" Mode="In" Type="String" />
@@ -2312,6 +2316,8 @@
             <Parameter Name="SvcsWriterGuid" Mode="In" Type="Guid" />
             <Parameter Name="TotalCost" Mode="In" Type="Decimal" />
             <Parameter Name="IsSendToCust" Mode="In" Type="Boolean" />
+            <Parameter Name="IsDMVItem" Mode="In" Type="Boolean" />
+            <Parameter Name="DealerId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="uspAssignKeylockerPin" ReturnType="Collection(ModelContainer.uspAssignKeylockerPin_Result)">
             <Parameter Name="DealerId" Mode="In" Type="Int32" />
@@ -2426,6 +2432,7 @@
             <Parameter Name="SvcInfo" Mode="In" Type="String" />
             <Parameter Name="ServiceStatusId" Mode="In" Type="Byte" />
             <Parameter Name="AssignedKeyLockerBucketId" Mode="In" Type="Byte" />
+            <Parameter Name="OutDoorKeyDroppedBy" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="uspSelAllKeyDropPegByDealerId" ReturnType="Collection(ModelContainer.uspSelAllKeyDropPegByDealerId_Result)">
           <Parameter Name="DealerId" Mode="In" Type="Int32" />
@@ -2449,6 +2456,7 @@
             <Parameter Name="SvcInfo" Mode="In" Type="String" />
             <Parameter Name="ServiceStatusId" Mode="In" Type="Byte" />
             <Parameter Name="AssignedKeyLockerBucketId" Mode="In" Type="Byte" />
+            <Parameter Name="OutDoorKeyDroppedBy" Mode="In" Type="Byte" />
           </FunctionImport>
           <FunctionImport Name="uspUpdateGoogleGuid">
             <Parameter Name="personGuid" Mode="In" Type="Guid" />

@@ -63,6 +63,9 @@ namespace MyShopOutDoor {
         //}
 
         private bool CheckIfKioskIsInUse() {
+
+            return true;
+
             var res = new List<uspSelKioskInUSE_Result>();
             try {
                 res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
@@ -111,7 +114,7 @@ namespace MyShopOutDoor {
 
         private void cmdTowTruckPickUp_Click(object sender, RoutedEventArgs e) {
             if (CheckIfKioskIsInUse() == true) {
-                var wnd = new TowTruck();
+                var wnd = new TowTruck { OutDoorKeyDroppedBy = 2 };
 
                 wnd.ShowDialog();
                 ReSetLock();
@@ -122,7 +125,8 @@ namespace MyShopOutDoor {
             if (CheckIfKioskIsInUse() == true) {
                 this.Opacity = .5;
                 var wnd = new CustomerKeyDropWindow {
-                    IsPickUpOrDrop = true
+                    IsPickUpOrDrop = true,
+                     OutDoorKeyDroppedBy = 3 
                 };
                 wnd.ShowDialog();
                 this.Opacity = 1;
@@ -144,6 +148,15 @@ namespace MyShopOutDoor {
 
                 wnd.ShowDialog();
                 this.Opacity = 1;
+                ReSetLock();
+            }
+        }
+
+        private void cmdNoPhoneDrop_Click(object sender, RoutedEventArgs e) {
+            if (CheckIfKioskIsInUse() == true) {
+                var wnd = new TowTruck { OutDoorKeyDroppedBy = 3 };
+
+                wnd.ShowDialog();
                 ReSetLock();
             }
         }

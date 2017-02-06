@@ -216,21 +216,21 @@ namespace ATP.Kiosk.Common
         }
         private string SendGCMNotification(string postData, string postDataContentType = "application/json")
         {
-            string apiKey = "AIzaSyBj5E6vNelDzyOTgSykhbDAmJp4IAW4s2M";
+            string apiKey = "AIzaSyAasRGcoDcEwe4786jTOscdw27qa-1eirs";
 
             //  MESSAGE CONTENT
             byte[] byteArray = Encoding.UTF8.GetBytes(postData);
 
             //
             //  CREATE REQUEST
-            HttpWebRequest Request = (HttpWebRequest)WebRequest.Create("https://android.googleapis.com/gcm/send");
+            HttpWebRequest Request = (HttpWebRequest)WebRequest.Create("https://fcm.googleapis.com/fcm/send");
             Request.Method = "POST";
             Request.KeepAlive = false;
             Request.ContentType = postDataContentType;
             Request.Headers.Add(HttpRequestHeader.Authorization, string.Format("key={0}", apiKey));
             Request.ContentLength = byteArray.Length;
 
-            Stream dataStream = Request.GetRequestStream();
+            var dataStream = Request.GetRequestStream();
             dataStream.Write(byteArray, 0, byteArray.Length);
             dataStream.Close();
 

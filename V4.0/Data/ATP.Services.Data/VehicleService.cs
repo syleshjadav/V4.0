@@ -82,8 +82,9 @@ namespace ATP.Services.Data {
 
         public int? UPSertVehicleServicePricing(uspSelVehicleServicePricing_Result m) {
             using (var entity = new ATP.DataModel.Entities()) {
-                return entity.uspUPSertVehicleServicePricing(m.ServicePricingId, m.VehicleServiceGuid, m.ServiceTypeId, m.MPIItem, m.VehicleServiceMPIMasterGuid, m.PartNumber, m.PartDesc, m.TimeTaken,
-                    m.TechComments, m.PartCost, m.PartComments, m.PriceRequestedDt, m.PriceQuotedDt, m.IsSendToPricing, m.TechGuid, m.PartGuid, m.SvcsWriterGuid, m.TotalCost, m.IsSendToCust);
+                //  return entity.uspUPSertVehicleServicePricing(m.ServicePricingId, m.VehicleServiceGuid, m.ServiceTypeId, m.MPIItem, m.VehicleServiceMPIMasterGuid, m.PartNumber, m.PartDesc, m.TimeTaken,
+                ///   m.TechComments, m.PartCost, m.PartComments, m.PriceRequestedDt, m.PriceQuotedDt, m.IsSendToPricing, m.TechGuid, m.PartGuid, m.SvcsWriterGuid, m.TotalCost, m.IsSendToCust,);
+                return null;
             }
         }
 

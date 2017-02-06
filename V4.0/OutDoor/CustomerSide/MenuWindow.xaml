@@ -48,7 +48,7 @@
           </ImageBrush>
         </UniformGrid.Background>
         <Border BorderThickness="1,1,1,2"
-                Margin="0,10,0,0"
+                Margin="0,10,10,0"
               
                 CornerRadius="6">
           <Border.Effect>
@@ -74,14 +74,25 @@
                 <GradientStop Color="White" />
               </LinearGradientBrush>
             </Button.Background>
-            <DockPanel>
-              <TextBlock DockPanel.Dock="Bottom"
-                         FontSize="30"
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="250" />
+                <RowDefinition Height="50" />
+              </Grid.RowDefinitions>
+              <TextBlock DockPanel.Dock="Top"
+                         Grid.Row="0"
+                         TextWrapping="Wrap"
+                         FontSize="50"
                          HorizontalAlignment="Center"
-                         Foreground="White">DROP KEYS Phone  App</TextBlock>
-              <Image DockPanel.Dock="Top"
+                         Foreground="Black"> DROP KEYS</TextBlock>
+              <TextBlock Grid.Row="2"
+                         FontSize="50"
+                         HorizontalAlignment="Center"
+                         Foreground="White">PHONE  APP</TextBlock>
+              <Image Grid.Row="1"
                      Source="/MyShopOutDoor;component/Image/Keys1.png" />
-            </DockPanel>
+            </Grid>
           </Button>
         </Border>
         <Border BorderThickness="1,1,1,2"
@@ -110,18 +121,29 @@
                 <GradientStop Color="White" />
               </LinearGradientBrush>
             </Button.Background>
-            <DockPanel>
-              <TextBlock DockPanel.Dock="Bottom"
-                         FontSize="30"
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="250" />
+                <RowDefinition Height="50" />
+              </Grid.RowDefinitions>
+              <TextBlock DockPanel.Dock="Top"
+                         Grid.Row="0"
+                         TextWrapping="Wrap"
+                         FontSize="50"
                          HorizontalAlignment="Center"
-                         Foreground="White">PICKUP KEYS Phone  App</TextBlock>
-              <Image DockPanel.Dock="Top"
+                         Foreground="Black"> PICK UP KEYS</TextBlock>
+              <TextBlock Grid.Row="2"
+                         FontSize="50"
+                         HorizontalAlignment="Center"
+                         Foreground="White">KEY PICKUP</TextBlock>
+              <Image Grid.Row="1"
                      Source="/MyShopOutDoor;component/Image/Keys-ParkingLot.png" />
-            </DockPanel>
+            </Grid>
           </Button>
         </Border>
         <Border BorderThickness="1,1,1,2"
-                Margin="0,10,0,0"
+                Margin="0,10,10,0"
                 CornerRadius="6">
           <Border.Effect>
             <DropShadowEffect />
@@ -145,15 +167,76 @@
                 <GradientStop Color="White" />
               </LinearGradientBrush>
             </Button.Background>
-            <DockPanel>
-              <TextBlock DockPanel.Dock="Bottom"
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="250" />
+                <RowDefinition Height="50" />
+              </Grid.RowDefinitions>
+              <TextBlock DockPanel.Dock="Top"
+                         Grid.Row="0"
                          TextWrapping="Wrap"
-                         FontSize="30"
+                         FontSize="50"
                          HorizontalAlignment="Center"
-                         Foreground="White">DROP KEYS TOW TRUCK / EXPRESS DROP</TextBlock>
-              <Image DockPanel.Dock="Top"
+                         Foreground="Black"> DROP KEYS</TextBlock>
+              <TextBlock Grid.Row="2"
+                         TextWrapping="Wrap"
+                         FontSize="50"
+                         HorizontalAlignment="Center"
+                         Foreground="White">TOW TRUCK</TextBlock>
+              <Image Grid.Row="1"
+                     Width="250"
                      Source="/MyShopOutDoor;component/Image/TowTruck.png" />
-            </DockPanel>
+            </Grid>
+          </Button>
+        </Border>
+        <Border BorderThickness="1,1,1,2"
+                Margin="0,10,0,0"
+                CornerRadius="6">
+          <Border.Effect>
+            <DropShadowEffect />
+          </Border.Effect>
+          <Button x:Name="cmdNoPhoneDrop"
+                  FontSize="40"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Width="400"
+                  Height="400"
+                  BorderBrush="#FFFFFF"
+                  BorderThickness="3"
+                  FontWeight="Bold"
+                  Foreground="#FFF3F3F3"
+                  Click="cmdNoPhoneDrop_Click">
+            <Button.Background>
+              <LinearGradientBrush EndPoint="0.5,1"
+                                   StartPoint="0.5,0">
+                <GradientStop Color="#FF196348"
+                              Offset="1" />
+                <GradientStop Color="White" />
+              </LinearGradientBrush>
+            </Button.Background>
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="250" />
+                <RowDefinition Height="Auto"/>
+              </Grid.RowDefinitions>
+              <TextBlock DockPanel.Dock="Top" Grid.Row="0"
+                         TextWrapping="Wrap"
+                         FontSize="50"
+                         HorizontalAlignment="Center"
+                         Foreground="Black"> DROP KEYS</TextBlock>
+              <Image DockPanel.Dock="Top"
+                     Width="250"
+                     Grid.Row="1"
+                     Source="/MyShopOutDoor;component/Image/NoPhone1.png" />
+              <TextBlock DockPanel.Dock="Bottom"
+                         Grid.Row="2"
+                         TextWrapping="Wrap"
+                         FontSize="40"
+                         HorizontalAlignment="Center"
+                         Foreground="White">NO PHONE APP / EXPRESS DROP </TextBlock>
+            </Grid>
           </Button>
         </Border>
       </UniformGrid>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{A78DF14F-258B-4342-B4C4-2D34C566A009}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{58D64D4E-2B28-4EAA-8BFB-DB70612B8E7C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2707,6 +2707,7 @@
       DTS:refId="Package\To Tim"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{994A1183-D7FD-4C0D-A7F4-837746092462}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"

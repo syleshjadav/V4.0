@@ -50,22 +50,24 @@ namespace ATP.Services.Data {
         }
 
 
-        public List<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId, byte? assignedKeyLockerBucketId) {
+        public List<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId, 
+            byte? assignedKeyLockerBucketId, byte? outdoorKeyDroppedBy) {
 
             using (var entity = new ATP.DataModel.Entities()) {
 
-                var xx = entity.uspCreateSeviceAndKeyLockerBucket_TowTruck( dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId).ToList();
+                var xx = entity.uspCreateSeviceAndKeyLockerBucket_TowTruck( dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy).ToList();
 
                 return xx;
             }
         }
 
 
-        public List<String> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, string svcInfo, byte? serviceStatusId,  byte? assignedKeyLockerBucketId) {
+        public List<String> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, string svcInfo, byte? serviceStatusId,  byte? assignedKeyLockerBucketId
+            , byte? outdoorKeyDroppedBy) {
 
             using (var entity = new ATP.DataModel.Entities()) {
 
-                var xx = entity.uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId).ToList();
+                var xx = entity.uspUpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId,outdoorKeyDroppedBy).ToList();
 
                 return xx;
             }

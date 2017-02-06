@@ -106,6 +106,7 @@
         <xs:element minOccurs="0" name="svcInfo" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="serviceStatusId" nillable="true" type="xs:unsignedByte" />
         <xs:element minOccurs="0" name="assignedKeyLockerBucketId" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="outdoorKeyDroppedBy" nillable="true" type="xs:unsignedByte" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -125,6 +126,7 @@
         <xs:element minOccurs="0" name="svcInfo" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="serviceStatusId" nillable="true" type="xs:unsignedByte" />
         <xs:element minOccurs="0" name="assignedKeyLockerBucketId" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="outdoorKeyDroppedBy" nillable="true" type="xs:unsignedByte" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
