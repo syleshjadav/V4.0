@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyShopOutDoor.ServiceReference1 {
+namespace MyShopExpress.ServiceReference1 {
     using System.Runtime.Serialization;
     using System;
     
@@ -2490,34 +2490,34 @@ namespace MyShopOutDoor.ServiceReference1 {
     public interface IOutDoor {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/VerifyPinGetCustInfo", ReplyAction="http://tempuri.org/IOutDoor/VerifyPinGetCustInfoResponse")]
-        System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin);
+        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/VerifyPinGetCustInfo", ReplyAction="http://tempuri.org/IOutDoor/VerifyPinGetCustInfoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspVerifyPinGetCustInfo_Result>> VerifyPinGetCustInfoAsync(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result>> VerifyPinGetCustInfoAsync(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/GetMakes", ReplyAction="http://tempuri.org/IOutDoor/GetMakesResponse")]
-        System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelVehicleMakes_Result> GetMakes(string year, string dealerId);
+        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleMakes_Result> GetMakes(string year, string dealerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/GetMakes", ReplyAction="http://tempuri.org/IOutDoor/GetMakesResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelVehicleMakes_Result>> GetMakesAsync(string year, string dealerId);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleMakes_Result>> GetMakesAsync(string year, string dealerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/InsDealerMsg", ReplyAction="http://tempuri.org/IOutDoor/InsDealerMsgResponse")]
-        int InsDealerMsg(MyShopOutDoor.ServiceReference1.uspSelDealerMsg_Result x);
+        int InsDealerMsg(MyShopExpress.ServiceReference1.uspSelDealerMsg_Result x);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/InsDealerMsg", ReplyAction="http://tempuri.org/IOutDoor/InsDealerMsgResponse")]
-        System.Threading.Tasks.Task<int> InsDealerMsgAsync(MyShopOutDoor.ServiceReference1.uspSelDealerMsg_Result x);
+        System.Threading.Tasks.Task<int> InsDealerMsgAsync(MyShopExpress.ServiceReference1.uspSelDealerMsg_Result x);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/GetKeyLockerSteps", ReplyAction="http://tempuri.org/IOutDoor/GetKeyLockerStepsResponse")]
-        System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspGetKeyLockerSteps_Result> GetKeyLockerSteps(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp);
+        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspGetKeyLockerSteps_Result> GetKeyLockerSteps(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/GetKeyLockerSteps", ReplyAction="http://tempuri.org/IOutDoor/GetKeyLockerStepsResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspGetKeyLockerSteps_Result>> GetKeyLockerStepsAsync(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspGetKeyLockerSteps_Result>> GetKeyLockerStepsAsync(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelAllKeyDropPegByDealerId", ReplyAction="http://tempuri.org/IOutDoor/SelAllKeyDropPegByDealerIdResponse")]
-        System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result> SelAllKeyDropPegByDealerId(System.Nullable<int> dealerId);
+        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result> SelAllKeyDropPegByDealerId(System.Nullable<int> dealerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelAllKeyDropPegByDealerId", ReplyAction="http://tempuri.org/IOutDoor/SelAllKeyDropPegByDealerIdResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result>> SelAllKeyDropPegByDealerIdAsync(System.Nullable<int> dealerId);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result>> SelAllKeyDropPegByDealerIdAsync(System.Nullable<int> dealerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdateVehiceServiceStatus", ReplyAction="http://tempuri.org/IOutDoor/UpdateVehiceServiceStatusResponse")]
         System.Collections.Generic.List<string> UpdateVehiceServiceStatus(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGUID, System.Nullable<System.Guid> vehicleGUID, System.Nullable<System.Guid> personGUID, System.Nullable<byte> statusId, System.Nullable<System.Guid> updatedBy);
@@ -2526,10 +2526,10 @@ namespace MyShopOutDoor.ServiceReference1 {
         System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdateVehiceServiceStatusAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGUID, System.Nullable<System.Guid> vehicleGUID, System.Nullable<System.Guid> personGUID, System.Nullable<byte> statusId, System.Nullable<System.Guid> updatedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckResponse")]
-        System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
+        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer", ReplyAction="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerRes" +
             "ponse")]
@@ -2540,16 +2540,16 @@ namespace MyShopOutDoor.ServiceReference1 {
         System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelVehicleServiceDetails", ReplyAction="http://tempuri.org/IOutDoor/SelVehicleServiceDetailsResponse")]
-        System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt);
+        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelVehicleServiceDetails", ReplyAction="http://tempuri.org/IOutDoor/SelVehicleServiceDetailsResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelVehicleServiceDetails_Result>> SelVehicleServiceDetailsAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleServiceDetails_Result>> SelVehicleServiceDetailsAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelKioskInUSE", ReplyAction="http://tempuri.org/IOutDoor/SelKioskInUSEResponse")]
-        System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelKioskInUSE_Result> SelKioskInUSE(System.Nullable<int> dealerId);
+        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelKioskInUSE_Result> SelKioskInUSE(System.Nullable<int> dealerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelKioskInUSE", ReplyAction="http://tempuri.org/IOutDoor/SelKioskInUSEResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelKioskInUSE_Result>> SelKioskInUSEAsync(System.Nullable<int> dealerId);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelKioskInUSE_Result>> SelKioskInUSEAsync(System.Nullable<int> dealerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpsertKioskInUSE", ReplyAction="http://tempuri.org/IOutDoor/UpsertKioskInUSEResponse")]
         int UpsertKioskInUSE(System.Nullable<int> dealerId, string usedBy, System.Nullable<System.Guid> lastUsedBy);
@@ -2577,12 +2577,12 @@ namespace MyShopOutDoor.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IOutDoorChannel : MyShopOutDoor.ServiceReference1.IOutDoor, System.ServiceModel.IClientChannel {
+    public interface IOutDoorChannel : MyShopExpress.ServiceReference1.IOutDoor, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class OutDoorClient : System.ServiceModel.ClientBase<MyShopOutDoor.ServiceReference1.IOutDoor>, MyShopOutDoor.ServiceReference1.IOutDoor {
+    public partial class OutDoorClient : System.ServiceModel.ClientBase<MyShopExpress.ServiceReference1.IOutDoor>, MyShopExpress.ServiceReference1.IOutDoor {
         
         public OutDoorClient() {
         }
@@ -2603,43 +2603,43 @@ namespace MyShopOutDoor.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin) {
+        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin) {
             return base.Channel.VerifyPinGetCustInfo(dealerId, isPickUpOrDrop, keyLockerPin);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspVerifyPinGetCustInfo_Result>> VerifyPinGetCustInfoAsync(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result>> VerifyPinGetCustInfoAsync(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin) {
             return base.Channel.VerifyPinGetCustInfoAsync(dealerId, isPickUpOrDrop, keyLockerPin);
         }
         
-        public System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelVehicleMakes_Result> GetMakes(string year, string dealerId) {
+        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleMakes_Result> GetMakes(string year, string dealerId) {
             return base.Channel.GetMakes(year, dealerId);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelVehicleMakes_Result>> GetMakesAsync(string year, string dealerId) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleMakes_Result>> GetMakesAsync(string year, string dealerId) {
             return base.Channel.GetMakesAsync(year, dealerId);
         }
         
-        public int InsDealerMsg(MyShopOutDoor.ServiceReference1.uspSelDealerMsg_Result x) {
+        public int InsDealerMsg(MyShopExpress.ServiceReference1.uspSelDealerMsg_Result x) {
             return base.Channel.InsDealerMsg(x);
         }
         
-        public System.Threading.Tasks.Task<int> InsDealerMsgAsync(MyShopOutDoor.ServiceReference1.uspSelDealerMsg_Result x) {
+        public System.Threading.Tasks.Task<int> InsDealerMsgAsync(MyShopExpress.ServiceReference1.uspSelDealerMsg_Result x) {
             return base.Channel.InsDealerMsgAsync(x);
         }
         
-        public System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspGetKeyLockerSteps_Result> GetKeyLockerSteps(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp) {
+        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspGetKeyLockerSteps_Result> GetKeyLockerSteps(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp) {
             return base.Channel.GetKeyLockerSteps(dealerId, keyLockerId, IsDropOrPickUp);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspGetKeyLockerSteps_Result>> GetKeyLockerStepsAsync(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspGetKeyLockerSteps_Result>> GetKeyLockerStepsAsync(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp) {
             return base.Channel.GetKeyLockerStepsAsync(dealerId, keyLockerId, IsDropOrPickUp);
         }
         
-        public System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result> SelAllKeyDropPegByDealerId(System.Nullable<int> dealerId) {
+        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result> SelAllKeyDropPegByDealerId(System.Nullable<int> dealerId) {
             return base.Channel.SelAllKeyDropPegByDealerId(dealerId);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result>> SelAllKeyDropPegByDealerIdAsync(System.Nullable<int> dealerId) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result>> SelAllKeyDropPegByDealerIdAsync(System.Nullable<int> dealerId) {
             return base.Channel.SelAllKeyDropPegByDealerIdAsync(dealerId);
         }
         
@@ -2651,11 +2651,11 @@ namespace MyShopOutDoor.ServiceReference1 {
             return base.Channel.UpdateVehiceServiceStatusAsync(dealerId, vehicleServiceGUID, vehicleGUID, personGUID, statusId, updatedBy);
         }
         
-        public System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
+        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
             return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruck(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
             return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruckAsync(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy);
         }
         
@@ -2667,19 +2667,19 @@ namespace MyShopOutDoor.ServiceReference1 {
             return base.Channel.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy);
         }
         
-        public System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt) {
+        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt) {
             return base.Channel.SelVehicleServiceDetails(dealerId, vehicleServiceGuid, vehicleGuid, personGuid, svcFromDt, svcToDt);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelVehicleServiceDetails_Result>> SelVehicleServiceDetailsAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleServiceDetails_Result>> SelVehicleServiceDetailsAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt) {
             return base.Channel.SelVehicleServiceDetailsAsync(dealerId, vehicleServiceGuid, vehicleGuid, personGuid, svcFromDt, svcToDt);
         }
         
-        public System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelKioskInUSE_Result> SelKioskInUSE(System.Nullable<int> dealerId) {
+        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelKioskInUSE_Result> SelKioskInUSE(System.Nullable<int> dealerId) {
             return base.Channel.SelKioskInUSE(dealerId);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoor.ServiceReference1.uspSelKioskInUSE_Result>> SelKioskInUSEAsync(System.Nullable<int> dealerId) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelKioskInUSE_Result>> SelKioskInUSEAsync(System.Nullable<int> dealerId) {
             return base.Channel.SelKioskInUSEAsync(dealerId);
         }
         

@@ -21,7 +21,7 @@ namespace WinTester {
     public partial class Form1 : Form {
         public Form1() {
             InitializeComponent();
-
+            VerifyRecall();
 
         }
         private void RecallFound(string msg) {
@@ -46,7 +46,7 @@ namespace WinTester {
 
          //   var jsonCustomMsg = new ATP.Kiosk.Common.GeneratePhoneMessage().GetMessageToSend("103", "t", "t", "t", "t", "t", "t", "0", "TxtRoNum", "TxtROAmount", "t", "t");
 
-            var deviceId = "eBqC1Jsk7Rg:APA91bGD5wXR8aYPRUL3drnx0u2WBsxCph6x1airyV42Cz9ZU3EIeZYY2-W6peOTOfUBQcKv0TDROmXUMIXugU78JeMXwL9qzndgt2iTb-dHthFd-a93AJB6UBvVNsNqFL2WzTEIKpon";
+            var deviceId = "dsU8pqfuVdc:APA91bHcYUga3nYqIQKwCkEiirUJDc4d9tVComW8OCy2rU2AHDdKvk6cAvYSKLzuGOAUEvavjNDxMdQgXf7nTeGIVkTdzr3gfYDBs5RICUMtXd0N-vfcjiUYGQs15TWMYoXqlBYPIWHP";
 
             // var msgret = new ATP.Kiosk.Common.FCMPushNotification().SendMessageToAndroid(deviceId, jsonCustomMsg, "sdf", "sdfdf");
             //var gcmReturn = ATP.Kiosk.Common.JSonHelpers.FromJson<ATP.Kiosk.Common.GCMReturn>(msgret);
@@ -56,8 +56,7 @@ namespace WinTester {
 
                // string fcmServerAPIKey = "AAAAAop4Xr4:APA91bE2tiRVWcqOvs14oSmE7ZEO3cs6K8Dg0Zp763ZTcXtqMcR1XvNT_aspAbz44OJN21hrmXiMDIgFmBVpjJNyB8RDr1QKChN2FJZM63_xoCmHQEp-7eIoqkT-C6cvUWT4MRwKP71z";
                 string senderId = "1:10913078974:android:ed63dd5f4b2ea584";
-
-                var applicationID = "AIzaSyAsRZTXai-c6SrxuYpbY-FLXXpJRAaTOmo";
+                var authorizationId = "AIzaSyCTichfHfiTm-miVU48v03Yx_XjEDhLTQA";
                // var senderId = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
                // string deviceId = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
                 WebRequest tRequest = WebRequest.Create("https://fcm.googleapis.com/fcm/send");
@@ -77,7 +76,7 @@ namespace WinTester {
                 var serializer = new JavaScriptSerializer();
                 var json = serializer.Serialize(data);
                 Byte[] byteArray = Encoding.UTF8.GetBytes(json);
-                tRequest.Headers.Add(string.Format("Authorization: key={0}", applicationID));
+                tRequest.Headers.Add(string.Format("Authorization: key={0}", authorizationId));
                 tRequest.Headers.Add(string.Format("Sender: id={0}", senderId));
                 tRequest.ContentLength = byteArray.Length;
 
@@ -158,7 +157,7 @@ namespace WinTester {
 
                             var rtn = GetVinDetails(storeNum, vinToCheck);
 
-                            if (rtn != null && rtn.Length > 35) {
+                            if (rtn != null && rtn.Length > 38) {
                                 RecallFound(rtn);
                             }
                         }

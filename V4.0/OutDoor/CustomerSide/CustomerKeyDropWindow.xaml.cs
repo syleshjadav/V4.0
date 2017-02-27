@@ -9,12 +9,12 @@ using System.IO.Ports;
 
 using System.Windows.Threading;
 using ATP.Kiosk.Views;
-using MyShopOutDoor.Common;
+using MyShopExpress.Common;
 using System.Xml.Serialization;
 using System.IO;
-using MyShopOutDoor.ServiceReference1;
+using MyShopExpress.ServiceReference1;
 
-namespace MyShopOutDoor {
+namespace MyShopExpress {
     /// <summary>
     /// Interaction logic for CustomerKeyDropWindow.xaml
     /// </summary>

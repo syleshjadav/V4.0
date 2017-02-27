@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyShopOutDoorDealerSide.Properties {
+namespace MyShopExpress.Properties {
     using System;
     
     

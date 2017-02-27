@@ -1013,6 +1013,48 @@ namespace ATP.Rest {
 
         }
 
+
+        public ATPData ExpressCheckIn(ATPExpressCheckIn m)
+        {
+
+            int? dealid = Convert.ToInt32(m.DealerId);
+            var personGuid = new Guid(m.PersonGuid);
+            var vehicleGuid = new Guid(m.VehicleGuid);
+            var rtn = new ATPData();
+
+            try
+            {
+
+                string svcreq = "";
+
+                if (m.ATPServiceDataList != null)
+                {
+
+                    foreach (var x in m.ATPServiceDataList)
+                    {
+                        svcreq += x.Id + ",";
+                    }
+
+                }
+                TraceLog("ExpressCheckIn", string.Format("DealerId:{0} , PersonGuid : {1} VehicleGuid:{2} , Dealer:{3} , SvcReq:{4} ", m.DealerId, m.PersonGuid, m.VehicleGuid, m.DealerId, svcreq));
+
+                //rtnValue = entity.uspAssignKeylockerPin(dealid, personGuid, vehicleGuid, bGetPin).SingleOrDefault(); // true - drop , false - pickup
+
+
+                rtn = new ATP.Services.Data.VehicleService().SetServiceAndGeneratePinExpress(m);
+
+            }
+            catch (Exception ex)
+            {
+                TraceLog("ExpressCheckIn", string.Format("DealerId:{0} , PersonGuid : {1} VehicleGuid:{2} , Dealer:{3} {4} ", m.DealerId, m.PersonGuid, m.VehicleGuid, m.DealerId, ex.StackTrace));
+
+            }
+
+            return rtn;
+
+        }
+
+
         public ATPLoginDealerEmp LoginDealerEmployee(ATPLoginDealerEmployee m) {
 
             TraceLog("LoginDealerEmployee", string.Format("{0} - {1} -  login emp", m.EmpEmail, m.EmpPassword));

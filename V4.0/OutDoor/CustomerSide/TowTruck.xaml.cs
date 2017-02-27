@@ -1,6 +1,6 @@
 ﻿using ATP.Kiosk.Views;
-using MyShopOutDoor.Common;
-using MyShopOutDoor.ServiceReference1;
+using MyShopExpress.Common;
+using MyShopExpress.ServiceReference1;
 using System;
 using System.Linq;
 using System.Windows;
@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 
-namespace MyShopOutDoor {
+namespace MyShopExpress {
     /// <summary>
     /// Interaction logic for TowTruck.xaml
     /// </summary>

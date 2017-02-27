@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyShopOutDoor.Properties {
+namespace MyShopExpress.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -216,27 +216,35 @@ namespace ATP.Kiosk.Common
         }
         private string SendGCMNotification(string postData, string postDataContentType = "application/json")
         {
-            string apiKey = "AIzaSyAasRGcoDcEwe4786jTOscdw27qa-1eirs";
+            string senderId = "1:10913078974:android:ed63dd5f4b2ea584";
+            var authorizationId = "AIzaSyCTichfHfiTm-miVU48v03Yx_XjEDhLTQA";
+            
+           // WebRequest tRequest = WebRequest.Create("https://fcm.googleapis.com/fcm/send");
 
             //  MESSAGE CONTENT
             byte[] byteArray = Encoding.UTF8.GetBytes(postData);
 
             //
             //  CREATE REQUEST
-            HttpWebRequest Request = (HttpWebRequest)WebRequest.Create("https://fcm.googleapis.com/fcm/send");
-            Request.Method = "POST";
-            Request.KeepAlive = false;
-            Request.ContentType = postDataContentType;
-            Request.Headers.Add(HttpRequestHeader.Authorization, string.Format("key={0}", apiKey));
-            Request.ContentLength = byteArray.Length;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://fcm.googleapis.com/fcm/send");
+            request.Method = "POST";
+            request.KeepAlive = false;
+            request.ContentType = postDataContentType;
+            //Request.Headers.Add(HttpRequestHeader.Authorization, string.Format("key={0}", apiKey));
 
-            var dataStream = Request.GetRequestStream();
+            request.Headers.Add(string.Format("Authorization: key={0}", authorizationId));
+            request.Headers.Add(string.Format("Sender: id={0}", senderId));
+
+
+            request.ContentLength = byteArray.Length;
+
+            var dataStream = request.GetRequestStream();
             dataStream.Write(byteArray, 0, byteArray.Length);
             dataStream.Close();
 
             try
             {
-                WebResponse Response = Request.GetResponse();
+                WebResponse Response = request.GetResponse();
                 HttpStatusCode ResponseCode = ((HttpWebResponse)Response).StatusCode;
                 if (ResponseCode.Equals(HttpStatusCode.Unauthorized) || ResponseCode.Equals(HttpStatusCode.Forbidden))
                 {

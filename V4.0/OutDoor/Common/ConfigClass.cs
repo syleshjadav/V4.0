@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyShopOutDoor.Common {
+namespace MyShopExpress.Common {
   public static class ConfigClass {
 
     public static int DealerId { get; set; }
@@ -17,7 +17,7 @@ namespace MyShopOutDoor.Common {
 
      // System.Windows.Forms.MessageBox.Show(scommand);
 
-     // return;
+      return;
 
       if (!MyShopSerialPort.IsOpen) { MyShopSerialPort.Open(); }
       MyShopSerialPort.Write(scommand + "\n");

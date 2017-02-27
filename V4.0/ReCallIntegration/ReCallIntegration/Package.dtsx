@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="55"
-  DTS:VersionGUID="{58D64D4E-2B28-4EAA-8BFB-DB70612B8E7C}">
+  DTS:VersionBuild="101"
+  DTS:VersionGUID="{5E2DC197-8E6D-4C4E-91D4-BA497269B6A8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -44,20 +44,137 @@
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="4"
+              DTS:MaximumWidth="150"
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="StoreNum"
-              DTS:DTSID="{242E110C-7E7B-41E6-B596-CCE1D4D9567D}"
+              DTS:DTSID="{B2F37B72-BB7B-43E1-9E9D-FFAFBD8202D9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{A8ED4819-AACB-4681-A534-44F253815FFC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{5722E01E-C31A-464D-B0F7-69796B390918}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Address1"
+              DTS:DTSID="{BAD8DB70-8132-402B-B21D-FF411F44A5F8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Address2"
+              DTS:DTSID="{61DC1794-8449-49B1-8BCD-E9FF1FAFBFF3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="City"
+              DTS:DTSID="{EC175B28-2414-4ADE-92DF-CB5EF16F8E3C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="State"
+              DTS:DTSID="{AE0CF281-5572-45C0-BB27-42D8FD17DD9D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Zip"
+              DTS:DTSID="{EFB75E4E-0749-4B44-ABE0-23B236E83B41}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VIN"
+              DTS:DTSID="{EF474A49-1B06-41C7-88A1-251E69820EBA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Plate"
+              DTS:DTSID="{C2A17955-018C-4DFD-A84C-EDBBBAE8F56C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VehicleYear"
+              DTS:DTSID="{340E7F78-E688-4AB3-BE5E-82E741D71098}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VehicleMake"
+              DTS:DTSID="{671D61ED-4A78-45BC-8A5A-D6AB275EFAEE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VehicleModel"
+              DTS:DTSID="{0777E5B9-6CD7-4AED-8E19-7040C4CD9EA0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VehicleBody"
+              DTS:DTSID="{C690981A-35A5-4A2A-AD07-742E9302530E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="17"
+              DTS:MaximumWidth="50"
               DTS:DataType="130"
               DTS:TextQualified="True"
-              DTS:ObjectName="VIN"
-              DTS:DTSID="{BBAA92A4-02D3-4744-885C-7CCD7810CBFD}"
+              DTS:ObjectName="CurrentOdometer"
+              DTS:DTSID="{B57AD438-5535-4881-85A5-DB0159383139}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -156,74 +273,65 @@
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="17"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="InvoiceDate"
-              DTS:DTSID="{6F7D710E-24FF-423A-B7DA-BA52B02C4368}"
+              DTS:ObjectName="VIN"
+              DTS:DTSID="{92F74C92-533A-40B3-B4EF-A88276BC8B7F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="InvoiceWorkOrderNumber"
-              DTS:DTSID="{318DC349-F943-45D9-837A-3C68B0D1F4AF}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="100"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="LastName"
-              DTS:DTSID="{63CEFC6D-0DEF-4E57-88F7-77B1AEF605F6}"
+              DTS:DTSID="{BB83D141-47E1-48A4-82D9-9578D8580958}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="100"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FirstName"
-              DTS:DTSID="{5D59BF92-57F5-4B81-B5A0-AD0D952A61E5}"
+              DTS:DTSID="{84A40A7D-6E10-4C7B-BF8C-41A846DBDC3F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="100"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Address1"
-              DTS:DTSID="{D379B54B-F780-4F71-BCB0-3DCA227E5DCA}"
+              DTS:DTSID="{2D81F7E0-6B48-4781-9AE3-381085A3CA70}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="100"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Address2"
-              DTS:DTSID="{58959716-C874-4E20-A1D9-7934F8BFD213}"
+              DTS:DTSID="{16253409-794C-465A-BCC5-100998811824}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="100"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="City"
-              DTS:DTSID="{EDF9199F-0C48-4D1F-83B0-3400B13448CC}"
+              DTS:DTSID="{4D53D1FC-8CEE-4424-9EAD-3A2174FA3D0D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="10"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="State"
-              DTS:DTSID="{9AD0DCB7-9FD9-47DF-9591-E0FAF36007FA}"
+              DTS:DTSID="{FD0FEC01-C1C1-4312-B91C-1A340AB5222D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -232,250 +340,43 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Zip"
-              DTS:DTSID="{66E2ED38-3E53-4395-A7EC-2EAC19F6C3E1}"
+              DTS:DTSID="{C0B4EFD1-3487-4A02-B89F-D311568836C1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="VIN"
-              DTS:DTSID="{B9CB5E03-8B42-4EFA-8E69-BE5CD8BFF751}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="20"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Plate"
-              DTS:DTSID="{B5E7A3CE-4714-486D-90C7-48E57FF72182}"
+              DTS:DTSID="{585F1798-EE55-4D60-830F-D050CEA2539E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="100"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="VehicleYear"
-              DTS:DTSID="{D3059F1D-1F64-43E6-AAE2-46D5AD7E40DB}"
+              DTS:DTSID="{7D3F8CEF-B792-434D-8A14-3F5BB25F9CC7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="100"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="VehicleMake"
-              DTS:DTSID="{9A526C58-C975-401E-B18A-431B26F0349F}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="VehicleModel"
-              DTS:DTSID="{BEFACCB8-9595-461F-87EE-0639D9602AE0}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="VehicleBody"
-              DTS:DTSID="{71FE3E4A-30D9-42DB-98B4-6E6CC56D2BE2}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="CurrentOdometer"
-              DTS:DTSID="{A83531FF-BD40-4B77-AE8C-21A0B451D509}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="Inspectiondate"
-              DTS:DTSID="{C7218617-7D1A-4D3A-AE6A-4E2555713ABA}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="ExpiresMonth"
-              DTS:DTSID="{7DF7363E-E9F5-49CD-9A38-AEC2ED882E71}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="ExpiresYear"
-              DTS:DTSID="{F022C083-3666-4524-953B-3B99F0BAE4A6}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="StickerNumber"
-              DTS:DTSID="{30D24993-1190-41BD-B524-F1AC0D0FFF60}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="EmissionStickerNumber"
-              DTS:DTSID="{DD508CEC-833B-41A1-8E11-064DDCF72DC3}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="FleetNumber"
-              DTS:DTSID="{ED414B4C-B006-4C6C-99A1-FC7AAF6FD203}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="UserWorkOrder"
-              DTS:DTSID="{F48B8B51-2DD4-46BD-AA54-C40728B4E159}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName=" LFBrake"
-              DTS:DTSID="{889A8A57-31F1-4702-AC2E-B8BDE11C0051}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName=" LFBrakeBondRivet"
-              DTS:DTSID="{4B903B16-749D-4904-8472-9369DCD4F189}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName=" RFBrake"
-              DTS:DTSID="{8B2C8873-E6E1-4185-914F-195AA3EEF177}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName=" RFBrakeBondRivet"
-              DTS:DTSID="{4AA56D66-86FF-4E2C-B996-EDE03972397F}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName=" LRBrake"
-              DTS:DTSID="{0EB240B6-0671-4059-9FD2-C011E9CA6035}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName=" LRBrakeBondRivet"
-              DTS:DTSID="{F1C2B07E-CBA1-447C-AA16-CC8E24C6CB54}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName=" RRBrake"
-              DTS:DTSID="{8C381CB7-F77D-4B8A-9249-229B4E25A123}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName=" RRBrakeBondRivet"
-              DTS:DTSID="{622630BC-18F6-49EF-B7AD-F38664B747B2}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName=" LFTire"
-              DTS:DTSID="{E0824D53-1152-4F26-BCA2-D4096C67AAE6}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName=" RFTire"
-              DTS:DTSID="{23BB0279-9F68-421B-AE89-3C9F267DAB8F}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName=" LRTire"
-              DTS:DTSID="{6D37249A-1907-4120-AAE8-113461030E96}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName=" RRTire"
-              DTS:DTSID="{DC9C4D7D-332B-4F9E-BD2E-AACF57BA653F}"
+              DTS:DTSID="{88C026B9-FA03-46C0-9FE7-D4E8A3A765A9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="100"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="ExpireMonthName"
-              DTS:DTSID="{2D89D4ED-6BFF-4F08-9440-5510B7192E8D}"
+              DTS:ObjectName="VehicleModel"
+              DTS:DTSID="{6316BEDF-2F0F-42A7-A7EB-CB81342D98DD}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -504,7 +405,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="StoreNum"
-              DTS:DTSID="{F982D6F1-26A7-47C2-90ED-92CDD3C19D0E}"
+              DTS:DTSID="{8C5A8A0F-05E4-4FFA-A959-AD12CD037DAA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -513,7 +414,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="LastName"
-              DTS:DTSID="{1A74485D-C99C-44B7-B395-4008B42BC038}"
+              DTS:DTSID="{B8CE254D-D92C-43F6-AAC3-49F5D279755E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -522,7 +423,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="FirstName"
-              DTS:DTSID="{E95D764C-CA42-449C-BCA0-0095E7A7517F}"
+              DTS:DTSID="{3C654FFC-5BF2-4367-B228-4D69F96E75CA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -531,7 +432,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Address1"
-              DTS:DTSID="{6A855DBB-D131-436A-A62A-EBD278E8DFA4}"
+              DTS:DTSID="{4643AB55-E5AF-4A63-AEE9-B55E8235F89F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -540,7 +441,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Address2"
-              DTS:DTSID="{65C3AA97-2D40-4CAB-8100-2571AD319E98}"
+              DTS:DTSID="{FBE276BE-8D55-488D-BBEE-59C0AAA8173E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -549,7 +450,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="City"
-              DTS:DTSID="{C532984C-F12A-4154-B646-1F24FF7BBCB2}"
+              DTS:DTSID="{FFC90D9E-02C6-4B7A-9072-1909E5AF66C2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -558,7 +459,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="State"
-              DTS:DTSID="{AD039823-4FB1-4A9A-999E-91EA4CA3BFE4}"
+              DTS:DTSID="{406D71BD-443C-4AC3-9D3A-F56C2A051BAA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -567,7 +468,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Zip"
-              DTS:DTSID="{0B5ECF47-A0A4-4502-A5CC-9B40F3DE4E8D}"
+              DTS:DTSID="{78DBEB1B-E40C-4D2E-A074-DE7DF0199923}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -576,7 +477,31 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="VIN"
-              DTS:DTSID="{AF06AAD0-8820-4C39-B354-632EDF097E8D}"
+              DTS:DTSID="{1C19C38D-DFF7-42FD-ACA0-47E5D25A3CAB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VehicleYear"
+              DTS:DTSID="{19705F43-2592-498C-BAE2-395C0C77733A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Make"
+              DTS:DTSID="{E81F6427-2002-48B3-BD26-2DC2E5D4B71E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Model"
+              DTS:DTSID="{81FB13D1-491D-4417-B5A0-74DBAEDBE7DA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -585,7 +510,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="RECALLDT"
-              DTS:DTSID="{0DED2FC9-26FD-431C-A793-1891B695CB3D}"
+              DTS:DTSID="{D9CC74CE-0955-4472-97D5-1694057F1E07}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -594,7 +519,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="MFG"
-              DTS:DTSID="{846BA1F5-B1E6-459D-926E-3DAEB12FD619}"
+              DTS:DTSID="{59781F86-7ED4-41FC-9415-5053138B9BAA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -603,7 +528,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="NHSTA"
-              DTS:DTSID="{C4EB2A1D-1925-44C1-BC4C-9C030C580EF1}"
+              DTS:DTSID="{7C0F4EE3-19DE-49B6-B3B4-FE3770BAF11B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -612,7 +537,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="MSG"
-              DTS:DTSID="{B56498D2-A2DC-455F-A969-7AB382CE8B2E}"
+              DTS:DTSID="{318A0186-71EC-4FF1-9D7F-FD1B5E09E677}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -640,7 +565,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="ID"
-              DTS:DTSID="{2F3DDE6E-F54A-4953-802F-DA9099BFC1FA}"
+              DTS:DTSID="{76EC9FFB-CE40-44FE-9D6A-BEE7C2AB1F3D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -649,7 +574,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="StoreNum"
-              DTS:DTSID="{B51E59E8-EC18-4356-B952-D7B08682EB9C}"
+              DTS:DTSID="{8934A155-AF65-44C1-8706-B08765124BC2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -657,7 +582,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="NoOfRecToCheck"
-              DTS:DTSID="{634C4FEB-4500-4195-BA31-C3F9351FDA21}"
+              DTS:DTSID="{5171C15A-6D2C-42DC-968B-BD7068CB1FBE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -665,7 +590,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="NoOfRecalls"
-              DTS:DTSID="{FB40EEAD-2823-4A6F-B815-3B45DE273EDF}"
+              DTS:DTSID="{AA8EC4A2-851A-4159-BC9B-43EA4417EDA6}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -735,14 +660,14 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
+      DTS:refId="Package\All Files Prepare for Recall Search"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:Disabled="True"
       DTS:DTSID="{C90CAD04-8E13-4188-99BC-8734CE3F1194}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task"
+      DTS:ObjectName="All Files Prepare for Recall Search"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -750,7 +675,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\ADO NET Source"
+              refId="Package\All Files Prepare for Recall Search\ADO NET Source"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
@@ -789,7 +714,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\ADO NET Source.Connections[IDbConnection]"
+                  refId="Package\All Files Prepare for Recall Search\ADO NET Source.Connections[IDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[VM3-A034847\SQL2014.TEST1]"
                   connectionManagerRefId="Package.ConnectionManagers[VM3-A034847\SQL2014.TEST1]"
                   description="Managed connection manager"
@@ -797,344 +722,344 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output]"
+                  refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output]"
                   name="ADO NET Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[StoreNum]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[StoreNum]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[StoreNum]"
-                      length="4"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[StoreNum]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[StoreNum]"
+                      length="150"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[StoreNum]"
                       name="StoreNum"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[LastName]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[LastName]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[LastName]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[LastName]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[LastName]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[LastName]"
                       name="LastName"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[FirstName]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[FirstName]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[FirstName]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[FirstName]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[FirstName]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[FirstName]"
                       name="FirstName"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[Address1]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[Address1]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Address1]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[Address1]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Address1]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[Address1]"
                       name="Address1"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[Address2]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[Address2]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Address2]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[Address2]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Address2]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[Address2]"
                       name="Address2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[City]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[City]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[City]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[City]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[City]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[City]"
                       name="City"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[State]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[State]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[State]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[State]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[State]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[State]"
                       name="State"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[Zip]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[Zip]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Zip]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[Zip]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Zip]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[Zip]"
                       name="Zip"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[VIN]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[VIN]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VIN]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VIN]"
                       length="17"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[VIN]"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[VIN]"
                       name="VIN"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[Plate]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[Plate]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Plate]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[Plate]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Plate]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[Plate]"
                       name="Plate"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleYear]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleYear]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleYear]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleYear]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleYear]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleYear]"
                       name="VehicleYear"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleMake]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleMake]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleMake]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleMake]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleMake]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleMake]"
                       name="VehicleMake"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleModel]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleModel]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleModel]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleModel]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleModel]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleModel]"
                       name="VehicleModel"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleBody]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleBody]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleBody]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleBody]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleBody]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[VehicleBody]"
                       name="VehicleBody"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[CurrentOdometer]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[CurrentOdometer]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CurrentOdometer]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[CurrentOdometer]"
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CurrentOdometer]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[CurrentOdometer]"
                       name="CurrentOdometer"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[StoreNum]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[StoreNum]"
                       dataType="wstr"
-                      length="4"
+                      length="150"
                       name="StoreNum" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[LastName]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[LastName]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="LastName" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[FirstName]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[FirstName]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="FirstName" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Address1]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Address1]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="Address1" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Address2]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Address2]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="Address2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[City]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[City]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="City" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[State]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[State]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="State" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Zip]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Zip]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="Zip" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VIN]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VIN]"
                       dataType="wstr"
                       length="17"
                       name="VIN" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Plate]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Plate]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="Plate" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleYear]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleYear]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="VehicleYear" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleMake]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleMake]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="VehicleMake" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleModel]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleModel]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="VehicleModel" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleBody]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[VehicleBody]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="VehicleBody" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CurrentOdometer]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CurrentOdometer]"
                       dataType="wstr"
-                      length="50"
+                      length="100"
                       name="CurrentOdometer" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output]"
                   isErrorOut="true"
                   name="ADO NET Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[StoreNum]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[StoreNum]"
                       dataType="wstr"
-                      length="4"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[StoreNum]"
+                      length="150"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[StoreNum]"
                       name="StoreNum" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[LastName]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[LastName]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[LastName]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[LastName]"
                       name="LastName" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[FirstName]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[FirstName]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[FirstName]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[FirstName]"
                       name="FirstName" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Address1]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Address1]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Address1]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Address1]"
                       name="Address1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Address2]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Address2]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Address2]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Address2]"
                       name="Address2" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[City]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[City]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[City]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[City]"
                       name="City" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[State]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[State]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[State]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[State]"
                       name="State" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Zip]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Zip]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Zip]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Zip]"
                       name="Zip" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VIN]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VIN]"
                       dataType="wstr"
                       length="17"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VIN]"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VIN]"
                       name="VIN" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Plate]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Plate]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Plate]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Plate]"
                       name="Plate" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleYear]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleYear]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleYear]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleYear]"
                       name="VehicleYear" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleMake]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleMake]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleMake]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleMake]"
                       name="VehicleMake" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleModel]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleModel]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleModel]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleModel]"
                       name="VehicleModel" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleBody]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleBody]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleBody]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[VehicleBody]"
                       name="VehicleBody" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CurrentOdometer]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CurrentOdometer]"
                       dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CurrentOdometer]"
+                      length="100"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CurrentOdometer]"
                       name="CurrentOdometer" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1143,7 +1068,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Flat File Destination"
+              refId="Package\All Files Prepare for Recall Search\Flat File Destination"
               componentClassID="Microsoft.FlatFileDestination"
               contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Flat File Destination"
@@ -1162,44 +1087,109 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Flat File Destination.Connections[FlatFileConnection]"
+                  refId="Package\All Files Prepare for Recall Search\Flat File Destination.Connections[FlatFileConnection]"
                   connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
                   connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+                  refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input]"
                   hasSideEffects="true"
                   name="Flat File Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[StoreNum]"
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].Columns[StoreNum]"
                       cachedDataType="wstr"
-                      cachedLength="4"
+                      cachedLength="150"
                       cachedName="StoreNum"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreNum]"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[StoreNum]" />
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreNum]"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[StoreNum]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[VIN]"
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].Columns[VIN]"
                       cachedDataType="wstr"
                       cachedLength="17"
                       cachedName="VIN"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[VIN]"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[VIN]" />
+                      externalMetadataColumnId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[VIN]"
+                      lineageId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output].Columns[VIN]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[VIN]"
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[VIN]"
                       dataType="wstr"
-                      length="17"
+                      length="100"
                       name="VIN" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreNum]"
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreNum]"
                       dataType="wstr"
-                      length="4"
+                      length="150"
                       name="StoreNum" />
+                    <externalMetadataColumn
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Address1]"
+                      dataType="wstr"
+                      length="50"
+                      name="Address1" />
+                    <externalMetadataColumn
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Address2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Address2" />
+                    <externalMetadataColumn
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="50"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="50"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Zip]"
+                      dataType="wstr"
+                      length="50"
+                      name="Zip" />
+                    <externalMetadataColumn
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Plate]"
+                      dataType="wstr"
+                      length="50"
+                      name="Plate" />
+                    <externalMetadataColumn
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[VehicleYear]"
+                      dataType="wstr"
+                      length="50"
+                      name="VehicleYear" />
+                    <externalMetadataColumn
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[VehicleMake]"
+                      dataType="wstr"
+                      length="50"
+                      name="VehicleMake" />
+                    <externalMetadataColumn
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[VehicleModel]"
+                      dataType="wstr"
+                      length="50"
+                      name="VehicleModel" />
+                    <externalMetadataColumn
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[VehicleBody]"
+                      dataType="wstr"
+                      length="50"
+                      name="VehicleBody" />
+                    <externalMetadataColumn
+                      refId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CurrentOdometer]"
+                      dataType="wstr"
+                      length="50"
+                      name="CurrentOdometer" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1207,10 +1197,10 @@
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task.Paths[ADO NET Source Output]"
-              endId="Package\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+              refId="Package\All Files Prepare for Recall Search.Paths[ADO NET Source Output]"
+              endId="Package\All Files Prepare for Recall Search\Flat File Destination.Inputs[Flat File Destination Input]"
               name="ADO NET Source Output"
-              startId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output]" />
+              startId="Package\All Files Prepare for Recall Search\ADO NET Source.Outputs[ADO NET Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1815,7 +1805,7 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
-                          length="50"
+                          length="100"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
                           name="LastName"
                           truncationRowDisposition="FailComponent">
@@ -1837,7 +1827,7 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
-                          length="50"
+                          length="100"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
                           name="FirstName"
                           truncationRowDisposition="FailComponent">
@@ -1859,7 +1849,7 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Address1]"
-                          length="50"
+                          length="100"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Address1]"
                           name="Address1"
                           truncationRowDisposition="FailComponent">
@@ -1881,7 +1871,7 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Address2]"
-                          length="50"
+                          length="100"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Address2]"
                           name="Address2"
                           truncationRowDisposition="FailComponent">
@@ -1903,7 +1893,7 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[City]"
-                          length="50"
+                          length="100"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[City]"
                           name="City"
                           truncationRowDisposition="FailComponent">
@@ -1925,7 +1915,7 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[State]"
-                          length="50"
+                          length="10"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[State]"
                           name="State"
                           truncationRowDisposition="FailComponent">
@@ -1969,7 +1959,7 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VIN]"
-                          length="50"
+                          length="17"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[VIN]"
                           name="VIN"
                           truncationRowDisposition="FailComponent">
@@ -1991,7 +1981,7 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Plate]"
-                          length="50"
+                          length="20"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Plate]"
                           name="Plate"
                           truncationRowDisposition="FailComponent">
@@ -2013,7 +2003,7 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleYear]"
-                          length="50"
+                          length="100"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleYear]"
                           name="VehicleYear"
                           truncationRowDisposition="FailComponent">
@@ -2035,7 +2025,7 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleMake]"
-                          length="50"
+                          length="100"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleMake]"
                           name="VehicleMake"
                           truncationRowDisposition="FailComponent">
@@ -2057,53 +2047,9 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleModel]"
-                          length="50"
+                          length="100"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleModel]"
                           name="VehicleModel"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleBody]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleBody]"
-                          length="50"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleBody]"
-                          name="VehicleBody"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CurrentOdometer]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CurrentOdometer]"
-                          length="50"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[CurrentOdometer]"
-                          name="CurrentOdometer"
                           truncationRowDisposition="FailComponent">
                           <properties>
                             <property
@@ -2120,52 +2066,40 @@
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[InvoiceDate]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="InvoiceDate" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[InvoiceWorkOrderNumber]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="InvoiceWorkOrderNumber" />
-                        <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="LastName" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="FirstName" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Address1]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="Address1" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Address2]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="Address2" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[City]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="City" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[State]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="10"
                           name="State" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Zip]"
@@ -2177,164 +2111,32 @@
                           refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VIN]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="17"
                           name="VIN" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Plate]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="20"
                           name="Plate" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleYear]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="VehicleYear" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleMake]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="VehicleMake" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleModel]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="VehicleModel" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VehicleBody]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="VehicleBody" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CurrentOdometer]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="CurrentOdometer" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Inspectiondate]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="Inspectiondate" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ExpiresMonth]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="ExpiresMonth" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ExpiresYear]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="ExpiresYear" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StickerNumber]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="StickerNumber" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmissionStickerNumber]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="EmissionStickerNumber" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FleetNumber]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="FleetNumber" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[UserWorkOrder]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="UserWorkOrder" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LFBrake]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name=" LFBrake" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LFBrakeBondRivet]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name=" LFBrakeBondRivet" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RFBrake]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name=" RFBrake" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RFBrakeBondRivet]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name=" RFBrakeBondRivet" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LRBrake]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name=" LRBrake" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LRBrakeBondRivet]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name=" LRBrakeBondRivet" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RRBrake]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name=" RRBrake" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RRBrakeBondRivet]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name=" RRBrakeBondRivet" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LFTire]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name=" LFTire" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RFTire]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name=" RFTire" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ LRTire]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name=" LRTire" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ RRTire]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name=" RRTire" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ExpireMonthName]"
-                          codePage="1252"
-                          dataType="str"
-                          length="50"
-                          name="ExpireMonthName" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -2454,7 +2256,7 @@
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[LastName]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="100"
                           cachedName="LastName"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[LastName]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]" />
@@ -2462,7 +2264,7 @@
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[FirstName]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="100"
                           cachedName="FirstName"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[FirstName]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]" />
@@ -2470,7 +2272,7 @@
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Address1]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="100"
                           cachedName="Address1"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Address1]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Address1]" />
@@ -2478,7 +2280,7 @@
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Address2]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="100"
                           cachedName="Address2"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Address2]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Address2]" />
@@ -2486,7 +2288,7 @@
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[City]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="100"
                           cachedName="City"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[City]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[City]" />
@@ -2494,7 +2296,7 @@
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[State]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="10"
                           cachedName="State"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[State]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[State]" />
@@ -2510,7 +2312,7 @@
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[VIN]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="17"
                           cachedName="VIN"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[VIN]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[VIN]" />
@@ -2518,7 +2320,7 @@
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Plate]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="20"
                           cachedName="Plate"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Plate]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Plate]" />
@@ -2526,7 +2328,7 @@
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[VehicleYear]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="100"
                           cachedName="VehicleYear"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[VehicleYear]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleYear]" />
@@ -2534,26 +2336,10 @@
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[VehicleMake]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="100"
                           cachedName="VehicleMake"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[VehicleMake]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleMake]" />
-                        <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[VehicleModel]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="VehicleModel"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[VehicleModel]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleModel]" />
-                        <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[VehicleBody]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="50"
-                          cachedName="VehicleBody"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[VehicleBody]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleBody]" />
                         <inputColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Derived Column 1]"
                           cachedDataType="wstr"
@@ -2561,6 +2347,14 @@
                           cachedName="Derived Column 1"
                           externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[CustId]"
                           lineageId="Package\Foreach Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 1]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[VehicleModel]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="VehicleModel"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[VehicleModel]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[VehicleModel]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -2568,85 +2362,85 @@
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[LastName]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="LastName" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[FirstName]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="FirstName" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Address1]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="Address1" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Address2]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="Address2" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[City]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="City" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[State]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="State" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Zip]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="Zip" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[VIN]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="VIN" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Plate]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="Plate" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[VehicleYear]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="VehicleYear" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[VehicleMake]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="VehicleMake" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[VehicleModel]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="VehicleModel" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[VehicleBody]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="VehicleBody" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[CurrentOdometer]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="100"
                           name="CurrentOdometer" />
                         <externalMetadataColumn
                           refId="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[CustId]"
@@ -2687,6 +2481,7 @@
           <DTS:ObjectData>
             <FileSystemData
               TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
               TaskSourcePath="User::CurrentFile"
               TaskIsSourceVariable="True"
               TaskDestinationPath="User::ArchiveFolder"
@@ -2694,11 +2489,21 @@
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4DB7F78B-AA2E-4E26-A74D-FA50CA997C5B}"
+          DTS:From="Package\Foreach Loop Container\Data Flow Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\File System Task" />
+      </DTS:PrecedenceConstraints>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{2C540C1B-AA86-46D8-AC6B-8C4EE4DC19D2}"
-          DTS:ObjectName="{2C540C1B-AA86-46D8-AC6B-8C4EE4DC19D2}"
+          DTS:DTSID="{6DD81150-2924-465F-A650-633C2718CA4F}"
+          DTS:ObjectName="{6DD81150-2924-465F-A650-633C2718CA4F}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::CurrentFile" />
       </DTS:ForEachVariableMappings>
@@ -2707,7 +2512,6 @@
       DTS:refId="Package\To Tim"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{994A1183-D7FD-4C0D-A7F4-837746092462}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -2751,9 +2555,8 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].Columns[StoreNum]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="4"
+                      cachedDataType="wstr"
+                      cachedLength="150"
                       cachedName="StoreNum"
                       externalMetadataColumnId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreNum]"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoreNum]" />
@@ -2761,7 +2564,7 @@
                       refId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].Columns[LastName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
+                      cachedLength="100"
                       cachedName="LastName"
                       externalMetadataColumnId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LastName]"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]" />
@@ -2769,7 +2572,7 @@
                       refId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].Columns[FirstName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
+                      cachedLength="100"
                       cachedName="FirstName"
                       externalMetadataColumnId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]" />
@@ -2777,7 +2580,7 @@
                       refId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].Columns[Address1]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
+                      cachedLength="100"
                       cachedName="Address1"
                       externalMetadataColumnId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Address1]"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[Address1]" />
@@ -2785,7 +2588,7 @@
                       refId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].Columns[Address2]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
+                      cachedLength="100"
                       cachedName="Address2"
                       externalMetadataColumnId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Address2]"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[Address2]" />
@@ -2793,7 +2596,7 @@
                       refId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].Columns[City]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
+                      cachedLength="100"
                       cachedName="City"
                       externalMetadataColumnId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[City]"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]" />
@@ -2801,7 +2604,7 @@
                       refId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].Columns[State]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
+                      cachedLength="100"
                       cachedName="State"
                       externalMetadataColumnId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[State]"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]" />
@@ -2809,7 +2612,7 @@
                       refId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].Columns[Zip]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="50"
+                      cachedLength="100"
                       cachedName="Zip"
                       externalMetadataColumnId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Zip]"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[Zip]" />
@@ -2853,6 +2656,30 @@
                       cachedName="MSG"
                       externalMetadataColumnId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[MSG]"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[MSG]" />
+                    <inputColumn
+                      refId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].Columns[VehicleYear]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="VehicleYear"
+                      externalMetadataColumnId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[VehicleYear]"
+                      lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[VehicleYear]" />
+                    <inputColumn
+                      refId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].Columns[VehicleMake]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="VehicleMake"
+                      externalMetadataColumnId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Make]"
+                      lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[VehicleMake]" />
+                    <inputColumn
+                      refId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].Columns[VehicleModel]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="VehicleModel"
+                      externalMetadataColumnId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Model]"
+                      lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[VehicleModel]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2922,6 +2749,24 @@
                       dataType="str"
                       length="5000"
                       name="MSG" />
+                    <externalMetadataColumn
+                      refId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[VehicleYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="VehicleYear" />
+                    <externalMetadataColumn
+                      refId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Make]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Make" />
+                    <externalMetadataColumn
+                      refId="Package\To Tim\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Model]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Model" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2961,7 +2806,7 @@
                       refId="Package\To Tim\Flat File Destination 1.Inputs[Flat File Destination Input].Columns[StoreNum]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="10"
+                      cachedLength="150"
                       cachedName="StoreNum"
                       externalMetadataColumnId="Package\To Tim\Flat File Destination 1.Inputs[Flat File Destination Input].ExternalColumns[StoreNum]"
                       lineageId="Package\To Tim\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[StoreNum]" />
@@ -3071,12 +2916,11 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoreNum]"
-                      codePage="1252"
-                      dataType="str"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StoreNum]"
-                      length="4"
+                      length="150"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoreNum]"
                       name="StoreNum"
                       truncationRowDisposition="FailComponent" />
@@ -3087,7 +2931,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
-                      length="50"
+                      length="100"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
                       name="LastName"
                       truncationRowDisposition="FailComponent" />
@@ -3098,7 +2942,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
-                      length="50"
+                      length="100"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
                       name="FirstName"
                       truncationRowDisposition="FailComponent" />
@@ -3109,7 +2953,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Address1]"
-                      length="50"
+                      length="100"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[Address1]"
                       name="Address1"
                       truncationRowDisposition="FailComponent" />
@@ -3120,7 +2964,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Address2]"
-                      length="50"
+                      length="100"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[Address2]"
                       name="Address2"
                       truncationRowDisposition="FailComponent" />
@@ -3131,7 +2975,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
-                      length="50"
+                      length="100"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
                       name="City"
                       truncationRowDisposition="FailComponent" />
@@ -3142,7 +2986,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
-                      length="50"
+                      length="100"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
                       name="State"
                       truncationRowDisposition="FailComponent" />
@@ -3153,7 +2997,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Zip]"
-                      length="50"
+                      length="100"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[Zip]"
                       name="Zip"
                       truncationRowDisposition="FailComponent" />
@@ -3212,56 +3056,88 @@
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[MSG]"
                       name="MSG"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[VehicleYear]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VehicleYear]"
+                      length="100"
+                      lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[VehicleYear]"
+                      name="VehicleYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[VehicleMake]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VehicleMake]"
+                      length="100"
+                      lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[VehicleMake]"
+                      name="VehicleMake"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[VehicleModel]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VehicleModel]"
+                      length="100"
+                      lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].Columns[VehicleModel]"
+                      name="VehicleModel"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StoreNum]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
+                      dataType="wstr"
+                      length="150"
                       name="StoreNum" />
                     <externalMetadataColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       name="LastName" />
                     <externalMetadataColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       name="FirstName" />
                     <externalMetadataColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Address1]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       name="Address1" />
                     <externalMetadataColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Address2]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       name="Address2" />
                     <externalMetadataColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       name="City" />
                     <externalMetadataColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       name="State" />
                     <externalMetadataColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Zip]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       name="Zip" />
                     <externalMetadataColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VIN]"
@@ -3293,6 +3169,24 @@
                       dataType="str"
                       length="5000"
                       name="MSG" />
+                    <externalMetadataColumn
+                      refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VehicleYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="VehicleYear" />
+                    <externalMetadataColumn
+                      refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VehicleMake]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="VehicleMake" />
+                    <externalMetadataColumn
+                      refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VehicleModel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="VehicleModel" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3302,58 +3196,57 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StoreNum]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
+                      dataType="wstr"
+                      length="150"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StoreNum]"
                       name="StoreNum" />
                     <outputColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
                       name="LastName" />
                     <outputColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
                       name="FirstName" />
                     <outputColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Address1]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Address1]"
                       name="Address1" />
                     <outputColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Address2]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Address2]"
                       name="Address2" />
                     <outputColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
                       name="City" />
                     <outputColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
                       name="State" />
                     <outputColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Zip]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Zip]"
                       name="Zip" />
                     <outputColumn
@@ -3363,6 +3256,27 @@
                       length="17"
                       lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VIN]"
                       name="VIN" />
+                    <outputColumn
+                      refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VehicleYear]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VehicleYear]"
+                      name="VehicleYear" />
+                    <outputColumn
+                      refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VehicleMake]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VehicleMake]"
+                      name="VehicleMake" />
+                    <outputColumn
+                      refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VehicleModel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VehicleModel]"
+                      name="VehicleModel" />
                     <outputColumn
                       refId="Package\To Tim\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RECALLDT]"
                       codePage="1252"
@@ -3485,7 +3399,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\To Tim\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[StoreNum]"
-                      length="10"
+                      length="150"
                       lineageId="Package\To Tim\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[StoreNum]"
                       name="StoreNum"
                       truncationRowDisposition="FailComponent" />
@@ -3518,7 +3432,7 @@
                       refId="Package\To Tim\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[StoreNum]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="150"
                       name="StoreNum" />
                     <externalMetadataColumn
                       refId="Package\To Tim\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[NoOfRecToCheck]"
@@ -3544,7 +3458,7 @@
                       refId="Package\To Tim\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[StoreNum]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
+                      length="150"
                       lineageId="Package\To Tim\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[StoreNum]"
                       name="StoreNum" />
                     <outputColumn
@@ -3602,10 +3516,10 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="153,42"
-          Id="Package\Data Flow Task"
+          Size="239,42"
+          Id="Package\All Files Prepare for Recall Search"
           TopLeft="311,388" />
         <NodeLayout
           Size="162,42"
@@ -3618,7 +3532,41 @@
         <NodeLayout
           Size="160,42"
           Id="Package\Foreach Loop Container\File System Task"
-          TopLeft="39,138" />
+          TopLeft="110,120" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="157.5,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.5,59"
+              Start="0,0"
+              End="32.5,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="4,29.5" />
+                  <mssgle:LineSegment
+                    End="28.5,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.5,29.5"
+                    Point2="32.5,29.5"
+                    Point3="32.5,33.5" />
+                  <mssgle:LineSegment
+                    End="32.5,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -3634,44 +3582,32 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task">
+    design-time-name="Package\All Files Prepare for Recall Search">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="174,42"
-          Id="Package\Data Flow Task\Flat File Destination"
+          Id="Package\All Files Prepare for Recall Search\Flat File Destination"
           TopLeft="253,232" />
         <NodeLayout
           Size="160,42"
-          Id="Package\Data Flow Task\ADO NET Source"
-          TopLeft="251,52" />
+          Id="Package\All Files Prepare for Recall Search\ADO NET Source"
+          TopLeft="267,64" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[ADO NET Source Output]"
-          TopLeft="331,94">
+          Id="Package\All Files Prepare for Recall Search.Paths[ADO NET Source Output]"
+          TopLeft="343.5,106">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9,138"
+              EndConnector="0,126"
               Start="0,0"
-              End="9,130.5">
+              End="0,118.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,65" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,65"
-                    Point2="0,69"
-                    Point3="4,69" />
-                  <mssgle:LineSegment
-                    End="5,69" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5,69"
-                    Point2="9,69"
-                    Point3="9,73" />
-                  <mssgle:LineSegment
-                    End="9,130.5" />
+                    End="0,118.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3686,7 +3622,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\ADO NET Source">
+    design-time-name="Package\All Files Prepare for Recall Search\ADO NET Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3759,6 +3695,10 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="190,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination"
+          TopLeft="355,423" />
+        <NodeLayout
           Size="153,42"
           Id="Package\Foreach Loop Container\Data Flow Task\Flat File Source"
           TopLeft="236,72" />
@@ -3766,10 +3706,6 @@
           Size="156,42"
           Id="Package\Foreach Loop Container\Data Flow Task\Derived Column"
           TopLeft="323,200" />
-        <NodeLayout
-          Size="190,42"
-          Id="Package\Foreach Loop Container\Data Flow Task\SQL Server Destination"
-          TopLeft="355,423" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\Data Flow Task.Paths[Flat File Source Output]"
           TopLeft="312.5,114">
@@ -3859,13 +3795,55 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="174,42"
-          Id="Package\To Tim\Flat File Destination"
-          TopLeft="316,229" />
+          Size="183,42"
+          Id="Package\To Tim\Flat File Destination 1"
+          TopLeft="735,257" />
         <NodeLayout
           Size="152,42"
           Id="Package\To Tim\OLE DB Source"
           TopLeft="314,116" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\To Tim\Flat File Destination"
+          TopLeft="316,229" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\To Tim\OLE DB Source 1"
+          TopLeft="766,112" />
+        <EdgeLayout
+          Id="Package\To Tim.Paths[OLE DB Source Output1]"
+          TopLeft="846.5,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20,103"
+              Start="0,0"
+              End="-20,95.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.5"
+                    Point2="0,51.5"
+                    Point3="-4,51.5" />
+                  <mssgle:LineSegment
+                    End="-16,51.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16,51.5"
+                    Point2="-20,51.5"
+                    Point3="-20,55.5" />
+                  <mssgle:LineSegment
+                    End="-20,95.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\To Tim.Paths[OLE DB Source Output]"
           TopLeft="390,158">
@@ -3892,48 +3870,6 @@
                     Point3="13,39.5" />
                   <mssgle:LineSegment
                     End="13,63.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="161,42"
-          Id="Package\To Tim\OLE DB Source 1"
-          TopLeft="714,144" />
-        <NodeLayout
-          Size="183,42"
-          Id="Package\To Tim\Flat File Destination 1"
-          TopLeft="735,257" />
-        <EdgeLayout
-          Id="Package\To Tim.Paths[OLE DB Source Output1]"
-          TopLeft="794.5,186">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="32,71"
-              Start="0,0"
-              End="32,63.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5"
-                    Point2="0,35.5"
-                    Point3="4,35.5" />
-                  <mssgle:LineSegment
-                    End="28,35.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28,35.5"
-                    Point2="32,35.5"
-                    Point3="32,39.5" />
-                  <mssgle:LineSegment
-                    End="32,63.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

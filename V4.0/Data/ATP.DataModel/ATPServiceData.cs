@@ -159,6 +159,27 @@ namespace ATP.DataModel
 
 
     [Serializable, DataContract]
+    public class ATPExpressCheckIn
+    {
+        public ATPExpressCheckIn() { }
+
+        [DataMember]
+        public string DealerId { get; set; }
+
+        [DataMember]
+        public string PersonGuid { get; set; }
+
+        [DataMember]
+        public string VehicleGuid { get; set; }
+        [DataMember]
+        public string Comments { get; set; }
+
+        [DataMember]
+        public System.Collections.Generic.List<ATPServiceData> ATPServiceDataList { get; set; }
+    }
+
+
+    [Serializable, DataContract]
     public class ATPServiceDataMaster
     {
         public ATPServiceDataMaster() { }

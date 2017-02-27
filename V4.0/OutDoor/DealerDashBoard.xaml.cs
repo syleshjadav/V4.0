@@ -1,6 +1,6 @@
 ﻿using ATP.Kiosk.Views;
-using MyShopOutDoor.Common;
-using MyShopOutDoor.ServiceReference1;
+using MyShopExpress.Common;
+using MyShopExpress.ServiceReference1;
 using System;
 using System.IO;
 using System.Windows;
@@ -9,7 +9,7 @@ using System.Windows.Threading;
 using System.Xml;
 
 
-namespace MyShopOutDoor {
+namespace MyShopExpress {
 
 
   public partial class DealerDashBoard : Window {
@@ -57,7 +57,7 @@ namespace MyShopOutDoor {
         ConfigClass.MyShopSerialPort.PortName = xmlnode["MYSHOPCOMMPORT"].InnerText;
 
         
-        if (!ConfigClass.MyShopSerialPort.IsOpen) { ConfigClass.MyShopSerialPort.Open(); }
+       // if (!ConfigClass.MyShopSerialPort.IsOpen) { ConfigClass.MyShopSerialPort.Open(); }
 
 
         if (xmlnode["DEALORCUST"].InnerText == "C") {
@@ -141,7 +141,7 @@ namespace MyShopOutDoor {
 
       if (LstPerson.SelectedItem == null) { return; }
 
-      var wnd = new MyShopOutDoor.PickUpOrDrop();
+      var wnd = new MyShopExpress.PickUpOrDrop();
       this.Opacity = 0.5;
       var selectedPerson = (ServiceReference1.uspSelAllKeyDropPegByDealerId_Result)LstPerson.SelectedItem;
 

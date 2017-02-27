@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyShopOutDoor.Common {
+namespace MyShopExpress.Common {
     public static class ConfigClass {
 
         public static int DealerId { get; set; }

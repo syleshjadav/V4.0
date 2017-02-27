@@ -257,6 +257,64 @@ namespace ATP.Services.Data {
             }
         }
 
+
+
+        public ATPData SetServiceAndGeneratePinExpress(ATPExpressCheckIn m)
+        {
+
+
+            int? dealid = Convert.ToInt32(m.DealerId);
+            var personGuid = new Guid(m.PersonGuid);
+            var vehicleGuid = new Guid(m.VehicleGuid);
+
+
+            var rtnValue = new uspAssignKeylockerPin_Result();
+            try
+            {
+                using (var entity = new ATP.DataModel.Entities())
+                {
+                    rtnValue = entity.uspAssignKeylockerPin(dealid, personGuid, vehicleGuid, true).SingleOrDefault();
+                }
+
+                if (rtnValue != null && !String.IsNullOrEmpty(rtnValue.KeyLockerPin))
+                {
+                    // save the service types to db
+                    var serviceList = m.ATPServiceDataList.ToList();
+                    var vehicleServicesDataTable = new VehicleServicesDataTable
+                    {
+                        ADAM = false,
+                        Amount = 0,
+                        Date = DateTime.Now,
+                        DealerId = dealid,
+                        EnteredBy = personGuid,
+                        ExpressNumber = 0,
+                        KioskId = 1,
+                        Mileage = 1,
+                        PackageCost = 1,
+                        Paid = false,
+                        ServiceCost = 1,
+                        StatusId = 200,
+                        VehicleGUID = vehicleGuid,
+                        Reason = m.Comments
+
+                    };
+                    List<VehicleServicesDataTable> vehsvcs = new List<VehicleServicesDataTable>();
+                    vehsvcs.Add(vehicleServicesDataTable);
+
+                    var ss = new ATP.Services.Data.VehicleService().SaveVehicleServices(vehsvcs, serviceList);
+
+                }
+
+                return new ATPData { Id = rtnValue.KeyLockerPin, Value = rtnValue.Comments };
+            }
+            catch (Exception ex)
+            {
+                return new ATPData { Id = "-1", Value = ex.Message };
+            };
+
+        }
+
+
         public ATPData SetServiceAndGeneratePin(ATPServiceDataKeyDrop m) {
 
 

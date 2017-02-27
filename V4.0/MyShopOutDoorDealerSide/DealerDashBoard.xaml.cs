@@ -1,5 +1,5 @@
 ﻿using ATP.Kiosk.Views;
-using MyShopOutDoor.Common;
+using MyShopExpress.Common;
 using System;
 using System.Drawing;
 using System.IO;
@@ -11,7 +11,7 @@ using System.Windows.Threading;
 using System.Xml;
 
 
-namespace MyShopOutDoor {
+namespace MyShopExpress {
 
 
     public partial class DealerDashBoard : Window {
@@ -109,7 +109,7 @@ namespace MyShopOutDoor {
             RefreshGrid();
 
 
-            var res1 = ATP.Common.ProxyHelper.Service<MyShopOutDoorDealerSide.ServiceReference1.IOutDoor>.Use(svcs => {
+            var res1 = ATP.Common.ProxyHelper.Service<MyShopExpress.ServiceReference1.IOutDoor>.Use(svcs => {
                 return svcs.UpsertKioskInUSE(_dealerId, null, new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
             });
 
@@ -119,7 +119,7 @@ namespace MyShopOutDoor {
         private void RefreshGrid() {
             try {
 
-                var res = ATP.Common.ProxyHelper.Service<MyShopOutDoorDealerSide.ServiceReference1.IOutDoor>.Use(svcs => {
+                var res = ATP.Common.ProxyHelper.Service<MyShopExpress.ServiceReference1.IOutDoor>.Use(svcs => {
                     return svcs.SelAllKeyDropPegByDealerId(ConfigClass.DealerId);
                 });
                 LstPerson.ItemsSource = null;
@@ -136,9 +136,9 @@ namespace MyShopOutDoor {
 
             if (LstPerson.SelectedItem == null) { return; }
 
-            var wnd = new MyShopOutDoor.DealerSide.PickUpOrDrop();
+            var wnd = new MyShopExpress.DealerSide.PickUpOrDrop();
             this.Opacity = 0.5;
-            var selectedPerson = (MyShopOutDoorDealerSide.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result)LstPerson.SelectedItem;
+            var selectedPerson = (MyShopExpress.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result)LstPerson.SelectedItem;
 
             if (selectedPerson.VehicleGuid == null) {
                 //wnd.TxtMessage.Text = "Go To the web site and change the status to ready for keydrop..";
@@ -153,7 +153,7 @@ namespace MyShopOutDoor {
                 var confirm = wnd.ShowDialog();
 
                
-                    var res1 = ATP.Common.ProxyHelper.Service<MyShopOutDoorDealerSide.ServiceReference1.IOutDoor>.Use(svcs => {
+                    var res1 = ATP.Common.ProxyHelper.Service<MyShopExpress.ServiceReference1.IOutDoor>.Use(svcs => {
                         return svcs.UpsertKioskInUSE(116, null, new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
                     });
                 

@@ -1,12 +1,12 @@
 ﻿using ATP.Kiosk.Views;
-using MyShopOutDoor.Common;
-using MyShopOutDoor.ServiceReference1;
+using MyShopExpress.Common;
+using MyShopExpress.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
-namespace MyShopOutDoor {
+namespace MyShopExpress {
     /// <summary>
     /// Interaction logic for PickUpOrDrop.xaml
     /// </summary>

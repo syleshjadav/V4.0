@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
-namespace MyShopOutDoor.MyShopUserControl {
+namespace MyShopExpress.MyShopUserControl {
   /// <summary>
   /// Interaction logic for ValidatePinUC.xaml
   /// </summary>
