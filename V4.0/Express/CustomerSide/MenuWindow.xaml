@@ -1,0 +1,245 @@
+﻿<Window x:Class="MyShopExpress.MenuWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyShopExpress"
+             mc:Ignorable="d"
+             x:Name="CtrlMenuWindow"
+             WindowState="Maximized"
+        WindowStyle="None"
+        Height="900"
+        Width="900"
+        Margin="0"
+        Unloaded="CtrlMenuWindow_Unloaded">
+  <Grid x:Name="GrdMain">
+  
+    <Grid.RowDefinitions>
+   
+      <RowDefinition Height="*" />
+   
+    </Grid.RowDefinitions>
+    <Border BorderThickness="5"
+            BorderBrush="Gray"
+            CornerRadius="5"
+            Grid.RowSpan="3"></Border>
+    
+    <GroupBox Grid.Row="1"
+              
+              Margin="10"
+              Style="{DynamicResource DesignerGroupBoxSmallBk}">
+      <GroupBox.Header>
+        <TextBlock x:Name="TxtCustomerDetails"
+                   Text="AUTOMATED KEY DROP AND PICK UP SYSTEM"
+                   FontSize="36"
+                   Foreground="White"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center" />
+      </GroupBox.Header>
+      <UniformGrid Columns="2" Rows="2" >
+        <UniformGrid.Background>
+          <ImageBrush Opacity="0.1"
+                      TileMode="Tile"
+                                ImageSource="/MyShopExpress;component/Image/DealerLogo/116.png">
+            <ImageBrush.Transform>
+              <ScaleTransform ScaleX=".2"
+                              ScaleY=".2" />
+            </ImageBrush.Transform>
+          </ImageBrush>
+        </UniformGrid.Background>
+        <Border BorderThickness="1,1,1,2"
+                Margin="0,10,10,0"
+              
+                CornerRadius="6">
+          <Border.Effect>
+            <DropShadowEffect />
+          </Border.Effect>
+          <Button x:Name="cmdDropKeysByPhone"
+                  FontSize="40"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Width="400"
+                  Height="400"
+                  BorderBrush="#FFFFFF"
+                  BorderThickness="3"
+                  FontWeight="Bold"
+                  Foreground="#FFF3F3F3"
+                  Click="cmdDropKeysByPhone_Click"
+                >
+            <Button.Background>
+              <LinearGradientBrush EndPoint="0.5,1"
+                                   StartPoint="0.5,0">
+                <GradientStop Color="#FF196348"
+                              Offset="1" />
+                <GradientStop Color="White" />
+              </LinearGradientBrush>
+            </Button.Background>
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="250" />
+                <RowDefinition Height="50" />
+              </Grid.RowDefinitions>
+              <TextBlock DockPanel.Dock="Top"
+                         Grid.Row="0"
+                         TextWrapping="Wrap"
+                         FontSize="50"
+                         HorizontalAlignment="Center"
+                         Foreground="Black"> DROP KEYS</TextBlock>
+              <TextBlock Grid.Row="2"
+                         FontSize="50"
+                         HorizontalAlignment="Center"
+                         Foreground="White">PHONE  APP</TextBlock>
+              <Image Grid.Row="1"
+                                   Source="/MyShopExpress;component/Image/Keys1.png" />
+            </Grid>
+          </Button>
+        </Border>
+        <Border BorderThickness="1,1,1,2"
+                Margin="0,10,0,0"
+                CornerRadius="6">
+          <Border.Effect>
+            <DropShadowEffect />
+          </Border.Effect>
+          <Button x:Name="cmdPickUpKeysByPhone"
+                  FontSize="40"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Width="400"
+                  Height="400"
+                  BorderBrush="#FFFFFF"
+                  BorderThickness="3"
+                  FontWeight="Bold"
+                  Foreground="#FFF3F3F3"
+                  Click="cmdPickUpKeysByPhone_Click"
+                  >
+            <Button.Background>
+              <LinearGradientBrush EndPoint="0.5,1"
+                                   StartPoint="0.5,0">
+                <GradientStop Color="#FF196348"
+                              Offset="1" />
+                <GradientStop Color="White" />
+              </LinearGradientBrush>
+            </Button.Background>
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="250" />
+                <RowDefinition Height="50" />
+              </Grid.RowDefinitions>
+              <TextBlock DockPanel.Dock="Top"
+                         Grid.Row="0"
+                         TextWrapping="Wrap"
+                         FontSize="50"
+                         HorizontalAlignment="Center"
+                         Foreground="Black"> PICK UP KEYS</TextBlock>
+              <TextBlock Grid.Row="2"
+                         FontSize="50"
+                         HorizontalAlignment="Center"
+                         Foreground="White">KEY PICKUP</TextBlock>
+              <Image Grid.Row="1"
+                                   Source="/MyShopExpress;component/Image/Keys-ParkingLot.png" />
+            </Grid>
+          </Button>
+        </Border>
+        <Border BorderThickness="1,1,1,2"
+                Margin="0,10,10,0"
+                CornerRadius="6">
+          <Border.Effect>
+            <DropShadowEffect />
+          </Border.Effect>
+          <Button x:Name="cmdTowTruckPickUp"
+                  FontSize="40"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Width="400"
+                  Height="400"
+                  BorderBrush="#FFFFFF"
+                  BorderThickness="3"
+                  FontWeight="Bold"
+                  Foreground="#FFF3F3F3"
+                  Click="cmdTowTruckPickUp_Click">
+            <Button.Background>
+              <LinearGradientBrush EndPoint="0.5,1"
+                                   StartPoint="0.5,0">
+                <GradientStop Color="#FF196348"
+                              Offset="1" />
+                <GradientStop Color="White" />
+              </LinearGradientBrush>
+            </Button.Background>
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="250" />
+                <RowDefinition Height="50" />
+              </Grid.RowDefinitions>
+              <TextBlock DockPanel.Dock="Top"
+                         Grid.Row="0"
+                         TextWrapping="Wrap"
+                         FontSize="50"
+                         HorizontalAlignment="Center"
+                         Foreground="Black"> DROP KEYS</TextBlock>
+              <TextBlock Grid.Row="2"
+                         TextWrapping="Wrap"
+                         FontSize="50"
+                         HorizontalAlignment="Center"
+                         Foreground="White">TOW TRUCK</TextBlock>
+              <Image Grid.Row="1"
+                     Width="250"
+                                   Source="/MyShopExpress;component/Image/TowTruck.png" />
+            </Grid>
+          </Button>
+        </Border>
+        <Border BorderThickness="1,1,1,2"
+                Margin="0,10,0,0"
+                CornerRadius="6">
+          <Border.Effect>
+            <DropShadowEffect />
+          </Border.Effect>
+          <Button x:Name="cmdNoPhoneDrop"
+                  FontSize="40"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Width="400"
+                  Height="400"
+                  BorderBrush="#FFFFFF"
+                  BorderThickness="3"
+                  FontWeight="Bold"
+                  Foreground="#FFF3F3F3"
+                  Click="cmdNoPhoneDrop_Click">
+            <Button.Background>
+              <LinearGradientBrush EndPoint="0.5,1"
+                                   StartPoint="0.5,0">
+                <GradientStop Color="#FF196348"
+                              Offset="1" />
+                <GradientStop Color="White" />
+              </LinearGradientBrush>
+            </Button.Background>
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="250" />
+                <RowDefinition Height="Auto"/>
+              </Grid.RowDefinitions>
+              <TextBlock DockPanel.Dock="Top" Grid.Row="0"
+                         TextWrapping="Wrap"
+                         FontSize="50"
+                         HorizontalAlignment="Center"
+                         Foreground="Black"> DROP KEYS</TextBlock>
+              <Image DockPanel.Dock="Top"
+                     Width="250"
+                     Grid.Row="1"
+                                   Source="/MyShopExpress;component/Image/NoPhone1.png" />
+              <TextBlock DockPanel.Dock="Bottom"
+                         Grid.Row="2"
+                         TextWrapping="Wrap"
+                         FontSize="40"
+                         HorizontalAlignment="Center"
+                         Foreground="White">NO PHONE APP / EXPRESS DROP </TextBlock>
+            </Grid>
+          </Button>
+        </Border>
+      </UniformGrid>
+    </GroupBox>
+  </Grid>
+</Window>
