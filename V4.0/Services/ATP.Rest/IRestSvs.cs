@@ -149,6 +149,11 @@ namespace ATP.Rest {
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "PickUpKeys")]
         ATPData PickUpKeys(ATPGetPickUpPin m);
 
+
+
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "ExpressCheckIn")]
+        ATPData ExpressCheckIn(ATPExpressCheckIn m);
+
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "LoginDealerEmployee")]
 
         ATPLoginDealerEmp LoginDealerEmployee(ATPLoginDealerEmployee m);
