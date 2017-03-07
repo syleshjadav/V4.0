@@ -13,20 +13,20 @@ namespace MyShopCompInspectionSync
     public partial class Form1 : Form
     {
        // private System.Windows.Forms.Timer timer1;
-        private int counter = 60;
-        private int servicePollInterval;
+        private int counter = 120;
+        private int servicePollInterval=120;
 
         public Form1()
         {
             InitializeComponent();
 
-            // timer1.Tick += new EventHandler(timer1_Tick);
 
-            //timer1.Interval
-            servicePollInterval = MyShopCompInspectionSync.Properties.Settings.Default.servicePollInterval;
+            servicePollInterval = MyShopCompInspectionSync.Properties.Settings.Default.ServicePollInterval;
             counter = servicePollInterval;
-          //  timer1.Start();
             lblCountDown.Text = counter.ToString();
+
+          
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -35,9 +35,16 @@ namespace MyShopCompInspectionSync
             lblCountDown.Text = counter.ToString();
             if (counter == 0)
             {
-                // timer1.Stop();
+                 timer1.Stop();
+
+                if (MyShopCompInspectionSync.Properties.Settings.Default.IsShowForm == false)
+                {
+                    this.Visible = false;
+                }
+
 
                 counter = servicePollInterval;
+                timer1.Start();
             }
 
         }
@@ -49,10 +56,6 @@ namespace MyShopCompInspectionSync
 
     
 
-        private void Form1_Enter(object sender, EventArgs e)
-        {
-           
-           
-        }
+       
     }
 }

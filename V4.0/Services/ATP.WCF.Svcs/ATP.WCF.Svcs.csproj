@@ -84,6 +84,7 @@
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Dealer.svc" />
     <Content Include="ErrorLog.svc" />
+    <Content Include="CompInspection.svc" />
     <Content Include="OutDoor.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -96,8 +97,12 @@
     <Compile Include="ErrorLog.svc.cs">
       <DependentUpon>ErrorLog.svc</DependentUpon>
     </Compile>
+    <Compile Include="CompInspection.svc.cs">
+      <DependentUpon>CompInspection.svc</DependentUpon>
+    </Compile>
     <Compile Include="IDealer.cs" />
     <Compile Include="IErrorLog.cs" />
+    <Compile Include="ICompInspection.cs" />
     <Compile Include="IOutDoor.cs" />
     <Compile Include="OutDoor.svc.cs">
       <DependentUpon>OutDoor.svc</DependentUpon>

@@ -4186,7 +4186,7 @@ namespace ATP.DataModel
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("uspVerifyKeylockerPin", dealerIdParameter, customerGuidParameter, vehicleGuidParameter, isPickUpOrDropParameter, keyLockerPinParameter);
         }
     
-        public virtual int uspInsDealerMsgWeb(Nullable<System.Guid> vehicleServiceGuid, Nullable<System.Guid> vehicleGuid, Nullable<System.Guid> dealerEmpGuid, Nullable<System.Guid> personGuid, Nullable<int> dealerId, string msgFrom, string msgTo, string txtMsg, Nullable<bool> isCustMsg, Nullable<bool> isMsgToCust)
+        public virtual int uspInsDealerMsgWeb(Nullable<System.Guid> vehicleServiceGuid, Nullable<System.Guid> vehicleGuid, Nullable<System.Guid> dealerEmpGuid, Nullable<System.Guid> dealerEmpGuidTo, Nullable<System.Guid> personGuid, Nullable<int> dealerId, string msgFrom, string msgTo, string txtMsg, Nullable<bool> isCustMsg, Nullable<bool> isMsgToCust)
         {
             var vehicleServiceGuidParameter = vehicleServiceGuid.HasValue ?
                 new ObjectParameter("VehicleServiceGuid", vehicleServiceGuid) :
@@ -4199,6 +4199,10 @@ namespace ATP.DataModel
             var dealerEmpGuidParameter = dealerEmpGuid.HasValue ?
                 new ObjectParameter("DealerEmpGuid", dealerEmpGuid) :
                 new ObjectParameter("DealerEmpGuid", typeof(System.Guid));
+    
+            var dealerEmpGuidToParameter = dealerEmpGuidTo.HasValue ?
+                new ObjectParameter("DealerEmpGuidTo", dealerEmpGuidTo) :
+                new ObjectParameter("DealerEmpGuidTo", typeof(System.Guid));
     
             var personGuidParameter = personGuid.HasValue ?
                 new ObjectParameter("PersonGuid", personGuid) :
@@ -4228,7 +4232,7 @@ namespace ATP.DataModel
                 new ObjectParameter("IsMsgToCust", isMsgToCust) :
                 new ObjectParameter("IsMsgToCust", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspInsDealerMsgWeb", vehicleServiceGuidParameter, vehicleGuidParameter, dealerEmpGuidParameter, personGuidParameter, dealerIdParameter, msgFromParameter, msgToParameter, txtMsgParameter, isCustMsgParameter, isMsgToCustParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspInsDealerMsgWeb", vehicleServiceGuidParameter, vehicleGuidParameter, dealerEmpGuidParameter, dealerEmpGuidToParameter, personGuidParameter, dealerIdParameter, msgFromParameter, msgToParameter, txtMsgParameter, isCustMsgParameter, isMsgToCustParameter);
         }
     
         public virtual int uspUpdKeyLockerPeg(Nullable<int> dealerId, Nullable<byte> keyLockerId, Nullable<byte> keyLockerPegId, Nullable<bool> isPickOrDrop, Nullable<System.Guid> vehicleServiceGuid, Nullable<byte> serviceStatusId, Nullable<bool> isOpen, Nullable<System.Guid> updatedBy)
@@ -4632,6 +4636,15 @@ namespace ATP.DataModel
                 new ObjectParameter("LastUsedBy", typeof(System.Guid));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpsertKioskInUSE", dealerIdParameter, usedByParameter, lastUsedByParameter);
+        }
+    
+        public virtual ObjectResult<uspSelAllCompInspectionExportData_Result> uspSelAllCompInspectionExportData(Nullable<int> dealerId)
+        {
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelAllCompInspectionExportData_Result>("uspSelAllCompInspectionExportData", dealerIdParameter);
         }
     }
 }

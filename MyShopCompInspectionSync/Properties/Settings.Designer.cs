@@ -25,13 +25,25 @@ namespace MyShopCompInspectionSync.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("20")]
-        public int servicePollInterval {
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int ServicePollInterval {
             get {
-                return ((int)(this["servicePollInterval"]));
+                return ((int)(this["ServicePollInterval"]));
             }
             set {
-                this["servicePollInterval"] = value;
+                this["ServicePollInterval"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsShowForm {
+            get {
+                return ((bool)(this["IsShowForm"]));
+            }
+            set {
+                this["IsShowForm"] = value;
             }
         }
     }
