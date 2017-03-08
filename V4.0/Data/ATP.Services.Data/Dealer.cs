@@ -231,7 +231,7 @@ namespace ATP.Services.Data {
 
         public int InsDealerMsgWeb(uspSelDealerMsg_Result x) {
             using (var entity = new ATP.DataModel.Entities()) {
-                return entity.uspInsDealerMsgWeb(x.VehicleServiceGuid, x.VehicleGuid, x.DealerEmpGuid, x.PersonGuid, x.DealerId, x.MsgFrom, x.MsgTo, x.TxtMsg, x.IsCustMsg, x.IsMsgToCust);
+                return entity.uspInsDealerMsgWeb(x.VehicleServiceGuid, x.VehicleGuid, x.DealerEmpGuid,null, x.PersonGuid, x.DealerId, x.MsgFrom, x.MsgTo, x.TxtMsg, x.IsCustMsg, x.IsMsgToCust);
             }
         }
 
