@@ -58,5 +58,18 @@ namespace MyShopCompInspectionSync.Properties {
                 this["DealerId"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source = c:\\\\SIRPA\\\\Data\\\\SIRDATA.ADD; ServerType=remote|local; TableType=AD" +
+            "T")]
+        public string ConnectionString {
+            get {
+                return ((string)(this["ConnectionString"]));
+            }
+            set {
+                this["ConnectionString"] = value;
+            }
+        }
     }
 }

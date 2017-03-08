@@ -11,5 +11,8 @@
     <Setting Name="DealerId" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">103</Value>
     </Setting>
+    <Setting Name="ConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">data source = c:\\SIRPA\\Data\\SIRDATA.ADD; ServerType=remote|local; TableType=ADT</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -10,8 +10,9 @@ using System.Windows.Forms;
 using Advantage.Data.Provider;
 using System.Collections;
 using System.Reflection;
+using MyShopCompInspectionSync;
 
-namespace WindowsFormsApplication1
+namespace MyShopCompInspectionSync
 {
   public partial class Form1 : Form
   {
@@ -22,14 +23,14 @@ namespace WindowsFormsApplication1
     DataSet dset = new DataSet();
 
     //string Connectionstring = "data source = c:\\SIRPA\\Data\\SIRDATA.ADD; ServerType=remote|local; TableType=ADT";
-    string Connectionstring = Properties.Settings.Default.ConnectionString;
+    string Connectionstring = MyShopCompInspectionSync.Properties.Settings.Default.ConnectionString;
 
     public Form1()
     {
       InitializeComponent();
 
 
-      Connectionstring = Properties.Settings.Default.ConnectionString;
+      Connectionstring = MyShopCompInspectionSync.Properties.Settings.Default.ConnectionString;
 
       conn.ConnectionString = Connectionstring;
       conn.Open();
@@ -482,7 +483,9 @@ namespace WindowsFormsApplication1
 
     private void cmdPullMyShopAuto_Click(object sender, EventArgs e)
     {
+      
       MessageBox.Show("It will be coded after verification");
+      Helper.ClearFormControls(this);
     }
 
     private void txtLRTReading_TextChanged(object sender, EventArgs e)
@@ -490,7 +493,10 @@ namespace WindowsFormsApplication1
 
     }
 
+    private void txtRegistrationVerified_TextChanged(object sender, EventArgs e)
+    {
 
+    }
   }
 
 
