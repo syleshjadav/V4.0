@@ -8,7 +8,8 @@ using System.Text;
 
 namespace ATP.WCF.Svcs
 {
-    public class CompInspection : ICompInspection
+  [ServiceErrorBehaviour(typeof(HttpErrorHandler))]
+  public class CompInspection : ICompInspection
     {
        
 

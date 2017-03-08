@@ -8,8 +8,8 @@ using System.Text;
 
 namespace ATP.WCF.Svcs
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IICompInspection" in both code and config file together.
-    [ServiceContract]
+  [ServiceContract(Name = "ICompInspection", Namespace = "http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection")]
+
     public interface ICompInspection
     {
         [OperationContract]

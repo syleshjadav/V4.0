@@ -77,8 +77,6 @@ namespace ATP.DataModel
         public string ERG { get; set; }
         public string AIRPump { get; set; }
         public string EvaporativeControl { get; set; }
-        public string Column1 { get; set; }
-        public string Column2 { get; set; }
         public string MechName { get; set; }
         public string MechLic { get; set; }
         public string Doors { get; set; }
@@ -99,7 +97,6 @@ namespace ATP.DataModel
         public string EmissionLicClass { get; set; }
         public string EmissionNum { get; set; }
         public string StickerMonth { get; set; }
-        public string EmissionNum1 { get; set; }
         public string SafetyStickerYYMM { get; set; }
     }
 }

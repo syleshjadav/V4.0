@@ -4750,8 +4750,6 @@
           <Property Type="String" Name="ERG" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="AIRPump" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="EvaporativeControl" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="Column1" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="Column2" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="MechName" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="MechLic" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="Doors" Nullable="true" MaxLength="10" />
@@ -4772,7 +4770,6 @@
           <Property Type="String" Name="EmissionLicClass" Nullable="true" MaxLength="5" />
           <Property Type="String" Name="EmissionNum" Nullable="true" MaxLength="15" />
           <Property Type="String" Name="StickerMonth" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="EmissionNum1" Nullable="true" MaxLength="15" />
           <Property Type="String" Name="SafetyStickerYYMM" Nullable="true" MaxLength="4" />
         </ComplexType>
       </Schema>
@@ -7315,8 +7312,6 @@
                 <ScalarProperty Name="ERG" ColumnName="ERG" />
                 <ScalarProperty Name="AIRPump" ColumnName="AIRPump" />
                 <ScalarProperty Name="EvaporativeControl" ColumnName="EvaporativeControl" />
-                <ScalarProperty Name="Column1" ColumnName="Column1" />
-                <ScalarProperty Name="Column2" ColumnName="Column2" />
                 <ScalarProperty Name="MechName" ColumnName="MechName" />
                 <ScalarProperty Name="MechLic" ColumnName="MechLic" />
                 <ScalarProperty Name="Doors" ColumnName="Doors" />
@@ -7337,7 +7332,6 @@
                 <ScalarProperty Name="EmissionLicClass" ColumnName="EmissionLicClass" />
                 <ScalarProperty Name="EmissionNum" ColumnName="EmissionNum" />
                 <ScalarProperty Name="StickerMonth" ColumnName="StickerMonth" />
-                <ScalarProperty Name="EmissionNum1" ColumnName="EmissionNum1" />
                 <ScalarProperty Name="SafetyStickerYYMM" ColumnName="SafetyStickerYYMM" />
               </ComplexTypeMapping>
             </ResultMapping>

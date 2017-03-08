@@ -33,6 +33,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Express", "V4.0\Express\Express.csproj", "{9FE02744-DBDA-4B91-8F33-EF0B2C2B55F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyShopCompInspectionSync", "MyShopCompInspectionSync\MyShopCompInspectionSync.csproj", "{A7341624-B14C-4BA5-B57C-AC1EC6208BA7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{325F09E7-8C02-410E-9F5D-C912A308252D} = {325F09E7-8C02-410E-9F5D-C912A308252D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

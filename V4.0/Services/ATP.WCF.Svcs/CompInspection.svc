@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="ATP.WCF.Svcs.ICompInspection" CodeBehind="CompInspection.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="ATP.WCF.Svcs.CompInspection" CodeBehind="CompInspection.svc.cs" %>

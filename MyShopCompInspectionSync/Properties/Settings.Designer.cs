@@ -46,5 +46,17 @@ namespace MyShopCompInspectionSync.Properties {
                 this["IsShowForm"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("103")]
+        public int DealerId {
+            get {
+                return ((int)(this["DealerId"]));
+            }
+            set {
+                this["DealerId"] = value;
+            }
+        }
     }
 }
