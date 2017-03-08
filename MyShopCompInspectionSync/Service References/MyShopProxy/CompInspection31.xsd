@@ -21,8 +21,6 @@
       <xs:element minOccurs="0" name="BreakPedal" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CatalyticConverter" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Column1" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Column2" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CurrOdo" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="CustState" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Doors" nillable="true" type="xs:string" />
@@ -30,7 +28,6 @@
       <xs:element minOccurs="0" name="EmissionLicClass" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EmissionLicNum" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EmissionNum" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmissionNum1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EvaporativeControl" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Exhaust" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />

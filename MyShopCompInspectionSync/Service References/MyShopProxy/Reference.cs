@@ -59,12 +59,6 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         private string CityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Column1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Column2Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> CurrOdoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -84,9 +78,6 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmissionNumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmissionNum1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EvaporativeControlField;
@@ -453,32 +444,6 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Column1 {
-            get {
-                return this.Column1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Column1Field, value) != true)) {
-                    this.Column1Field = value;
-                    this.RaisePropertyChanged("Column1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Column2 {
-            get {
-                return this.Column2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Column2Field, value) != true)) {
-                    this.Column2Field = value;
-                    this.RaisePropertyChanged("Column2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> CurrOdo {
             get {
                 return this.CurrOdoField;
@@ -565,19 +530,6 @@ namespace MyShopCompInspectionSync.MyShopProxy {
                 if ((object.ReferenceEquals(this.EmissionNumField, value) != true)) {
                     this.EmissionNumField = value;
                     this.RaisePropertyChanged("EmissionNum");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EmissionNum1 {
-            get {
-                return this.EmissionNum1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EmissionNum1Field, value) != true)) {
-                    this.EmissionNum1Field = value;
-                    this.RaisePropertyChanged("EmissionNum1");
                 }
             }
         }

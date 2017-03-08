@@ -3,7 +3,7 @@ using System.Windows.Media;
 using System.Windows.Data;
 
 
-namespace ATP.Kiosk.Helpers
+namespace MyShopExpress
 {
 
 

@@ -43,12 +43,11 @@ namespace ATP.DataModel
         public string FleetNumber { get; set; }
         public string BrakeFrontSize { get; set; }
         public string BrakeRearSize { get; set; }
-        public string TireFrontSize { get; set; }
-        public string TireRearSize { get; set; }
         public string BrakeTypeFront { get; set; }
         public string BrakeTypeRear { get; set; }
         public string BrakeFrontRightSize { get; set; }
-        public string BrakeRearRightSize { get; set; }
+        public string TireFrontSize { get; set; }
+        public string TireRearSize { get; set; }
         public string TireFrontRightSize { get; set; }
         public string TireRearRightSize { get; set; }
         public string TireSpareSize { get; set; }
@@ -56,9 +55,6 @@ namespace ATP.DataModel
         public string RFBrakeBondRivet { get; set; }
         public string LRBrakeBondRivet { get; set; }
         public string RRBrakeBondRivet { get; set; }
-        public string TireRRSSize { get; set; }
-        public string TireRLSSize { get; set; }
-        public string TirePressure { get; set; }
         public string RegVerified { get; set; }
         public string Tires { get; set; }
         public string Streering { get; set; }
@@ -80,6 +76,7 @@ namespace ATP.DataModel
         public string MechName { get; set; }
         public string MechLic { get; set; }
         public string Doors { get; set; }
+        public Nullable<int> Body { get; set; }
         public string Insurance { get; set; }
         public string VehicleDrive { get; set; }
         public string VehicleDriving { get; set; }
@@ -98,5 +95,6 @@ namespace ATP.DataModel
         public string EmissionNum { get; set; }
         public string StickerMonth { get; set; }
         public string SafetyStickerYYMM { get; set; }
+        public string LowestTireReading { get; set; }
     }
 }

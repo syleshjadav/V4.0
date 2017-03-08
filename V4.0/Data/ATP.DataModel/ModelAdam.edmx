@@ -4700,7 +4700,7 @@
           <Property Type="String" Name="Plate" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="VehicleYear" Nullable="true" MaxLength="4" />
           <Property Type="String" Name="VehicleMake" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="VehBodyType" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="VehBodyType" Nullable="true" MaxLength="20" />
           <Property Type="Int32" Name="CurrOdo" Nullable="true" />
           <Property Type="Int32" Name="PrevOdo" Nullable="false" />
           <Property Type="String" Name="NAIC" Nullable="true" MaxLength="50" />
@@ -4716,12 +4716,11 @@
           <Property Type="String" Name="FleetNumber" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="BrakeFrontSize" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="BrakeRearSize" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="TireFrontSize" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="TireRearSize" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="BrakeTypeFront" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="BrakeTypeRear" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="BrakeFrontRightSize" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="BrakeRearRightSize" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TireFrontSize" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TireRearSize" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="TireFrontRightSize" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="TireRearRightSize" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="TireSpareSize" Nullable="true" MaxLength="10" />
@@ -4729,9 +4728,6 @@
           <Property Type="String" Name="RFBrakeBondRivet" Nullable="true" MaxLength="1" />
           <Property Type="String" Name="LRBrakeBondRivet" Nullable="true" MaxLength="1" />
           <Property Type="String" Name="RRBrakeBondRivet" Nullable="true" MaxLength="1" />
-          <Property Type="String" Name="TireRRSSize" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="TireRLSSize" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="TirePressure" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="RegVerified" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="Tires" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="Streering" Nullable="true" MaxLength="10" />
@@ -4753,6 +4749,7 @@
           <Property Type="String" Name="MechName" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="MechLic" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="Doors" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Body" Nullable="true" />
           <Property Type="String" Name="Insurance" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="VehicleDrive" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="VehicleDriving" Nullable="true" MaxLength="10" />
@@ -4771,6 +4768,7 @@
           <Property Type="String" Name="EmissionNum" Nullable="true" MaxLength="15" />
           <Property Type="String" Name="StickerMonth" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="SafetyStickerYYMM" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="LowestTireReading" Nullable="true" MaxLength="2" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -7278,12 +7276,11 @@
                 <ScalarProperty Name="FleetNumber" ColumnName="FleetNumber" />
                 <ScalarProperty Name="BrakeFrontSize" ColumnName="BrakeFrontSize" />
                 <ScalarProperty Name="BrakeRearSize" ColumnName="BrakeRearSize" />
-                <ScalarProperty Name="TireFrontSize" ColumnName="TireFrontSize" />
-                <ScalarProperty Name="TireRearSize" ColumnName="TireRearSize" />
                 <ScalarProperty Name="BrakeTypeFront" ColumnName="BrakeTypeFront" />
                 <ScalarProperty Name="BrakeTypeRear" ColumnName="BrakeTypeRear" />
                 <ScalarProperty Name="BrakeFrontRightSize" ColumnName="BrakeFrontRightSize" />
-                <ScalarProperty Name="BrakeRearRightSize" ColumnName="BrakeRearRightSize" />
+                <ScalarProperty Name="TireFrontSize" ColumnName="TireFrontSize" />
+                <ScalarProperty Name="TireRearSize" ColumnName="TireRearSize" />
                 <ScalarProperty Name="TireFrontRightSize" ColumnName="TireFrontRightSize" />
                 <ScalarProperty Name="TireRearRightSize" ColumnName="TireRearRightSize" />
                 <ScalarProperty Name="TireSpareSize" ColumnName="TireSpareSize" />
@@ -7291,9 +7288,6 @@
                 <ScalarProperty Name="RFBrakeBondRivet" ColumnName="RFBrakeBondRivet" />
                 <ScalarProperty Name="LRBrakeBondRivet" ColumnName="LRBrakeBondRivet" />
                 <ScalarProperty Name="RRBrakeBondRivet" ColumnName="RRBrakeBondRivet" />
-                <ScalarProperty Name="TireRRSSize" ColumnName="TireRRSSize" />
-                <ScalarProperty Name="TireRLSSize" ColumnName="TireRLSSize" />
-                <ScalarProperty Name="TirePressure" ColumnName="TirePressure" />
                 <ScalarProperty Name="RegVerified" ColumnName="RegVerified" />
                 <ScalarProperty Name="Tires" ColumnName="Tires" />
                 <ScalarProperty Name="Streering" ColumnName="Streering" />
@@ -7315,6 +7309,7 @@
                 <ScalarProperty Name="MechName" ColumnName="MechName" />
                 <ScalarProperty Name="MechLic" ColumnName="MechLic" />
                 <ScalarProperty Name="Doors" ColumnName="Doors" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
                 <ScalarProperty Name="Insurance" ColumnName="Insurance" />
                 <ScalarProperty Name="VehicleDrive" ColumnName="VehicleDrive" />
                 <ScalarProperty Name="VehicleDriving" ColumnName="VehicleDriving" />
@@ -7333,6 +7328,7 @@
                 <ScalarProperty Name="EmissionNum" ColumnName="EmissionNum" />
                 <ScalarProperty Name="StickerMonth" ColumnName="StickerMonth" />
                 <ScalarProperty Name="SafetyStickerYYMM" ColumnName="SafetyStickerYYMM" />
+                <ScalarProperty Name="LowestTireReading" ColumnName="LowestTireReading" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

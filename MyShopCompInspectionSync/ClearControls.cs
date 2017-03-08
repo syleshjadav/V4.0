@@ -9,7 +9,56 @@ namespace MyShopCompInspectionSync
 {
   public class Helper
   {
-    public static void ClearFormControls(Form form)
+
+        public static void ResetAllControls(Control form)
+        {
+            foreach (Control control in form.Controls)
+            {
+                RecursiveResetForm(control);
+            }
+        }
+
+        private static void RecursiveResetForm(Control control)
+        {
+            if (control.HasChildren)
+            {
+                foreach (Control subControl in control.Controls)
+                {
+                    RecursiveResetForm(subControl);
+                }
+            }
+            switch (control.GetType().Name)
+            {
+                case "TextBox":
+                    TextBox textBox = (TextBox)control;
+                    textBox.Text = null;
+                    break;
+
+                case "ComboBox":
+                    ComboBox comboBox = (ComboBox)control;
+                    if (comboBox.Items.Count > 0)
+                        comboBox.SelectedIndex = 0;
+                    break;
+
+                case "CheckBox":
+                    CheckBox checkBox = (CheckBox)control;
+                    checkBox.Checked = false;
+                    break;
+
+                case "ListBox":
+                    ListBox listBox = (ListBox)control;
+                    listBox.ClearSelected();
+                    break;
+
+                case "NumericUpDown":
+                    NumericUpDown numericUpDown = (NumericUpDown)control;
+                    numericUpDown.Value = 0;
+                    break;
+            }
+        }
+
+
+        public static void ClearFormControls(Form form)
     {
       foreach (Control control in form.Controls)
       {
