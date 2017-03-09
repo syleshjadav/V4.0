@@ -11,6 +11,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="AIRPump" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="AutoMaticTransmission" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Body" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="BrakeFrontRightSize" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BrakeFrontSize" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BrakeOrStreeringMechanism" nillable="true" type="xs:string" />
@@ -47,6 +48,7 @@
       <xs:element minOccurs="0" name="LicClass" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LicNum" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Lights" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LowestTireReading" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MechLic" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MechName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MechanicName" nillable="true" type="xs:string" />
@@ -76,9 +78,6 @@
       <xs:element minOccurs="0" name="Streering" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TireFrontRightSize" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TireFrontSize" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TirePressure" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TireRLSSize" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TireRRSSize" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TireRearRightSize" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TireRearSize" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TireSpareSize" nillable="true" type="xs:string" />

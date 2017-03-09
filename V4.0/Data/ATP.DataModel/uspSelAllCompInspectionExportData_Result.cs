@@ -96,5 +96,6 @@ namespace ATP.DataModel
         public string StickerMonth { get; set; }
         public string SafetyStickerYYMM { get; set; }
         public string LowestTireReading { get; set; }
+        public string BrakeRearRightSize { get; set; }
     }
 }

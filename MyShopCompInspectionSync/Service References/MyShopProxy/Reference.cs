@@ -29,6 +29,9 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         private string AutoMaticTransmissionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> BodyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BrakeFrontRightSizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -137,6 +140,9 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         private string LightsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LowestTireReadingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MechLicField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -224,15 +230,6 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         private string TireFrontSizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TirePressureField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TireRLSSizeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TireRRSSizeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TireRearRightSizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -309,6 +306,19 @@ namespace MyShopCompInspectionSync.MyShopProxy {
                 if ((object.ReferenceEquals(this.AutoMaticTransmissionField, value) != true)) {
                     this.AutoMaticTransmissionField = value;
                     this.RaisePropertyChanged("AutoMaticTransmission");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Body {
+            get {
+                return this.BodyField;
+            }
+            set {
+                if ((this.BodyField.Equals(value) != true)) {
+                    this.BodyField = value;
+                    this.RaisePropertyChanged("Body");
                 }
             }
         }
@@ -782,6 +792,19 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LowestTireReading {
+            get {
+                return this.LowestTireReadingField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LowestTireReadingField, value) != true)) {
+                    this.LowestTireReadingField = value;
+                    this.RaisePropertyChanged("LowestTireReading");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string MechLic {
             get {
                 return this.MechLicField;
@@ -1154,45 +1177,6 @@ namespace MyShopCompInspectionSync.MyShopProxy {
                 if ((object.ReferenceEquals(this.TireFrontSizeField, value) != true)) {
                     this.TireFrontSizeField = value;
                     this.RaisePropertyChanged("TireFrontSize");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TirePressure {
-            get {
-                return this.TirePressureField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TirePressureField, value) != true)) {
-                    this.TirePressureField = value;
-                    this.RaisePropertyChanged("TirePressure");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TireRLSSize {
-            get {
-                return this.TireRLSSizeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TireRLSSizeField, value) != true)) {
-                    this.TireRLSSizeField = value;
-                    this.RaisePropertyChanged("TireRLSSize");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TireRRSSize {
-            get {
-                return this.TireRRSSizeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TireRRSSizeField, value) != true)) {
-                    this.TireRRSSizeField = value;
-                    this.RaisePropertyChanged("TireRRSSize");
                 }
             }
         }

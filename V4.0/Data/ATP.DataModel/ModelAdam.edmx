@@ -4714,15 +4714,15 @@
           <Property Type="String" Name="OldMileageReading" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="RoNum" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="FleetNumber" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="BrakeFrontSize" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="BrakeRearSize" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="BrakeFrontSize" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="BrakeRearSize" Nullable="true" MaxLength="2" />
           <Property Type="String" Name="BrakeTypeFront" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="BrakeTypeRear" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="BrakeFrontRightSize" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="TireFrontSize" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="TireRearSize" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="TireFrontRightSize" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="TireRearRightSize" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="BrakeFrontRightSize" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="TireFrontSize" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="TireRearSize" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="TireFrontRightSize" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="TireRearRightSize" Nullable="true" MaxLength="2" />
           <Property Type="String" Name="TireSpareSize" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="LFBrakeBondRivet" Nullable="true" MaxLength="1" />
           <Property Type="String" Name="RFBrakeBondRivet" Nullable="true" MaxLength="1" />
@@ -4767,8 +4767,9 @@
           <Property Type="String" Name="EmissionLicClass" Nullable="true" MaxLength="5" />
           <Property Type="String" Name="EmissionNum" Nullable="true" MaxLength="15" />
           <Property Type="String" Name="StickerMonth" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="SafetyStickerYYMM" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="SafetyStickerYYMM" Nullable="false" MaxLength="4" />
           <Property Type="String" Name="LowestTireReading" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="BrakeRearRightSize" Nullable="true" MaxLength="2" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -7329,6 +7330,7 @@
                 <ScalarProperty Name="StickerMonth" ColumnName="StickerMonth" />
                 <ScalarProperty Name="SafetyStickerYYMM" ColumnName="SafetyStickerYYMM" />
                 <ScalarProperty Name="LowestTireReading" ColumnName="LowestTireReading" />
+                <ScalarProperty Name="BrakeRearRightSize" ColumnName="BrakeRearRightSize" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
