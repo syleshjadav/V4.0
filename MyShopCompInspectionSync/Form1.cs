@@ -27,6 +27,7 @@ namespace MyShopCompInspectionSync
     private int counter = 120;
     private int servicePollInterval = 120;
     private int dealerId = 103;
+    private bool IsAutoPilot = false;
 
     public Form1()
     {
@@ -37,131 +38,132 @@ namespace MyShopCompInspectionSync
 
       servicePollInterval = MyShopCompInspectionSync.Properties.Settings.Default.ServicePollInterval;
       dealerId = MyShopCompInspectionSync.Properties.Settings.Default.DealerId;
+      IsAutoPilot = MyShopCompInspectionSync.Properties.Settings.Default.IsAutoPilot;
 
+      if(IsAutoPilot == true)
+      {
+        timer1.Enabled=true;
+
+      }
       counter = servicePollInterval;
       lblCountDown.Text = counter.ToString();
 
-      conn.ConnectionString = Connectionstring;
-      //  conn.Open();
+      
 
       //SelectAllCounties();
 
       // UpsertCustomer();
       DateTime thisDay = DateTime.Today;
       txtInspectionDate.Text = thisDay.ToString("d");
-
-      if (conn.State == ConnectionState.Open)
-      {
-        conn.Close();
-      }
+     
 
     }
 
-    private void UpsertCustomer()
-    {
-      CustVehInfo cust = LoadControlValueToObject();
+    //private void UpsertCustomer()
+    //{
+    //  CustVehInfo cust = LoadControlValueToObject();
 
 
 
-      //cust.InspectionInfo = inspInfo;
-      //cust.Brakes = brakes;
-      //cust.Tires = tires;
+    //  //cust.InspectionInfo = inspInfo;
+    //  //cust.Brakes = brakes;
+    //  //cust.Tires = tires;
 
 
-      try
-      {
+    //  try
+    //  {
 
-        string sql = " SELECT top 10 * from CustomerVehicle WHERE VIN='" + cust.VIN + "'";
+    //    string sql = " SELECT top 10 * from CustomerVehicle WHERE VIN='" + cust.VIN + "'";
 
-        cmd.CommandText = sql;
-        cmd.Connection = conn;
-        adapter.SelectCommand = cmd;
-        adapter.Fill(dset);
-
-
-        if (dset.Tables[0].Rows.Count == 0) // insert a new customer
-        {
-          sql = "INSERT INTO CustomerVehicle (FirstName, Lastname, VIN)  VALUES (:FirstName, :Lastname, :VIN) ";
-        }
-        else if (dset.Tables[0].Rows.Count == 1)
-        {
-
-          sql = "UPDATE CustomerVehicle SET FirstName = :FirstName, LastName=:LastName, City=:City, State=:State, Zip=:Zip," +
-                       " VehicleCounty=:VehicleCounty,CountyCode=:CountyCode, Plate=:Plate,VehicleMake=:VehicleMake,VehicleBody=:VehicleBody, VehicleYear=:VehicleYear, " +
-                       "Odometer=:Odometer, NAIC=:NAIC,InsuranceCompany=:InsuranceCompany,PolicyNumber=:PolicyNumber,InsuranceExpires=:InsuranceExpires" +
-                   " WHERE VIN='" + cust.VIN + "'";
+    //    cmd.CommandText = sql;
+    //    cmd.Connection = conn;
+    //    adapter.SelectCommand = cmd;
+    //    adapter.Fill(dset);
 
 
-        }
-        else
-        {
-          return;
-        }
+    //    if (dset.Tables[0].Rows.Count == 0) // insert a new customer
+    //    {
+    //      sql = "INSERT INTO CustomerVehicle (FirstName, Lastname, VIN)  VALUES (:FirstName, :Lastname, :VIN) ";
+    //    }
+    //    else if (dset.Tables[0].Rows.Count == 1)
+    //    {
 
-        using (AdsConnection cn = new AdsConnection(Connectionstring))
-        {
-          using (var cmd = new AdsCommand(sql, cn))
-          {
-            // define parameters and their values
-
-            cmd.Parameters.Add("FirstName", cust.FirstName);
-            cmd.Parameters.Add("LastName", cust.LastName);
-            cmd.Parameters.Add("City", cust.City);
-            cmd.Parameters.Add("State", cust.State);
-            cmd.Parameters.Add("Zip", cust.Zip);
-            cmd.Parameters.Add("VehicleCounty", cust.County);
-            cmd.Parameters.Add("CountyCode", cust.CountyCode);
-
-            cmd.Parameters.Add("Plate", cust.Plate);
-            cmd.Parameters.Add("VehicleMake", cust.VehicleMake);
-            cmd.Parameters.Add("VehicleBody", cust.Body);
-            cmd.Parameters.Add("VehicleYear", cust.Year);
-            cmd.Parameters.Add("Odometer", cust.CurrOdo);
-
-            cmd.Parameters.Add("VehicleBody", cust.Body);
-            cmd.Parameters.Add("VehicleYear", cust.Year);
-            cmd.Parameters.Add("Odometer", cust.CurrOdo);
+    //      sql = "UPDATE CustomerVehicle SET FirstName = :FirstName, LastName=:LastName, City=:City, State=:State, Zip=:Zip," +
+    //                   " VehicleCounty=:VehicleCounty,CountyCode=:CountyCode, Plate=:Plate,VehicleMake=:VehicleMake,VehicleBody=:VehicleBody, VehicleYear=:VehicleYear, " +
+    //                   "Odometer=:Odometer, NAIC=:NAIC,InsuranceCompany=:InsuranceCompany,PolicyNumber=:PolicyNumber,InsuranceExpires=:InsuranceExpires" +
+    //               " WHERE VIN='" + cust.VIN + "'";
 
 
-            cmd.Parameters.Add("NAIC", cust.Naic);
-            cmd.Parameters.Add("InsuranceCompany", cust.InsCpy);
-            cmd.Parameters.Add("PolicyNumber", cust.Policy);
-            cmd.Parameters.Add("InsuranceExpires", cust.ExpDate);
+    //    }
+    //    else
+    //    {
+    //      return;
+    //    }
 
-            /*
-            cmd.Parameters.Add("NAIC", inspInfo.Body);
-            cmd.Parameters.Add("NAIC", inspInfo.Break);
-            cmd.Parameters.Add("Exhaust", inspInfo.Exhaust);
-            cmd.Parameters.Add("NAIC", inspInfo.Fuel);
-            cmd.Parameters.Add("GlazingMirrors", inspInfo.Glazing);
-            cmd.Parameters.Add("Lighting", inspInfo.Lights);
-            cmd.Parameters.Add("Other", inspInfo.Other);
-            cmd.Parameters.Add("NAIC", inspInfo.RegVerified);
-            cmd.Parameters.Add("NAIC", inspInfo.RoadTest);
-            cmd.Parameters.Add("Streering", inspInfo.Streering);
-            cmd.Parameters.Add("NAIC", inspInfo.Tires);
-            */
+    //    using (AdsConnection cn = new AdsConnection(Connectionstring))
+    //    {
+    //      using (var cmd = new AdsCommand(sql, cn))
+    //      {
+    //        // define parameters and their values
+
+    //        cmd.Parameters.Add("FirstName", cust.FirstName);
+    //        cmd.Parameters.Add("LastName", cust.LastName);
+    //        cmd.Parameters.Add("City", cust.City);
+    //        cmd.Parameters.Add("State", cust.State);
+    //        cmd.Parameters.Add("Zip", cust.Zip);
+    //        cmd.Parameters.Add("VehicleCounty", cust.County);
+    //        cmd.Parameters.Add("CountyCode", cust.CountyCode);
+
+    //        cmd.Parameters.Add("Plate", cust.Plate);
+    //        cmd.Parameters.Add("VehicleMake", cust.VehicleMake);
+    //        cmd.Parameters.Add("VehicleBody", cust.Body);
+    //        cmd.Parameters.Add("VehicleYear", cust.Year);
+    //        cmd.Parameters.Add("Odometer", cust.CurrOdo);
+
+    //        cmd.Parameters.Add("VehicleBody", cust.Body);
+    //        cmd.Parameters.Add("VehicleYear", cust.Year);
+    //        cmd.Parameters.Add("Odometer", cust.CurrOdo);
 
 
+    //        cmd.Parameters.Add("NAIC", cust.Naic);
+    //        cmd.Parameters.Add("InsuranceCompany", cust.InsCpy);
+    //        cmd.Parameters.Add("PolicyNumber", cust.Policy);
+    //        cmd.Parameters.Add("InsuranceExpires", cust.ExpDate);
 
-            cn.Open();
-            cmd.ExecuteNonQuery();
-            cn.Close();
-          }
+    //        /*
+    //        cmd.Parameters.Add("NAIC", inspInfo.Body);
+    //        cmd.Parameters.Add("NAIC", inspInfo.Break);
+    //        cmd.Parameters.Add("Exhaust", inspInfo.Exhaust);
+    //        cmd.Parameters.Add("NAIC", inspInfo.Fuel);
+    //        cmd.Parameters.Add("GlazingMirrors", inspInfo.Glazing);
+    //        cmd.Parameters.Add("Lighting", inspInfo.Lights);
+    //        cmd.Parameters.Add("Other", inspInfo.Other);
+    //        cmd.Parameters.Add("NAIC", inspInfo.RegVerified);
+    //        cmd.Parameters.Add("NAIC", inspInfo.RoadTest);
+    //        cmd.Parameters.Add("Streering", inspInfo.Streering);
+    //        cmd.Parameters.Add("NAIC", inspInfo.Tires);
+    //        */
 
 
 
+    //        cn.Open();
+    //        cmd.ExecuteNonQuery();
+    //        cn.Close();
+    //      }
 
 
-        }
 
-      }
-      catch (AdsException e)
-      {
-        // print the exception message
-        Console.WriteLine(e.Message);
-      }
-    }
+
+
+    //    }
+
+    //  }
+    //  catch (AdsException e)
+    //  {
+    //    // print the exception message
+    //    Console.WriteLine(e.Message);
+    //  }
+    //}
 
     private CustVehInfo LoadControlValueToObject()
     {
@@ -385,7 +387,7 @@ namespace MyShopCompInspectionSync
           County = d.VehicleCounty,
           City = d.City,
           CurrOdo = d.MilesOut == null ? null : d.MilesOut.ToString(),
-          ExpDate = d.InsuranceExpDate == null ? null : d.InsuranceExpDate.ToString(),
+          ExpDate = d.InsuranceExpDate == null ? null : d.InsuranceExpDate.Value.ToString("d"),
           FirstName = d.FirstName,
           InsCpy = d.InsuranceCompanyName,
           InspectionCost = d.InspectionCharge,
@@ -521,10 +523,18 @@ namespace MyShopCompInspectionSync
 
       try
       {
+        conn.ConnectionString = Connectionstring;
+       
 
         string sql = " SELECT top 10 * from Invoice WHERE VIN='" + cust.VIN + "' AND InvoiceDate='03/04/2017'";
 
-
+        string stickerMonth = string.Empty;
+        string stickerYear = string.Empty;
+        if(!String.IsNullOrEmpty(cust.StrickerMMYY) && cust.StrickerMMYY.Length ==4)
+        {
+          stickerMonth = cust.StrickerMMYY.Substring(0, 2);
+          stickerYear = cust.StrickerMMYY.Substring(2, 2);
+        }
 
 
         // AdsCommand cmd = new AdsCommand(sql, conn);
@@ -534,6 +544,11 @@ namespace MyShopCompInspectionSync
         {
           cmd.CommandText = sql;
           cmd.Connection = conn;
+          if (conn.State == ConnectionState.Closed)
+          {
+            cmd.Connection.Open();
+          }
+
           adapter.SelectCommand = cmd;
           a.Fill(t1);
         }
@@ -547,7 +562,12 @@ namespace MyShopCompInspectionSync
           sql = "SELECT MAX(Invoice_Id) + 1 FROM Invoice";
           cmd.CommandText = sql;
           cmd.Connection = conn;
-          cmd.Connection.Open();
+          if (conn.State == ConnectionState.Closed)
+          {
+            cmd.Connection.Open();
+          }
+
+        
           // adapter.SelectCommand = cmd;
           String x = cmd.ExecuteScalar().ToString();
 
@@ -561,14 +581,14 @@ namespace MyShopCompInspectionSync
             "BrakeSystem, Exhaust,Fuel,GlazingMirrors,Lighting,Other,RoadTest,Steering," +
                        "BrakeLFBondRivet,BrakeLFThickness,BrakeLRBondRivet," +
             "BrakeLRThickness,BrakeRFBondRivet,BrakeRFThickness,BrakeRRBondRivet,BrakeRRThickness,TreadRightFront,TreadRightRear,TreadLeftFront,TreadLeftRear,InspectType," +
-            "AirPump,CatalyticConverter,EGRvalve,EvaporativeControl,FuelInletRestrictor,PCVValve,PassInspection)  " +
+            "AirPump,CatalyticConverter,EGRvalve,EvaporativeControl,FuelInletRestrictor,PCVValve,PassInspection,StickerExpiresMonth,StickerExpiresYear)  " +
 
             " VALUES (:UserWorkOrder,:InvoiceDate,:InspectDate,:Lastname, :FirstName, :VIN,:InvoiceNumber, :City, :State, :Zip,:VehicleCounty,:CountyCode, :Plate,:VehicleMake,:VehicleBody, :VehicleYear," +
             " :CurrentOdometer,:OldOdometer, :NAIC,:InsuranceCompany, :PolicyNo,:InsuranceExpires,:InvoiceType,:RegCardVerified,:Field1,:Doors," +
             ":BrakeSystem, :Exhaust,:Fuel,:GlazingMirrors,:Lighting,:Other,:RoadTest,:Steering," +
             ":BrakeLFBondRivet,:BrakeLFThickness,:BrakeLRBondRivet," +
             ":BrakeLRThickness,:BrakeRFBondRivet,:BrakeRFThickness,:BrakeRRBondRivet,:BrakeRRThickness,:TreadRightFront,:TreadRightRear,:TreadLeftFront,:TreadLeftRear,:InspectType," +
-            "  :AirPump,:CatalyticConverter,:EGRvalve,:EvaporativeControl,:FuelInletRestrictor,:PCVValve,:PassInspection)";
+            "  :AirPump,:CatalyticConverter,:EGRvalve,:EvaporativeControl,:FuelInletRestrictor,:PCVValve,:PassInspection,:StickerExpiresMonth,:StickerExpiresYear)";
 
 
 
@@ -586,7 +606,7 @@ namespace MyShopCompInspectionSync
                        "BrakeLRThickness=:BrakeLRThickness,BrakeRFBondRivet=:BrakeRFBondRivet,BrakeRFThickness=:BrakeRFThickness,BrakeRRBondRivet=:BrakeRRBondRivet,BrakeRRThickness=:BrakeRRThickness," +
                        "TreadRightFront=:TreadRightFront,TreadRightRear=:TreadRightRear,TreadLeftFront=:TreadLeftFront,TreadLeftRear=:TreadLeftRear, " +
                        " AirPump=:AirPump,CatalyticConverter=:CatalyticConverter,EGRvalve=:EGRvalve,EvaporativeControl=:EvaporativeControl,FuelInletRestrictor=:FuelInletRestrictor,PCVValve=:PCVValve" +
-                       ", PassInspection=:PassInspection,OldOdometer=:OldOdometer" +
+                       ", PassInspection=:PassInspection,OldOdometer=:OldOdometer,StickerExpiresMonth=:StickerExpiresMonth,StickerExpiresYear=:StickerExpiresYear" +
                    " WHERE VIN='" + cust.VIN + "'";
 
 
@@ -673,10 +693,11 @@ namespace MyShopCompInspectionSync
 
             cmd.Parameters.Add("PassInspection", cust.InspectionInfo.PassInspection);
 
+            cmd.Parameters.Add("StickerExpiresMonth", stickerMonth);
+            cmd.Parameters.Add("StickerExpiresYear", stickerYear);
 
 
-
-
+          
 
 
             cn.Open();
@@ -695,6 +716,11 @@ namespace MyShopCompInspectionSync
       {
         // print the exception message
         MessageBox.Show(e.Message);
+      }
+
+      if (conn.State == ConnectionState.Open)
+      {
+        conn.Close();
       }
     }
 

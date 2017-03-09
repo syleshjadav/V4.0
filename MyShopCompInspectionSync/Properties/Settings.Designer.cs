@@ -23,43 +23,25 @@ namespace MyShopCompInspectionSync.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
-        public int ServicePollInterval {
-            get {
-                return ((int)(this["ServicePollInterval"]));
-            }
-            set {
-                this["ServicePollInterval"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool IsShowForm {
             get {
                 return ((bool)(this["IsShowForm"]));
             }
-            set {
-                this["IsShowForm"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("103")]
         public int DealerId {
             get {
                 return ((int)(this["DealerId"]));
             }
-            set {
-                this["DealerId"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("data source = c:\\\\SIRPA\\\\Data\\\\SIRDATA.ADD; ServerType=remote|local; TableType=AD" +
             "T")]
@@ -67,8 +49,23 @@ namespace MyShopCompInspectionSync.Properties {
             get {
                 return ((string)(this["ConnectionString"]));
             }
-            set {
-                this["ConnectionString"] = value;
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        public int ServicePollInterval {
+            get {
+                return ((int)(this["ServicePollInterval"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsAutoPilot {
+            get {
+                return ((bool)(this["IsAutoPilot"]));
             }
         }
     }
