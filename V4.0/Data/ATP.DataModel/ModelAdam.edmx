@@ -4716,9 +4716,10 @@
           <Property Type="String" Name="FleetNumber" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="BrakeFrontSize" Nullable="true" MaxLength="2" />
           <Property Type="String" Name="BrakeRearSize" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="BrakeFrontRightSize" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="BrakeRearRightSize" Nullable="true" MaxLength="2" />
           <Property Type="String" Name="BrakeTypeFront" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="BrakeTypeRear" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="BrakeFrontRightSize" Nullable="true" MaxLength="2" />
           <Property Type="String" Name="TireFrontSize" Nullable="true" MaxLength="2" />
           <Property Type="String" Name="TireRearSize" Nullable="true" MaxLength="2" />
           <Property Type="String" Name="TireFrontRightSize" Nullable="true" MaxLength="2" />
@@ -4769,7 +4770,6 @@
           <Property Type="String" Name="StickerMonth" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="SafetyStickerYYMM" Nullable="false" MaxLength="4" />
           <Property Type="String" Name="LowestTireReading" Nullable="true" MaxLength="2" />
-          <Property Type="String" Name="BrakeRearRightSize" Nullable="true" MaxLength="2" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -7277,9 +7277,10 @@
                 <ScalarProperty Name="FleetNumber" ColumnName="FleetNumber" />
                 <ScalarProperty Name="BrakeFrontSize" ColumnName="BrakeFrontSize" />
                 <ScalarProperty Name="BrakeRearSize" ColumnName="BrakeRearSize" />
+                <ScalarProperty Name="BrakeFrontRightSize" ColumnName="BrakeFrontRightSize" />
+                <ScalarProperty Name="BrakeRearRightSize" ColumnName="BrakeRearRightSize" />
                 <ScalarProperty Name="BrakeTypeFront" ColumnName="BrakeTypeFront" />
                 <ScalarProperty Name="BrakeTypeRear" ColumnName="BrakeTypeRear" />
-                <ScalarProperty Name="BrakeFrontRightSize" ColumnName="BrakeFrontRightSize" />
                 <ScalarProperty Name="TireFrontSize" ColumnName="TireFrontSize" />
                 <ScalarProperty Name="TireRearSize" ColumnName="TireRearSize" />
                 <ScalarProperty Name="TireFrontRightSize" ColumnName="TireFrontRightSize" />
@@ -7330,7 +7331,6 @@
                 <ScalarProperty Name="StickerMonth" ColumnName="StickerMonth" />
                 <ScalarProperty Name="SafetyStickerYYMM" ColumnName="SafetyStickerYYMM" />
                 <ScalarProperty Name="LowestTireReading" ColumnName="LowestTireReading" />
-                <ScalarProperty Name="BrakeRearRightSize" ColumnName="BrakeRearRightSize" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

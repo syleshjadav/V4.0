@@ -43,9 +43,10 @@ namespace ATP.DataModel
         public string FleetNumber { get; set; }
         public string BrakeFrontSize { get; set; }
         public string BrakeRearSize { get; set; }
+        public string BrakeFrontRightSize { get; set; }
+        public string BrakeRearRightSize { get; set; }
         public string BrakeTypeFront { get; set; }
         public string BrakeTypeRear { get; set; }
-        public string BrakeFrontRightSize { get; set; }
         public string TireFrontSize { get; set; }
         public string TireRearSize { get; set; }
         public string TireFrontRightSize { get; set; }
@@ -96,6 +97,5 @@ namespace ATP.DataModel
         public string StickerMonth { get; set; }
         public string SafetyStickerYYMM { get; set; }
         public string LowestTireReading { get; set; }
-        public string BrakeRearRightSize { get; set; }
     }
 }
