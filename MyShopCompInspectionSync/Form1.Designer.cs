@@ -143,6 +143,7 @@
             this.lblCountDown = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.lblErrorMsg = new System.Windows.Forms.Label();
+            this.cmdClearAll = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.Brakes.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1230,19 +1231,30 @@
             // 
             this.lblErrorMsg.AutoSize = true;
             this.lblErrorMsg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorMsg.ForeColor = System.Drawing.Color.IndianRed;
-            this.lblErrorMsg.Location = new System.Drawing.Point(657, 507);
+            this.lblErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorMsg.ForeColor = System.Drawing.Color.Blue;
+            this.lblErrorMsg.Location = new System.Drawing.Point(635, 507);
             this.lblErrorMsg.Name = "lblErrorMsg";
-            this.lblErrorMsg.Size = new System.Drawing.Size(37, 18);
+            this.lblErrorMsg.Size = new System.Drawing.Size(46, 24);
             this.lblErrorMsg.TabIndex = 68;
             this.lblErrorMsg.Text = "Msg";
+            // 
+            // cmdClearAll
+            // 
+            this.cmdClearAll.Location = new System.Drawing.Point(553, 578);
+            this.cmdClearAll.Name = "cmdClearAll";
+            this.cmdClearAll.Size = new System.Drawing.Size(128, 23);
+            this.cmdClearAll.TabIndex = 69;
+            this.cmdClearAll.Text = "ClearAll";
+            this.cmdClearAll.UseVisualStyleBackColor = true;
+            this.cmdClearAll.Click += new System.EventHandler(this.cmdClearAll_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 613);
+            this.Controls.Add(this.cmdClearAll);
             this.Controls.Add(this.lblErrorMsg);
             this.Controls.Add(this.lblCountDown);
             this.Controls.Add(this.txtVehicleServiceGuid);
@@ -1435,6 +1447,7 @@
         private System.Windows.Forms.Label lblCountDown;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label lblErrorMsg;
+        private System.Windows.Forms.Button cmdClearAll;
     }
 }
 
