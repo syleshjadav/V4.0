@@ -77,7 +77,7 @@ namespace ATP.DataModel
         public string MechName { get; set; }
         public string MechLic { get; set; }
         public string Doors { get; set; }
-        public Nullable<int> Body { get; set; }
+        public string Body { get; set; }
         public string Insurance { get; set; }
         public string VehicleDrive { get; set; }
         public string VehicleDriving { get; set; }
@@ -97,5 +97,8 @@ namespace ATP.DataModel
         public string StickerMonth { get; set; }
         public string SafetyStickerYYMM { get; set; }
         public string LowestTireReading { get; set; }
+        public string TotalCost { get; set; }
+        public string Address1 { get; set; }
+        public string VehicleModel { get; set; }
     }
 }

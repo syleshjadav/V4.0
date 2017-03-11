@@ -4700,7 +4700,7 @@
           <Property Type="String" Name="Plate" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="VehicleYear" Nullable="true" MaxLength="4" />
           <Property Type="String" Name="VehicleMake" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="VehBodyType" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="VehBodyType" Nullable="false" MaxLength="2" />
           <Property Type="Int32" Name="CurrOdo" Nullable="true" />
           <Property Type="Int32" Name="PrevOdo" Nullable="false" />
           <Property Type="String" Name="NAIC" Nullable="true" MaxLength="50" />
@@ -4712,7 +4712,7 @@
           <Property Type="String" Name="MilesOut" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="OldMileage" Nullable="true" MaxLength="15" />
           <Property Type="String" Name="OldMileageReading" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="RoNum" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="RoNum" Nullable="true" MaxLength="40" />
           <Property Type="String" Name="FleetNumber" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="BrakeFrontSize" Nullable="true" MaxLength="2" />
           <Property Type="String" Name="BrakeRearSize" Nullable="true" MaxLength="2" />
@@ -4750,7 +4750,7 @@
           <Property Type="String" Name="MechName" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="MechLic" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="Doors" Nullable="true" MaxLength="10" />
-          <Property Type="Int32" Name="Body" Nullable="true" />
+          <Property Type="String" Name="Body" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="Insurance" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="VehicleDrive" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="VehicleDriving" Nullable="true" MaxLength="10" />
@@ -4760,7 +4760,7 @@
           <Property Type="String" Name="StickerCharge" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="InspectionCharge" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="StationName" Nullable="true" MaxLength="25" />
-          <Property Type="String" Name="StationNumber" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="StationNumber" Nullable="false" MaxLength="1" />
           <Property Type="String" Name="MechanicName" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="LicNum" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="LicClass" Nullable="true" MaxLength="5" />
@@ -4770,6 +4770,9 @@
           <Property Type="String" Name="StickerMonth" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="SafetyStickerYYMM" Nullable="true" MaxLength="5" />
           <Property Type="String" Name="LowestTireReading" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="TotalCost" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Address1" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="VehicleModel" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -7331,6 +7334,9 @@
                 <ScalarProperty Name="StickerMonth" ColumnName="StickerMonth" />
                 <ScalarProperty Name="SafetyStickerYYMM" ColumnName="SafetyStickerYYMM" />
                 <ScalarProperty Name="LowestTireReading" ColumnName="LowestTireReading" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

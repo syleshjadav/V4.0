@@ -10,8 +10,9 @@
   <xs:complexType name="uspSelAllCompInspectionExportData_Result">
     <xs:sequence>
       <xs:element minOccurs="0" name="AIRPump" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="AutoMaticTransmission" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Body" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BrakeFrontRightSize" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BrakeFrontSize" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BrakeOrStreeringMechanism" nillable="true" type="xs:string" />
@@ -82,6 +83,7 @@
       <xs:element minOccurs="0" name="TireRearSize" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TireSpareSize" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Tires" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalCost" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="VIN" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="VehBodyType" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="VehicleCounty" nillable="true" type="xs:string" />
@@ -89,6 +91,7 @@
       <xs:element minOccurs="0" name="VehicleDrive" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="VehicleDriving" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="VehicleMake" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleModel" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="VehicleServiceGuid" type="ser:guid" />
       <xs:element minOccurs="0" name="VehicleYear" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="WorkOrder" nillable="true" type="xs:string" />

@@ -26,10 +26,13 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         private string AIRPumpField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Address1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AutoMaticTransmissionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> BodyField;
+        private string BodyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BrakeFrontRightSizeField;
@@ -242,6 +245,9 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         private string TiresField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TotalCostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VINField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -261,6 +267,9 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VehicleMakeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VehicleModelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Guid VehicleServiceGuidField;
@@ -298,6 +307,19 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address1 {
+            get {
+                return this.Address1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Address1Field, value) != true)) {
+                    this.Address1Field = value;
+                    this.RaisePropertyChanged("Address1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string AutoMaticTransmission {
             get {
                 return this.AutoMaticTransmissionField;
@@ -311,12 +333,12 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Body {
+        public string Body {
             get {
                 return this.BodyField;
             }
             set {
-                if ((this.BodyField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.BodyField, value) != true)) {
                     this.BodyField = value;
                     this.RaisePropertyChanged("Body");
                 }
@@ -1234,6 +1256,19 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TotalCost {
+            get {
+                return this.TotalCostField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TotalCostField, value) != true)) {
+                    this.TotalCostField = value;
+                    this.RaisePropertyChanged("TotalCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string VIN {
             get {
                 return this.VINField;
@@ -1320,6 +1355,19 @@ namespace MyShopCompInspectionSync.MyShopProxy {
                 if ((object.ReferenceEquals(this.VehicleMakeField, value) != true)) {
                     this.VehicleMakeField = value;
                     this.RaisePropertyChanged("VehicleMake");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VehicleModel {
+            get {
+                return this.VehicleModelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VehicleModelField, value) != true)) {
+                    this.VehicleModelField = value;
+                    this.RaisePropertyChanged("VehicleModel");
                 }
             }
         }
