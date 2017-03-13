@@ -24,18 +24,5 @@ namespace ATP.WCF.Svcs
                 return xx;
             }
         }
-
-        public int UpdtExportToCompInspectionStatus(Nullable<long> iD, Nullable<int> dealerId, Nullable<bool> isFailed, string failedReaon)
-        {
-
-            using (var entity = new ATP.DataModel.Entities())
-            {
-
-                var xx = entity.uspUpdtExportToCompInspectionStatus(iD,dealerId,isFailed,failedReaon);
-
-                return xx;
-            }
-        }
-
     }
 }

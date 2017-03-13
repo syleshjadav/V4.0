@@ -987,12 +987,6 @@
           <Parameter Name="UpdatedBy" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="Updated" Type="datetime2" Mode="In" />
         </Function>
-        <Function Name="uspUpdtExportToCompInspectionStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ID" Type="bigint" Mode="In" />
-          <Parameter Name="DealerId" Type="int" Mode="In" />
-          <Parameter Name="IsFailed" Type="bit" Mode="In" />
-          <Parameter Name="FailedReaon" Type="varchar" Mode="In" />
-        </Function>
         <Function Name="uspUpdtKeyLockerStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DealerId" Type="int" Mode="In" />
           <Parameter Name="KeyLockerId" Type="tinyint" Mode="In" />
@@ -2491,13 +2485,7 @@
             <Parameter Name="LastUsedBy" Mode="In" Type="Guid" />
           </FunctionImport>
           <FunctionImport Name="uspSelAllCompInspectionExportData" ReturnType="Collection(ModelContainer.uspSelAllCompInspectionExportData_Result)">
-          <Parameter Name="DealerId" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="uspUpdtExportToCompInspectionStatus">
-            <Parameter Name="ID" Mode="In" Type="Int64" />
             <Parameter Name="DealerId" Mode="In" Type="Int32" />
-            <Parameter Name="IsFailed" Mode="In" Type="Boolean" />
-            <Parameter Name="FailedReaon" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="uspSelVehAlertByVehGuid_Result">
@@ -4712,7 +4700,7 @@
           <Property Type="String" Name="Plate" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="VehicleYear" Nullable="true" MaxLength="4" />
           <Property Type="String" Name="VehicleMake" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="VehBodyType" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="VehBodyType" Nullable="true" MaxLength="20" />
           <Property Type="Int32" Name="CurrOdo" Nullable="true" />
           <Property Type="Int32" Name="PrevOdo" Nullable="false" />
           <Property Type="String" Name="NAIC" Nullable="true" MaxLength="50" />
@@ -4724,7 +4712,7 @@
           <Property Type="String" Name="MilesOut" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="OldMileage" Nullable="true" MaxLength="15" />
           <Property Type="String" Name="OldMileageReading" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="RoNum" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="RoNum" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="FleetNumber" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="BrakeFrontSize" Nullable="true" MaxLength="2" />
           <Property Type="String" Name="BrakeRearSize" Nullable="true" MaxLength="2" />
@@ -4782,12 +4770,6 @@
           <Property Type="String" Name="StickerMonth" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="SafetyStickerYYMM" Nullable="true" MaxLength="5" />
           <Property Type="String" Name="LowestTireReading" Nullable="true" MaxLength="2" />
-          <Property Type="String" Name="TotalCost" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="Address1" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="VehicleModel" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Region" Nullable="false" MaxLength="3" />
-          <Property Type="String" Name="Address2" Nullable="true" MaxLength="128" />
-          <Property Type="Int64" Name="ID" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -7349,16 +7331,9 @@
                 <ScalarProperty Name="StickerMonth" ColumnName="StickerMonth" />
                 <ScalarProperty Name="SafetyStickerYYMM" ColumnName="SafetyStickerYYMM" />
                 <ScalarProperty Name="LowestTireReading" ColumnName="LowestTireReading" />
-                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
-                <ScalarProperty Name="Address1" ColumnName="Address1" />
-                <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
-                <ScalarProperty Name="Region" ColumnName="Region" />
-                <ScalarProperty Name="Address2" ColumnName="Address2" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="uspUpdtExportToCompInspectionStatus" FunctionName="ModelContainer.Store.uspUpdtExportToCompInspectionStatus" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

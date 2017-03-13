@@ -14,8 +14,5 @@ namespace ATP.WCF.Svcs
     {
         [OperationContract]
         List<uspSelAllCompInspectionExportData_Result> SelAllCompInspectionExportData(Nullable<int> dealerId);
-
-        [OperationContract]
-        int UpdtExportToCompInspectionStatus(Nullable<long> iD, Nullable<int> dealerId, Nullable<bool> isFailed, string failedReaon);
     }
 }

@@ -396,7 +396,7 @@ namespace MyShopCompInspectionSync
 
 
                 if (IsAutoPilot == true && !string.IsNullOrEmpty(CustomerInfo.InspectionDate))
-                {
+                 {
                     UpsertInvoice();
                 }
 
@@ -749,7 +749,7 @@ namespace MyShopCompInspectionSync
                       "AirPump,CatalyticConverter,EGRvalve,EvaporativeControl,FuelInletRestrictor,PCVValve,PassInspection,StickerExpiresMonth,StickerExpiresYear,TreadLeftNR32,TreadLeft," +
                       "Labor1,LaborTotalCost,Part1,Part1Cost,Part1Qty,Station_Id,CurrentYear,PartsTotalCost," +
                       " InvoiceAmountInspection,BillingDate,EmissionStickerNumber,Region,Labor1Cost,Labor2Cost,Labor2,StateTaxRate,SubletInspection,"+
-                      "InspectBook,InsideOutSide,StationNumber,StickerReissued ,StickerDestroyed,StickerReplaced,Reconstructed)  " +
+                      "InspectBook,InsideOutSide,StationNumber,StickerReissued ,StickerDestroyed,StickerReplaced,Reconstructed,VisualAntiTamperRequired,OBDRequired,VisualRequired,GasCapRequired,TailpipeRequired)  " +
 
                       " VALUES (:UserWorkOrder,:InvoiceDate,:InspectDate,:Lastname, :FirstName, :VIN,:InvoiceNumber,:Address1,:Address2, :City, :State, :Zip,:VehicleCounty,:CountyCode," +
                       ":Plate,:VehicleMake,:VehicleModel,:VehicleBody, :VehicleYear," +
@@ -760,7 +760,7 @@ namespace MyShopCompInspectionSync
                       "  :AirPump,:CatalyticConverter,:EGRvalve,:EvaporativeControl,:FuelInletRestrictor,:PCVValve,:PassInspection,:StickerExpiresMonth,:StickerExpiresYear,:TreadLeftNR32,:TreadLeft," +
                       ":Labor1,:LaborTotalCost,:Part1,:Part1Cost,:Part1Qty,:Station_Id,:CurrentYear,:PartsTotalCost," +
                       ":InvoiceAmountInspection,:BillingDate,:EmissionStickerNumber,:Region,:Labor1Cost,:Labor2Cost,:Labor2,:StateTaxRate,:SubletInspection," +
-                      ":InspectBook,:InsideOutSide,:StationNumber,:StickerReissued ,:StickerDestroyed,:StickerReplaced,:Reconstructed)";
+                      ":InspectBook,:InsideOutSide,:StationNumber,:StickerReissued ,:StickerDestroyed,:StickerReplaced,:Reconstructed,:VisualAntiTamperRequired,:OBDRequired,:VisualRequired,:GasCapRequired,:TailpipeRequired)";
 
 
                 }
@@ -782,7 +782,8 @@ namespace MyShopCompInspectionSync
                                  "InvoiceAmountInspection=:InvoiceAmountInspection,BillingDate=:BillingDate," +
                                  "EmissionStickerNumber=:EmissionStickerNumber,Region=:Region,Labor1Cost=:Labor1Cost,Labor2Cost=:Labor2Cost,Labor2=:Labor2," +
                                  "StateTaxRate=:StateTaxRate,SubletInspection=:SubletInspection,InspectBook=:InspectBook,InsideOutSide=:InsideOutSide,StationNumber=:StationNumber," +
-                                 "StickerReissued =:StickerReissued ,StickerDestroyed=:StickerDestroyed,StickerReplaced=:StickerReplaced,Reconstructed=:Reconstructed " +
+                                 "StickerReissued =:StickerReissued ,StickerDestroyed=:StickerDestroyed,StickerReplaced=:StickerReplaced,Reconstructed=:Reconstructed,VisualAntiTamperRequired=:VisualAntiTamperRequired, " +
+                                 "OBDRequired=:OBDRequired,VisualRequired=:VisualRequired,GasCapRequired=:GasCapRequired,TailpipeRequired=:TailpipeRequired " +
                              " WHERE VIN='" + cust.VIN + "'";
 
 
@@ -940,6 +941,25 @@ namespace MyShopCompInspectionSync
                         cmd.Parameters.Add("StickerDestroyed", "N");
                         cmd.Parameters.Add("StickerReplaced", "N");
                         cmd.Parameters.Add("Reconstructed", "N");
+
+                        if(cust.Region =="PIT")
+                        {
+                            cmd.Parameters.Add("VisualAntiTamperRequired", "N");
+
+                            cmd.Parameters.Add("OBDRequired", "N");
+                            cmd.Parameters.Add("VisualRequired", "N");
+                            cmd.Parameters.Add("GasCapRequired", "N");
+                            cmd.Parameters.Add("TailpipeRequired", "N");
+
+                        }
+                        else
+                        {
+                            cmd.Parameters.Add("VisualAntiTamperRequired", "Y");
+                            cmd.Parameters.Add("OBDRequired", "Y");
+                            cmd.Parameters.Add("VisualRequired", "Y");
+                            cmd.Parameters.Add("GasCapRequired", "Y");
+                            cmd.Parameters.Add("TailpipeRequired", "Y");
+                        }
 
 
 
