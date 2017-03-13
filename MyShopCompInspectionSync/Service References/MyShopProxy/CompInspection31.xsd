@@ -11,6 +11,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="AIRPump" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="AutoMaticTransmission" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BrakeFrontRightSize" nillable="true" type="xs:string" />
@@ -37,6 +38,7 @@
       <xs:element minOccurs="0" name="Fuel" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FuelInlet" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Glazing" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:long" />
       <xs:element minOccurs="0" name="InspectionCharge" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="InspectionDate" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Insurance" nillable="true" type="xs:string" />
@@ -67,6 +69,7 @@
       <xs:element minOccurs="0" name="RFBrakeBondRivet" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RRBrakeBondRivet" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RegVerified" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RoNum" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RoadTest" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RoadTestBreaks" nillable="true" type="xs:string" />

@@ -15,4 +15,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdtExportToCompInspectionStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iD" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="isFailed" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="failedReaon" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdtExportToCompInspectionStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdtExportToCompInspectionStatusResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

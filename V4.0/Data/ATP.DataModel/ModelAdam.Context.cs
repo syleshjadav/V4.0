@@ -4646,5 +4646,26 @@ namespace ATP.DataModel
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspSelAllCompInspectionExportData_Result>("uspSelAllCompInspectionExportData", dealerIdParameter);
         }
+    
+        public virtual int uspUpdtExportToCompInspectionStatus(Nullable<long> iD, Nullable<int> dealerId, Nullable<bool> isFailed, string failedReaon)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(long));
+    
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            var isFailedParameter = isFailed.HasValue ?
+                new ObjectParameter("IsFailed", isFailed) :
+                new ObjectParameter("IsFailed", typeof(bool));
+    
+            var failedReaonParameter = failedReaon != null ?
+                new ObjectParameter("FailedReaon", failedReaon) :
+                new ObjectParameter("FailedReaon", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdtExportToCompInspectionStatus", iDParameter, dealerIdParameter, isFailedParameter, failedReaonParameter);
+        }
     }
 }

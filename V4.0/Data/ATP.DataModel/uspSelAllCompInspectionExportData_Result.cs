@@ -100,5 +100,8 @@ namespace ATP.DataModel
         public string TotalCost { get; set; }
         public string Address1 { get; set; }
         public string VehicleModel { get; set; }
+        public string Region { get; set; }
+        public string Address2 { get; set; }
+        public Nullable<long> ID { get; set; }
     }
 }

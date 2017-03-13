@@ -987,6 +987,12 @@
           <Parameter Name="UpdatedBy" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="Updated" Type="datetime2" Mode="In" />
         </Function>
+        <Function Name="uspUpdtExportToCompInspectionStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="bigint" Mode="In" />
+          <Parameter Name="DealerId" Type="int" Mode="In" />
+          <Parameter Name="IsFailed" Type="bit" Mode="In" />
+          <Parameter Name="FailedReaon" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="uspUpdtKeyLockerStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DealerId" Type="int" Mode="In" />
           <Parameter Name="KeyLockerId" Type="tinyint" Mode="In" />
@@ -2485,7 +2491,13 @@
             <Parameter Name="LastUsedBy" Mode="In" Type="Guid" />
           </FunctionImport>
           <FunctionImport Name="uspSelAllCompInspectionExportData" ReturnType="Collection(ModelContainer.uspSelAllCompInspectionExportData_Result)">
+          <Parameter Name="DealerId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdtExportToCompInspectionStatus">
+            <Parameter Name="ID" Mode="In" Type="Int64" />
             <Parameter Name="DealerId" Mode="In" Type="Int32" />
+            <Parameter Name="IsFailed" Mode="In" Type="Boolean" />
+            <Parameter Name="FailedReaon" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="uspSelVehAlertByVehGuid_Result">
@@ -4773,6 +4785,9 @@
           <Property Type="String" Name="TotalCost" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="Address1" Nullable="true" MaxLength="128" />
           <Property Type="String" Name="VehicleModel" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Region" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Address2" Nullable="true" MaxLength="128" />
+          <Property Type="Int64" Name="ID" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -7337,9 +7352,13 @@
                 <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
                 <ScalarProperty Name="Address1" ColumnName="Address1" />
                 <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspUpdtExportToCompInspectionStatus" FunctionName="ModelContainer.Store.uspUpdtExportToCompInspectionStatus" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

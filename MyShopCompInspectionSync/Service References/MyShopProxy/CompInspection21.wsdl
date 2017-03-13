@@ -13,10 +13,20 @@
   <wsdl:message name="ICompInspection_SelAllCompInspectionExportData_OutputMessage">
     <wsdl:part name="parameters" element="tns:SelAllCompInspectionExportDataResponse" />
   </wsdl:message>
+  <wsdl:message name="ICompInspection_UpdtExportToCompInspectionStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdtExportToCompInspectionStatus" />
+  </wsdl:message>
+  <wsdl:message name="ICompInspection_UpdtExportToCompInspectionStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdtExportToCompInspectionStatusResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICompInspection">
     <wsdl:operation name="SelAllCompInspectionExportData">
       <wsdl:input wsaw:Action="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/SelAllCompInspectionExportData" message="tns:ICompInspection_SelAllCompInspectionExportData_InputMessage" />
       <wsdl:output wsaw:Action="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/SelAllCompInspectionExportDataResponse" message="tns:ICompInspection_SelAllCompInspectionExportData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdtExportToCompInspectionStatus">
+      <wsdl:input wsaw:Action="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/UpdtExportToCompInspectionStatus" message="tns:ICompInspection_UpdtExportToCompInspectionStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/UpdtExportToCompInspectionStatusResponse" message="tns:ICompInspection_UpdtExportToCompInspectionStatus_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

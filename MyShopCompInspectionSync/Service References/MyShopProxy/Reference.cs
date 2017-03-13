@@ -29,6 +29,9 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         private string Address1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Address2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AutoMaticTransmissionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -105,6 +108,9 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string GlazingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string InspectionChargeField;
@@ -195,6 +201,9 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string RegVerifiedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RegionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string RoNumField;
@@ -315,6 +324,19 @@ namespace MyShopCompInspectionSync.MyShopProxy {
                 if ((object.ReferenceEquals(this.Address1Field, value) != true)) {
                     this.Address1Field = value;
                     this.RaisePropertyChanged("Address1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address2 {
+            get {
+                return this.Address2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Address2Field, value) != true)) {
+                    this.Address2Field = value;
+                    this.RaisePropertyChanged("Address2");
                 }
             }
         }
@@ -653,6 +675,19 @@ namespace MyShopCompInspectionSync.MyShopProxy {
                 if ((object.ReferenceEquals(this.GlazingField, value) != true)) {
                     this.GlazingField = value;
                     this.RaisePropertyChanged("Glazing");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
                 }
             }
         }
@@ -1043,6 +1078,19 @@ namespace MyShopCompInspectionSync.MyShopProxy {
                 if ((object.ReferenceEquals(this.RegVerifiedField, value) != true)) {
                     this.RegVerifiedField = value;
                     this.RaisePropertyChanged("RegVerified");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Region {
+            get {
+                return this.RegionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RegionField, value) != true)) {
+                    this.RegionField = value;
+                    this.RaisePropertyChanged("Region");
                 }
             }
         }
@@ -1447,6 +1495,16 @@ namespace MyShopCompInspectionSync.MyShopProxy {
             "ompInspectionExportData", ReplyAction="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/SelAllC" +
             "ompInspectionExportDataResponse")]
         System.Threading.Tasks.Task<MyShopCompInspectionSync.MyShopProxy.uspSelAllCompInspectionExportData_Result[]> SelAllCompInspectionExportDataAsync(System.Nullable<int> dealerId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/UpdtExp" +
+            "ortToCompInspectionStatus", ReplyAction="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/UpdtExp" +
+            "ortToCompInspectionStatusResponse")]
+        int UpdtExportToCompInspectionStatus(System.Nullable<long> iD, System.Nullable<int> dealerId, System.Nullable<bool> isFailed, string failedReaon);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/UpdtExp" +
+            "ortToCompInspectionStatus", ReplyAction="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/UpdtExp" +
+            "ortToCompInspectionStatusResponse")]
+        System.Threading.Tasks.Task<int> UpdtExportToCompInspectionStatusAsync(System.Nullable<long> iD, System.Nullable<int> dealerId, System.Nullable<bool> isFailed, string failedReaon);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1482,6 +1540,14 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         
         public System.Threading.Tasks.Task<MyShopCompInspectionSync.MyShopProxy.uspSelAllCompInspectionExportData_Result[]> SelAllCompInspectionExportDataAsync(System.Nullable<int> dealerId) {
             return base.Channel.SelAllCompInspectionExportDataAsync(dealerId);
+        }
+        
+        public int UpdtExportToCompInspectionStatus(System.Nullable<long> iD, System.Nullable<int> dealerId, System.Nullable<bool> isFailed, string failedReaon) {
+            return base.Channel.UpdtExportToCompInspectionStatus(iD, dealerId, isFailed, failedReaon);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdtExportToCompInspectionStatusAsync(System.Nullable<long> iD, System.Nullable<int> dealerId, System.Nullable<bool> isFailed, string failedReaon) {
+            return base.Channel.UpdtExportToCompInspectionStatusAsync(iD, dealerId, isFailed, failedReaon);
         }
     }
 }
