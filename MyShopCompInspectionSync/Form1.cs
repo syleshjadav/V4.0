@@ -279,7 +279,7 @@ namespace MyShopCompInspectionSync
             cust.EmissonNum = CustomerInfo.EmissonNum;
             cust.Id = CustomerInfo.Id;
             cust.VehicleServiceGuid = CustomerInfo.VehicleServiceGuid;
-
+            cust.Station_Id = CustomerInfo.Station_Id;
 
 
             return cust;
@@ -703,18 +703,18 @@ namespace MyShopCompInspectionSync
                     a.Fill(t1);
                 }
 
-                //sql = "DELETE FROM Invoice wHERE invoice_id > 1318";
-                //cmd.CommandText = sql;
-                //cmd.Connection = conn;
-                //if (conn.State == ConnectionState.Closed)
-                //{
-                //    cmd.Connection.Open();
-                //}
+               // sql = "DELETE FROM Invoice wHERE invoice_id > 1318";
+               // cmd.CommandText = sql;
+               // cmd.Connection = conn;
+               // if (conn.State == ConnectionState.Closed)
+               // {
+               //     cmd.Connection.Open();
+               // }
 
 
-                //String xx= cmd.().ToString();
+               //// String xx = cmd.().ToString();
 
-                //cmd.Connection.Close();
+               // cmd.Connection.Close();
 
 
 
@@ -749,7 +749,8 @@ namespace MyShopCompInspectionSync
                       "AirPump,CatalyticConverter,EGRvalve,EvaporativeControl,FuelInletRestrictor,PCVValve,PassInspection,StickerExpiresMonth,StickerExpiresYear,TreadLeftNR32,TreadLeft," +
                       "Labor1,LaborTotalCost,Part1,Part1Cost,Part1Qty,Station_Id,CurrentYear,PartsTotalCost," +
                       " InvoiceAmountInspection,BillingDate,EmissionStickerNumber,Region,Labor1Cost,Labor2Cost,Labor2,StateTaxRate,SubletInspection,"+
-                      "InspectBook,InsideOutSide,StationNumber,StickerReissued ,StickerDestroyed,StickerReplaced,Reconstructed,VisualAntiTamperRequired,OBDRequired,VisualRequired,GasCapRequired,TailpipeRequired)  " +
+                      "InspectBook,InsideOutSide,StationNumber,StickerReissued ,StickerDestroyed,StickerReplaced,Reconstructed,StickerLost,StickerStolen,StickerNeverReceived," +
+                      " VisualAntiTamperRequired,OBDRequired,VisualRequired,GasCapRequired,TailpipeRequired,Labor1Inspection,Labor2Inspection,Part1Inspection)  " +
 
                       " VALUES (:UserWorkOrder,:InvoiceDate,:InspectDate,:Lastname, :FirstName, :VIN,:InvoiceNumber,:Address1,:Address2, :City, :State, :Zip,:VehicleCounty,:CountyCode," +
                       ":Plate,:VehicleMake,:VehicleModel,:VehicleBody, :VehicleYear," +
@@ -760,7 +761,8 @@ namespace MyShopCompInspectionSync
                       "  :AirPump,:CatalyticConverter,:EGRvalve,:EvaporativeControl,:FuelInletRestrictor,:PCVValve,:PassInspection,:StickerExpiresMonth,:StickerExpiresYear,:TreadLeftNR32,:TreadLeft," +
                       ":Labor1,:LaborTotalCost,:Part1,:Part1Cost,:Part1Qty,:Station_Id,:CurrentYear,:PartsTotalCost," +
                       ":InvoiceAmountInspection,:BillingDate,:EmissionStickerNumber,:Region,:Labor1Cost,:Labor2Cost,:Labor2,:StateTaxRate,:SubletInspection," +
-                      ":InspectBook,:InsideOutSide,:StationNumber,:StickerReissued ,:StickerDestroyed,:StickerReplaced,:Reconstructed,:VisualAntiTamperRequired,:OBDRequired,:VisualRequired,:GasCapRequired,:TailpipeRequired)";
+                      ":InspectBook,:InsideOutSide,:StationNumber,:StickerReissued ,:StickerDestroyed,:StickerReplaced,:Reconstructed,:StickerLost,:StickerStolen,:StickerNeverReceived," +
+                      ":VisualAntiTamperRequired,:OBDRequired,:VisualRequired,:GasCapRequired,:TailpipeRequired,:Labor1Inspection,:Labor2Inspection,:Part1Inspection)";
 
 
                 }
@@ -782,8 +784,10 @@ namespace MyShopCompInspectionSync
                                  "InvoiceAmountInspection=:InvoiceAmountInspection,BillingDate=:BillingDate," +
                                  "EmissionStickerNumber=:EmissionStickerNumber,Region=:Region,Labor1Cost=:Labor1Cost,Labor2Cost=:Labor2Cost,Labor2=:Labor2," +
                                  "StateTaxRate=:StateTaxRate,SubletInspection=:SubletInspection,InspectBook=:InspectBook,InsideOutSide=:InsideOutSide,StationNumber=:StationNumber," +
-                                 "StickerReissued =:StickerReissued ,StickerDestroyed=:StickerDestroyed,StickerReplaced=:StickerReplaced,Reconstructed=:Reconstructed,VisualAntiTamperRequired=:VisualAntiTamperRequired, " +
-                                 "OBDRequired=:OBDRequired,VisualRequired=:VisualRequired,GasCapRequired=:GasCapRequired,TailpipeRequired=:TailpipeRequired " +
+                                 "StickerReissued =:StickerReissued ,StickerDestroyed=:StickerDestroyed,StickerReplaced=:StickerReplaced,Reconstructed=:Reconstructed,"+
+                                 "StickerLost =:StickerLost, StickerStolen=:StickerStolen,StickerNeverReceived=:StickerNeverReceived,VisualAntiTamperRequired=:VisualAntiTamperRequired, " +
+                                 "OBDRequired=:OBDRequired,VisualRequired=:VisualRequired,GasCapRequired=:GasCapRequired,TailpipeRequired=:TailpipeRequired, " +
+                                 "Labor1Inspection =:Labor1Inspection,Labor2Inspection=:Labor2Inspection,Part1Inspection=:Part1Inspection" +
                              " WHERE VIN='" + cust.VIN + "'";
 
 
@@ -913,7 +917,7 @@ namespace MyShopCompInspectionSync
                         cmd.Parameters.Add("Part1Cost", cust.StickerCharge); // remove hardcoding
                         cmd.Parameters.Add("Part1Qty", "1");
 
-                        cmd.Parameters.Add("PartsTotalCost", "00"); // remove hardcoding
+                        cmd.Parameters.Add("PartsTotalCost", cust.StickerCharge); // remove hardcoding
 
 
                         //cmd.Parameters.Add("LaborTotalCostInspection", "00"); //  remove hardcoding
@@ -922,9 +926,11 @@ namespace MyShopCompInspectionSync
                         // cmd.Parameters.Add("TaxAmountInspection", ("0").ToString()); //  remove hardcoding
 
 
-                        cmd.Parameters.Add("InvoiceAmountInspection", cust.InspectionCost);
+                        var inspCost = (Convert.ToDouble(cust.StickerCharge) + Convert.ToDouble(cust.TotalCost) + laborTotal) * 1.07;
 
-                        cmd.Parameters.Add("SubletInspection", cust.TotalCost);
+                        cmd.Parameters.Add("InvoiceAmountInspection", inspCost) ;
+
+                        cmd.Parameters.Add("SubletInspection", "0");
 
                         cmd.Parameters.Add("BillingDate", cust.InspectionDate);
                         cmd.Parameters.Add("EmissionStickerNumber", cust.EmissonNum);
@@ -941,8 +947,17 @@ namespace MyShopCompInspectionSync
                         cmd.Parameters.Add("StickerDestroyed", "N");
                         cmd.Parameters.Add("StickerReplaced", "N");
                         cmd.Parameters.Add("Reconstructed", "N");
+                        cmd.Parameters.Add("StickerLost", "N");
+                        cmd.Parameters.Add("StickerStolen", "N");
+                        cmd.Parameters.Add("StickerNeverReceived", "N");
+                        
 
-                        if(cust.Region =="PIT")
+                        cmd.Parameters.Add("Labor1Inspection", "Y");
+                        cmd.Parameters.Add("Labor2Inspection", "Y");
+                        cmd.Parameters.Add("Part1Inspection", "Y");
+
+
+                        if (cust.Region =="PIT")
                         {
                             cmd.Parameters.Add("VisualAntiTamperRequired", "N");
 
@@ -950,6 +965,15 @@ namespace MyShopCompInspectionSync
                             cmd.Parameters.Add("VisualRequired", "N");
                             cmd.Parameters.Add("GasCapRequired", "N");
                             cmd.Parameters.Add("TailpipeRequired", "N");
+
+
+                            cmd.Parameters.Add("CatalyticConverter", "-");
+                            cmd.Parameters.Add("EGRvalve", "-");
+                            cmd.Parameters.Add("EvaporativeControl", "-");
+                            cmd.Parameters.Add("FuelInletRestrictor", "-");
+                            cmd.Parameters.Add("PCVValve", "-");
+                            cmd.Parameters.Add("AirPump", "-");
+
 
                         }
                         else
