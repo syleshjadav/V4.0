@@ -276,6 +276,7 @@ namespace MyShopCompInspectionSync
             cust.InspectionCost = CustomerInfo.InspectionCost;
             cust.TotalCost = CustomerInfo.TotalCost;
             cust.StickerCharge = CustomerInfo.StickerCharge;
+            cust.StateTaxRate = CustomerInfo.StateTaxRate;
             cust.EmissonNum = CustomerInfo.EmissonNum;
             cust.Id = CustomerInfo.Id;
             cust.VehicleServiceGuid = CustomerInfo.VehicleServiceGuid;
@@ -434,6 +435,7 @@ namespace MyShopCompInspectionSync
                     InspectionCost = d.InspectionCharge,
                     TotalCost = d.TotalCost,
                     StickerCharge = d.StickerCharge,
+                    StateTaxRate=d.StateTaxRate,
                     InspectionDate = d.InspectionDate,
                     EmissonNum = d.EmissionNum,
                     LastName = d.LastName,
@@ -935,9 +937,9 @@ namespace MyShopCompInspectionSync
                         //cmd.Parameters.Add("PartsTotalCostInspection", "0"); //  remove hardcoding
                         //cmd.Parameters.Add("TotalLaborPartsInspection", "00"); //  remove hardcoding
                         // cmd.Parameters.Add("TaxAmountInspection", ("0").ToString()); //  remove hardcoding
+                        var stateTax = Convert.ToDouble(cust.StateTaxRate);
 
-
-                        var inspCost = (Convert.ToDouble(cust.StickerCharge) + Convert.ToDouble(cust.TotalCost) + laborTotal) * 1.07;
+                        var inspCost = (Convert.ToDouble(cust.StickerCharge) + Convert.ToDouble(cust.TotalCost) + laborTotal) * (1 + stateTax / 10);
 
                         cmd.Parameters.Add("InvoiceAmountInspection", inspCost);
 
@@ -946,7 +948,7 @@ namespace MyShopCompInspectionSync
                         cmd.Parameters.Add("BillingDate", cust.InspectionDate);
                         cmd.Parameters.Add("EmissionStickerNumber", cust.EmissonNum);
 
-                        cmd.Parameters.Add("StateTaxRate", "0.07");
+                        cmd.Parameters.Add("StateTaxRate", stateTax.ToString());
 
 
                         cmd.Parameters.Add("InspectType", "ANNUAL");
@@ -1145,6 +1147,7 @@ public class CustVehInfo
 
     public string InspectionCost { get; set; }
     public string StickerCharge { get; set; }
+    public string StateTaxRate { get; set; }
     public string EmissonNum { get; set; }
     public string TotalCost { get; set; }
 
