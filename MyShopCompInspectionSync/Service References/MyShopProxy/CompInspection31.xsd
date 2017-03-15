@@ -24,7 +24,7 @@
       <xs:element minOccurs="0" name="BreakPedal" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CatalyticConverter" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CurrOdo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrOdo" type="xs:int" />
       <xs:element minOccurs="0" name="CustState" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Doors" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ERG" nillable="true" type="xs:string" />
@@ -75,6 +75,7 @@
       <xs:element minOccurs="0" name="RoadTestBreaks" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SafetyStickerYYMM" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Speedometer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateTaxRate" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="StationName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="StationNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="StickerCharge" nillable="true" type="xs:string" />

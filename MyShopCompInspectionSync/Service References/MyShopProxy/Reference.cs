@@ -68,7 +68,7 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         private string CityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> CurrOdoField;
+        private int CurrOdoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CustStateField;
@@ -219,6 +219,9 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SpeedometerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StateTaxRateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StationNameField;
@@ -498,7 +501,7 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> CurrOdo {
+        public int CurrOdo {
             get {
                 return this.CurrOdoField;
             }
@@ -1156,6 +1159,19 @@ namespace MyShopCompInspectionSync.MyShopProxy {
                 if ((object.ReferenceEquals(this.SpeedometerField, value) != true)) {
                     this.SpeedometerField = value;
                     this.RaisePropertyChanged("Speedometer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StateTaxRate {
+            get {
+                return this.StateTaxRateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StateTaxRateField, value) != true)) {
+                    this.StateTaxRateField = value;
+                    this.RaisePropertyChanged("StateTaxRate");
                 }
             }
         }

@@ -396,7 +396,7 @@ namespace MyShopCompInspectionSync
 
 
                 if (IsAutoPilot == true && !string.IsNullOrEmpty(CustomerInfo.InspectionDate))
-                 {
+                {
                     UpsertInvoice();
                 }
 
@@ -703,18 +703,17 @@ namespace MyShopCompInspectionSync
                     a.Fill(t1);
                 }
 
-               // sql = "DELETE FROM Invoice wHERE invoice_id > 1318";
-               // cmd.CommandText = sql;
-               // cmd.Connection = conn;
-               // if (conn.State == ConnectionState.Closed)
-               // {
-               //     cmd.Connection.Open();
-               // }
+                //sql = "DELETE FROM Invoice wHERE invoice_id > 1318";
+                //cmd.CommandText = sql;
+                //cmd.Connection = conn;
+                //if (conn.State == ConnectionState.Closed)
+                //{
+                //    cmd.Connection.Open();
+                //}
 
+                //cmd.ExecuteNonQuery();
 
-               //// String xx = cmd.().ToString();
-
-               // cmd.Connection.Close();
+                //cmd.Connection.Close();
 
 
 
@@ -741,16 +740,20 @@ namespace MyShopCompInspectionSync
 
 
                     sql = "INSERT INTO Invoice (UserWorkOrder,InvoiceDate,InspectDate, Lastname, Firstname,VIN,InvoiceNumber,Address1,Address2,City, State, Zip,VehicleCounty,CountyCode," +
-                      "Plate,VehicleMake,VehicleModel,VehicleBody, VehicleYear," +
-                      " CurrentOdometer, OldOdometer,NAIC,InsuranceCompany,PolicyNo,InsuranceExpires,InvoiceType,RegCardVerified,Field1,Doors," +
-                      "BrakeSystem, Exhaust,Fuel,GlazingMirrors,Lighting,Other,RoadTest,Steering," +
-                       "BrakeLFBondRivet,BrakeLFThickness,BrakeLRBondRivet," +
-                      "BrakeLRThickness,BrakeRFBondRivet,BrakeRFThickness,BrakeRRBondRivet,BrakeRRThickness,TreadRightFront,TreadRightRear,TreadLeftFront,TreadLeftRear,InspectType," +
-                      "AirPump,CatalyticConverter,EGRvalve,EvaporativeControl,FuelInletRestrictor,PCVValve,PassInspection,StickerExpiresMonth,StickerExpiresYear,TreadLeftNR32,TreadLeft," +
-                      "Labor1,LaborTotalCost,Part1,Part1Cost,Part1Qty,Station_Id,CurrentYear,PartsTotalCost," +
-                      " InvoiceAmountInspection,BillingDate,EmissionStickerNumber,Region,Labor1Cost,Labor2Cost,Labor2,StateTaxRate,SubletInspection,"+
-                      "InspectBook,InsideOutSide,StationNumber,StickerReissued ,StickerDestroyed,StickerReplaced,Reconstructed,StickerLost,StickerStolen,StickerNeverReceived," +
-                      " VisualAntiTamperRequired,OBDRequired,VisualRequired,GasCapRequired,TailpipeRequired,Labor1Inspection,Labor2Inspection,Part1Inspection)  " +
+                            "Plate,VehicleMake,VehicleModel,VehicleBody, VehicleYear," +
+                            " CurrentOdometer, OldOdometer,NAIC,InsuranceCompany,PolicyNo,InsuranceExpires,InvoiceType,RegCardVerified,Field1,Doors," +
+                            "BrakeSystem, Exhaust,Fuel,GlazingMirrors,Lighting,Other,RoadTest,Steering," +
+                            "BrakeLFBondRivet,BrakeLFThickness,BrakeLRBondRivet," +
+                            "BrakeLRThickness,BrakeRFBondRivet,BrakeRFThickness,BrakeRRBondRivet,BrakeRRThickness,TreadRightFront,TreadRightRear,TreadLeftFront,TreadLeftRear,InspectType," +
+                            "AirPump,CatalyticConverter,EGRvalve,EvaporativeControl,FuelInletRestrictor,PCVValve,PassInspection,StickerExpiresMonth,StickerExpiresYear,TreadLeftNR32,TreadLeft," +
+                            "Labor1,LaborTotalCost,Part1,Part1Cost,Part1Qty,Station_Id,CurrentYear,PartsTotalCost," +
+                            " InvoiceAmountInspection,BillingDate,EmissionStickerNumber,Region,Labor1Cost,Labor2Cost,Labor2,StateTaxRate,SubletInspection," +
+                            "InspectBook,InsideOutSide,StationNumber,StickerReissued ,StickerDestroyed,StickerReplaced,Reconstructed,StickerLost,StickerStolen,StickerNeverReceived," +
+                            " VisualAntiTamperRequired,OBDRequired,VisualRequired,GasCapRequired,TailpipeRequired,Labor1Inspection,Labor2Inspection,Part1Inspection," +
+                            "SIRAttached,Part2Inspection,Part3Inspection,Part4Inspection,Part5Inspection,Part6Inspection,Part7Inspection,Part8Inspection,Part9Inspection," +
+                            "Part10Inspection,Labor3Inspection,Labor4Inspection,Labor5Inspection,Labor6Inspection,Labor7Inspection,Labor8Inspection,Labor9Inspection,Labor10Inspection," +
+                            "LockSIRInfo,Itemizeinvoice,Axles,Axle1Tires,FormName,StickerCost" +
+                            ")  " +
 
                       " VALUES (:UserWorkOrder,:InvoiceDate,:InspectDate,:Lastname, :FirstName, :VIN,:InvoiceNumber,:Address1,:Address2, :City, :State, :Zip,:VehicleCounty,:CountyCode," +
                       ":Plate,:VehicleMake,:VehicleModel,:VehicleBody, :VehicleYear," +
@@ -762,7 +765,10 @@ namespace MyShopCompInspectionSync
                       ":Labor1,:LaborTotalCost,:Part1,:Part1Cost,:Part1Qty,:Station_Id,:CurrentYear,:PartsTotalCost," +
                       ":InvoiceAmountInspection,:BillingDate,:EmissionStickerNumber,:Region,:Labor1Cost,:Labor2Cost,:Labor2,:StateTaxRate,:SubletInspection," +
                       ":InspectBook,:InsideOutSide,:StationNumber,:StickerReissued ,:StickerDestroyed,:StickerReplaced,:Reconstructed,:StickerLost,:StickerStolen,:StickerNeverReceived," +
-                      ":VisualAntiTamperRequired,:OBDRequired,:VisualRequired,:GasCapRequired,:TailpipeRequired,:Labor1Inspection,:Labor2Inspection,:Part1Inspection)";
+                      ":VisualAntiTamperRequired,:OBDRequired,:VisualRequired,:GasCapRequired,:TailpipeRequired,:Labor1Inspection,:Labor2Inspection,:Part1Inspection," +
+                      ":SIRAttached,:Part2Inspection,:Part3Inspection,:Part4Inspection,:Part5Inspection,:Part6Inspection,:Part7Inspection,:Part8Inspection,:Part9Inspection," +
+                      ":Part10Inspection,:Labor3Inspection,:Labor4Inspection,:Labor5Inspection,:Labor6Inspection,:Labor7Inspection,:Labor8Inspection,:Labor9Inspection,:Labor10Inspection," +
+                      ":LockSIRInfo,:Itemizeinvoice,:Axles,:Axle1Tires,:FormName,:StickerCost)";
 
 
                 }
@@ -784,10 +790,15 @@ namespace MyShopCompInspectionSync
                                  "InvoiceAmountInspection=:InvoiceAmountInspection,BillingDate=:BillingDate," +
                                  "EmissionStickerNumber=:EmissionStickerNumber,Region=:Region,Labor1Cost=:Labor1Cost,Labor2Cost=:Labor2Cost,Labor2=:Labor2," +
                                  "StateTaxRate=:StateTaxRate,SubletInspection=:SubletInspection,InspectBook=:InspectBook,InsideOutSide=:InsideOutSide,StationNumber=:StationNumber," +
-                                 "StickerReissued =:StickerReissued ,StickerDestroyed=:StickerDestroyed,StickerReplaced=:StickerReplaced,Reconstructed=:Reconstructed,"+
+                                 "StickerReissued =:StickerReissued ,StickerDestroyed=:StickerDestroyed,StickerReplaced=:StickerReplaced,Reconstructed=:Reconstructed," +
                                  "StickerLost =:StickerLost, StickerStolen=:StickerStolen,StickerNeverReceived=:StickerNeverReceived,VisualAntiTamperRequired=:VisualAntiTamperRequired, " +
                                  "OBDRequired=:OBDRequired,VisualRequired=:VisualRequired,GasCapRequired=:GasCapRequired,TailpipeRequired=:TailpipeRequired, " +
-                                 "Labor1Inspection =:Labor1Inspection,Labor2Inspection=:Labor2Inspection,Part1Inspection=:Part1Inspection" +
+                                 "Labor1Inspection =:Labor1Inspection,Labor2Inspection=:Labor2Inspection,Part1Inspection=:Part1Inspection," +
+                                 "SIRAttached =:SIRAttached,Part2Inspection =:Part2Inspection,Part3Inspection =:Part3Inspection,Part4Inspection =:Part4Inspection," +
+                                "Part5Inspection =:Part5Inspection,Part6Inspection =:Part6Inspection,Part7Inspection =:Part7Inspection,Part8Inspection =:Part8Inspection,Part9Inspection =:Part9Inspection,Part10Inspection =:Part10Inspection," +
+                                "Labor3Inspection =:Labor3Inspection,Labor4Inspection =:Labor4Inspection,Labor5Inspection =:Labor5Inspection,Labor6Inspection =:Labor6Inspection,Labor7Inspection =:Labor7Inspection,Labor8Inspection =:Labor8Inspection," +
+                                "Labor9Inspection =:Labor9Inspection,Labor10Inspection =:Labor10Inspection,LockSIRInfo =:LockSIRInfo,Itemizeinvoice =:Itemizeinvoice,Axles =:Axles,Axle1Tires =:Axle1Tires" +
+                                ",FormName=:FormName,StickerCost=:StickerCost" +
                              " WHERE VIN='" + cust.VIN + "'";
 
 
@@ -928,7 +939,7 @@ namespace MyShopCompInspectionSync
 
                         var inspCost = (Convert.ToDouble(cust.StickerCharge) + Convert.ToDouble(cust.TotalCost) + laborTotal) * 1.07;
 
-                        cmd.Parameters.Add("InvoiceAmountInspection", inspCost) ;
+                        cmd.Parameters.Add("InvoiceAmountInspection", inspCost);
 
                         cmd.Parameters.Add("SubletInspection", "0");
 
@@ -950,14 +961,14 @@ namespace MyShopCompInspectionSync
                         cmd.Parameters.Add("StickerLost", "N");
                         cmd.Parameters.Add("StickerStolen", "N");
                         cmd.Parameters.Add("StickerNeverReceived", "N");
-                        
+
 
                         cmd.Parameters.Add("Labor1Inspection", "Y");
                         cmd.Parameters.Add("Labor2Inspection", "Y");
                         cmd.Parameters.Add("Part1Inspection", "Y");
 
 
-                        if (cust.Region =="PIT")
+                        if (cust.Region == "PIT")
                         {
                             cmd.Parameters.Add("VisualAntiTamperRequired", "N");
 
@@ -984,6 +995,38 @@ namespace MyShopCompInspectionSync
                             cmd.Parameters.Add("GasCapRequired", "Y");
                             cmd.Parameters.Add("TailpipeRequired", "Y");
                         }
+
+
+
+                        cmd.Parameters.Add("SIRAttached", "");
+                        
+                        cmd.Parameters.Add("Part2Inspection", "N");
+                        cmd.Parameters.Add("Part3Inspection", "N");
+                        cmd.Parameters.Add("Part4Inspection", "N");
+                        cmd.Parameters.Add("Part5Inspection", "N");
+                        cmd.Parameters.Add("Part6Inspection", "N");
+                        cmd.Parameters.Add("Part7Inspection", "N");
+                        cmd.Parameters.Add("Part8Inspection", "N");
+                        cmd.Parameters.Add("Part9Inspection", "N");
+                        cmd.Parameters.Add("Part10Inspection", "N");
+                        cmd.Parameters.Add("Labor3Inspection", "N");
+                        cmd.Parameters.Add("Labor4Inspection", "N");
+                        cmd.Parameters.Add("Labor5Inspection", "N");
+                        cmd.Parameters.Add("Labor6Inspection", "N");
+                        cmd.Parameters.Add("Labor7Inspection", "N");
+                        cmd.Parameters.Add("Labor8Inspection", "N");
+                        cmd.Parameters.Add("Labor9Inspection", "N");
+                        cmd.Parameters.Add("Labor10Inspection", "N");
+                        cmd.Parameters.Add("LockSIRInfo", "Y");
+                        cmd.Parameters.Add("Itemizeinvoice", "N");
+                        cmd.Parameters.Add("Axles", "1");
+                        cmd.Parameters.Add("Axle1Tires", "2");
+
+
+                        cmd.Parameters.Add("FormName", "431(12-03)");
+                        cmd.Parameters.Add("StickerCost", cust.StickerCharge);
+
+                        
 
 
 

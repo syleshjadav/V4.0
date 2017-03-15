@@ -13,22 +13,27 @@ namespace ATP.DataModel
     
     public partial class uspSelAllCompInspectionExportData_Result
     {
+        public Nullable<long> ID { get; set; }
         public System.Guid VehicleServiceGuid { get; set; }
         public string WorkOrder { get; set; }
         public string InspectionDate { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
         public string City { get; set; }
         public string CustState { get; set; }
         public string ZipCode { get; set; }
         public string VehicleCounty { get; set; }
         public Nullable<short> VehicleCountyCode { get; set; }
+        public string Region { get; set; }
         public string VIN { get; set; }
         public string Plate { get; set; }
         public string VehicleYear { get; set; }
         public string VehicleMake { get; set; }
+        public string VehicleModel { get; set; }
         public string VehBodyType { get; set; }
-        public Nullable<int> CurrOdo { get; set; }
+        public int CurrOdo { get; set; }
         public int PrevOdo { get; set; }
         public string NAIC { get; set; }
         public string InsuranceCompanyName { get; set; }
@@ -86,6 +91,7 @@ namespace ATP.DataModel
         public string Speedometer { get; set; }
         public string StickerCharge { get; set; }
         public string InspectionCharge { get; set; }
+        public string StateTaxRate { get; set; }
         public string StationName { get; set; }
         public string StationNumber { get; set; }
         public string MechanicName { get; set; }
@@ -97,5 +103,6 @@ namespace ATP.DataModel
         public string StickerMonth { get; set; }
         public string SafetyStickerYYMM { get; set; }
         public string LowestTireReading { get; set; }
+        public string TotalCost { get; set; }
     }
 }
