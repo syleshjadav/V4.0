@@ -14,6 +14,7 @@ using WSHControllerLibrary;
 using MyShopCompInspectionSync.MyShopProxy;
 using IWshRuntimeLibrary;
 using System.IO;
+using System.Xml;
 
 namespace MyShopCompInspectionSync
 {
@@ -31,36 +32,76 @@ namespace MyShopCompInspectionSync
         private int servicePollInterval = 120;
         private int dealerId = 103;
         private bool IsAutoPilot = false;
+        private bool IsShowForm = false;
 
         public Form1()
         {
             InitializeComponent();
 
 
-            Connectionstring = MyShopCompInspectionSync.Properties.Settings.Default.ConnectionString;
 
-            servicePollInterval = MyShopCompInspectionSync.Properties.Settings.Default.ServicePollInterval;
-            dealerId = MyShopCompInspectionSync.Properties.Settings.Default.DealerId;
-            IsAutoPilot = MyShopCompInspectionSync.Properties.Settings.Default.IsAutoPilot;
 
-            if (IsAutoPilot == true)
+            var dir = @"c:\Sites";
+            var filedir = dir + "\\MyShopAppBroker.xml";
+            XmlDocument xdoc = new XmlDocument();
+            try
             {
-                timer1.Enabled = true;
+                if (!Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+                if (!System.IO.File.Exists(filedir))
+                {
+                    string s = "<ROOT><DEALERID>100</DEALERID><SERVICEPOLLINTERVAL>120</SERVICEPOLLINTERVAL><ISSHOWFORM>TRUE</ISSHOWFORM><ISAUTOPILOT>TRUE</ISAUTOPILOT></ROOT>";
+
+                    xdoc.LoadXml(s);
+                    xdoc.Save(@"c:\Sites\MyShopAppBroker.xml");
+                }
+
+                xdoc.Load(filedir);
+                XmlNode xmlnode;
+                xmlnode = xdoc.SelectSingleNode("ROOT");
+                //  ConfigClass.DealerId = Convert.ToInt32(xmlnode["DEALERID"].InnerText);
+
+
+                // return;
+
+                //SerialPortInterface sp = new SerialPortInterface(); // load port details
+                //ConfigClass.MyShopSerialPort.PortName = xmlnode["MYSHOPCOMMPORT"].InnerText;
+
+
+                Connectionstring = MyShopCompInspectionSync.Properties.Settings.Default.ConnectionString;
+
+                servicePollInterval = Convert.ToInt32(xmlnode["SERVICEPOLLINTERVAL"].InnerText);
+                dealerId = Convert.ToInt32(xmlnode["DEALERID"].InnerText);
+                IsAutoPilot = Convert.ToBoolean(xmlnode["ISAUTOPILOT"].InnerText);
+                IsShowForm = Convert.ToBoolean(xmlnode["ISSHOWFORM"].InnerText);
 
             }
-            counter = servicePollInterval;
-            lblCountDown.Text = counter.ToString();
+            catch
+            {
+                MessageBox.Show("Error in MyShopAuto App.. Contact ASAP");
+                return;
+
+            }
+                if (IsAutoPilot == true)
+                {
+                    timer1.Enabled = true;
+
+                }
+                counter = servicePollInterval;
+                lblCountDown.Text = counter.ToString();
 
 
 
-            //SelectAllCounties();
+                //SelectAllCounties();
 
-            // UpsertCustomer();
-            DateTime thisDay = DateTime.Today;
-            txtInspectionDate.Text = thisDay.ToString("d");
+                // UpsertCustomer();
+                DateTime thisDay = DateTime.Today;
+                txtInspectionDate.Text = thisDay.ToString("d");
 
 
-        }
+            }
 
         //private void UpsertCustomer()
         //{
@@ -68,105 +109,105 @@ namespace MyShopCompInspectionSync
 
 
 
-        //  //cust.InspectionInfo = inspInfo;
-        //  //cust.Brakes = brakes;
-        //  //cust.Tires = tires;
+            //  //cust.InspectionInfo = inspInfo;
+            //  //cust.Brakes = brakes;
+            //  //cust.Tires = tires;
 
 
-        //  try
-        //  {
+            //  try
+            //  {
 
-        //    string sql = " SELECT top 10 * from CustomerVehicle WHERE VIN='" + cust.VIN + "'";
+            //    string sql = " SELECT top 10 * from CustomerVehicle WHERE VIN='" + cust.VIN + "'";
 
-        //    cmd.CommandText = sql;
-        //    cmd.Connection = conn;
-        //    adapter.SelectCommand = cmd;
-        //    adapter.Fill(dset);
-
-
-        //    if (dset.Tables[0].Rows.Count == 0) // insert a new customer
-        //    {
-        //      sql = "INSERT INTO CustomerVehicle (FirstName, Lastname, VIN)  VALUES (:FirstName, :Lastname, :VIN) ";
-        //    }
-        //    else if (dset.Tables[0].Rows.Count == 1)
-        //    {
-
-        //      sql = "UPDATE CustomerVehicle SET FirstName = :FirstName, LastName=:LastName, City=:City, State=:State, Zip=:Zip," +
-        //                   " VehicleCounty=:VehicleCounty,CountyCode=:CountyCode, Plate=:Plate,VehicleMake=:VehicleMake,VehicleBody=:VehicleBody, VehicleYear=:VehicleYear, " +
-        //                   "Odometer=:Odometer, NAIC=:NAIC,InsuranceCompany=:InsuranceCompany,PolicyNumber=:PolicyNumber,InsuranceExpires=:InsuranceExpires" +
-        //               " WHERE VIN='" + cust.VIN + "'";
+            //    cmd.CommandText = sql;
+            //    cmd.Connection = conn;
+            //    adapter.SelectCommand = cmd;
+            //    adapter.Fill(dset);
 
 
-        //    }
-        //    else
-        //    {
-        //      return;
-        //    }
+            //    if (dset.Tables[0].Rows.Count == 0) // insert a new customer
+            //    {
+            //      sql = "INSERT INTO CustomerVehicle (FirstName, Lastname, VIN)  VALUES (:FirstName, :Lastname, :VIN) ";
+            //    }
+            //    else if (dset.Tables[0].Rows.Count == 1)
+            //    {
 
-        //    using (AdsConnection cn = new AdsConnection(Connectionstring))
-        //    {
-        //      using (var cmd = new AdsCommand(sql, cn))
-        //      {
-        //        // define parameters and their values
-
-        //        cmd.Parameters.Add("FirstName", cust.FirstName);
-        //        cmd.Parameters.Add("LastName", cust.LastName);
-        //        cmd.Parameters.Add("City", cust.City);
-        //        cmd.Parameters.Add("State", cust.State);
-        //        cmd.Parameters.Add("Zip", cust.Zip);
-        //        cmd.Parameters.Add("VehicleCounty", cust.County);
-        //        cmd.Parameters.Add("CountyCode", cust.CountyCode);
-
-        //        cmd.Parameters.Add("Plate", cust.Plate);
-        //        cmd.Parameters.Add("VehicleMake", cust.VehicleMake);
-        //        cmd.Parameters.Add("VehicleBody", cust.Body);
-        //        cmd.Parameters.Add("VehicleYear", cust.Year);
-        //        cmd.Parameters.Add("Odometer", cust.CurrOdo);
-
-        //        cmd.Parameters.Add("VehicleBody", cust.Body);
-        //        cmd.Parameters.Add("VehicleYear", cust.Year);
-        //        cmd.Parameters.Add("Odometer", cust.CurrOdo);
+            //      sql = "UPDATE CustomerVehicle SET FirstName = :FirstName, LastName=:LastName, City=:City, State=:State, Zip=:Zip," +
+            //                   " VehicleCounty=:VehicleCounty,CountyCode=:CountyCode, Plate=:Plate,VehicleMake=:VehicleMake,VehicleBody=:VehicleBody, VehicleYear=:VehicleYear, " +
+            //                   "Odometer=:Odometer, NAIC=:NAIC,InsuranceCompany=:InsuranceCompany,PolicyNumber=:PolicyNumber,InsuranceExpires=:InsuranceExpires" +
+            //               " WHERE VIN='" + cust.VIN + "'";
 
 
-        //        cmd.Parameters.Add("NAIC", cust.Naic);
-        //        cmd.Parameters.Add("InsuranceCompany", cust.InsCpy);
-        //        cmd.Parameters.Add("PolicyNumber", cust.Policy);
-        //        cmd.Parameters.Add("InsuranceExpires", cust.ExpDate);
+            //    }
+            //    else
+            //    {
+            //      return;
+            //    }
 
-        //        /*
-        //        cmd.Parameters.Add("NAIC", inspInfo.Body);
-        //        cmd.Parameters.Add("NAIC", inspInfo.Break);
-        //        cmd.Parameters.Add("Exhaust", inspInfo.Exhaust);
-        //        cmd.Parameters.Add("NAIC", inspInfo.Fuel);
-        //        cmd.Parameters.Add("GlazingMirrors", inspInfo.Glazing);
-        //        cmd.Parameters.Add("Lighting", inspInfo.Lights);
-        //        cmd.Parameters.Add("Other", inspInfo.Other);
-        //        cmd.Parameters.Add("NAIC", inspInfo.RegVerified);
-        //        cmd.Parameters.Add("NAIC", inspInfo.RoadTest);
-        //        cmd.Parameters.Add("Streering", inspInfo.Streering);
-        //        cmd.Parameters.Add("NAIC", inspInfo.Tires);
-        //        */
+            //    using (AdsConnection cn = new AdsConnection(Connectionstring))
+            //    {
+            //      using (var cmd = new AdsCommand(sql, cn))
+            //      {
+            //        // define parameters and their values
+
+            //        cmd.Parameters.Add("FirstName", cust.FirstName);
+            //        cmd.Parameters.Add("LastName", cust.LastName);
+            //        cmd.Parameters.Add("City", cust.City);
+            //        cmd.Parameters.Add("State", cust.State);
+            //        cmd.Parameters.Add("Zip", cust.Zip);
+            //        cmd.Parameters.Add("VehicleCounty", cust.County);
+            //        cmd.Parameters.Add("CountyCode", cust.CountyCode);
+
+            //        cmd.Parameters.Add("Plate", cust.Plate);
+            //        cmd.Parameters.Add("VehicleMake", cust.VehicleMake);
+            //        cmd.Parameters.Add("VehicleBody", cust.Body);
+            //        cmd.Parameters.Add("VehicleYear", cust.Year);
+            //        cmd.Parameters.Add("Odometer", cust.CurrOdo);
+
+            //        cmd.Parameters.Add("VehicleBody", cust.Body);
+            //        cmd.Parameters.Add("VehicleYear", cust.Year);
+            //        cmd.Parameters.Add("Odometer", cust.CurrOdo);
 
 
+            //        cmd.Parameters.Add("NAIC", cust.Naic);
+            //        cmd.Parameters.Add("InsuranceCompany", cust.InsCpy);
+            //        cmd.Parameters.Add("PolicyNumber", cust.Policy);
+            //        cmd.Parameters.Add("InsuranceExpires", cust.ExpDate);
 
-        //        cn.Open();
-        //        cmd.ExecuteNonQuery();
-        //        cn.Close();
-        //      }
+            //        /*
+            //        cmd.Parameters.Add("NAIC", inspInfo.Body);
+            //        cmd.Parameters.Add("NAIC", inspInfo.Break);
+            //        cmd.Parameters.Add("Exhaust", inspInfo.Exhaust);
+            //        cmd.Parameters.Add("NAIC", inspInfo.Fuel);
+            //        cmd.Parameters.Add("GlazingMirrors", inspInfo.Glazing);
+            //        cmd.Parameters.Add("Lighting", inspInfo.Lights);
+            //        cmd.Parameters.Add("Other", inspInfo.Other);
+            //        cmd.Parameters.Add("NAIC", inspInfo.RegVerified);
+            //        cmd.Parameters.Add("NAIC", inspInfo.RoadTest);
+            //        cmd.Parameters.Add("Streering", inspInfo.Streering);
+            //        cmd.Parameters.Add("NAIC", inspInfo.Tires);
+            //        */
 
 
 
+            //        cn.Open();
+            //        cmd.ExecuteNonQuery();
+            //        cn.Close();
+            //      }
 
 
-        //    }
 
-        //  }
-        //  catch (AdsException e)
-        //  {
-        //    // print the exception message
-        //    Console.WriteLine(e.Message);
-        //  }
-        //}
+
+
+            //    }
+
+            //  }
+            //  catch (AdsException e)
+            //  {
+            //    // print the exception message
+            //    Console.WriteLine(e.Message);
+            //  }
+            //}
 
         private CustVehInfo LoadControlValueToObject()
         {
@@ -260,7 +301,7 @@ namespace MyShopCompInspectionSync
             cust.InspectionInfo.PassInspection = "Y";
 
             if (cust.InspectionInfo.Body == "F" || cust.InspectionInfo.Break == "F" || cust.InspectionInfo.Exhaust == "F" || cust.InspectionInfo.Fuel == "F" || cust.InspectionInfo.Glazing == "F" ||
-              cust.InspectionInfo.Lights == "F" || cust.InspectionInfo.Other == "F" || cust.InspectionInfo.RegVerified == "F" || cust.InspectionInfo.RoadTest == "F" || cust.InspectionInfo.Streering == "F" ||
+              cust.InspectionInfo.Lights == "F" || cust.InspectionInfo.Other == "F" || cust.InspectionInfo.RegVerified == "F" || cust.InspectionInfo.RegVerified == "N" || cust.InspectionInfo.RoadTest == "F" || cust.InspectionInfo.Streering == "F" ||
               cust.InspectionInfo.Tires == "F")
             {
                 cust.InspectionInfo.PassInspection = "N";
@@ -370,7 +411,7 @@ namespace MyShopCompInspectionSync
             {
                 timer1.Stop();
 
-                if (MyShopCompInspectionSync.Properties.Settings.Default.IsShowForm == false)
+                if (IsShowForm == false)
                 {
                     this.Visible = false;
                 }
@@ -435,7 +476,7 @@ namespace MyShopCompInspectionSync
                     InspectionCost = d.InspectionCharge,
                     TotalCost = d.TotalCost,
                     StickerCharge = d.StickerCharge,
-                    StateTaxRate=d.StateTaxRate,
+                    StateTaxRate = d.StateTaxRate,
                     InspectionDate = d.InspectionDate,
                     EmissonNum = d.EmissionNum,
                     LastName = d.LastName,
@@ -1001,7 +1042,7 @@ namespace MyShopCompInspectionSync
 
 
                         cmd.Parameters.Add("SIRAttached", "");
-                        
+
                         cmd.Parameters.Add("Part2Inspection", "N");
                         cmd.Parameters.Add("Part3Inspection", "N");
                         cmd.Parameters.Add("Part4Inspection", "N");
@@ -1028,7 +1069,7 @@ namespace MyShopCompInspectionSync
                         cmd.Parameters.Add("FormName", "431(12-03)");
                         cmd.Parameters.Add("StickerCost", cust.StickerCharge);
 
-                        
+
 
 
 
