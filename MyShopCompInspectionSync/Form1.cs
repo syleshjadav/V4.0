@@ -15,6 +15,7 @@ using MyShopCompInspectionSync.MyShopProxy;
 using IWshRuntimeLibrary;
 using System.IO;
 using System.Xml;
+using System.Diagnostics;
 
 namespace MyShopCompInspectionSync
 {
@@ -644,39 +645,10 @@ namespace MyShopCompInspectionSync
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            AddToStartup();
+            //AddToStartup();
         }
 
-        public void AddToStartup()
-        {
-            try
-            {
-
-                string startPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
-                if (!System.IO.File.Exists(Path.Combine(startPath, "MyShopCompInspectionSync.lnk")))
-                {
-
-                    //   System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\" + "MyShopCompInspectionSync.exe");
-
-                    WshShell wsh = new WshShell();
-                    IWshRuntimeLibrary.IWshShortcut shortcut = wsh.CreateShortcut(Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\MyShopCompInspectionSync.lnk") as IWshRuntimeLibrary.IWshShortcut;
-                    shortcut.Arguments = "";
-                    shortcut.TargetPath = Application.ExecutablePath;// "c:\\app\\myftp.exe";
-                                                                     // not sure about what this is for
-                    shortcut.WindowStyle = 1;
-                    shortcut.Description = "MyShopCompInspectionSync";
-                    shortcut.WorkingDirectory = "C:\\";
-                    //shortcut.IconLocation = "specify icon location";
-                    shortcut.Save();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-                lblErrorMsg.Text = ex.Message;
-            }
-        }
+       
 
         private void cmdSendData_Click(object sender, EventArgs e)
         {
@@ -1029,7 +1001,7 @@ namespace MyShopCompInspectionSync
                         // cmd.Parameters.Add("TaxAmountInspection", ("0").ToString()); //  remove hardcoding
                         var stateTax = Convert.ToDouble(DealerInformation.StateTaxRate);
 
-                        var inspCost = (Convert.ToDouble(DealerInformation.AIStickerCost) + Convert.ToDouble(cust.TotalCost) + laborTotal) * (1 + stateTax);
+                        var inspCost = (Convert.ToDouble(DealerInformation.AIStickerCost) +  laborTotal) * (1 + stateTax);
 
                         cmd.Parameters.Add("InvoiceAmountInspection", inspCost);
 
@@ -1216,6 +1188,13 @@ namespace MyShopCompInspectionSync
         {
 
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            //WindowState = FormWindowState.Minimized;
+            this.Hide();
         }
     }
 

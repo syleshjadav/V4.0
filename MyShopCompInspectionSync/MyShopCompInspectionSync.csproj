@@ -32,7 +32,7 @@
     <SuiteName>Suite</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -68,6 +68,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MyShopCompInspectionSync.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Advantage.Data.Provider, Version=11.10.2.30, Culture=neutral, PublicKeyToken=e33137c86a38dc06, processorArchitecture=MSIL" />
