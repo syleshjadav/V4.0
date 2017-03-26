@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ca796e23-ac00-411f-adc9-ac9e65645012" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1096/CompInspection.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CompInspection.xsd" MetadataType="Schema" ID="988ea16b-48d5-45b0-a432-4d71127666dc" SourceId="1" SourceUrl="http://localhost:1096/CompInspection.svc?xsd=xsd1" />
+    <MetadataFile FileName="CompInspection.wsdl" MetadataType="Wsdl" ID="90e69c3f-0275-4df0-8b24-530b2700a97c" SourceId="1" SourceUrl="http://localhost:1096/CompInspection.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="CompInspection1.xsd" MetadataType="Schema" ID="c7cb229a-528e-433f-9521-3f66992105ec" SourceId="1" SourceUrl="http://localhost:1096/CompInspection.svc?xsd=xsd2" />
+    <MetadataFile FileName="CompInspection1.wsdl" MetadataType="Wsdl" ID="6685b16a-9d66-4b57-a122-52c3db75126a" SourceId="1" SourceUrl="http://localhost:1096/CompInspection.svc?wsdl" />
+    <MetadataFile FileName="CompInspection.disco" MetadataType="Disco" ID="807113b8-88cb-44e5-b4b5-2a39f5e257e9" SourceId="1" SourceUrl="http://localhost:1096/CompInspection.svc?disco" />
+    <MetadataFile FileName="CompInspection2.xsd" MetadataType="Schema" ID="e9c72015-42bc-4c6d-9115-c1cbd3286824" SourceId="1" SourceUrl="http://localhost:1096/CompInspection.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

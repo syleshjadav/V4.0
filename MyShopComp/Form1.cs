@@ -12,13 +12,16 @@ using System.Collections;
 using System.Reflection;
 using WSHControllerLibrary;
 using MyShopCompInspectionSync.MyShopProxy;
-using IWshRuntimeLibrary;
+//using IWshRuntimeLibrary;
 using System.IO;
 using System.Xml;
 using System.Diagnostics;
+using IWshRuntimeLibrary;
 
-namespace MyShopCompInspectionSync
+namespace MyShopComp
 {
+   
+
     public partial class Form1 : Form
     {
 
@@ -36,7 +39,7 @@ namespace MyShopCompInspectionSync
         private bool IsShowForm = false;
         private DealerInfo DealerInformation { get; set; }
 
-        public  void AddToStartup()
+        public void AddToStartup()
         {
 
             try
@@ -698,7 +701,7 @@ namespace MyShopCompInspectionSync
             //AddToStartup();
         }
 
-       
+
 
         private void cmdSendData_Click(object sender, EventArgs e)
         {
@@ -1051,7 +1054,7 @@ namespace MyShopCompInspectionSync
                         // cmd.Parameters.Add("TaxAmountInspection", ("0").ToString()); //  remove hardcoding
                         var stateTax = Convert.ToDouble(DealerInformation.StateTaxRate);
 
-                        var inspCost = (Convert.ToDouble(DealerInformation.AIStickerCost) +  laborTotal) * (1 + stateTax);
+                        var inspCost = (Convert.ToDouble(DealerInformation.AIStickerCost) + laborTotal) * (1 + stateTax);
 
                         cmd.Parameters.Add("InvoiceAmountInspection", inspCost);
 
@@ -1246,9 +1249,10 @@ namespace MyShopCompInspectionSync
             //WindowState = FormWindowState.Minimized;
             this.Hide();
         }
+
+        private void cmdPullMyShopAuto_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
-
-
-
 }
-

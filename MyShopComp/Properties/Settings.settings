@@ -2,19 +2,19 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MyShopCompInspectionSync.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="IsShowForm" Type="System.Boolean" Scope="Application">
+    <Setting Name="IsShowForm" Type="System.String" Scope="Application">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="DealerId" Type="System.Int32" Scope="Application">
+    <Setting Name="DealerId" Type="System.String" Scope="Application">
       <Value Profile="(Default)">103</Value>
     </Setting>
     <Setting Name="ConnectionString" Type="System.String" Scope="Application">
       <Value Profile="(Default)">data source = c:\\SIRPA\\Data\\SIRDATA.ADD; ServerType=remote|local; TableType=ADT</Value>
     </Setting>
-    <Setting Name="ServicePollInterval" Type="System.Int32" Scope="Application">
+    <Setting Name="ServicePollInterval" Type="System.String" Scope="Application">
       <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="IsAutoPilot" Type="System.Boolean" Scope="Application">
+    <Setting Name="IsAutoPilot" Type="System.String" Scope="Application">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>

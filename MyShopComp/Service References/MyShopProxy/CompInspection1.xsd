@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ATP.DataModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ATP.DataModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1096/CompInspection.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfuspSelAllCompInspectionExportData_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="uspSelAllCompInspectionExportData_Result" nillable="true" type="tns:uspSelAllCompInspectionExportData_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfuspSelAllCompInspectionExportData_Result" nillable="true" type="tns:ArrayOfuspSelAllCompInspectionExportData_Result" />
+  <xs:complexType name="uspSelAllCompInspectionExportData_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AIRPump" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AutoMaticTransmission" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BrakeFrontRightSize" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BrakeFrontSize" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BrakeOrStreeringMechanism" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BrakeRearRightSize" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BrakeRearSize" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BrakeTypeFront" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BrakeTypeRear" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BreakPedal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CatalyticConverter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrOdo" type="xs:int" />
+      <xs:element minOccurs="0" name="CustState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Doors" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ERG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmissionLicClass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmissionLicNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmissionNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EvaporativeControl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Exhaust" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FleetNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fuel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FuelInlet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Glazing" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="InspectionCharge" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InspectionDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Insurance" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsuranceCompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsuranceExpDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InsuranceState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LFBrakeBondRivet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LRBrakeBondRivet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LicClass" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LicNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lights" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LowestTireReading" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MechLic" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MechName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MechanicName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MilesIn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MilesOut" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAIC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OldMileage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OldMileageReading" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Other" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PCV" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassInspection" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Plate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PolicyNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrevOdo" type="xs:int" />
+      <xs:element minOccurs="0" name="RFBrakeBondRivet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RRBrakeBondRivet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegVerified" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoadTest" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoadTestBreaks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SafetyStickerYYMM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Speedometer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StateTaxRate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StationNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StickerCharge" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StickerMonth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Streering" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TireFrontRightSize" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TireFrontSize" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TireRearRightSize" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TireRearSize" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TireSpareSize" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tires" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalCost" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehBodyType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleCounty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleCountyCode" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="VehicleDrive" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleDriving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleMake" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleModel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleServiceGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="VehicleYear" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkOrder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="uspSelAllCompInspectionExportData_Result" nillable="true" type="tns:uspSelAllCompInspectionExportData_Result" />
+</xs:schema>

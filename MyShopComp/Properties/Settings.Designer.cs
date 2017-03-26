@@ -26,18 +26,18 @@ namespace MyShopCompInspectionSync.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool IsShowForm {
+        public string IsShowForm {
             get {
-                return ((bool)(this["IsShowForm"]));
+                return ((string)(this["IsShowForm"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("103")]
-        public int DealerId {
+        public string DealerId {
             get {
-                return ((int)(this["DealerId"]));
+                return ((string)(this["DealerId"]));
             }
         }
         
@@ -54,18 +54,18 @@ namespace MyShopCompInspectionSync.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public int ServicePollInterval {
+        public string ServicePollInterval {
             get {
-                return ((int)(this["ServicePollInterval"]));
+                return ((string)(this["ServicePollInterval"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool IsAutoPilot {
+        public string IsAutoPilot {
             get {
-                return ((bool)(this["IsAutoPilot"]));
+                return ((string)(this["IsAutoPilot"]));
             }
         }
     }
