@@ -556,7 +556,7 @@ namespace MyShopComp
                 MechanicName = "",
                 Naic = m.NAIC,
                 Plate = m.Plate,
-                Policy = m.Plate,
+                Policy = m.PolicyNumber,
                 PrevOdo = m.OldMileage == null ? null : m.OldMileage.ToString(),
                 State = m.CustState,
                 VehicleMake = m.VehicleMake,

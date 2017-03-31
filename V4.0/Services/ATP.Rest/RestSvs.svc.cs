@@ -635,6 +635,26 @@ namespace ATP.Rest {
             return new ATPData { Id = "-1", Value = "Fail" };
         }
 
+
+        public ATPData SendSessionToWeb(ATPData jsonCust)
+        {
+            try
+            {
+                //TraceLog("RegisterCustomer", string.Format("{0} -  Before RegisterCustomer Insert Called", jsonCust.LastName));
+                var str = string.Format("DealerId:{0}- Value:{1}", jsonCust.Id, jsonCust.Value);
+                TraceLog("SendSessionToWeb", str);
+
+                var xx = new ATP.Services.Data.Person().SendSessionToWeb(jsonCust);
+
+               
+            }
+            catch (Exception ex)
+            {
+                TraceLog("SendSessionToWeb", string.Format("{0} -  Error while SendSessionToWeb  - {1}", jsonCust.Id, ex.StackTrace));
+            }
+            return new ATPData { Id = "-1", Value = "Fail" };
+        }
+
         public MyShopRegisterCustomerData RegisterCustomerMyShopAuto(ATPCustomerDetailsByGuid m) {
             try {
                 //TraceLog("RegisterCustomer", string.Format("{0} -  Before RegisterCustomer Insert Called", jsonCust.LastName));

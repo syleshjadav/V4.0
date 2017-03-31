@@ -31,7 +31,7 @@
     <SuiteName>Suite</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>18</ApplicationRevision>
+    <ApplicationRevision>19</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -57,16 +57,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>8E31307B1FF08C94511C3F2EAB7964B2C56F7A28</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>FB891FE2A77FA5855CAD8F32EA27922FD12A1B3E</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>MyShopComp_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>MyShopCompInspectionSync_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Advantage.Data.Provider, Version=11.10.2.30, Culture=neutral, PublicKeyToken=e33137c86a38dc06, processorArchitecture=MSIL" />
@@ -114,7 +117,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="MyShopComp_TemporaryKey.pfx" />
+    <None Include="MyShopCompInspectionSync_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

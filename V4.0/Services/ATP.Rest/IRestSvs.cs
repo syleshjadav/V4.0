@@ -122,6 +122,10 @@ namespace ATP.Rest {
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "RegisterCustomer")]
         ATPData RegisterCustomer(CustomerForRestSvc jSonCustomer);
 
+
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "SendSessionToWeb")]
+        ATPData SendSessionToWeb(ATPData jsonCust);
+
         [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "RegisterCustomerLite")]
         ATPData RegisterCustomerLite(CustomerForRestSvcLite jSonCust);
 

@@ -226,6 +226,10 @@
           <Parameter Name="EnteredBy" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="Entered" Type="datetime2" Mode="In" />
         </Function>
+        <Function Name="uspInsSessionAppToWeb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DealerId" Type="int" Mode="In" />
+          <Parameter Name="ScanResult" Type="varchar(max)" Mode="In" />
+        </Function>
         <Function Name="uspInsVehAlert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="AlertId" Type="int" Mode="In" />
           <Parameter Name="VehicleGUID" Type="uniqueidentifier" Mode="In" />
@@ -656,6 +660,10 @@
         <Function Name="uspSelServiceTypeEmails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ServiceType" Type="varchar" Mode="In" />
           <Parameter Name="PackageId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSelSessionAppToWeb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DealerId" Type="int" Mode="In" />
+          <Parameter Name="ScanID" Type="int" Mode="In" />
         </Function>
         <Function Name="uspSelSvcTypeByDealerId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="dealerId" Type="int" Mode="In" />
@@ -2498,6 +2506,14 @@
             <Parameter Name="DealerId" Mode="In" Type="Int32" />
             <Parameter Name="IsFailed" Mode="In" Type="Boolean" />
             <Parameter Name="FailedReaon" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsSessionAppToWeb" ReturnType="Collection(Decimal)">
+            <Parameter Name="DealerId" Mode="In" Type="Int32" />
+            <Parameter Name="ScanResult" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSelSessionAppToWeb" ReturnType="Collection(String)">
+            <Parameter Name="DealerId" Mode="In" Type="Int32" />
+            <Parameter Name="ScanID" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="uspSelVehAlertByVehGuid_Result">
@@ -7361,6 +7377,8 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="uspUpdtExportToCompInspectionStatus" FunctionName="ModelContainer.Store.uspUpdtExportToCompInspectionStatus" />
+          <FunctionImportMapping FunctionImportName="uspInsSessionAppToWeb" FunctionName="ModelContainer.Store.uspInsSessionAppToWeb" />
+          <FunctionImportMapping FunctionImportName="uspSelSessionAppToWeb" FunctionName="ModelContainer.Store.uspSelSessionAppToWeb" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

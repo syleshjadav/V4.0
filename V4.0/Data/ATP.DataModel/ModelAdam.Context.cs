@@ -4667,5 +4667,31 @@ namespace ATP.DataModel
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("uspUpdtExportToCompInspectionStatus", iDParameter, dealerIdParameter, isFailedParameter, failedReaonParameter);
         }
+    
+        public virtual ObjectResult<Nullable<decimal>> uspInsSessionAppToWeb(Nullable<int> dealerId, string scanResult)
+        {
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            var scanResultParameter = scanResult != null ?
+                new ObjectParameter("ScanResult", scanResult) :
+                new ObjectParameter("ScanResult", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("uspInsSessionAppToWeb", dealerIdParameter, scanResultParameter);
+        }
+    
+        public virtual ObjectResult<string> uspSelSessionAppToWeb(Nullable<int> dealerId, Nullable<int> scanID)
+        {
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            var scanIDParameter = scanID.HasValue ?
+                new ObjectParameter("ScanID", scanID) :
+                new ObjectParameter("ScanID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("uspSelSessionAppToWeb", dealerIdParameter, scanIDParameter);
+        }
     }
 }

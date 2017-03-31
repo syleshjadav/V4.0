@@ -321,6 +321,22 @@ namespace ATP.Services.Data
             }
         }
 
+        public ATPData SendSessionToWeb(ATPData cust)
+        {
+
+
+            int? deal = Convert.ToInt32(cust.Id);
+            
+
+
+            using (var entity = new ATP.DataModel.Entities())
+            {
+                var X = entity.uspInsSessionAppToWeb(deal,cust.Value);
+                return new ATPData { Id = cust.Id, Value = X.FirstOrDefault().Value.ToString() };
+            }
+        }
+
+
         public uspUpdateCustomerMyShopAuto_Result UpdateCustomerMyShopAuto(ATPCustomerDetailsByGuid m)
         {
 
