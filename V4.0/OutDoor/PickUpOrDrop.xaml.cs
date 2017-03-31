@@ -12,12 +12,13 @@ namespace MyShopExpress {
     /// </summary>
     public partial class PickUpOrDrop : Window {
 
-        int _dealerId = 116;
+        int _dealerId = 0;
         public byte? OutDoorKeyDroppedBy { get; set; }
         public PickUpOrDrop() {
             InitializeComponent();
 
             this.Loaded += PickUpOrDrop_Loaded;
+            _dealerId = ConfigClass.DealerId;
         }
         // public byte? ServiceStatus { get; set; }
         public uspVerifyPinGetCustInfo_Result CustomerInfo { get; set; }
@@ -274,7 +275,7 @@ namespace MyShopExpress {
 
                 }
                 catch (Exception ex) {
-                    MessageBox(ex.Message.ToString(), "Error !");
+                    //MessageBox(ex.Message.ToString(), "Error !");
                 }
             }
             this.Close();
