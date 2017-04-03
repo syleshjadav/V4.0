@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="OutDoor" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="OutDoor" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import namespace="http://tempuri.org/" />
-      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel" />
-      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:50000/OutDoor.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50000/OutDoor.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50000/OutDoor.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel" />
+      <xsd:import schemaLocation="http://localhost:50000/OutDoor.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IOutDoor_VerifyPinGetCustInfo_InputMessage">
@@ -74,6 +74,12 @@
   <wsdl:message name="IOutDoor_UpsertKioskInUSE_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpsertKioskInUSEResponse" />
   </wsdl:message>
+  <wsdl:message name="IOutDoor_GetServiceTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceTypes" />
+  </wsdl:message>
+  <wsdl:message name="IOutDoor_GetServiceTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetServiceTypesResponse" />
+  </wsdl:message>
   <wsdl:message name="IOutDoor_LogError_InputMessage">
     <wsdl:part name="parameters" element="tns:LogError" />
   </wsdl:message>
@@ -136,6 +142,10 @@
     <wsdl:operation name="UpsertKioskInUSE">
       <wsdl:input wsaw:Action="http://tempuri.org/IOutDoor/UpsertKioskInUSE" message="tns:IOutDoor_UpsertKioskInUSE_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOutDoor/UpsertKioskInUSEResponse" message="tns:IOutDoor_UpsertKioskInUSE_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOutDoor/GetServiceTypes" message="tns:IOutDoor_GetServiceTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOutDoor/GetServiceTypesResponse" message="tns:IOutDoor_GetServiceTypes_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="LogError">
       <wsdl:input wsaw:Action="http://tempuri.org/IOutDoor/LogError" message="tns:IOutDoor_LogError_InputMessage" />
@@ -251,6 +261,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetServiceTypes">
+      <soap:operation soapAction="http://tempuri.org/IOutDoor/GetServiceTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="LogError">
       <soap:operation soapAction="http://tempuri.org/IOutDoor/LogError" style="document" />
       <wsdl:input>
@@ -281,7 +300,7 @@
   </wsdl:binding>
   <wsdl:service name="OutDoor">
     <wsdl:port name="ServicesFirstEndPoint" binding="tns:ServicesFirstEndPoint">
-      <soap:address location="http://www.myshopauto.com/ATPServices/OutDoor.svc" />
+      <soap:address location="http://localhost:50000/OutDoor.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MyShopExpress"
              mc:Ignorable="d"
              x:Name="CtrlMenuWindow"
-             WindowState="Maximized"
+             WindowState="Normal"
         WindowStyle="None"
         Height="900"
         Width="900"

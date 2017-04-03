@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ATP.DataModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ATP.DataModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:50000/OutDoor.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="ArrayOfuspVerifyPinGetCustInfo_Result">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="uspVerifyPinGetCustInfo_Result" nillable="true" type="tns:uspVerifyPinGetCustInfo_Result" />
@@ -223,4 +223,41 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="uspSelKioskInUSE_Result" nillable="true" type="tns:uspSelKioskInUSE_Result" />
+  <xs:complexType name="ArrayOfuspSelSvcTypeByDealerId_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="uspSelSvcTypeByDealerId_Result" nillable="true" type="tns:uspSelSvcTypeByDealerId_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfuspSelSvcTypeByDealerId_Result" nillable="true" type="tns:ArrayOfuspSelSvcTypeByDealerId_Result" />
+  <xs:complexType name="uspSelSvcTypeByDealerId_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADAMCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BackgroundColor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BayTypeId" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Cost" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DMSCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DealerCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DealerId" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Express" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ImageHttpPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImageOSPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEnabledVal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPackage" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSelected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LongName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpacityVal" type="xs:double" />
+      <xs:element minOccurs="0" name="PackageCost" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Picture" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Promotion" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Sequence" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="ServiceLevelId" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="ServiceTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="ShortName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShowDetail" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Time" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="uspSelSvcTypeByDealerId_Result" nillable="true" type="tns:uspSelSvcTypeByDealerId_Result" />
 </xs:schema>

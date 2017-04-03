@@ -1,6 +1,7 @@
-﻿using ATP.Kiosk.Views;
+﻿using ATP.DataModel;
+using ATP.Kiosk.Views;
+using ATP.WCF.Svcs;
 using MyShopExpress.Common;
-using MyShopExpress.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace MyShopExpress {
 
         int _dealerId = 0;
         public byte? OutDoorKeyDroppedBy { get; set; }
+        public List<uspSelSvcTypeByDealerId_Result> SelectedServiceList { get; set; }
+
         public PickUpOrDrop() {
             InitializeComponent();
 
@@ -40,6 +43,7 @@ namespace MyShopExpress {
                 // CheckIfKioskIsInUse();
 
             }
+            lstSelectedService.ItemsSource = SelectedServiceList;
         }
 
         public uspSelAllKeyDropPegByDealerId_Result SelectedPerson { get; set; }

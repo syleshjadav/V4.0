@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel" />
-  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:50000/OutDoor.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel" />
+  <xs:import schemaLocation="http://localhost:50000/OutDoor.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:50000/OutDoor.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="VerifyPinGetCustInfo">
     <xs:complexType>
       <xs:sequence>
@@ -183,6 +183,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="UpsertKioskInUSEResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="GetServiceTypesResult" nillable="true" type="q21:ArrayOfuspSelSvcTypeByDealerId_Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

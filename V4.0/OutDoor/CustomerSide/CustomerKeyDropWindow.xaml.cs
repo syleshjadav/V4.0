@@ -12,7 +12,8 @@ using ATP.Kiosk.Views;
 using MyShopExpress.Common;
 using System.Xml.Serialization;
 using System.IO;
-using MyShopExpress.ServiceReference1;
+using ATP.DataModel;
+using ATP.WCF.Svcs;
 
 namespace MyShopExpress {
     /// <summary>

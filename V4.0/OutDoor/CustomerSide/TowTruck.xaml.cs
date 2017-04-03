@@ -1,6 +1,7 @@
-﻿using ATP.Kiosk.Views;
+﻿using ATP.DataModel;
+using ATP.Kiosk.Views;
+using ATP.WCF.Svcs;
 using MyShopExpress.Common;
-using MyShopExpress.ServiceReference1;
 using System;
 using System.Linq;
 using System.Windows;

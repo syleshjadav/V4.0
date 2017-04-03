@@ -47,6 +47,8 @@ namespace ATP.WCF.Svcs {
         [OperationContract]
         int UpsertKioskInUSE(int? dealerId, string usedBy, Guid? lastUsedBy);
 
+        [OperationContract]
+        List<uspSelSvcTypeByDealerId_Result> GetServiceTypes(string dealerId);
 
         [OperationContract]
         bool LogError(string msg);

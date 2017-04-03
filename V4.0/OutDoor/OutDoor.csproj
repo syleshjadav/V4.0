@@ -143,10 +143,14 @@
     <Compile Include="CustomerSide\MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomerSide\NoPhoneApp.xaml.cs">
+      <DependentUpon>NoPhoneApp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomerSide\TowTruck.xaml.cs">
       <DependentUpon>TowTruck.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helper\ColorToSolidBrushConverter.cs" />
+    <Compile Include="Helper\ToObservableCollection.cs" />
     <Compile Include="MyShopUserControl\ValidatePinUC.xaml.cs">
       <DependentUpon>ValidatePinUC.xaml</DependentUpon>
     </Compile>
@@ -164,6 +168,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="CustomerSide\MenuWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomerSide\NoPhoneApp.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -217,43 +225,30 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\ATP.DataModel.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result.datasource" />
+    <None Include="Properties\DataSources\ATP.DataModel.uspGetKeyLockerSteps_Result.datasource" />
+    <None Include="Properties\DataSources\ATP.DataModel.uspSelAllKeyDropPegByDealerId_Result.datasource" />
+    <None Include="Properties\DataSources\ATP.DataModel.uspSelKioskInUSE_Result.datasource" />
+    <None Include="Properties\DataSources\ATP.DataModel.uspSelSvcTypeByDealerId_Result.datasource" />
+    <None Include="Properties\DataSources\ATP.DataModel.uspSelVehicleMakes_Result.datasource" />
+    <None Include="Properties\DataSources\ATP.DataModel.uspSelVehicleServiceDetails_Result.datasource" />
+    <None Include="Properties\DataSources\ATP.DataModel.uspVerifyPinGetCustInfo_Result.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\ServiceReference1\Arrays.xsd">
+    <None Include="Service References\ServiceReference1\OutDoor.wsdl" />
+    <None Include="Service References\ServiceReference1\OutDoor.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\ATP.DataModel.xsd">
+    <None Include="Service References\ServiceReference1\OutDoor1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\MyShopOutDoor.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\MyShopOutDoor.ServiceReference1.uspGetKeyLockerSteps_Result.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\MyShopOutDoor.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\MyShopOutDoor.ServiceReference1.uspSelKioskInUSE_Result.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\MyShopOutDoor.ServiceReference1.uspSelVehicleMakes_Result.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\MyShopOutDoor.ServiceReference1.uspSelVehicleServiceDetails_Result.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\MyShopOutDoor.ServiceReference1.uspVerifyPinGetCustInfo_Result.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\service.wsdl" />
-    <None Include="Service References\ServiceReference1\service.xsd">
+    <None Include="Service References\ServiceReference1\OutDoor2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\service1.xsd">
+    <None Include="Service References\ServiceReference1\OutDoor3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -286,21 +281,6 @@
     <Resource Include="Image\OpenDoor.png" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Arch.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -323,6 +303,34 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\NoPhone1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\ATP.DataModel\ATP.DataModel.csproj">
+      <Project>{AA7A2394-DF96-49C0-A6C5-47B98DA977F4}</Project>
+      <Name>ATP.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\ATP.WCF.Svcs\ATP.WCF.Svcs.csproj">
+      <Project>{325F09E7-8C02-410E-9F5D-C912A308252D}</Project>
+      <Name>ATP.WCF.Svcs</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\OutDoor.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

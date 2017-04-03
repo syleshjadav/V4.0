@@ -1,6 +1,6 @@
 ﻿using ATP.Kiosk.Views;
 using MyShopExpress.Common;
-using MyShopExpress.ServiceReference1;
+using MyShopOutDoor.ServiceReference1;
 using System;
 using System.IO;
 using System.Windows;
@@ -82,7 +82,7 @@ namespace MyShopExpress {
     }
 
     private void dispatcherTimer_Tick(object sender, EventArgs e) {
-      RefreshGrid();
+      //RefreshGrid();
     }
     private void DealerDashBoard_Loaded(object sender, RoutedEventArgs e) {
       // //satish added
@@ -111,63 +111,63 @@ namespace MyShopExpress {
       //this.Top = r.Top;
       //this.Left = r.Left;
       // satish end
-      RefreshGrid();
+      //RefreshGrid();
 
 
-      var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
-        return svcs.UpsertKioskInUSE(_dealerId, null, new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
-      });
+      //var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+      //  return svcs.UpsertKioskInUSE(_dealerId, null, new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
+      //});
 
-      dispatcherTimer.Start();
+     // dispatcherTimer.Start();
     }
 
-    private void RefreshGrid() {
-      try {
+    //private void RefreshGrid() {
+    //  try {
 
-        var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
-          return svcs.SelAllKeyDropPegByDealerId(ConfigClass.DealerId);
-        });
-        LstPerson.ItemsSource = null;
-        // LstPerson.Items.Clear();
-        LstPerson.ItemsSource = res;
-        //  LstPerson.Items.Refresh();
-      }
-      catch (Exception ex) {
-        MessageBox(ex.Message.ToString(), "Error !");
-      }
-    }
+    //    var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+    //      return svcs.SelAllKeyDropPegByDealerId(ConfigClass.DealerId);
+    //    });
+    //    LstPerson.ItemsSource = null;
+    //    // LstPerson.Items.Clear();
+    //    LstPerson.ItemsSource = res;
+    //    //  LstPerson.Items.Refresh();
+    //  }
+    //  catch (Exception ex) {
+    //    MessageBox(ex.Message.ToString(), "Error !");
+    //  }
+    //}
 
-    private void LstPerson_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+    //private void LstPerson_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 
-      if (LstPerson.SelectedItem == null) { return; }
+    //  if (LstPerson.SelectedItem == null) { return; }
 
-      var wnd = new MyShopExpress.PickUpOrDrop();
-      this.Opacity = 0.5;
-      var selectedPerson = (ServiceReference1.uspSelAllKeyDropPegByDealerId_Result)LstPerson.SelectedItem;
+    //  var wnd = new MyShopExpress.PickUpOrDrop();
+    //  this.Opacity = 0.5;
+    //  var selectedPerson = (MyShopOutDoor.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result)LstPerson.SelectedItem;
 
-      if (selectedPerson.VehicleGuid == null) {
-        //wnd.TxtMessage.Text = "Go To the web site and change the status to ready for keydrop..";
-        //wnd.cmdCustomer.Visibility = Visibility.Collapsed;
-        //wnd.cmdPlaceKeys.Visibility = Visibility.Collapsed;
-        MessageBox("Go To Service Writer's Desk, Using MyShopAuto web site and change the status to ready for keydrop..");
-      }
-      else {
-        wnd.SelectedPerson = selectedPerson;
-
-
-        var confirm = wnd.ShowDialog();
+    //  if (selectedPerson.VehicleGuid == null) {
+    //    //wnd.TxtMessage.Text = "Go To the web site and change the status to ready for keydrop..";
+    //    //wnd.cmdCustomer.Visibility = Visibility.Collapsed;
+    //    //wnd.cmdPlaceKeys.Visibility = Visibility.Collapsed;
+    //    MessageBox("Go To Service Writer's Desk, Using MyShopAuto web site and change the status to ready for keydrop..");
+    //  }
+    //  else {
+    //    wnd.SelectedPerson = selectedPerson;
 
 
-        var res1 = ATP.Common.ProxyHelper.Service<ServiceReference1.IOutDoor>.Use(svcs => {
-          return svcs.UpsertKioskInUSE(116, null, new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
-        });
+    //    var confirm = wnd.ShowDialog();
 
-      }
-      // LstPerson.UnselectAll();
-      this.Opacity = 1;
-      RefreshGrid();
 
-    }
+    //    var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+    //      return svcs.UpsertKioskInUSE(116, null, new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
+    //    });
+
+    //  }
+    //  // LstPerson.UnselectAll();
+    //  this.Opacity = 1;
+    //  RefreshGrid();
+
+    //}
 
     private static void MessageBox(string msg, string header = "Information") {
       var wnd = new AdamMessageBox();

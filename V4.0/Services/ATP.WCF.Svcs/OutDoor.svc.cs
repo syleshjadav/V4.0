@@ -59,6 +59,13 @@ namespace ATP.WCF.Svcs {
         }
 
 
+
+        public List<uspSelSvcTypeByDealerId_Result> GetServiceTypes(string dealerId)
+        {
+            return new ATP.Services.Data.VehicleService().GetServiceTypes(dealerId, null);
+        }
+
+
         public int UpsertKioskInUSE(int? dealerId, string usedBy, Guid? lastUsedBy) {
 
             return new ATP.Services.Data.OutDoor().UpsertKioskInUSE(dealerId, usedBy, lastUsedBy);
