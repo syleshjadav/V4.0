@@ -1521,6 +1521,26 @@ namespace MyShopCompInspectionSync.MyShopProxy {
             "ortToCompInspectionStatus", ReplyAction="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/UpdtExp" +
             "ortToCompInspectionStatusResponse")]
         System.Threading.Tasks.Task<int> UpdtExportToCompInspectionStatusAsync(System.Nullable<long> iD, System.Nullable<int> dealerId, System.Nullable<bool> isFailed, string failedReaon);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/LogErro" +
+            "r", ReplyAction="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/LogErro" +
+            "rResponse")]
+        bool LogError(string msg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/LogErro" +
+            "r", ReplyAction="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/LogErro" +
+            "rResponse")]
+        System.Threading.Tasks.Task<bool> LogErrorAsync(string msg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/LogInfo" +
+            "rmation", ReplyAction="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/LogInfo" +
+            "rmationResponse")]
+        bool LogInformation(string msg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/LogInfo" +
+            "rmation", ReplyAction="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection/ICompInspection/LogInfo" +
+            "rmationResponse")]
+        System.Threading.Tasks.Task<bool> LogInformationAsync(string msg);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1564,6 +1584,22 @@ namespace MyShopCompInspectionSync.MyShopProxy {
         
         public System.Threading.Tasks.Task<int> UpdtExportToCompInspectionStatusAsync(System.Nullable<long> iD, System.Nullable<int> dealerId, System.Nullable<bool> isFailed, string failedReaon) {
             return base.Channel.UpdtExportToCompInspectionStatusAsync(iD, dealerId, isFailed, failedReaon);
+        }
+        
+        public bool LogError(string msg) {
+            return base.Channel.LogError(msg);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LogErrorAsync(string msg) {
+            return base.Channel.LogErrorAsync(msg);
+        }
+        
+        public bool LogInformation(string msg) {
+            return base.Channel.LogInformation(msg);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LogInformationAsync(string msg) {
+            return base.Channel.LogInformationAsync(msg);
         }
     }
 }

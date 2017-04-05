@@ -8,7 +8,7 @@ using System.Text;
 
 namespace ATP.WCF.Svcs
 {
-  [ServiceContract(Name = "ICompInspection", Namespace = "http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection")]
+    [ServiceContract(Name = "ICompInspection", Namespace = "http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection")]
 
     public interface ICompInspection
     {
@@ -18,8 +18,10 @@ namespace ATP.WCF.Svcs
 
         [OperationContract]
         int UpdtExportToCompInspectionStatus(Nullable<long> iD, Nullable<int> dealerId, Nullable<bool> isFailed, string failedReaon);
+
+        [OperationContract]
+        bool LogError(string msg);
+        [OperationContract]
+        bool LogInformation(string msg);
     }
-
-
-
 }

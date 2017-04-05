@@ -447,12 +447,13 @@
             // 
             this.cmdSendData.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSendData.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.cmdSendData.Location = new System.Drawing.Point(727, 527);
+            this.cmdSendData.Location = new System.Drawing.Point(727, 591);
             this.cmdSendData.Name = "cmdSendData";
-            this.cmdSendData.Size = new System.Drawing.Size(215, 74);
+            this.cmdSendData.Size = new System.Drawing.Size(19, 10);
             this.cmdSendData.TabIndex = 32;
             this.cmdSendData.Text = "Send Data";
             this.cmdSendData.UseVisualStyleBackColor = true;
+            this.cmdSendData.Visible = false;
             this.cmdSendData.Click += new System.EventHandler(this.cmdSendData_Click);
             // 
             // txtCounty
@@ -1236,7 +1237,7 @@
             this.lblErrorMsg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorMsg.ForeColor = System.Drawing.Color.Blue;
-            this.lblErrorMsg.Location = new System.Drawing.Point(635, 507);
+            this.lblErrorMsg.Location = new System.Drawing.Point(549, 527);
             this.lblErrorMsg.Name = "lblErrorMsg";
             this.lblErrorMsg.Size = new System.Drawing.Size(46, 24);
             this.lblErrorMsg.TabIndex = 68;
@@ -1357,7 +1358,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Shop Version 3.0";
+            this.Text = "Shop Version 3.2 -> 04-05-2017";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);

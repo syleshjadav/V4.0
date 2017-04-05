@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Bg6tDvQ8YDsmVkS45T6jAWh5TdQ=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="4lCzoEwnRH7Huwd+KJzaDxHtZ1c=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="ServicesFirstEndPoint1">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="ServicesFirstEndPoint1" contract="MyShopProxy.ICompInspection" bindingType="basicHttpBinding" address="http://localhost:1096/CompInspection.svc" bindingConfiguration="ServicesFirstEndPoint1">
+    <endpoint name="ServicesFirstEndPoint1" contract="MyShopProxy.ICompInspection" bindingType="basicHttpBinding" address="http://myshopauto.com/ATPServices/CompInspection.svc" bindingConfiguration="ServicesFirstEndPoint1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:1096/CompInspection.svc</serializedValue>
+          <serializedValue>http://myshopauto.com/ATPServices/CompInspection.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

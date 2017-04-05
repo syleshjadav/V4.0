@@ -16,7 +16,7 @@
     <PublishUrl>C:\Sites\Comp\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
@@ -31,7 +31,7 @@
     <SuiteName>Suite</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>19</ApplicationRevision>
+    <ApplicationRevision>25</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -127,15 +127,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\MyShopProxy\CompInspection.wsdl" />
-    <None Include="Service References\MyShopProxy\CompInspection.xsd">
+    <None Include="Service References\MyShopProxy\CompInspection2.wsdl" />
+    <None Include="Service References\MyShopProxy\CompInspection21.wsdl" />
+    <None Include="Service References\MyShopProxy\CompInspection3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MyShopProxy\CompInspection1.wsdl" />
-    <None Include="Service References\MyShopProxy\CompInspection1.xsd">
+    <None Include="Service References\MyShopProxy\CompInspection31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MyShopProxy\CompInspection2.xsd">
+    <None Include="Service References\MyShopProxy\CompInspection32.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\MyShopProxy\MyShopCompInspectionSync.MyShopProxy.uspSelAllCompInspectionExportData_Result.datasource">
@@ -150,9 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\MyShopProxy\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\MyShopProxy\CompInspection.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\MyShopProxy\configuration91.svcinfo" />
@@ -197,6 +194,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MyShopProxy\CompInspection1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

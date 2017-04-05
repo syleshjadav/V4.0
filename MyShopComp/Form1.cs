@@ -139,9 +139,13 @@ namespace MyShopComp
                 }
 
             }
-            catch
+            catch(Exception  ex)
             {
                 MessageBox.Show("Error in MyShopAuto App.. Contact ASAP");
+                var res1 = ATP.Common.ProxyHelper.Service<ICompInspection>.Use(svcs =>
+                {
+                    return svcs.LogError(ex.StackTrace);
+                });
                 return;
 
             }
@@ -521,7 +525,12 @@ namespace MyShopComp
             }
             catch (Exception ex)
             {
-                Console.Write(ex.Message.ToString());
+                //Console.Write(ex.Message.ToString());
+                MessageBox.Show(ex.Message);
+                var res1 = ATP.Common.ProxyHelper.Service<ICompInspection>.Use(svcs =>
+                {
+                    return svcs.LogError(ex.StackTrace);
+                });
             }
         }
 
@@ -1183,6 +1192,12 @@ namespace MyShopComp
             }
             catch (AdsException ads)
             {
+                MessageBox.Show(ads.StackTrace);
+                var res2 = ATP.Common.ProxyHelper.Service<ICompInspection>.Use(svcs =>
+                {
+                    return svcs.LogError(ads.StackTrace);
+                });
+
                 if (ads.Number == 5035)
                 {
                     lblErrorMsg.Text = "SIR IN EDIT MODE. Pls close......";
@@ -1190,6 +1205,8 @@ namespace MyShopComp
                 else
                 {
                     lblErrorMsg.Text = ads.Message;
+
+
                     var res1 = ATP.Common.ProxyHelper.Service<ICompInspection>.Use(svcs =>
                     {
                         return svcs.UpdtExportToCompInspectionStatus(cust.Id, dealerId, true, ads.StackTrace);
@@ -1198,12 +1215,19 @@ namespace MyShopComp
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 // print the exception message
                 //MessageBox.Show(e.Message);
                 lblErrorMsg.Text = ex.Message;
                 var res1 = ATP.Common.ProxyHelper.Service<ICompInspection>.Use(svcs =>
                 {
                     return svcs.UpdtExportToCompInspectionStatus(cust.Id, dealerId, true, ex.StackTrace);
+                });
+
+
+                var res2 = ATP.Common.ProxyHelper.Service<ICompInspection>.Use(svcs =>
+                {
+                    return svcs.LogError(ex.StackTrace);
                 });
             }
 
