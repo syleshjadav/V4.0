@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyShopExpress.ServiceReference1 {
+namespace MyShopOutDoorDealerSide.ServiceReference1 {
     using System.Runtime.Serialization;
     using System;
     
@@ -2485,39 +2485,484 @@ namespace MyShopExpress.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="uspSelSvcTypeByDealerId_Result", Namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel")]
+    [System.SerializableAttribute()]
+    public partial class uspSelSvcTypeByDealerId_Result : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ADAMCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BackgroundColorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<byte> BayTypeIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> CostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DMSCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DealerCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DealerIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailDescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ExpressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImageHttpPathField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImageOSPathField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsEnabledValField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsPackageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsSelectedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LongNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double OpacityValField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> PackageCostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] PictureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool PromotionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte SequenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<byte> ServiceLevelIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ServiceTypeIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ShortNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ShowDetailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short TimeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ADAMCode {
+            get {
+                return this.ADAMCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ADAMCodeField, value) != true)) {
+                    this.ADAMCodeField = value;
+                    this.RaisePropertyChanged("ADAMCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BackgroundColor {
+            get {
+                return this.BackgroundColorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BackgroundColorField, value) != true)) {
+                    this.BackgroundColorField = value;
+                    this.RaisePropertyChanged("BackgroundColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<byte> BayTypeId {
+            get {
+                return this.BayTypeIdField;
+            }
+            set {
+                if ((this.BayTypeIdField.Equals(value) != true)) {
+                    this.BayTypeIdField = value;
+                    this.RaisePropertyChanged("BayTypeId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> Cost {
+            get {
+                return this.CostField;
+            }
+            set {
+                if ((this.CostField.Equals(value) != true)) {
+                    this.CostField = value;
+                    this.RaisePropertyChanged("Cost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DMSCode {
+            get {
+                return this.DMSCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DMSCodeField, value) != true)) {
+                    this.DMSCodeField = value;
+                    this.RaisePropertyChanged("DMSCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DealerCode {
+            get {
+                return this.DealerCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DealerCodeField, value) != true)) {
+                    this.DealerCodeField = value;
+                    this.RaisePropertyChanged("DealerCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int DealerId {
+            get {
+                return this.DealerIdField;
+            }
+            set {
+                if ((this.DealerIdField.Equals(value) != true)) {
+                    this.DealerIdField = value;
+                    this.RaisePropertyChanged("DealerId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmailDescription {
+            get {
+                return this.EmailDescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailDescriptionField, value) != true)) {
+                    this.EmailDescriptionField = value;
+                    this.RaisePropertyChanged("EmailDescription");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Express {
+            get {
+                return this.ExpressField;
+            }
+            set {
+                if ((this.ExpressField.Equals(value) != true)) {
+                    this.ExpressField = value;
+                    this.RaisePropertyChanged("Express");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImageHttpPath {
+            get {
+                return this.ImageHttpPathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageHttpPathField, value) != true)) {
+                    this.ImageHttpPathField = value;
+                    this.RaisePropertyChanged("ImageHttpPath");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImageOSPath {
+            get {
+                return this.ImageOSPathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageOSPathField, value) != true)) {
+                    this.ImageOSPathField = value;
+                    this.RaisePropertyChanged("ImageOSPath");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsEnabledVal {
+            get {
+                return this.IsEnabledValField;
+            }
+            set {
+                if ((this.IsEnabledValField.Equals(value) != true)) {
+                    this.IsEnabledValField = value;
+                    this.RaisePropertyChanged("IsEnabledVal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsPackage {
+            get {
+                return this.IsPackageField;
+            }
+            set {
+                if ((this.IsPackageField.Equals(value) != true)) {
+                    this.IsPackageField = value;
+                    this.RaisePropertyChanged("IsPackage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsSelected {
+            get {
+                return this.IsSelectedField;
+            }
+            set {
+                if ((this.IsSelectedField.Equals(value) != true)) {
+                    this.IsSelectedField = value;
+                    this.RaisePropertyChanged("IsSelected");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LongName {
+            get {
+                return this.LongNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LongNameField, value) != true)) {
+                    this.LongNameField = value;
+                    this.RaisePropertyChanged("LongName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double OpacityVal {
+            get {
+                return this.OpacityValField;
+            }
+            set {
+                if ((this.OpacityValField.Equals(value) != true)) {
+                    this.OpacityValField = value;
+                    this.RaisePropertyChanged("OpacityVal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> PackageCost {
+            get {
+                return this.PackageCostField;
+            }
+            set {
+                if ((this.PackageCostField.Equals(value) != true)) {
+                    this.PackageCostField = value;
+                    this.RaisePropertyChanged("PackageCost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Picture {
+            get {
+                return this.PictureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PictureField, value) != true)) {
+                    this.PictureField = value;
+                    this.RaisePropertyChanged("Picture");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Promotion {
+            get {
+                return this.PromotionField;
+            }
+            set {
+                if ((this.PromotionField.Equals(value) != true)) {
+                    this.PromotionField = value;
+                    this.RaisePropertyChanged("Promotion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte Sequence {
+            get {
+                return this.SequenceField;
+            }
+            set {
+                if ((this.SequenceField.Equals(value) != true)) {
+                    this.SequenceField = value;
+                    this.RaisePropertyChanged("Sequence");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<byte> ServiceLevelId {
+            get {
+                return this.ServiceLevelIdField;
+            }
+            set {
+                if ((this.ServiceLevelIdField.Equals(value) != true)) {
+                    this.ServiceLevelIdField = value;
+                    this.RaisePropertyChanged("ServiceLevelId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ServiceTypeId {
+            get {
+                return this.ServiceTypeIdField;
+            }
+            set {
+                if ((this.ServiceTypeIdField.Equals(value) != true)) {
+                    this.ServiceTypeIdField = value;
+                    this.RaisePropertyChanged("ServiceTypeId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ShortName {
+            get {
+                return this.ShortNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ShortNameField, value) != true)) {
+                    this.ShortNameField = value;
+                    this.RaisePropertyChanged("ShortName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ShowDetail {
+            get {
+                return this.ShowDetailField;
+            }
+            set {
+                if ((this.ShowDetailField.Equals(value) != true)) {
+                    this.ShowDetailField = value;
+                    this.RaisePropertyChanged("ShowDetail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short Time {
+            get {
+                return this.TimeField;
+            }
+            set {
+                if ((this.TimeField.Equals(value) != true)) {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IOutDoor")]
     public interface IOutDoor {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/VerifyPinGetCustInfo", ReplyAction="http://tempuri.org/IOutDoor/VerifyPinGetCustInfoResponse")]
-        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin);
+        System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/VerifyPinGetCustInfo", ReplyAction="http://tempuri.org/IOutDoor/VerifyPinGetCustInfoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result>> VerifyPinGetCustInfoAsync(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspVerifyPinGetCustInfo_Result>> VerifyPinGetCustInfoAsync(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/GetMakes", ReplyAction="http://tempuri.org/IOutDoor/GetMakesResponse")]
-        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleMakes_Result> GetMakes(string year, string dealerId);
+        System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelVehicleMakes_Result> GetMakes(string year, string dealerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/GetMakes", ReplyAction="http://tempuri.org/IOutDoor/GetMakesResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleMakes_Result>> GetMakesAsync(string year, string dealerId);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelVehicleMakes_Result>> GetMakesAsync(string year, string dealerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/InsDealerMsg", ReplyAction="http://tempuri.org/IOutDoor/InsDealerMsgResponse")]
-        int InsDealerMsg(MyShopExpress.ServiceReference1.uspSelDealerMsg_Result x);
+        int InsDealerMsg(MyShopOutDoorDealerSide.ServiceReference1.uspSelDealerMsg_Result x);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/InsDealerMsg", ReplyAction="http://tempuri.org/IOutDoor/InsDealerMsgResponse")]
-        System.Threading.Tasks.Task<int> InsDealerMsgAsync(MyShopExpress.ServiceReference1.uspSelDealerMsg_Result x);
+        System.Threading.Tasks.Task<int> InsDealerMsgAsync(MyShopOutDoorDealerSide.ServiceReference1.uspSelDealerMsg_Result x);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/GetKeyLockerSteps", ReplyAction="http://tempuri.org/IOutDoor/GetKeyLockerStepsResponse")]
-        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspGetKeyLockerSteps_Result> GetKeyLockerSteps(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp);
+        System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspGetKeyLockerSteps_Result> GetKeyLockerSteps(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/GetKeyLockerSteps", ReplyAction="http://tempuri.org/IOutDoor/GetKeyLockerStepsResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspGetKeyLockerSteps_Result>> GetKeyLockerStepsAsync(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspGetKeyLockerSteps_Result>> GetKeyLockerStepsAsync(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelAllKeyDropPegByDealerId", ReplyAction="http://tempuri.org/IOutDoor/SelAllKeyDropPegByDealerIdResponse")]
-        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result> SelAllKeyDropPegByDealerId(System.Nullable<int> dealerId);
+        System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result> SelAllKeyDropPegByDealerId(System.Nullable<int> dealerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelAllKeyDropPegByDealerId", ReplyAction="http://tempuri.org/IOutDoor/SelAllKeyDropPegByDealerIdResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result>> SelAllKeyDropPegByDealerIdAsync(System.Nullable<int> dealerId);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result>> SelAllKeyDropPegByDealerIdAsync(System.Nullable<int> dealerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdateVehiceServiceStatus", ReplyAction="http://tempuri.org/IOutDoor/UpdateVehiceServiceStatusResponse")]
         System.Collections.Generic.List<string> UpdateVehiceServiceStatus(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGUID, System.Nullable<System.Guid> vehicleGUID, System.Nullable<System.Guid> personGUID, System.Nullable<byte> statusId, System.Nullable<System.Guid> updatedBy);
@@ -2526,36 +2971,42 @@ namespace MyShopExpress.ServiceReference1 {
         System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdateVehiceServiceStatusAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGUID, System.Nullable<System.Guid> vehicleGUID, System.Nullable<System.Guid> personGUID, System.Nullable<byte> statusId, System.Nullable<System.Guid> updatedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckResponse")]
-        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId);
+        System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer", ReplyAction="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerRes" +
             "ponse")]
-        System.Collections.Generic.List<string> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId);
+        System.Collections.Generic.List<string> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer", ReplyAction="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerRes" +
             "ponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelVehicleServiceDetails", ReplyAction="http://tempuri.org/IOutDoor/SelVehicleServiceDetailsResponse")]
-        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt);
+        System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelVehicleServiceDetails", ReplyAction="http://tempuri.org/IOutDoor/SelVehicleServiceDetailsResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleServiceDetails_Result>> SelVehicleServiceDetailsAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelVehicleServiceDetails_Result>> SelVehicleServiceDetailsAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelKioskInUSE", ReplyAction="http://tempuri.org/IOutDoor/SelKioskInUSEResponse")]
-        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelKioskInUSE_Result> SelKioskInUSE(System.Nullable<int> dealerId);
+        System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelKioskInUSE_Result> SelKioskInUSE(System.Nullable<int> dealerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelKioskInUSE", ReplyAction="http://tempuri.org/IOutDoor/SelKioskInUSEResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelKioskInUSE_Result>> SelKioskInUSEAsync(System.Nullable<int> dealerId);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelKioskInUSE_Result>> SelKioskInUSEAsync(System.Nullable<int> dealerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpsertKioskInUSE", ReplyAction="http://tempuri.org/IOutDoor/UpsertKioskInUSEResponse")]
         int UpsertKioskInUSE(System.Nullable<int> dealerId, string usedBy, System.Nullable<System.Guid> lastUsedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpsertKioskInUSE", ReplyAction="http://tempuri.org/IOutDoor/UpsertKioskInUSEResponse")]
         System.Threading.Tasks.Task<int> UpsertKioskInUSEAsync(System.Nullable<int> dealerId, string usedBy, System.Nullable<System.Guid> lastUsedBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/GetServiceTypes", ReplyAction="http://tempuri.org/IOutDoor/GetServiceTypesResponse")]
+        System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelSvcTypeByDealerId_Result> GetServiceTypes(string dealerId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/GetServiceTypes", ReplyAction="http://tempuri.org/IOutDoor/GetServiceTypesResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelSvcTypeByDealerId_Result>> GetServiceTypesAsync(string dealerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/LogError", ReplyAction="http://tempuri.org/IOutDoor/LogErrorResponse")]
         bool LogError(string msg);
@@ -2577,12 +3028,12 @@ namespace MyShopExpress.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IOutDoorChannel : MyShopExpress.ServiceReference1.IOutDoor, System.ServiceModel.IClientChannel {
+    public interface IOutDoorChannel : MyShopOutDoorDealerSide.ServiceReference1.IOutDoor, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class OutDoorClient : System.ServiceModel.ClientBase<MyShopExpress.ServiceReference1.IOutDoor>, MyShopExpress.ServiceReference1.IOutDoor {
+    public partial class OutDoorClient : System.ServiceModel.ClientBase<MyShopOutDoorDealerSide.ServiceReference1.IOutDoor>, MyShopOutDoorDealerSide.ServiceReference1.IOutDoor {
         
         public OutDoorClient() {
         }
@@ -2603,43 +3054,43 @@ namespace MyShopExpress.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin) {
+        public System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin) {
             return base.Channel.VerifyPinGetCustInfo(dealerId, isPickUpOrDrop, keyLockerPin);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result>> VerifyPinGetCustInfoAsync(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspVerifyPinGetCustInfo_Result>> VerifyPinGetCustInfoAsync(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin) {
             return base.Channel.VerifyPinGetCustInfoAsync(dealerId, isPickUpOrDrop, keyLockerPin);
         }
         
-        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleMakes_Result> GetMakes(string year, string dealerId) {
+        public System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelVehicleMakes_Result> GetMakes(string year, string dealerId) {
             return base.Channel.GetMakes(year, dealerId);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleMakes_Result>> GetMakesAsync(string year, string dealerId) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelVehicleMakes_Result>> GetMakesAsync(string year, string dealerId) {
             return base.Channel.GetMakesAsync(year, dealerId);
         }
         
-        public int InsDealerMsg(MyShopExpress.ServiceReference1.uspSelDealerMsg_Result x) {
+        public int InsDealerMsg(MyShopOutDoorDealerSide.ServiceReference1.uspSelDealerMsg_Result x) {
             return base.Channel.InsDealerMsg(x);
         }
         
-        public System.Threading.Tasks.Task<int> InsDealerMsgAsync(MyShopExpress.ServiceReference1.uspSelDealerMsg_Result x) {
+        public System.Threading.Tasks.Task<int> InsDealerMsgAsync(MyShopOutDoorDealerSide.ServiceReference1.uspSelDealerMsg_Result x) {
             return base.Channel.InsDealerMsgAsync(x);
         }
         
-        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspGetKeyLockerSteps_Result> GetKeyLockerSteps(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp) {
+        public System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspGetKeyLockerSteps_Result> GetKeyLockerSteps(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp) {
             return base.Channel.GetKeyLockerSteps(dealerId, keyLockerId, IsDropOrPickUp);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspGetKeyLockerSteps_Result>> GetKeyLockerStepsAsync(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspGetKeyLockerSteps_Result>> GetKeyLockerStepsAsync(System.Nullable<int> dealerId, System.Nullable<byte> keyLockerId, System.Nullable<bool> IsDropOrPickUp) {
             return base.Channel.GetKeyLockerStepsAsync(dealerId, keyLockerId, IsDropOrPickUp);
         }
         
-        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result> SelAllKeyDropPegByDealerId(System.Nullable<int> dealerId) {
+        public System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result> SelAllKeyDropPegByDealerId(System.Nullable<int> dealerId) {
             return base.Channel.SelAllKeyDropPegByDealerId(dealerId);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result>> SelAllKeyDropPegByDealerIdAsync(System.Nullable<int> dealerId) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result>> SelAllKeyDropPegByDealerIdAsync(System.Nullable<int> dealerId) {
             return base.Channel.SelAllKeyDropPegByDealerIdAsync(dealerId);
         }
         
@@ -2651,35 +3102,35 @@ namespace MyShopExpress.ServiceReference1 {
             return base.Channel.UpdateVehiceServiceStatusAsync(dealerId, vehicleServiceGUID, vehicleGUID, personGUID, statusId, updatedBy);
         }
         
-        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId) {
-            return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruck(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+        public System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
+            return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruck(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId) {
-            return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruckAsync(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
+            return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruckAsync(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy);
         }
         
-        public System.Collections.Generic.List<string> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId) {
-            return base.Channel.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+        public System.Collections.Generic.List<string> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
+            return base.Channel.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId) {
-            return base.Channel.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId);
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
+            return base.Channel.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy);
         }
         
-        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt) {
+        public System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt) {
             return base.Channel.SelVehicleServiceDetails(dealerId, vehicleServiceGuid, vehicleGuid, personGuid, svcFromDt, svcToDt);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleServiceDetails_Result>> SelVehicleServiceDetailsAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelVehicleServiceDetails_Result>> SelVehicleServiceDetailsAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt) {
             return base.Channel.SelVehicleServiceDetailsAsync(dealerId, vehicleServiceGuid, vehicleGuid, personGuid, svcFromDt, svcToDt);
         }
         
-        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelKioskInUSE_Result> SelKioskInUSE(System.Nullable<int> dealerId) {
+        public System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelKioskInUSE_Result> SelKioskInUSE(System.Nullable<int> dealerId) {
             return base.Channel.SelKioskInUSE(dealerId);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelKioskInUSE_Result>> SelKioskInUSEAsync(System.Nullable<int> dealerId) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelKioskInUSE_Result>> SelKioskInUSEAsync(System.Nullable<int> dealerId) {
             return base.Channel.SelKioskInUSEAsync(dealerId);
         }
         
@@ -2689,6 +3140,14 @@ namespace MyShopExpress.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> UpsertKioskInUSEAsync(System.Nullable<int> dealerId, string usedBy, System.Nullable<System.Guid> lastUsedBy) {
             return base.Channel.UpsertKioskInUSEAsync(dealerId, usedBy, lastUsedBy);
+        }
+        
+        public System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelSvcTypeByDealerId_Result> GetServiceTypes(string dealerId) {
+            return base.Channel.GetServiceTypes(dealerId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopOutDoorDealerSide.ServiceReference1.uspSelSvcTypeByDealerId_Result>> GetServiceTypesAsync(string dealerId) {
+            return base.Channel.GetServiceTypesAsync(dealerId);
         }
         
         public bool LogError(string msg) {

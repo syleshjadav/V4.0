@@ -150,7 +150,6 @@
       <DependentUpon>TowTruck.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helper\ColorToSolidBrushConverter.cs" />
-    <Compile Include="Helper\ToObservableCollection.cs" />
     <Compile Include="MyShopUserControl\ValidatePinUC.xaml.cs">
       <DependentUpon>ValidatePinUC.xaml</DependentUpon>
     </Compile>
@@ -332,6 +331,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -136,17 +136,19 @@
       <DependentUpon>AdamMessageBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\ConfigClass.cs" />
-    <Compile Include="Common\ProxyHelper.cs" />
-    <Compile Include="CustomerSide\CustomerKeyDropWindow.xaml.cs">
-      <DependentUpon>CustomerKeyDropWindow.xaml</DependentUpon>
+    <Compile Include="NewExpressCustomer.xaml.cs">
+      <DependentUpon>NewExpressCustomer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomerSide\MenuWindow.xaml.cs">
-      <DependentUpon>MenuWindow.xaml</DependentUpon>
+    <Compile Include="PhoneAppCustomer.xaml.cs">
+      <DependentUpon>PhoneAppCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomerSide\TowTruck.xaml.cs">
       <DependentUpon>TowTruck.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helper\ColorToSolidBrushConverter.cs" />
+    <Compile Include="MenuWindow.xaml.cs">
+      <DependentUpon>MenuWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyShopUserControl\ValidatePinUC.xaml.cs">
       <DependentUpon>ValidatePinUC.xaml</DependentUpon>
     </Compile>
@@ -159,11 +161,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="CustomerSide\CustomerKeyDropWindow.xaml">
+    <Page Include="NewExpressCustomer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="CustomerSide\MenuWindow.xaml">
+    <Page Include="PhoneAppCustomer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -171,17 +173,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DealerDashBoard.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DealerDashBoard.xaml.cs">
-      <DependentUpon>DealerDashBoard.xaml</DependentUpon>
-    </Compile>
+    <Page Include="MenuWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MyShopUserControl\ValidatePinUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -238,6 +237,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.uspSelKioskInUSE_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.uspSelSvcTypeByDealerId_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.uspSelVehicleMakes_Result.datasource">
@@ -323,6 +325,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\NoPhone1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\ExpressCheckIn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyShopOutDoorDealerSide\MyShopOutDoorDealerSide.csproj">
+      <Project>{5676813E-A73F-4C69-87AB-CF374D2B457B}</Project>
+      <Name>MyShopOutDoorDealerSide</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

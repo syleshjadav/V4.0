@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(MyShopWeb.Startup))]
-namespace MyShopWeb
+[assembly: OwinStartupAttribute(typeof(Authentication.Startup))]
+namespace Authentication
 {
     public partial class Startup
     {

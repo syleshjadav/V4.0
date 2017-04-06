@@ -21,15 +21,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://www.myshopauto.com/atpservices/OutDoor.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:50000/OutDoor.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="OutDoor1.disco" MetadataType="Disco" ID="d36cb3fd-eee7-41ae-b00d-bb56dec29f84" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/OutDoor.svc?disco" />
-    <MetadataFile FileName="OutDoor4.xsd" MetadataType="Schema" ID="3f40d561-cfb8-4c12-9c65-71d693969a48" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd0" />
-    <MetadataFile FileName="OutDoor41.xsd" MetadataType="Schema" ID="d1201d44-bb56-46a9-9491-10508b0c4127" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd1" />
-    <MetadataFile FileName="OutDoor42.xsd" MetadataType="Schema" ID="8cbca734-781b-434d-b8c0-c799d8e57883" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd2" />
-    <MetadataFile FileName="OutDoor43.xsd" MetadataType="Schema" ID="9d0067bd-dcfe-4223-908f-e3cd871890a8" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd3" />
-    <MetadataFile FileName="OutDoor1.wsdl" MetadataType="Wsdl" ID="b1c5493c-c7df-4ef9-924c-437e71930920" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/OutDoor.svc?wsdl" />
+    <MetadataFile FileName="OutDoor.xsd" MetadataType="Schema" ID="d7f103c6-1b59-4a04-8adf-d45975b8ec56" SourceId="1" SourceUrl="http://localhost:50000/OutDoor.svc?xsd=xsd2" />
+    <MetadataFile FileName="OutDoor1.xsd" MetadataType="Schema" ID="2d089741-1a4e-4006-ad13-e8edca0393e0" SourceId="1" SourceUrl="http://localhost:50000/OutDoor.svc?xsd=xsd0" />
+    <MetadataFile FileName="OutDoor2.xsd" MetadataType="Schema" ID="049139f2-007f-48cc-9361-e20deca46d9f" SourceId="1" SourceUrl="http://localhost:50000/OutDoor.svc?xsd=xsd1" />
+    <MetadataFile FileName="OutDoor3.xsd" MetadataType="Schema" ID="55207994-91c1-470e-a33f-d099fd069bec" SourceId="1" SourceUrl="http://localhost:50000/OutDoor.svc?xsd=xsd3" />
+    <MetadataFile FileName="OutDoor.disco" MetadataType="Disco" ID="aadf0403-9ddb-4f06-a126-1a17565328f1" SourceId="1" SourceUrl="http://localhost:50000/OutDoor.svc?disco" />
+    <MetadataFile FileName="OutDoor.wsdl" MetadataType="Wsdl" ID="088b81b2-0d07-4c24-b83e-73f98d640bc3" SourceId="1" SourceUrl="http://localhost:50000/OutDoor.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

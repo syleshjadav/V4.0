@@ -9,7 +9,8 @@ using System.Windows.Forms;
 using System.Windows.Navigation;
 using System.Windows.Threading;
 using System.Xml;
-
+using MyShopOutDoorDealerSide;
+using MyShopOutDoorDealerSide.ServiceReference1;
 
 namespace MyShopExpress {
 
@@ -109,7 +110,7 @@ namespace MyShopExpress {
             RefreshGrid();
 
 
-            var res1 = ATP.Common.ProxyHelper.Service<MyShopExpress.ServiceReference1.IOutDoor>.Use(svcs => {
+            var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
                 return svcs.UpsertKioskInUSE(_dealerId, null, new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
             });
 
@@ -119,7 +120,7 @@ namespace MyShopExpress {
         private void RefreshGrid() {
             try {
 
-                var res = ATP.Common.ProxyHelper.Service<MyShopExpress.ServiceReference1.IOutDoor>.Use(svcs => {
+                var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
                     return svcs.SelAllKeyDropPegByDealerId(ConfigClass.DealerId);
                 });
                 LstPerson.ItemsSource = null;
@@ -138,7 +139,7 @@ namespace MyShopExpress {
 
             var wnd = new MyShopExpress.DealerSide.PickUpOrDrop();
             this.Opacity = 0.5;
-            var selectedPerson = (MyShopExpress.ServiceReference1.uspSelAllKeyDropPegByDealerId_Result)LstPerson.SelectedItem;
+            var selectedPerson = (uspSelAllKeyDropPegByDealerId_Result)LstPerson.SelectedItem;
 
             if (selectedPerson.VehicleGuid == null) {
                 //wnd.TxtMessage.Text = "Go To the web site and change the status to ready for keydrop..";
@@ -153,7 +154,7 @@ namespace MyShopExpress {
                 var confirm = wnd.ShowDialog();
 
                
-                    var res1 = ATP.Common.ProxyHelper.Service<MyShopExpress.ServiceReference1.IOutDoor>.Use(svcs => {
+                    var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
                         return svcs.UpsertKioskInUSE(116, null, new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
                     });
                 

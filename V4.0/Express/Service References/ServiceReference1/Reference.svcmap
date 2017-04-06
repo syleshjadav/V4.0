@@ -21,14 +21,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://www.myshopauto.com/atpservices/OutDoor.svc/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://www.myshopauto.com/atpservices/OutDoor.svc/mex/mex/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="9919e32b-a1e8-469d-bb0d-7cc703365ea8" SourceId="1" SourceUrl="http://www.myshopauto.com/atpservices/OutDoor.svc/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="85b768f6-ec3b-4031-b4b5-c463702a832b" SourceId="1" SourceUrl="http://www.myshopauto.com/atpservices/OutDoor.svc/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="b19f6708-9dd8-48fb-901a-6268872f290b" SourceId="1" SourceUrl="http://www.myshopauto.com/atpservices/OutDoor.svc/mex" />
-    <MetadataFile FileName="ATP.DataModel.xsd" MetadataType="Schema" ID="4396601c-cd48-4e7d-9cd6-68669fe6bf5b" SourceId="1" SourceUrl="http://www.myshopauto.com/atpservices/OutDoor.svc/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="228af7e3-b309-4a1c-a439-4a0665c61d51" SourceId="1" SourceUrl="http://www.myshopauto.com/atpservices/OutDoor.svc/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="9ee2223d-d492-402c-a852-28a2a74a0675" SourceId="1" SourceUrl="http://www.myshopauto.com/atpservices/OutDoor.svc/mex/mex/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="dc4e2078-bff4-4457-9d63-d678d5eba751" SourceId="1" SourceUrl="http://www.myshopauto.com/atpservices/OutDoor.svc/mex/mex/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="8a7745be-9ead-456c-85db-2687b1d1b3fd" SourceId="1" SourceUrl="http://www.myshopauto.com/atpservices/OutDoor.svc/mex/mex/mex" />
+    <MetadataFile FileName="ATP.DataModel.xsd" MetadataType="Schema" ID="7cfdcf6e-41c1-46a3-bff1-057fb364b32e" SourceId="1" SourceUrl="http://www.myshopauto.com/atpservices/OutDoor.svc/mex/mex/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="34188ef5-4ab6-4c97-894b-ed0330409346" SourceId="1" SourceUrl="http://www.myshopauto.com/atpservices/OutDoor.svc/mex/mex/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

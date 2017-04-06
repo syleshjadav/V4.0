@@ -54,7 +54,6 @@ namespace MyShopExpress {
 
             var FindHomeAndMoveStepsReading = SelectedPerson.NoOfRotationDealer;
 
-            ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading);
             byte? assignedKeyLockerBucketId = Convert.ToByte(SelectedPerson.NoOfRotationDealer.Substring(2, 2));
 
             if (SelectedPerson.ServiceStatus == 4) {
@@ -62,11 +61,9 @@ namespace MyShopExpress {
             }
             else if (SelectedPerson.ServiceStatus == 10) {
 
-                ConfigClass.SendCommandToBoard("BC0059000");//BC0060000
                 TowTruckOrPhoneDrop(11);
             }
             else {
-                ConfigClass.SendCommandToBoard("KD0075000");
                 // sylesh
                 UpdateVehicleServiceStatus(3);//Currently being serviced
             }
@@ -156,15 +153,13 @@ namespace MyShopExpress {
             //ConfigClass.SendCommandToBoard("DL001000");
 
             //  MessageBox("DL005000", "test");
-            ConfigClass.SendCommandToBoard("DL005000");
+            
             var res = MessageBox("The Door is now Open please place the keys and close the door.", "Attention");
 
             var FindHomeAndMoveStepsReading = SelectedPerson.NoOfRotationDealer;
-            ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading);
+            
 
-            // ConfigClass.SendCommandToBoard("DL003000");
-
-            //Thread.Sleep(TimeSpan.FromHours(1));
+            
         }
 
         private void cmdPlaceKeys_Click(object sender, RoutedEventArgs e) {
@@ -182,7 +177,6 @@ namespace MyShopExpress {
                 //MessageBox("key placed");
 
 
-                ConfigClass.SendCommandToBoard("KC00170000"); // key floor
                 
 
                 TowTruckOrPhoneDrop(SelectedPerson.ServiceStatus);

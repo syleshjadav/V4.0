@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using MyShopWeb.Models;
+using Authentication.Models;
 
-namespace MyShopWeb.Controllers
+namespace Authentication.Controllers
 {
     [Authorize]
     public class ManageController : Controller

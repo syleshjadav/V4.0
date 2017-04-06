@@ -186,6 +186,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetServiceTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="GetServiceTypesResult" nillable="true" type="q21:ArrayOfuspSelSvcTypeByDealerId_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="LogError">
     <xs:complexType>
       <xs:sequence>

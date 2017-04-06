@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace MyShopWeb
+namespace Authentication
 {
     public class RouteConfig
     {
@@ -19,7 +19,5 @@ namespace MyShopWeb
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
-
-
     }
 }

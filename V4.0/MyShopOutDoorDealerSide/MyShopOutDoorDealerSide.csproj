@@ -200,6 +200,9 @@
     <None Include="Service References\ServiceReference1\MyShopOutDoorDealerSide.ServiceReference1.uspSelKioskInUSE_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServiceReference1\MyShopOutDoorDealerSide.ServiceReference1.uspSelSvcTypeByDealerId_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference1\MyShopOutDoorDealerSide.ServiceReference1.uspSelVehicleMakes_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -208,19 +211,6 @@
     </None>
     <None Include="Service References\ServiceReference1\MyShopOutDoorDealerSide.ServiceReference1.uspVerifyPinGetCustInfo_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\OutDoor1.wsdl" />
-    <None Include="Service References\ServiceReference1\OutDoor4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\OutDoor41.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\OutDoor42.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\OutDoor43.xsd">
-      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -261,19 +251,38 @@
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\ServiceReference1\OutDoor.wsdl" />
+    <None Include="Service References\ServiceReference1\OutDoor.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\OutDoor1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\OutDoor2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\OutDoor3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\OutDoor1.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Arch.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\TakeKeys.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\OutDoor.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\ATP.Kiosk.Common\ATP.Kiosk.Common.csproj">
+      <Project>{465721f9-2f5f-4b6f-a842-ac623c6452bc}</Project>
+      <Name>ATP.Kiosk.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

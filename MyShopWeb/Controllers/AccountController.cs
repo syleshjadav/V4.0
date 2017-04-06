@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Globalization;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using MyShopWeb.Models;
-using MyShopWeb.NewFolder1;
+using Authentication.Models;
+using Authentication.DAL;
 using System.Web.Security;
 
-namespace MyShopWeb.Controllers
+namespace Authentication.Controllers
 {
     [Authorize]
     public class AccountController : Controller
@@ -75,16 +73,11 @@ namespace MyShopWeb.Controllers
                 return View(model);
             }
 
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            User user = new User() { Email = model.Email, Password = model.Password };
+            User user = new User() { Email=model.Email,Password=model.Password};
 
             user = Repository.GetUserDetails(user);
 
-            if (user != null)
+            if (user!=null)
             {
                 FormsAuthentication.SetAuthCookie(model.Email, false);
 
@@ -92,8 +85,7 @@ namespace MyShopWeb.Controllers
                 string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
                 var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
                 HttpContext.Response.Cookies.Add(authCookie);
-                //return RedirectToAction("Index", "Home");
-                return RedirectToLocal(returnUrl);
+                return RedirectToAction("Index", "Home");
             }
 
             else
@@ -101,24 +93,6 @@ namespace MyShopWeb.Controllers
                 ModelState.AddModelError("", "Invalid login attempt.");
                 return View(model);
             }
-
-
-            //// This doesn't count login failures towards account lockout
-            //// To enable password failures to trigger account lockout, change to shouldLockout: true
-            //var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            //switch (result)
-            //{
-            //    case SignInStatus.Success:
-            //        return RedirectToLocal(returnUrl);
-            //    case SignInStatus.LockedOut:
-            //        return View("Lockout");
-            //    case SignInStatus.RequiresVerification:
-            //        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-            //    case SignInStatus.Failure:
-            //    default:
-            //        ModelState.AddModelError("", "Invalid login attempt.");
-            //        return View(model);
-            //}
         }
 
         //
@@ -421,9 +395,7 @@ namespace MyShopWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-           // AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-           // return RedirectToAction("Index", "Home");
-
+            //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }

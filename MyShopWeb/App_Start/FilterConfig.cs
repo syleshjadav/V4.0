@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace MyShopWeb
+namespace Authentication
 {
     public class FilterConfig
     {
