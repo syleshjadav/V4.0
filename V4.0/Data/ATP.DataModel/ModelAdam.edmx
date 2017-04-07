@@ -11,6 +11,11 @@
           <Parameter Name="VehicleGuid" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="IsPickUpOrDrop" Type="bit" Mode="In" />
         </Function>
+        <Function Name="uspAssignKeylockerPinForExpressCheckIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DealerId" Type="int" Mode="In" />
+          <Parameter Name="CustomerGuid" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="VehicleGuid" Type="uniqueidentifier" Mode="In" />
+        </Function>
         <Function Name="uspCloseVehicleSericeRO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="VehicleServiceGUID" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="ServiceTypeId" Type="int" Mode="In" />
@@ -370,6 +375,7 @@
           <Parameter Name="NextServiceDate" Type="nvarchar" Mode="In" />
           <Parameter Name="NextSvcInfo" Type="nvarchar" Mode="In" />
           <Parameter Name="VehPhId" Type="nvarchar" Mode="In" />
+          <Parameter Name="VIN" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="uspSecurityLogIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Environment" Type="tinyint" Mode="In" />
@@ -877,6 +883,7 @@
           <Parameter Name="Mk" Type="nvarchar" Mode="In" />
           <Parameter Name="Mod" Type="nvarchar" Mode="In" />
           <Parameter Name="Plate" Type="nvarchar" Mode="In" />
+          <Parameter Name="VIN" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="uspUpdateDealerMsg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="dealerid" Type="int" Mode="In" />
@@ -2126,6 +2133,7 @@
             <Parameter Name="NextServiceDate" Mode="In" Type="String" />
             <Parameter Name="NextSvcInfo" Mode="In" Type="String" />
             <Parameter Name="VehPhId" Mode="In" Type="String" />
+            <Parameter Name="VIN" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="uspUpdateCustomerMyShopAuto" ReturnType="Collection(ModelContainer.uspUpdateCustomerMyShopAuto_Result)">
             <Parameter Name="DealerId" Mode="In" Type="Int32" />
@@ -2150,6 +2158,7 @@
             <Parameter Name="Mk" Mode="In" Type="String" />
             <Parameter Name="Mod" Mode="In" Type="String" />
             <Parameter Name="Plate" Mode="In" Type="String" />
+            <Parameter Name="VIN" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="uspSelMPIRedYellowByPersonGuid" ReturnType="Collection(ModelContainer.uspSelMPIRedYellowByPersonGuid_Result)">
             <Parameter Name="DealerId" Mode="In" Type="Int32" />
@@ -2514,6 +2523,11 @@
           <FunctionImport Name="uspSelSessionAppToWeb" ReturnType="Collection(String)">
             <Parameter Name="DealerId" Mode="In" Type="Int32" />
             <Parameter Name="ScanID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspAssignKeylockerPinForExpressCheckIn" ReturnType="Collection(ModelContainer.uspAssignKeylockerPinForExpressCheckIn_Result)">
+            <Parameter Name="DealerId" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerGuid" Mode="In" Type="Guid" />
+            <Parameter Name="VehicleGuid" Mode="In" Type="Guid" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="uspSelVehAlertByVehGuid_Result">
@@ -4805,6 +4819,10 @@
           <Property Type="String" Name="SafetyStickerYYMM" Nullable="true" MaxLength="8000" />
           <Property Type="String" Name="LowestTireReading" Nullable="true" MaxLength="2" />
           <Property Type="String" Name="TotalCost" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="uspAssignKeylockerPinForExpressCheckIn_Result">
+          <Property Type="String" Name="KeyLockerPin" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="Comments" Nullable="true" MaxLength="100" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -7379,6 +7397,14 @@
           <FunctionImportMapping FunctionImportName="uspUpdtExportToCompInspectionStatus" FunctionName="ModelContainer.Store.uspUpdtExportToCompInspectionStatus" />
           <FunctionImportMapping FunctionImportName="uspInsSessionAppToWeb" FunctionName="ModelContainer.Store.uspInsSessionAppToWeb" />
           <FunctionImportMapping FunctionImportName="uspSelSessionAppToWeb" FunctionName="ModelContainer.Store.uspSelSessionAppToWeb" />
+          <FunctionImportMapping FunctionImportName="uspAssignKeylockerPinForExpressCheckIn" FunctionName="ModelContainer.Store.uspAssignKeylockerPinForExpressCheckIn">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContainer.uspAssignKeylockerPinForExpressCheckIn_Result">
+                <ScalarProperty Name="KeyLockerPin" ColumnName="KeyLockerPin" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

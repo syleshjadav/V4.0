@@ -136,14 +136,12 @@
       <DependentUpon>AdamMessageBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\ConfigClass.cs" />
+    <Compile Include="Common\ProxyHelper.cs" />
     <Compile Include="NewExpressCustomer.xaml.cs">
       <DependentUpon>NewExpressCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="PhoneAppCustomer.xaml.cs">
       <DependentUpon>PhoneAppCustomer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerSide\TowTruck.xaml.cs">
-      <DependentUpon>TowTruck.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helper\ColorToSolidBrushConverter.cs" />
     <Compile Include="MenuWindow.xaml.cs">
@@ -166,10 +164,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="PhoneAppCustomer.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="CustomerSide\TowTruck.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -336,10 +330,7 @@
     <Resource Include="Image\Printer.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyShopOutDoorDealerSide\MyShopOutDoorDealerSide.csproj">
-      <Project>{5676813E-A73F-4C69-87AB-CF374D2B457B}</Project>
-      <Name>MyShopOutDoorDealerSide</Name>
-    </ProjectReference>
+    <Folder Include="CustomerSide\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

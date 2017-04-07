@@ -1,12 +1,18 @@
-﻿namespace MyShopExpress.Common
-{
-    public static class ConfigClass {
+﻿using System;
+using System.Collections.Generic;
+using System.IO.Ports;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-    public static int DealerId { get; set; }
 
-   
-  }
-  
-}
+    public static class ConfigClass
+    {
+
+        public static int DealerId { get; set; }
+
+
+    }
+
 
 

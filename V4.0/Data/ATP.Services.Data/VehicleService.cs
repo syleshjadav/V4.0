@@ -268,12 +268,12 @@ namespace ATP.Services.Data {
             var vehicleGuid = new Guid(m.VehicleGuid);
 
 
-            var rtnValue = new uspAssignKeylockerPin_Result();
+            var rtnValue = new uspAssignKeylockerPinForExpressCheckIn_Result();
             try
             {
                 using (var entity = new ATP.DataModel.Entities())
                 {
-                    rtnValue = entity.uspAssignKeylockerPin(dealid, personGuid, vehicleGuid, true).SingleOrDefault();
+                    rtnValue = entity.uspAssignKeylockerPinForExpressCheckIn(dealid, personGuid, vehicleGuid).SingleOrDefault();
                 }
 
                 if (rtnValue != null && !String.IsNullOrEmpty(rtnValue.KeyLockerPin))

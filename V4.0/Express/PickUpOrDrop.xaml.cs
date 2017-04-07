@@ -1,12 +1,12 @@
-﻿using ATP.Kiosk.Views;
-using MyShopExpress.Common;
+﻿using ATP.Common;
+using ATP.Kiosk.Views;
 using MyShopExpress.ServiceReference1;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 
-namespace MyShopExpress {
+namespace MyShopExpress
+{
     /// <summary>
     /// Interaction logic for PickUpOrDrop.xaml
     /// </summary>
@@ -73,7 +73,7 @@ namespace MyShopExpress {
         private void UpdateVehicleServiceStatus(byte? serviceStatusId) {
             try {
 
-                var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+                var res = ProxyHelper.Service<IOutDoor>.Use(svcs => {
                     return svcs.UpdateVehiceServiceStatus(_dealerId, CustomerInfo.VehicleServiceGuid, CustomerInfo.VehicleGuid, CustomerInfo.PersonGuid, serviceStatusId, CustomerInfo.VehicleGuid);
                 });
 
@@ -86,37 +86,37 @@ namespace MyShopExpress {
             this.Close();
         }
 
-        private bool CheckIfKioskIsInUse() {
-            var res = new List<uspSelKioskInUSE_Result>();
-            try {
-                res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
-                    return svcs.SelKioskInUSE(_dealerId).ToList();
-                });
+        //private bool CheckIfKioskIsInUse() {
+        //    var res = new List<uspSelKioskInUSE_Result>();
+        //    try {
+        //        res = ProxyHelper.Service<IOutDoor>.Use(svcs => {
+        //            return svcs.SelKioskInUSE(_dealerId).ToList();
+        //        });
 
 
-                if (res != null && res.Count == 1) {
-                    if (res.FirstOrDefault().IsMachineInUse == true) {
-                        MessageBox("Kiosk InUse by Customer, Please try in few minutes ...");
-                        cmdBack_Click(new object(), new RoutedEventArgs());
-                        return false;
+        //        if (res != null && res.Count == 1) {
+        //            if (res.FirstOrDefault().IsMachineInUse == true) {
+        //                MessageBox("Kiosk InUse by Customer, Please try in few minutes ...");
+        //                cmdBack_Click(new object(), new RoutedEventArgs());
+        //                return false;
 
-                    }
-                    else {
+        //            }
+        //            else {
 
-                        var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
-                            return svcs.UpsertKioskInUSE(_dealerId, "D", new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
-                        });
+        //                var res1 = ProxyHelper.Service<IOutDoor>.Use(svcs => {
+        //                    return svcs.UpsertKioskInUSE(_dealerId, "D", new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
+        //                });
 
-                    }
-                }
-            }
+        //            }
+        //        }
+        //    }
 
-            catch (Exception ex) {
-                MessageBox(ex.Message.ToString(), "Error !");
-            }
+        //    catch (Exception ex) {
+        //        MessageBox(ex.Message.ToString(), "Error !");
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
 
 
         private bool? MessageBox(string msg, string header = "Information") {
@@ -215,7 +215,7 @@ namespace MyShopExpress {
             if (CustomerInfo.VehicleServiceGuid != null) {
                 try {
 
-                    var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+                    var res = ProxyHelper.Service<IOutDoor>.Use(svcs => {
                         return svcs.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(_dealerId, CustomerInfo.VehicleServiceGuid, CustomerInfo.VehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId,
                             OutDoorKeyDroppedBy);
                     });
@@ -229,7 +229,7 @@ namespace MyShopExpress {
 
                 try {
 
-                    var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+                    var res = ProxyHelper.Service<IOutDoor>.Use(svcs => {
                         return svcs.CreateSeviceAndKeyLockerBucket_TowTruck(_dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, OutDoorKeyDroppedBy);
                     });
 
@@ -260,7 +260,7 @@ namespace MyShopExpress {
                         x.PersonGuid = CustomerInfo.PersonGuid;
 
 
-                        var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+                        var res = ProxyHelper.Service<IOutDoor>.Use(svcs => {
                             return svcs.InsDealerMsg(x);
                         });
 

@@ -658,9 +658,9 @@ namespace ATP.Rest {
         public MyShopRegisterCustomerData RegisterCustomerMyShopAuto(ATPCustomerDetailsByGuid m) {
             try {
                 //TraceLog("RegisterCustomer", string.Format("{0} -  Before RegisterCustomer Insert Called", jsonCust.LastName));
-                var str = string.Format("Deal:{0}-DealFmly:{1}-VehYrMkMod:{2}-Fn:{3}-Lm:{4}-Email:{5}-Ph:{6}--Add{7}--City{8}--state{9}--zip{10}--PGuid{11}--vehid{12}--VehPhId:{13}-- NextSvcDt:{14}--NextInsMonth:{15}--NextSvcInfo:{16}--Plate:{17},yr{18},mk{19},md{20}",
+                var str = string.Format("Deal:{0}-DealFmly:{1}-VehYrMkMod:{2}-Fn:{3}-Lm:{4}-Email:{5}-Ph:{6}--Add{7}--City{8}--state{9}--zip{10}--PGuid{11}--vehid{12}--VehPhId:{13}-- NextSvcDt:{14}--NextInsMonth:{15}--NextSvcInfo:{16}--Plate:{17},yr{18},mk{19},md{20},VIN: {21}",
                      m.DealerId, m.DealerFamilyId, m.VehicleYrMkMod, m.FirstName, m.LastName,
-                     m.EmailAddress, m.PhoneNumber, m.Address1, m.City, m.State, m.Zip, m.PersonGuid, m.VehicleId, m.VehPhId, m.NextServiceDate, m.NextInspectionDate, m.NextSvcInfo, m.Plate,m.VehicleYear,m.VehicleMake,m.VehicleModel);
+                     m.EmailAddress, m.PhoneNumber, m.Address1, m.City, m.State, m.Zip, m.PersonGuid, m.VehicleId, m.VehPhId, m.NextServiceDate, m.NextInspectionDate, m.NextSvcInfo, m.Plate,m.VehicleYear,m.VehicleMake,m.VehicleModel,m.VIN);
 
                 TraceLog("RegisterCustomerMyShopAuto", str);
                 if (String.IsNullOrEmpty(m.PersonGuid)) {
@@ -684,7 +684,7 @@ namespace ATP.Rest {
 
             }
             catch (Exception ex) {
-                TraceLog("Reg-Cust", string.Format("{0} -  Error while RegisterCustomerMyShopAuto  - {1}", m.LastName, ex.StackTrace));
+                TraceLog("RegisterCustomerMyShopAuto", string.Format("{0} -  Error while RegisterCustomerMyShopAuto  - {1}", m.LastName, ex.StackTrace));
             }
             return new MyShopRegisterCustomerData { PersonGuid = m.PersonGuid, VehicleId = m.VehicleId, Message = "FAIL" };
         }
