@@ -53,6 +53,12 @@ namespace ATP.WCF.Svcs {
         List<uspSelSvcTypeByDealerId_Result> GetServiceTypes(string dealerId);
 
         [OperationContract]
+        List<uspSelNextExpressNumber_Result> SelNextExpressNumber(int dealerId, DateTime scheduleDate);
+
+        [OperationContract]
+        ATPData ScheduleService(ATPServiceDataMasterKiosk serviceDataMasterlist);
+
+        [OperationContract]
         bool LogError(string msg);
         [OperationContract]
         bool LogInformation(string msg);

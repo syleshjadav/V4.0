@@ -29,6 +29,8 @@
     <MetadataFile FileName="OutDoor1.xsd" MetadataType="Schema" ID="bd8ba7b8-d5f6-4930-b6d2-bb89fb5db22f" SourceId="1" SourceUrl="http://sylesh-001-site2.ctempurl.com/ATPServices/OutDoor.svc?xsd=xsd0" />
     <MetadataFile FileName="OutDoor2.xsd" MetadataType="Schema" ID="38a92a02-ce2e-446e-b9e8-012f4cc1106c" SourceId="1" SourceUrl="http://sylesh-001-site2.ctempurl.com/ATPServices/OutDoor.svc?xsd=xsd1" />
     <MetadataFile FileName="OutDoor3.xsd" MetadataType="Schema" ID="46b23340-0f83-4220-b8bd-83863da0c9b0" SourceId="1" SourceUrl="http://sylesh-001-site2.ctempurl.com/ATPServices/OutDoor.svc?xsd=xsd3" />
+    <MetadataFile FileName="OutDoor4.xsd" MetadataType="Schema" ID="a99bafc5-4559-4b4a-9af5-f6a014f31639" SourceId="1" SourceUrl="http://sylesh-001-site2.ctempurl.com/ATPServices/OutDoor.svc?xsd=xsd4" />
+    <MetadataFile FileName="OutDoor41.xsd" MetadataType="Schema" ID="dda47e28-0355-491b-84ae-83cefa215989" SourceId="1" SourceUrl="http://sylesh-001-site2.ctempurl.com/ATPServices/OutDoor.svc?xsd=xsd5" />
     <MetadataFile FileName="OutDoor.wsdl" MetadataType="Wsdl" ID="a28a8ba7-2c43-41b1-8f9d-4071dd565d61" SourceId="1" SourceUrl="http://sylesh-001-site2.ctempurl.com/ATPServices/OutDoor.svc?wsdl" />
   </Metadata>
   <Extensions>

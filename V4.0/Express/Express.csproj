@@ -16,8 +16,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\Sites\Express\</PublishUrl>
-    <Install>false</Install>
+    <PublishUrl>ftp://ftp.smarterasp.net/MainSite/Express/</PublishUrl>
+    <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
@@ -36,7 +36,7 @@
     <SuiteName>MyShopAuto</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -136,6 +136,7 @@
     </Compile>
     <Compile Include="Common\ConfigClass.cs" />
     <Compile Include="Common\ProxyHelper.cs" />
+    <Compile Include="Helper\Log.cs" />
     <Compile Include="NewExpressCustomer.xaml.cs">
       <DependentUpon>NewExpressCustomer.xaml</DependentUpon>
     </Compile>
@@ -222,6 +223,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.ATPData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -232,6 +236,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.uspSelKioskInUSE_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.uspSelNextExpressNumber_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.uspSelSvcTypeByDealerId_Result.datasource">
@@ -301,6 +308,12 @@
     <None Include="Service References\ServiceReference1\OutDoor3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiceReference1\OutDoor4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\OutDoor41.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -344,6 +357,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceReference1\OutDoor.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\DealerLogo\122.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\QR_AND.jpg" />
+    <Resource Include="Image\QR_IOS.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Android.png" />
+    <Resource Include="Image\IOS.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

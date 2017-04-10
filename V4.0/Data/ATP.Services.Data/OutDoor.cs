@@ -109,5 +109,12 @@ namespace ATP.Services.Data {
         }
 
 
+        public List<uspSelNextExpressNumber_Result> SelNextExpressNumber(int dealerId, DateTime scheduleDate)
+        {
+            return new ATP.Services.Data.Dealer().SelNextExpressNumber(dealerId, scheduleDate);
+        }
+
+
+
     }
 }

@@ -30,6 +30,11 @@ namespace ATP.Common
                     {
                         proxy.Abort();
                     }
+                   //  ((IAsyncResult)proxy).AsyncWaitHandle.WaitOne();
+                    proxy = null;
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    GC.Collect();
                 }
             }
 

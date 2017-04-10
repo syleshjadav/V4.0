@@ -72,6 +72,68 @@ namespace ATP.WCF.Svcs {
             return new ATP.Services.Data.VehicleService().GetServiceTypes(dealerId, null);
         }
 
+        public List<uspSelNextExpressNumber_Result> SelNextExpressNumber(int dealerId, DateTime scheduleDate)
+        {
+            return new ATP.Services.Data.Dealer().SelNextExpressNumber(dealerId, scheduleDate);
+        }
+
+        public ATPData ScheduleService(ATPServiceDataMasterKiosk serviceDataMasterlist)
+        {
+            var msg = new ATPData { Id = "-1", Value = "Failure" };
+            var dealerId = serviceDataMasterlist.DealerId;
+ 
+
+            var serviceList = serviceDataMasterlist.ATPServiceDataList.ToList();
+
+
+            if (serviceDataMasterlist.PersonGuid.ToString().Length > 10)
+            {
+                var vehicleServicesDataTable = new VehicleServicesDataTable
+                {
+                    ADAM = false,
+                    Amount = (double)serviceDataMasterlist.Amount,
+                    Date = DateTime.Now,
+                    DealerId = serviceDataMasterlist.DealerId,
+                    EnteredBy = serviceDataMasterlist.PersonGuid,
+                    RONumber = serviceDataMasterlist.RONumber,
+                    ExpressNumber = serviceDataMasterlist.ExpressNumber,
+                    KioskId = serviceDataMasterlist.KioskId,
+                    KeyTagBarCodeId = serviceDataMasterlist.KeyTagBarCodeId,
+                    Mileage = serviceDataMasterlist.Mileage,
+                    PackageCost = serviceDataMasterlist.PackageCost,
+                    Paid = false,
+                    ServiceCost = serviceDataMasterlist.ServiceCost,
+                    StatusId = serviceDataMasterlist.StatusId,
+                    VehicleGUID = serviceDataMasterlist.VehicleGuid,
+                    Reason = serviceDataMasterlist.Reason
+
+                };
+
+                if (!String.IsNullOrEmpty(serviceDataMasterlist.EnteredBy))
+                {
+                    vehicleServicesDataTable.EnteredBy = new Guid(serviceDataMasterlist.EnteredBy);
+                }
+
+                List<VehicleServicesDataTable> vehsvcs = new List<VehicleServicesDataTable>();
+                vehsvcs.Add(vehicleServicesDataTable);
+
+                var ss = new ATP.Services.Data.VehicleService().SaveVehicleServices(vehsvcs, serviceList);
+
+                msg.Id = "1";
+                msg.Value = "Your Wait Time is 30 mts.";
+
+            }
+            else
+            {
+                msg.Id = "-1";
+                msg.Value = "Failed due to Invalid Customer Vehicle Registration";
+
+            }
+
+            return msg;
+
+        }
+
 
         public int UpsertKioskInUSE(int? dealerId, string usedBy, Guid? lastUsedBy) {
 
