@@ -1232,6 +1232,10 @@
           <Parameter Name="IsPickUpOrDrop" Type="bit" Mode="In" />
           <Parameter Name="KeyLockerPin" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="uspVerifyPinGetCustInfoExpress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DealerId" Type="int" Mode="In" />
+          <Parameter Name="KeyLockerPin" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="ModelContainerStoreContainer" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -2528,6 +2532,10 @@
             <Parameter Name="DealerId" Mode="In" Type="Int32" />
             <Parameter Name="CustomerGuid" Mode="In" Type="Guid" />
             <Parameter Name="VehicleGuid" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="uspVerifyPinGetCustInfoExpress" ReturnType="Collection(ModelContainer.uspVerifyPinGetCustInfoExpress_Result)">
+            <Parameter Name="DealerId" Mode="In" Type="Int32" />
+            <Parameter Name="KeyLockerPin" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="uspSelVehAlertByVehGuid_Result">
@@ -4823,6 +4831,49 @@
         <ComplexType Name="uspAssignKeylockerPinForExpressCheckIn_Result">
           <Property Type="String" Name="KeyLockerPin" Nullable="true" MaxLength="5" />
           <Property Type="String" Name="Comments" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="uspVerifyPinGetCustInfoExpress_Result">
+          <Property Type="Guid" Name="VehicleServiceGuid" Nullable="true" />
+          <Property Type="Guid" Name="VehicleGuid" Nullable="true" />
+          <Property Type="String" Name="VehicleYear" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="Mileage" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="LastServiceMileage" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="YearlyAverageMileage" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="VIN" Nullable="true" MaxLength="17" />
+          <Property Type="String" Name="VehicleMake" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="VehicleModel" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="VehicleTrim" Nullable="true" MaxLength="100" />
+          <Property Type="Guid" Name="PersonGuid" Nullable="true" />
+          <Property Type="String" Name="CustomerId" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="RelatedId" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="VehicleName" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="VehicleYrMkMod" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="LicensePlate" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="NextServiceDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="NextInspectionDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="NextEmisisonDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="NextSvcInfo" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="VehPhId" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="VehBodyType" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="InspectionExpMnth" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="InspectionExpYr" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FleetNumber" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="InsuranceId" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="InsuranceCompanyName" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="NAIC" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="InsuranceState" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="InsuranceExpDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="PolicyNumber" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Comments" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PinStatus" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="GoogleGuid" Nullable="true" MaxLength="2000" />
+          <Property Type="Byte" Name="DeviceTypeId" Nullable="true" />
+          <Property Type="String" Name="NoOfRotationCustomer" Nullable="true" MaxLength="15" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -7402,6 +7453,53 @@
               <ComplexTypeMapping TypeName="ModelContainer.uspAssignKeylockerPinForExpressCheckIn_Result">
                 <ScalarProperty Name="KeyLockerPin" ColumnName="KeyLockerPin" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspVerifyPinGetCustInfoExpress" FunctionName="ModelContainer.Store.uspVerifyPinGetCustInfoExpress">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ModelContainer.uspVerifyPinGetCustInfoExpress_Result">
+                <ScalarProperty Name="VehicleServiceGuid" ColumnName="VehicleServiceGuid" />
+                <ScalarProperty Name="VehicleGuid" ColumnName="VehicleGuid" />
+                <ScalarProperty Name="VehicleYear" ColumnName="VehicleYear" />
+                <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+                <ScalarProperty Name="LastServiceMileage" ColumnName="LastServiceMileage" />
+                <ScalarProperty Name="YearlyAverageMileage" ColumnName="YearlyAverageMileage" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="VehicleMake" ColumnName="VehicleMake" />
+                <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
+                <ScalarProperty Name="VehicleTrim" ColumnName="VehicleTrim" />
+                <ScalarProperty Name="PersonGuid" ColumnName="PersonGuid" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="RelatedId" ColumnName="RelatedId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="VehicleName" ColumnName="VehicleName" />
+                <ScalarProperty Name="VehicleYrMkMod" ColumnName="VehicleYrMkMod" />
+                <ScalarProperty Name="LicensePlate" ColumnName="LicensePlate" />
+                <ScalarProperty Name="NextServiceDate" ColumnName="NextServiceDate" />
+                <ScalarProperty Name="NextInspectionDate" ColumnName="NextInspectionDate" />
+                <ScalarProperty Name="NextEmisisonDate" ColumnName="NextEmisisonDate" />
+                <ScalarProperty Name="NextSvcInfo" ColumnName="NextSvcInfo" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="VehPhId" ColumnName="VehPhId" />
+                <ScalarProperty Name="VehBodyType" ColumnName="VehBodyType" />
+                <ScalarProperty Name="InspectionExpMnth" ColumnName="InspectionExpMnth" />
+                <ScalarProperty Name="InspectionExpYr" ColumnName="InspectionExpYr" />
+                <ScalarProperty Name="FleetNumber" ColumnName="FleetNumber" />
+                <ScalarProperty Name="InsuranceId" ColumnName="InsuranceId" />
+                <ScalarProperty Name="InsuranceCompanyName" ColumnName="InsuranceCompanyName" />
+                <ScalarProperty Name="NAIC" ColumnName="NAIC" />
+                <ScalarProperty Name="InsuranceState" ColumnName="InsuranceState" />
+                <ScalarProperty Name="InsuranceExpDate" ColumnName="InsuranceExpDate" />
+                <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="PinStatus" ColumnName="PinStatus" />
+                <ScalarProperty Name="GoogleGuid" ColumnName="GoogleGuid" />
+                <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
+                <ScalarProperty Name="NoOfRotationCustomer" ColumnName="NoOfRotationCustomer" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

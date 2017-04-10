@@ -14,6 +14,13 @@ namespace ATP.WCF.Svcs {
             return new ATP.Services.Data.OutDoor().VerifyPinGetCustInfo(dealerId, isPickUpOrDrop, keyLockerPin).ToList();
         }
 
+        public List<uspVerifyPinGetCustInfoExpress_Result> VerifyPinGetCustInfoExpress(Nullable<int> dealerId, string keyLockerPin)
+        {
+            return new ATP.Services.Data.OutDoor().VerifyPinGetCustInfoExpress(dealerId, keyLockerPin).ToList();
+        }
+
+
+
         public List<uspSelVehicleMakes_Result> GetMakes(string year, string dealerId) {
            var xx =new  ATP.Services.Data.VehicleService().GetMakes(year, dealerId);
             return xx;

@@ -700,6 +700,691 @@ namespace MyShopExpress.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="uspVerifyPinGetCustInfoExpress_Result", Namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel")]
+    [System.SerializableAttribute()]
+    public partial class uspVerifyPinGetCustInfoExpress_Result : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CommentsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CustomerIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<byte> DeviceTypeIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FleetNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GoogleGuidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InspectionExpMnthField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InspectionExpYrField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InsuranceCompanyNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InsuranceExpDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InsuranceIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InsuranceStateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastServiceMileageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LicensePlateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MiddleNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MileageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NAICField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NextEmisisonDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NextInspectionDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NextServiceDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NextSvcInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NoOfRotationCustomerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.Guid> PersonGuidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhoneNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PinStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PolicyNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RelatedIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VINField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VehBodyTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VehPhIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.Guid> VehicleGuidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VehicleMakeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VehicleModelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VehicleNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.Guid> VehicleServiceGuidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VehicleTrimField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VehicleYearField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VehicleYrMkModField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string YearlyAverageMileageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Comments {
+            get {
+                return this.CommentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CommentsField, value) != true)) {
+                    this.CommentsField = value;
+                    this.RaisePropertyChanged("Comments");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CustomerId {
+            get {
+                return this.CustomerIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CustomerIdField, value) != true)) {
+                    this.CustomerIdField = value;
+                    this.RaisePropertyChanged("CustomerId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<byte> DeviceTypeId {
+            get {
+                return this.DeviceTypeIdField;
+            }
+            set {
+                if ((this.DeviceTypeIdField.Equals(value) != true)) {
+                    this.DeviceTypeIdField = value;
+                    this.RaisePropertyChanged("DeviceTypeId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmailAddress {
+            get {
+                return this.EmailAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailAddressField, value) != true)) {
+                    this.EmailAddressField = value;
+                    this.RaisePropertyChanged("EmailAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FleetNumber {
+            get {
+                return this.FleetNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FleetNumberField, value) != true)) {
+                    this.FleetNumberField = value;
+                    this.RaisePropertyChanged("FleetNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GoogleGuid {
+            get {
+                return this.GoogleGuidField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GoogleGuidField, value) != true)) {
+                    this.GoogleGuidField = value;
+                    this.RaisePropertyChanged("GoogleGuid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InspectionExpMnth {
+            get {
+                return this.InspectionExpMnthField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InspectionExpMnthField, value) != true)) {
+                    this.InspectionExpMnthField = value;
+                    this.RaisePropertyChanged("InspectionExpMnth");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InspectionExpYr {
+            get {
+                return this.InspectionExpYrField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InspectionExpYrField, value) != true)) {
+                    this.InspectionExpYrField = value;
+                    this.RaisePropertyChanged("InspectionExpYr");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InsuranceCompanyName {
+            get {
+                return this.InsuranceCompanyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InsuranceCompanyNameField, value) != true)) {
+                    this.InsuranceCompanyNameField = value;
+                    this.RaisePropertyChanged("InsuranceCompanyName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InsuranceExpDate {
+            get {
+                return this.InsuranceExpDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InsuranceExpDateField, value) != true)) {
+                    this.InsuranceExpDateField = value;
+                    this.RaisePropertyChanged("InsuranceExpDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InsuranceId {
+            get {
+                return this.InsuranceIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InsuranceIdField, value) != true)) {
+                    this.InsuranceIdField = value;
+                    this.RaisePropertyChanged("InsuranceId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InsuranceState {
+            get {
+                return this.InsuranceStateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InsuranceStateField, value) != true)) {
+                    this.InsuranceStateField = value;
+                    this.RaisePropertyChanged("InsuranceState");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastServiceMileage {
+            get {
+                return this.LastServiceMileageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastServiceMileageField, value) != true)) {
+                    this.LastServiceMileageField = value;
+                    this.RaisePropertyChanged("LastServiceMileage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LicensePlate {
+            get {
+                return this.LicensePlateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LicensePlateField, value) != true)) {
+                    this.LicensePlateField = value;
+                    this.RaisePropertyChanged("LicensePlate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MiddleName {
+            get {
+                return this.MiddleNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MiddleNameField, value) != true)) {
+                    this.MiddleNameField = value;
+                    this.RaisePropertyChanged("MiddleName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mileage {
+            get {
+                return this.MileageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MileageField, value) != true)) {
+                    this.MileageField = value;
+                    this.RaisePropertyChanged("Mileage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NAIC {
+            get {
+                return this.NAICField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NAICField, value) != true)) {
+                    this.NAICField = value;
+                    this.RaisePropertyChanged("NAIC");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NextEmisisonDate {
+            get {
+                return this.NextEmisisonDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NextEmisisonDateField, value) != true)) {
+                    this.NextEmisisonDateField = value;
+                    this.RaisePropertyChanged("NextEmisisonDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NextInspectionDate {
+            get {
+                return this.NextInspectionDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NextInspectionDateField, value) != true)) {
+                    this.NextInspectionDateField = value;
+                    this.RaisePropertyChanged("NextInspectionDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NextServiceDate {
+            get {
+                return this.NextServiceDateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NextServiceDateField, value) != true)) {
+                    this.NextServiceDateField = value;
+                    this.RaisePropertyChanged("NextServiceDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NextSvcInfo {
+            get {
+                return this.NextSvcInfoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NextSvcInfoField, value) != true)) {
+                    this.NextSvcInfoField = value;
+                    this.RaisePropertyChanged("NextSvcInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NoOfRotationCustomer {
+            get {
+                return this.NoOfRotationCustomerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NoOfRotationCustomerField, value) != true)) {
+                    this.NoOfRotationCustomerField = value;
+                    this.RaisePropertyChanged("NoOfRotationCustomer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.Guid> PersonGuid {
+            get {
+                return this.PersonGuidField;
+            }
+            set {
+                if ((this.PersonGuidField.Equals(value) != true)) {
+                    this.PersonGuidField = value;
+                    this.RaisePropertyChanged("PersonGuid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PhoneNumber {
+            get {
+                return this.PhoneNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
+                    this.PhoneNumberField = value;
+                    this.RaisePropertyChanged("PhoneNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PinStatus {
+            get {
+                return this.PinStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PinStatusField, value) != true)) {
+                    this.PinStatusField = value;
+                    this.RaisePropertyChanged("PinStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PolicyNumber {
+            get {
+                return this.PolicyNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PolicyNumberField, value) != true)) {
+                    this.PolicyNumberField = value;
+                    this.RaisePropertyChanged("PolicyNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RelatedId {
+            get {
+                return this.RelatedIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RelatedIdField, value) != true)) {
+                    this.RelatedIdField = value;
+                    this.RaisePropertyChanged("RelatedId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VIN {
+            get {
+                return this.VINField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VINField, value) != true)) {
+                    this.VINField = value;
+                    this.RaisePropertyChanged("VIN");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VehBodyType {
+            get {
+                return this.VehBodyTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VehBodyTypeField, value) != true)) {
+                    this.VehBodyTypeField = value;
+                    this.RaisePropertyChanged("VehBodyType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VehPhId {
+            get {
+                return this.VehPhIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VehPhIdField, value) != true)) {
+                    this.VehPhIdField = value;
+                    this.RaisePropertyChanged("VehPhId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.Guid> VehicleGuid {
+            get {
+                return this.VehicleGuidField;
+            }
+            set {
+                if ((this.VehicleGuidField.Equals(value) != true)) {
+                    this.VehicleGuidField = value;
+                    this.RaisePropertyChanged("VehicleGuid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VehicleMake {
+            get {
+                return this.VehicleMakeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VehicleMakeField, value) != true)) {
+                    this.VehicleMakeField = value;
+                    this.RaisePropertyChanged("VehicleMake");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VehicleModel {
+            get {
+                return this.VehicleModelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VehicleModelField, value) != true)) {
+                    this.VehicleModelField = value;
+                    this.RaisePropertyChanged("VehicleModel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VehicleName {
+            get {
+                return this.VehicleNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VehicleNameField, value) != true)) {
+                    this.VehicleNameField = value;
+                    this.RaisePropertyChanged("VehicleName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.Guid> VehicleServiceGuid {
+            get {
+                return this.VehicleServiceGuidField;
+            }
+            set {
+                if ((this.VehicleServiceGuidField.Equals(value) != true)) {
+                    this.VehicleServiceGuidField = value;
+                    this.RaisePropertyChanged("VehicleServiceGuid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VehicleTrim {
+            get {
+                return this.VehicleTrimField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VehicleTrimField, value) != true)) {
+                    this.VehicleTrimField = value;
+                    this.RaisePropertyChanged("VehicleTrim");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VehicleYear {
+            get {
+                return this.VehicleYearField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VehicleYearField, value) != true)) {
+                    this.VehicleYearField = value;
+                    this.RaisePropertyChanged("VehicleYear");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VehicleYrMkMod {
+            get {
+                return this.VehicleYrMkModField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VehicleYrMkModField, value) != true)) {
+                    this.VehicleYrMkModField = value;
+                    this.RaisePropertyChanged("VehicleYrMkMod");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string YearlyAverageMileage {
+            get {
+                return this.YearlyAverageMileageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.YearlyAverageMileageField, value) != true)) {
+                    this.YearlyAverageMileageField = value;
+                    this.RaisePropertyChanged("YearlyAverageMileage");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="uspSelVehicleMakes_Result", Namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel")]
     [System.SerializableAttribute()]
     public partial class uspSelVehicleMakes_Result : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -2940,6 +3625,12 @@ namespace MyShopExpress.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/VerifyPinGetCustInfo", ReplyAction="http://tempuri.org/IOutDoor/VerifyPinGetCustInfoResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result>> VerifyPinGetCustInfoAsync(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/VerifyPinGetCustInfoExpress", ReplyAction="http://tempuri.org/IOutDoor/VerifyPinGetCustInfoExpressResponse")]
+        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfoExpress_Result> VerifyPinGetCustInfoExpress(System.Nullable<int> dealerId, string keyLockerPin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/VerifyPinGetCustInfoExpress", ReplyAction="http://tempuri.org/IOutDoor/VerifyPinGetCustInfoExpressResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfoExpress_Result>> VerifyPinGetCustInfoExpressAsync(System.Nullable<int> dealerId, string keyLockerPin);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/GetMakes", ReplyAction="http://tempuri.org/IOutDoor/GetMakesResponse")]
         System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleMakes_Result> GetMakes(string year, string dealerId);
         
@@ -3060,6 +3751,14 @@ namespace MyShopExpress.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result>> VerifyPinGetCustInfoAsync(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin) {
             return base.Channel.VerifyPinGetCustInfoAsync(dealerId, isPickUpOrDrop, keyLockerPin);
+        }
+        
+        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfoExpress_Result> VerifyPinGetCustInfoExpress(System.Nullable<int> dealerId, string keyLockerPin) {
+            return base.Channel.VerifyPinGetCustInfoExpress(dealerId, keyLockerPin);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfoExpress_Result>> VerifyPinGetCustInfoExpressAsync(System.Nullable<int> dealerId, string keyLockerPin) {
+            return base.Channel.VerifyPinGetCustInfoExpressAsync(dealerId, keyLockerPin);
         }
         
         public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleMakes_Result> GetMakes(string year, string dealerId) {

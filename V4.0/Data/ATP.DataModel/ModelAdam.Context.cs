@@ -4718,5 +4718,18 @@ namespace ATP.DataModel
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspAssignKeylockerPinForExpressCheckIn_Result>("uspAssignKeylockerPinForExpressCheckIn", dealerIdParameter, customerGuidParameter, vehicleGuidParameter);
         }
+    
+        public virtual ObjectResult<uspVerifyPinGetCustInfoExpress_Result> uspVerifyPinGetCustInfoExpress(Nullable<int> dealerId, string keyLockerPin)
+        {
+            var dealerIdParameter = dealerId.HasValue ?
+                new ObjectParameter("DealerId", dealerId) :
+                new ObjectParameter("DealerId", typeof(int));
+    
+            var keyLockerPinParameter = keyLockerPin != null ?
+                new ObjectParameter("KeyLockerPin", keyLockerPin) :
+                new ObjectParameter("KeyLockerPin", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<uspVerifyPinGetCustInfoExpress_Result>("uspVerifyPinGetCustInfoExpress", dealerIdParameter, keyLockerPinParameter);
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace MyShopExpress
             this.Loaded += PickUpOrDrop_Loaded;
         }
         // public byte? ServiceStatus { get; set; }
-        public uspVerifyPinGetCustInfo_Result CustomerInfo { get; set; }
+        public uspVerifyPinGetCustInfoExpress_Result CustomerInfo { get; set; }
         private void PickUpOrDrop_Loaded(object sender, RoutedEventArgs e) {
             GrdSelection.DataContext = SelectedPerson;
 
@@ -276,7 +276,7 @@ namespace MyShopExpress
         }
 
 
-        public string SendMsgToDevice(uspVerifyPinGetCustInfo_Result currPerson, string contentTitle, string msgType, string MsgToCust, string message) {
+        public string SendMsgToDevice(uspVerifyPinGetCustInfoExpress_Result currPerson, string contentTitle, string msgType, string MsgToCust, string message) {
             // var DealerId = 116;
 
 

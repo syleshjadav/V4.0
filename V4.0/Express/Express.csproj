@@ -16,7 +16,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>C:\Sites\OutDoorC\</PublishUrl>
+    <PublishUrl>C:\Sites\Express\</PublishUrl>
     <Install>false</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -26,17 +26,17 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://www.MyShopAuto.com/OutDoorC/</InstallUrl>
-    <UpdateUrl>http://www.MyShopAuto.com/OutDoorD/</UpdateUrl>
+    <InstallUrl>http://myshopauto.com/Express/</InstallUrl>
+    <UpdateUrl>http://www.MyShopAuto.com/Express/</UpdateUrl>
     <SupportUrl>http://www.MyShopAuto.com</SupportUrl>
     <ErrorReportUrl>http://www.MyShopAuto.com/Error.htm</ErrorReportUrl>
     <TargetCulture>en</TargetCulture>
-    <ProductName>MyShopAuto</ProductName>
+    <ProductName>MyShopAuto Express</ProductName>
     <PublisherName>MyShop Technologies, LLC</PublisherName>
     <SuiteName>MyShopAuto</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>18</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -64,7 +64,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>1A8732251E6D85871024D4C1E0C100489A8B945D</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>955C004F34F768476D58843D6215321F6B40A883</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>
@@ -80,8 +80,7 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Express.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>MyShopExpress.App</StartupObject>
@@ -155,6 +154,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="VerifyAndPrint.xaml.cs">
+      <DependentUpon>VerifyAndPrint.xaml</DependentUpon>
+    </Compile>
     <Page Include="AdamMessageBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -187,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="VerifyAndPrint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PickUpOrDrop.xaml.cs">
@@ -209,18 +215,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Express.pfx" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\ServiceReference1\Arrays.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\ATP.DataModel.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -242,15 +243,11 @@
     <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.uspSelVehicleServiceDetails_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result.datasource">
+    <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfoExpress_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\service.wsdl" />
-    <None Include="Service References\ServiceReference1\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\service1.xsd">
-      <SubType>Designer</SubType>
+    <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -291,6 +288,19 @@
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\ServiceReference1\OutDoor.wsdl" />
+    <None Include="Service References\ServiceReference1\OutDoor.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\OutDoor1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\OutDoor2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\OutDoor3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -331,6 +341,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomerSide\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\OutDoor.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

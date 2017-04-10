@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="uspSelKioskInUSE_Result" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>MyShopExpress.ServiceReference1.uspSelKioskInUSE_Result</TypeInfo>
+   <TypeInfo>MyShopExpress.ServiceReference1.uspSelKioskInUSE_Result, Service References.ServiceReference1.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

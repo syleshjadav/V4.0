@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         xmlns:WpfKb="clr-namespace:WpfKb.Controls;assembly=WpfKb"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Tag="mdi_child"
         d:DesignHeight="900"
         d:DesignWidth="900"
         Height="900"
@@ -29,57 +30,50 @@
             <Setter Property="VerticalAlignment"
                     Value="Center" />
         </Style>
-        
-            <Style x:Key="ServiceItemListBoxTemplate"
-                   TargetType="{x:Type ListBox}">
-                <!-- Do not fill in this value. -->
-                <Setter Property="ItemTemplate">
-                    <Setter.Value>
-                        <DataTemplate>
-                            <Border BorderBrush="#FF1D9C52"
-                                    Background="{DynamicResource YellowGradient}"
-                                    BorderThickness="1"
-                                    CornerRadius="4"
-                                    Margin="3">
-                                <Grid x:Name="GrdServiceItem"
-                                      VerticalAlignment="Stretch"
-                                      HorizontalAlignment="Stretch"
-                                      MinHeight="40"
-                                      Width="200">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto" />
-                                        
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Row="0"
-                                               Grid.ColumnSpan="1"
-                                               HorizontalAlignment="Stretch"
-                                               VerticalAlignment="Stretch" />
-                                   
-                                  
-                                  
-                                    <TextBlock Grid.Column="1"
-                                               Text="{Binding ShortName}"
-                                               TextWrapping="Wrap"
-                                               FontWeight="Bold"
-                                               FontSize="16"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Center" />
-                                </Grid>
-                            </Border>
-                            <DataTemplate.Triggers>
-                             
-                                <DataTrigger Binding="{Binding IsSelected}"
-                                             Value="True">
-                                    <Setter TargetName="GrdServiceItem"
-                                            Property="Background"
-                                            Value="#FFA3DC5C" />
-                                </DataTrigger>
-                            </DataTemplate.Triggers>
-                        </DataTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        
+        <Style x:Key="ServiceItemListBoxTemplate"
+               TargetType="{x:Type ListBox}">
+            <!-- Do not fill in this value. -->
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border BorderBrush="#FF1D9C52"
+                                Background="{DynamicResource YellowGradient}"
+                                BorderThickness="1"
+                                CornerRadius="4"
+                                Margin="3">
+                            <Grid x:Name="GrdServiceItem"
+                                  VerticalAlignment="Stretch"
+                                  HorizontalAlignment="Stretch"
+                                  MinHeight="40"
+                                  Width="200">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0"
+                                           Grid.ColumnSpan="1"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch" />
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding ShortName}"
+                                           TextWrapping="Wrap"
+                                           FontWeight="Bold"
+                                           FontSize="16"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding IsSelected}"
+                                         Value="True">
+                                <Setter TargetName="GrdServiceItem"
+                                        Property="Background"
+                                        Value="#FFA3DC5C" />
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid x:Name="GrdMain"
           Background="{DynamicResource BrushMainPageBackGround}">
@@ -121,7 +115,6 @@
                         <RowDefinition Height="10" />
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="1*" />
-                        
                     </Grid.RowDefinitions>
                     <TextBlock Text="Name :"
                                Grid.Row="1"
@@ -174,9 +167,8 @@
                              TextWrapping="Wrap"
                              Background="#FFFFFFE4"
                              SpellCheck.IsEnabled="True" />
-                   
                 </Grid>
-                <Grid Grid.Row="1" >
+                <Grid Grid.Row="1">
                     <ListBox Grid.Row="2"
                              SelectedIndex="-1"
                              HorizontalAlignment="Stretch"
@@ -208,7 +200,6 @@
                         </ListBox.ItemsPanel>
                     </ListBox>
                 </Grid>
-                
                 <UniformGrid Grid.Row="2"
                              Columns="2">
                     <Button x:Name="cmdBack"
@@ -232,8 +223,7 @@
                                        Text="ç" />
                         </DockPanel>
                     </Button>
-                    <Button 
-                            x:Name="cmdDropKeys"
+                    <Button x:Name="cmdDropKeys"
                             Width="100"
                             Height="100"
                             HorizontalAlignment="Right"

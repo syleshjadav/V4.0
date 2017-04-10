@@ -18,6 +18,18 @@ namespace ATP.Services.Data {
             }
         }
 
+        public List<uspVerifyPinGetCustInfoExpress_Result> VerifyPinGetCustInfoExpress(Nullable<int> dealerId,  string keyLockerPin)
+        {
+
+            using (var entity = new ATP.DataModel.Entities())
+            {
+
+                var xx = entity.uspVerifyPinGetCustInfoExpress(dealerId, keyLockerPin).ToList();
+
+                return xx;
+            }
+        }
+
         public List<uspGetKeyLockerSteps_Result> GetKeyLockerSteps(int? dealerId, byte? keyLockerId, bool? IsDropOrPickUp) {
 
             using (var entity = new ATP.DataModel.Entities()) {

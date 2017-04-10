@@ -15,6 +15,8 @@ namespace ATP.WCF.Svcs {
         [OperationContract]
         List<uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(int? dealerId, bool? isPickUpOrDrop, string keyLockerPin);
 
+        [OperationContract]
+        List<uspVerifyPinGetCustInfoExpress_Result> VerifyPinGetCustInfoExpress(Nullable<int> dealerId, string keyLockerPin);
 
         [OperationContract]
         List<uspSelVehicleMakes_Result> GetMakes(string year, string dealerId);
