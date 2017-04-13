@@ -1,5 +1,7 @@
 ﻿using ATP.Kiosk.Helpers;
+using MyShopExpress.ServiceReference1;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -11,7 +13,7 @@ namespace MyShopExpress
     public partial class App : Application
     {
         Log log = Log.GetInstance();
-
+        public static List<uspSelSvcTypeByDealerId_Result> gDealerServiceList { get; set; }
         public App()
         {
             Startup += new StartupEventHandler(App_Startup); // Can be called from XAML

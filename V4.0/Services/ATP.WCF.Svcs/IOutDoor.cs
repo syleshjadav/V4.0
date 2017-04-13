@@ -59,6 +59,9 @@ namespace ATP.WCF.Svcs {
         ATPData ScheduleService(ATPServiceDataMasterKiosk serviceDataMasterlist);
 
         [OperationContract]
+        List<uspSelDealerDetailsById_Result> SelDealerDetailsById(int dealerId);
+
+        [OperationContract]
         bool LogError(string msg);
         [OperationContract]
         bool LogInformation(string msg);

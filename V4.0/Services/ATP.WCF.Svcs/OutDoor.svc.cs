@@ -135,6 +135,11 @@ namespace ATP.WCF.Svcs {
         }
 
 
+        public List<uspSelDealerDetailsById_Result> SelDealerDetailsById(int dealerId)
+        {
+            return new ATP.Services.Data.Dealer().SelDealerDetailsById(dealerId);
+        }
+
         public int UpsertKioskInUSE(int? dealerId, string usedBy, Guid? lastUsedBy) {
 
             return new ATP.Services.Data.OutDoor().UpsertKioskInUSE(dealerId, usedBy, lastUsedBy);

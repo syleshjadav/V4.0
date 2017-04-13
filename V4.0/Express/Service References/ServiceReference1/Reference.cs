@@ -4371,6 +4371,403 @@ namespace MyShopExpress.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="uspSelDealerDetailsById_Result", Namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel")]
+    [System.SerializableAttribute()]
+    public partial class uspSelDealerDetailsById_Result : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Address1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Address2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DealerNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GeneralInquryPhoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IOSp12FileNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImageHttpPathField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImageOSPathField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsValidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ManagerNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ManagerPhoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SalesPhoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ServiceEmailFromIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ServiceEmailFromNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ServiceEmailSubjectField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ServicePhoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string WebURLField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ZipCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ZipCode4Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address1 {
+            get {
+                return this.Address1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Address1Field, value) != true)) {
+                    this.Address1Field = value;
+                    this.RaisePropertyChanged("Address1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address2 {
+            get {
+                return this.Address2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Address2Field, value) != true)) {
+                    this.Address2Field = value;
+                    this.RaisePropertyChanged("Address2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string City {
+            get {
+                return this.CityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CityField, value) != true)) {
+                    this.CityField = value;
+                    this.RaisePropertyChanged("City");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DealerName {
+            get {
+                return this.DealerNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DealerNameField, value) != true)) {
+                    this.DealerNameField = value;
+                    this.RaisePropertyChanged("DealerName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmailAddress {
+            get {
+                return this.EmailAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailAddressField, value) != true)) {
+                    this.EmailAddressField = value;
+                    this.RaisePropertyChanged("EmailAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GeneralInquryPhone {
+            get {
+                return this.GeneralInquryPhoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GeneralInquryPhoneField, value) != true)) {
+                    this.GeneralInquryPhoneField = value;
+                    this.RaisePropertyChanged("GeneralInquryPhone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IOSp12FileName {
+            get {
+                return this.IOSp12FileNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IOSp12FileNameField, value) != true)) {
+                    this.IOSp12FileNameField = value;
+                    this.RaisePropertyChanged("IOSp12FileName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImageHttpPath {
+            get {
+                return this.ImageHttpPathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageHttpPathField, value) != true)) {
+                    this.ImageHttpPathField = value;
+                    this.RaisePropertyChanged("ImageHttpPath");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImageOSPath {
+            get {
+                return this.ImageOSPathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageOSPathField, value) != true)) {
+                    this.ImageOSPathField = value;
+                    this.RaisePropertyChanged("ImageOSPath");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsValid {
+            get {
+                return this.IsValidField;
+            }
+            set {
+                if ((this.IsValidField.Equals(value) != true)) {
+                    this.IsValidField = value;
+                    this.RaisePropertyChanged("IsValid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ManagerName {
+            get {
+                return this.ManagerNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ManagerNameField, value) != true)) {
+                    this.ManagerNameField = value;
+                    this.RaisePropertyChanged("ManagerName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ManagerPhone {
+            get {
+                return this.ManagerPhoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ManagerPhoneField, value) != true)) {
+                    this.ManagerPhoneField = value;
+                    this.RaisePropertyChanged("ManagerPhone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SalesPhone {
+            get {
+                return this.SalesPhoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SalesPhoneField, value) != true)) {
+                    this.SalesPhoneField = value;
+                    this.RaisePropertyChanged("SalesPhone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ServiceEmailFromId {
+            get {
+                return this.ServiceEmailFromIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ServiceEmailFromIdField, value) != true)) {
+                    this.ServiceEmailFromIdField = value;
+                    this.RaisePropertyChanged("ServiceEmailFromId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ServiceEmailFromName {
+            get {
+                return this.ServiceEmailFromNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ServiceEmailFromNameField, value) != true)) {
+                    this.ServiceEmailFromNameField = value;
+                    this.RaisePropertyChanged("ServiceEmailFromName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ServiceEmailSubject {
+            get {
+                return this.ServiceEmailSubjectField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ServiceEmailSubjectField, value) != true)) {
+                    this.ServiceEmailSubjectField = value;
+                    this.RaisePropertyChanged("ServiceEmailSubject");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ServicePhone {
+            get {
+                return this.ServicePhoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ServicePhoneField, value) != true)) {
+                    this.ServicePhoneField = value;
+                    this.RaisePropertyChanged("ServicePhone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string State {
+            get {
+                return this.StateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StateField, value) != true)) {
+                    this.StateField = value;
+                    this.RaisePropertyChanged("State");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string WebURL {
+            get {
+                return this.WebURLField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WebURLField, value) != true)) {
+                    this.WebURLField = value;
+                    this.RaisePropertyChanged("WebURL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ZipCode {
+            get {
+                return this.ZipCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ZipCodeField, value) != true)) {
+                    this.ZipCodeField = value;
+                    this.RaisePropertyChanged("ZipCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ZipCode4 {
+            get {
+                return this.ZipCode4Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ZipCode4Field, value) != true)) {
+                    this.ZipCode4Field = value;
+                    this.RaisePropertyChanged("ZipCode4");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IOutDoor")]
     public interface IOutDoor {
@@ -4466,6 +4863,12 @@ namespace MyShopExpress.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/ScheduleService", ReplyAction="http://tempuri.org/IOutDoor/ScheduleServiceResponse")]
         System.Threading.Tasks.Task<MyShopExpress.ServiceReference1.ATPData> ScheduleServiceAsync(MyShopExpress.ServiceReference1.ATPServiceDataMasterKiosk serviceDataMasterlist);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelDealerDetailsById", ReplyAction="http://tempuri.org/IOutDoor/SelDealerDetailsByIdResponse")]
+        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelDealerDetailsById_Result> SelDealerDetailsById(int dealerId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelDealerDetailsById", ReplyAction="http://tempuri.org/IOutDoor/SelDealerDetailsByIdResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelDealerDetailsById_Result>> SelDealerDetailsByIdAsync(int dealerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/LogError", ReplyAction="http://tempuri.org/IOutDoor/LogErrorResponse")]
         bool LogError(string msg);
@@ -4631,6 +5034,14 @@ namespace MyShopExpress.ServiceReference1 {
         
         public System.Threading.Tasks.Task<MyShopExpress.ServiceReference1.ATPData> ScheduleServiceAsync(MyShopExpress.ServiceReference1.ATPServiceDataMasterKiosk serviceDataMasterlist) {
             return base.Channel.ScheduleServiceAsync(serviceDataMasterlist);
+        }
+        
+        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelDealerDetailsById_Result> SelDealerDetailsById(int dealerId) {
+            return base.Channel.SelDealerDetailsById(dealerId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelDealerDetailsById_Result>> SelDealerDetailsByIdAsync(int dealerId) {
+            return base.Channel.SelDealerDetailsByIdAsync(dealerId);
         }
         
         public bool LogError(string msg) {
