@@ -1,6 +1,7 @@
 ﻿using ATP.DataModel;
 using ATP.Kiosk.Views;
 using ATP.WCF.Svcs;
+using KeyPad;
 using MyShopExpress.Common;
 using System;
 using System.Linq;
@@ -91,9 +92,7 @@ namespace MyShopExpress {
                     }
 
                     this.Opacity = .1;
-                    MyKeyboard.Visibility = Visibility.Collapsed;
-
-                    MyKeyboard.IsOpen = false;
+                    
 
 
                     var wnd = new PickUpOrDrop { OutDoorKeyDroppedBy  = OutDoorKeyDroppedBy };
@@ -116,8 +115,7 @@ namespace MyShopExpress {
                     wnd.ShowDialog();
 
                     this.Opacity = 1;
-                    MyKeyboard.Visibility = Visibility.Visible;
-                    MyKeyboard.IsOpen = true;
+                    
 
                     // if (wnd.IsKeyDroppedClcked == true) {
                     GoHome();
@@ -155,16 +153,49 @@ namespace MyShopExpress {
             wnd.CmdOk.Visibility = System.Windows.Visibility.Visible;
 
 
-            MyKeyboard.IsOpen = false;
             var confirm = wnd.ShowDialog();
-            MyKeyboard.IsOpen = true;
             Opacity = 1;
         }
 
         private void TxtNotes_GotFocus(object sender, RoutedEventArgs e) {
-            MyKeyboard.Focus();
-            MyKeyboard.BringIntoView();
 
+        }
+
+        private void InvokeKeyBoard(object sender, string title)
+        {
+            TextBox tb = sender as TextBox;
+            VirtualKeyboard kbWin = new VirtualKeyboard(tb, this, title);
+            kbWin.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            this.Opacity = .8;
+            if (kbWin.ShowDialog() == true)
+                tb.Text = kbWin.Result;
+            this.Opacity = 1;
+        }
+
+        private void InvokeKeyBoardNumeric(object sender, string title)
+        {
+            TextBox tb = sender as TextBox;
+            Keypad kbWin = new Keypad(tb, this, title);
+            kbWin.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            this.Opacity = .8;
+            if (kbWin.ShowDialog() == true)
+                tb.Text = kbWin.Result;
+            this.Opacity = 1;
+        }
+
+        private void TxtName_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            InvokeKeyBoard(sender, "Enter Name :");
+        }
+
+        private void TxtPhone_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            InvokeKeyBoardNumeric(sender, "Enter Phone :");
+        }
+
+        private void TxtNotes_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            InvokeKeyBoard(sender, "Enter Comments :");
         }
     }
 }

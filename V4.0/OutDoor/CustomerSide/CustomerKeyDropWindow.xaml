@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:MyShopExpress.MyShopUserControl"
+       
         x:Name="CtrlCustomerKeyDrop"
         mc:Ignorable="d"
         Tag="mdi_child"
@@ -90,8 +90,44 @@
                                Width="250"
                                Source="/MyShopOutDoor;component/Image/DropKey.jpg" />
                     </StackPanel>
-                    <local:ValidatePinUC x:Name="CtrlValidatePin"
-                                         Grid.Column="1" />
+                    <Grid Grid.Column="1">
+                        <WrapPanel>
+                            <TextBlock Text="ENTER PIN :"
+                                       FontSize="45"
+                                       FontWeight="Bold"
+                                       Foreground="#FFFBF6F6" />
+                            <TextBox FontSize="45"
+                                     BorderBrush="Black"
+                                     x:Name="TxtPin"
+                                     FontWeight="Bold"
+                                     Width="200"
+                                     Background="#FFFFFFE4"
+                                     PreviewMouseDown="TxtPin_PreviewMouseDown" />
+                            <Button x:Name="cmdVerifyPIN"
+                                    FontSize="40"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    Width="100"
+                                    Height="75"
+                                    BorderBrush="#FFFFFF"
+                                    BorderThickness="3"
+                                    FontWeight="Bold"
+                                    Foreground="#FFF3F3F3"
+                                    Background="#FFF8941C">
+                                <DockPanel>
+                                    <TextBlock DockPanel.Dock="Bottom"
+                                               FontSize="15"
+                                               HorizontalAlignment="Center"
+                                               Foreground="White">VERIFY PIN</TextBlock>
+                                    <TextBlock Text="ü"
+                                               FontSize="50"
+                                               DockPanel.Dock="Top"
+                                               HorizontalAlignment="Center"
+                                               FontFamily="Wingdings" />
+                                </DockPanel>
+                            </Button>
+                        </WrapPanel>
+                    </Grid>
                 </Grid>
                 <Grid x:Name="GrdKeyDrop"
                       Visibility="Collapsed">

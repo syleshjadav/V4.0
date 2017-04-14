@@ -14,6 +14,7 @@ using System.Xml.Serialization;
 using System.IO;
 using ATP.DataModel;
 using ATP.WCF.Svcs;
+using KeyPad;
 
 namespace MyShopExpress {
     /// <summary>
@@ -32,7 +33,7 @@ namespace MyShopExpress {
         public CustomerKeyDropWindow() {
             InitializeComponent();
             // App.Current.SessionEnding += Current_SessionEnding;
-            CtrlValidatePin.cmdVerifyPIN.Click += CmdVerifyPIN_Click;
+            cmdVerifyPIN.Click += CmdVerifyPIN_Click;
             //  _serialPort = new SerialPort();
             // _serialPort.DataReceived += _serialPort_DataReceived;
             //  _serialPort.ErrorReceived += _serialPort_ErrorReceived;
@@ -116,7 +117,7 @@ namespace MyShopExpress {
 
             try {
                 res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
-                    return svcs.VerifyPinGetCustInfo(_dealerId, IsPickUpOrDrop, CtrlValidatePin.TxtPin.Text).ToList();
+                    return svcs.VerifyPinGetCustInfo(_dealerId, IsPickUpOrDrop, TxtPin.Text).ToList();
                 });
 
                 if (res != null && res.Count == 1) {
@@ -305,6 +306,34 @@ namespace MyShopExpress {
 
         private void cmdBack_Click(object sender, RoutedEventArgs e) {
             GoHome();
+        }
+
+        private void TxtPin_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            Keypad keypadWindow = new Keypad(textbox, this, "Enter PIN");
+            keypadWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            this.Opacity = .8;
+            if (keypadWindow.ShowDialog() == true)
+                textbox.Text = keypadWindow.Result;
+
+            this.Opacity = 1;
+
+        }
+
+        private void TxtComments_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            InvokeKeyBoard(sender, "Enter Comments :");
+        }
+        private void InvokeKeyBoard(object sender, string title)
+        {
+            TextBox tb = sender as TextBox;
+            VirtualKeyboard kbWin = new VirtualKeyboard(tb, this, title);
+            kbWin.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            this.Opacity = .8;
+            if (kbWin.ShowDialog() == true)
+                tb.Text = kbWin.Result;
+            this.Opacity = 1;
         }
     }
 

@@ -5,7 +5,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:MyShopExpress"
         mc:Ignorable="d"
-        xmlns:WpfKb="clr-namespace:WpfKb.Controls;assembly=WpfKb"
         d:DesignHeight="900"
         d:DesignWidth="700"
         WindowState="Maximized"
@@ -52,7 +51,7 @@
         <Grid.RowDefinitions>
           <RowDefinition Height="*" />
           <RowDefinition Height="Auto" />
-          <RowDefinition Height="400" />
+          
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
           <Grid.ColumnDefinitions>
@@ -60,10 +59,10 @@
             <ColumnDefinition Width="4*" />
           </Grid.ColumnDefinitions>
           <Grid.RowDefinitions>
-            <RowDefinition Height="1" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="2*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="200" />
           </Grid.RowDefinitions>
           <TextBlock Text="Name :"
                      Grid.Row="1"
@@ -84,7 +83,8 @@
                    FontWeight="Bold"
                    FontSize="30"
                    Height="50"
-                   Background="#FFFFFFE4" />
+                   Background="#FFFFFFE4"
+                             PreviewMouseDown="TxtName_PreviewMouseDown" />
           <TextBox Grid.Row="2"
                    Grid.Column="1"
                    BorderBrush="White"
@@ -95,47 +95,33 @@
                    FontSize="35"
                    Height="50"
                    Background="#FFFFFFE4"
-                   HorizontalAlignment="Left" />
+                   HorizontalAlignment="Left"
+                             PreviewMouseDown="TxtPhone_PreviewMouseDown" />
           <UniformGrid Grid.Row="3"
                        Grid.Column="1"
-                       Columns="2">
+                       >
             <TextBox BorderBrush="White"
                      GotFocus="TxtNotes_GotFocus"
-                     MinLines="3"
+                     MaxLines="3"
                      FontSize="30"
                      x:Name="TxtNotes"
                      FontWeight="Bold"
                      AcceptsReturn="True"
                      TextWrapping="Wrap"
                      Background="#FFFFFFE4"
-                     SpellCheck.IsEnabled="True" />
-            <Button Height="150"
-                    x:Name="cmdDropKeys"
-                    Width="250"
-                    VerticalAlignment="Bottom"
-                    Style="{DynamicResource PackageOrServicesButton }"
-                    Click="cmdDropKeys_Click">
-              <DockPanel>
-                <TextBlock DockPanel.Dock="Bottom"
-                           x:Name="TxtcmdCustomerVerified"
-                           FontSize="50"
-                           HorizontalAlignment="Center"
-                           Foreground="Black">DROP KEY</TextBlock>
-                <Image DockPanel.Dock="Top"
-                       HorizontalAlignment="Center"
-                       Source="/MyShopOutDoor;component/Image/carkey.png" />
-              </DockPanel>
-            </Button>
+                     SpellCheck.IsEnabled="True"
+                                 PreviewMouseDown="TxtNotes_PreviewMouseDown" />
+         
           </UniformGrid>
         </Grid>
         <UniformGrid Grid.Row="1"
-                     Columns="1">
+                     Columns="2">
           <Button x:Name="cmdBack"
-                  Width="100"
-                  Height="100"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Bottom"
-                  FontWeight="Bold"
+                            Width="100"
+                            Height="100"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            FontWeight="Bold"
                   Style="{DynamicResource PackageOrServicesButton }"
                   Click="cmdBack_Click">
             <DockPanel>
@@ -151,26 +137,30 @@
                          Text="ç" />
             </DockPanel>
           </Button>
-        </UniformGrid>
-        <Grid  Background="Gray"
-               Visibility="Visible"
-               Grid.Row="2"
-               x:Name="GrdKeyboard">
-          <WpfKb:FloatingTouchScreenKeyboard x:Name="MyKeyboard"
-                                             IsOpen="True"
-                                             PlacementTarget="{Binding ElementName=GrdKeyboard}"
-                                             AreAnimationsEnabled="False"
-                                             
-                                             Height="400"
-                                             Width="800"
-                                             IsAllowedToFade="False" />
-          <Grid>
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="*" />
-              <ColumnDefinition Width="3*" />
-            </Grid.ColumnDefinitions>
-          </Grid>
-        </Grid>
+                    <Button 
+                            x:Name="cmdDropKeys"
+                            
+                            Width="100"
+                            Height="100"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Style="{DynamicResource PackageOrServicesButton }"
+                            Click="cmdDropKeys_Click">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Bottom"
+                                       FontSize="30"
+                                       HorizontalAlignment="Center"
+                                       Foreground="Black">NEXT</TextBlock>
+                            <TextBlock DockPanel.Dock="Top"
+                                       FontSize="50"
+                                       Foreground="Black"
+                                       FontFamily="Wingdings"
+                                       HorizontalAlignment="Center"
+                                       Text="è" />
+                        </DockPanel>
+                    </Button>
+                </UniformGrid>
+       
       </Grid>
     </GroupBox>
   </Grid>

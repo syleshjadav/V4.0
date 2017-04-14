@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:MyShopExpress"
         mc:Ignorable="d"
-        xmlns:WpfKb="clr-namespace:WpfKb.Controls;assembly=WpfKb"
+       
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Tag="mdi_child"
         d:DesignHeight="900"
@@ -99,9 +99,9 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="150" />
-                    <RowDefinition Height="250" />
+                    <RowDefinition Height="*" />
                     <RowDefinition Height="auto" />
-                    <RowDefinition Height="1*" />
+                    
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
@@ -139,7 +139,8 @@
                              Height="50"
                              Width="400"
                              HorizontalAlignment="Left"
-                             Background="#FFFFFFE4" />
+                             Background="#FFFFFFE4"
+                             PreviewMouseDown="TxtName_PreviewMouseDown" />
                     <TextBox Grid.Row="1"
                              Grid.Column="4"
                              Margin="1"
@@ -152,7 +153,8 @@
                              FontSize="35"
                              Height="50"
                              Background="#FFFFFFE4"
-                             HorizontalAlignment="Left" />
+                             HorizontalAlignment="Left"
+                             PreviewMouseDown="TxtPhone_PreviewMouseDown" />
                     <TextBox BorderBrush="White"
                              GotFocus="TxtNotes_GotFocus"
                              Margin="1"
@@ -166,7 +168,8 @@
                              AcceptsReturn="True"
                              TextWrapping="Wrap"
                              Background="#FFFFFFE4"
-                             SpellCheck.IsEnabled="True" />
+                             SpellCheck.IsEnabled="True"
+                             PreviewMouseDown="TxtNotes_PreviewMouseDown" />
                 </Grid>
                 <Grid Grid.Row="1">
                     <ListBox Grid.Row="2"
@@ -244,24 +247,7 @@
                         </DockPanel>
                     </Button>
                 </UniformGrid>
-                <Grid  Background="Gray"
-                       Visibility="Visible"
-                       Grid.Row="3"
-                       x:Name="GrdKeyboard">
-                    <WpfKb:FloatingTouchScreenKeyboard x:Name="MyKeyboard"
-                                                       IsOpen="True"
-                                                       PlacementTarget="{Binding ElementName=GrdKeyboard}"
-                                                       AreAnimationsEnabled="False"
-                                                       Height="400"
-                                                       Width="800"
-                                                       IsAllowedToFade="False" />
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="3*" />
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-                </Grid>
+               
             </Grid>
         </GroupBox>
     </Grid>

@@ -123,9 +123,6 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="WpfKb">
-      <HintPath>..\Common\WpfKb\bin\Debug\WpfKb.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -304,6 +301,10 @@
     <Resource Include="Image\NoPhone1.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\KeyPad\KeyPad.csproj">
+      <Project>{3adbff38-915c-4115-9cdd-81c0cad9733a}</Project>
+      <Name>KeyPad</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data\ATP.DataModel\ATP.DataModel.csproj">
       <Project>{AA7A2394-DF96-49C0-A6C5-47B98DA977F4}</Project>
       <Name>ATP.DataModel</Name>
