@@ -19,15 +19,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://myshopauto.com/atpservices/CompInspection.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://www.myshopauto.com/atpservices/CompInspection.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CompInspection3.xsd" MetadataType="Schema" ID="544f13c5-e7ed-4cc3-8448-93c4bd5d9a0a" SourceId="1" SourceUrl="http://myshopauto.com/ATPServices/CompInspection.svc?xsd=xsd2" />
-    <MetadataFile FileName="CompInspection1.disco" MetadataType="Disco" ID="2cd6e2e2-da8b-44b8-83e2-0ef380fb221f" SourceId="1" SourceUrl="http://myshopauto.com/ATPServices/CompInspection.svc?disco" />
-    <MetadataFile FileName="CompInspection31.xsd" MetadataType="Schema" ID="e4aaf797-f202-4609-9549-4e0677cdfe00" SourceId="1" SourceUrl="http://myshopauto.com/ATPServices/CompInspection.svc?xsd=xsd0" />
-    <MetadataFile FileName="CompInspection32.xsd" MetadataType="Schema" ID="61e1bbc6-4d7d-49e2-95e5-460d9b8e9d63" SourceId="1" SourceUrl="http://myshopauto.com/ATPServices/CompInspection.svc?xsd=xsd1" />
-    <MetadataFile FileName="CompInspection2.wsdl" MetadataType="Wsdl" ID="68879064-95f0-49c9-8442-af557529ffb9" SourceId="1" SourceUrl="http://myshopauto.com/ATPServices/CompInspection.svc?wsdl" />
-    <MetadataFile FileName="CompInspection21.wsdl" MetadataType="Wsdl" ID="60e01693-b241-4f3e-8dd2-2809ec01f86c" SourceId="1" SourceUrl="http://myshopauto.com/ATPServices/CompInspection.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="CompInspection.xsd" MetadataType="Schema" ID="5256d65d-1b98-4679-a658-467002908a30" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/CompInspection.svc?xsd=xsd1" />
+    <MetadataFile FileName="CompInspection.wsdl" MetadataType="Wsdl" ID="874dc31b-6b06-4169-8907-1e9f6f826da8" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/CompInspection.svc?wsdl" />
+    <MetadataFile FileName="CompInspection.disco" MetadataType="Disco" ID="ef24e6d8-ef4f-447e-9516-3355ba2ff1d2" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/CompInspection.svc?disco" />
+    <MetadataFile FileName="CompInspection1.wsdl" MetadataType="Wsdl" ID="fb0dd867-e009-4b4f-a0d6-bf7787883906" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/CompInspection.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="CompInspection1.xsd" MetadataType="Schema" ID="4640a0cb-a050-4c13-bf23-07cd4ccc7792" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/CompInspection.svc?xsd=xsd2" />
+    <MetadataFile FileName="CompInspection2.xsd" MetadataType="Schema" ID="819af145-376d-4008-8577-dbe4d32eca35" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/CompInspection.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

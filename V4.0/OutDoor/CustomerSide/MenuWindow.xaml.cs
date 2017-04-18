@@ -40,7 +40,7 @@ namespace MyShopExpress {
             dispatcherTimer.Interval = new TimeSpan(0, 0, 300);
 
 
-            cmdNoPhoneDrop_Click(sender, e);
+           // cmdNoPhoneDrop_Click(sender, e);
         }
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection" elementFormDefault="qualified" targetNamespace="http://www.ADAMCentralUSA.com/ADAM/Service/CompInspection" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://myshopauto.com/ATPServices/CompInspection.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel" />
+  <xs:import schemaLocation="http://www.myshopauto.com/ATPServices/CompInspection.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel" />
   <xs:element name="SelAllCompInspectionExportData">
     <xs:complexType>
       <xs:sequence>

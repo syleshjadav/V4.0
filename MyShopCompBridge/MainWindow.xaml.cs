@@ -1,38 +1,42 @@
-﻿using System;
+﻿using IWshRuntimeLibrary;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.IO;
 using Advantage.Data.Provider;
 using System.Xml;
-using System.Collections;
-using System.Reflection;
-using WSHControllerLibrary;
-using MyShopCompInspectionSync.MyShopProxy;
-//using IWshRuntimeLibrary;
-using System.IO;
-using System.Xml;
-using System.Diagnostics;
-using IWshRuntimeLibrary;
+using System.Windows.Shapes;
+using System.Data;
+using MyShopCompBridge.Proxy;
+using System.Windows.Threading;
 
-namespace MyShopComp
+namespace MyShopCompBridge
 {
-   
-
-    public partial class Form1 : Form
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
     {
 
         AdsConnection conn = new AdsConnection();
         AdsCommand cmd = new AdsCommand();
         AdsDataAdapter adapter = new AdsDataAdapter();
         DataSet dset = new DataSet();
+        public DispatcherTimer dispatcherTimer;
 
         //string Connectionstring = "data source = c:\\SIRPA\\Data\\SIRDATA.ADD; ServerType=remote|local; TableType=ADT";
-        string Connectionstring = MyShopCompInspectionSync.Properties.Settings.Default.ConnectionString;
+        string Connectionstring = Properties.Settings.Default.CompDb;
         private int counter = 120;
         private int servicePollInterval = 120;
         private int dealerId = 103;
@@ -55,9 +59,9 @@ namespace MyShopComp
             try
             {
                 string startPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
-                if (System.IO.File.Exists(Path.Combine(startPath, "MyShopCompInspectionSync.lnk")))
+                if (System.IO.File.Exists(System.IO.Path.Combine(startPath, "MyShopCompBridge.exe")))
                 {
-                    System.IO.File.Delete(Path.Combine(startPath, "MyShopCompInspectionSync.lnk"));
+                    System.IO.File.Delete(System.IO.Path.Combine(startPath, "MyShopCompBridge.exe"));
 
                 }
             }
@@ -68,19 +72,19 @@ namespace MyShopComp
             try
             {
 
-                //   System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\" + "MyShopCompInspectionSync.exe");
+                // System.IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.Startup) + @"\" + "MyShopCompInspectionSync.exe");
 
-                WshShell wsh = new WshShell();
-                IWshRuntimeLibrary.IWshShortcut shortcut = wsh.CreateShortcut(Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\MyShopCompInspectionSync.lnk") as IWshRuntimeLibrary.IWshShortcut;
-                shortcut.Arguments = "";
-                shortcut.TargetPath = Application.ExecutablePath;// "c:\\app\\myftp.exe";
-                                                                 // not sure about what this is for
-                shortcut.WindowStyle = 1;
-                shortcut.Description = "MyShopCompInspectionSync";
-                shortcut.WorkingDirectory = "C:\\";
-                //shortcut.IconLocation = "specify icon location";
-                shortcut.Save();
+                //WshShell wsh = new WshShell();
+                //IWshRuntimeLibrary.IWshShortcut shortcut = wsh.CreateShortcut(Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\MyShopCompBridge.exe") as IWshRuntimeLibrary.IWshShortcut;
+                //shortcut.Arguments = "";
+                ////shortcut.TargetPath = Application.Current.Properties// "c:\\app\\myftp.exe";
 
+                //shortcut.WindowStyle = 1;
+                //shortcut.Description = "MyShopCompInspectionSync";
+                //shortcut.WorkingDirectory = "C:\\";
+                ////shortcut.IconLocation = "specify icon location";
+                //shortcut.Save();
+                CreateShortcut("CompBridge", Environment.GetFolderPath(Environment.SpecialFolder.Startup), System.Reflection.Assembly.GetExecutingAssembly().Location);
 
             }
             catch (Exception ex)
@@ -89,12 +93,21 @@ namespace MyShopComp
                 //lblErrorMsg.Text = ex.Message;
             }
         }
+        public static void CreateShortcut(string shortcutName, string shortcutPath, string targetFileLocation)
+        {
+            string shortcutLocation = System.IO.Path.Combine(shortcutPath, shortcutName + ".lnk");
+            WshShell shell = new WshShell();
+            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutLocation);
 
-        public Form1()
+            shortcut.Description = "Comp Bridge";   // The description of the shortcut
+            //shortcut.IconLocation = @"c:\myicon.ico";           // The icon of the shortcut
+            shortcut.TargetPath = targetFileLocation;                 // The path of the file that will launch when the shortcut is run
+            shortcut.Save();                                    // Save the shortcut
+        }
+        public MainWindow()
         {
             InitializeComponent();
-
-
+            this.Loaded += MainWindow_Loaded;
             AddToStartup();
 
             var dir = @"c:\Sites";
@@ -113,34 +126,17 @@ namespace MyShopComp
                     xdoc.LoadXml(s);
                     xdoc.Save(@"c:\Sites\MyShopAppBroker.xml");
                 }
-
                 xdoc.Load(filedir);
                 XmlNode xmlnode;
                 xmlnode = xdoc.SelectSingleNode("ROOT");
-                //  ConfigClass.DealerId = Convert.ToInt32(xmlnode["DEALERID"].InnerText);
-
-
-                // return;
-
-                //SerialPortInterface sp = new SerialPortInterface(); // load port details
-                //ConfigClass.MyShopSerialPort.PortName = xmlnode["MYSHOPCOMMPORT"].InnerText;
-
-
-                Connectionstring = MyShopCompInspectionSync.Properties.Settings.Default.ConnectionString;
-
+  
                 servicePollInterval = Convert.ToInt32(xmlnode["SERVICEPOLLINTERVAL"].InnerText);
                 dealerId = Convert.ToInt32(xmlnode["DEALERID"].InnerText);
                 IsAutoPilot = Convert.ToBoolean(xmlnode["ISAUTOPILOT"].InnerText);
                 IsShowForm = Convert.ToBoolean(xmlnode["ISSHOWFORM"].InnerText);
 
-
-                if (IsShowForm == false)
-                {
-                    this.Visible = false;
-                }
-
             }
-            catch(Exception  ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error in MyShopAuto App.. Contact ASAP");
                 var res1 = ATP.Common.ProxyHelper.Service<ICompInspection>.Use(svcs =>
@@ -150,11 +146,7 @@ namespace MyShopComp
                 return;
 
             }
-            if (IsAutoPilot == true)
-            {
-                timer1.Enabled = true;
-
-            }
+           
             counter = servicePollInterval;
             lblCountDown.Text = counter.ToString();
 
@@ -164,337 +156,17 @@ namespace MyShopComp
 
             // UpsertCustomer();
             DateTime thisDay = DateTime.Today;
-            txtInspectionDate.Text = thisDay.ToString("d");
-
-
+            //txtInspectionDate.Text = thisDay.ToString("d");
         }
 
-        //private void UpsertCustomer()
-        //{
-        //  CustVehInfo cust = LoadControlValueToObject();
-
-
-
-        //  //cust.InspectionInfo = inspInfo;
-        //  //cust.Brakes = brakes;
-        //  //cust.Tires = tires;
-
-
-        //  try
-        //  {
-
-        //    string sql = " SELECT top 10 * from CustomerVehicle WHERE VIN='" + cust.VIN + "'";
-
-        //    cmd.CommandText = sql;
-        //    cmd.Connection = conn;
-        //    adapter.SelectCommand = cmd;
-        //    adapter.Fill(dset);
-
-
-        //    if (dset.Tables[0].Rows.Count == 0) // insert a new customer
-        //    {
-        //      sql = "INSERT INTO CustomerVehicle (FirstName, Lastname, VIN)  VALUES (:FirstName, :Lastname, :VIN) ";
-        //    }
-        //    else if (dset.Tables[0].Rows.Count == 1)
-        //    {
-
-        //      sql = "UPDATE CustomerVehicle SET FirstName = :FirstName, LastName=:LastName, City=:City, State=:State, Zip=:Zip," +
-        //                   " VehicleCounty=:VehicleCounty,CountyCode=:CountyCode, Plate=:Plate,VehicleMake=:VehicleMake,VehicleBody=:VehicleBody, VehicleYear=:VehicleYear, " +
-        //                   "Odometer=:Odometer, NAIC=:NAIC,InsuranceCompany=:InsuranceCompany,PolicyNumber=:PolicyNumber,InsuranceExpires=:InsuranceExpires" +
-        //               " WHERE VIN='" + cust.VIN + "'";
-
-
-        //    }
-        //    else
-        //    {
-        //      return;
-        //    }
-
-        //    using (AdsConnection cn = new AdsConnection(Connectionstring))
-        //    {
-        //      using (var cmd = new AdsCommand(sql, cn))
-        //      {
-        //        // define parameters and their values
-
-        //        cmd.Parameters.Add("FirstName", cust.FirstName);
-        //        cmd.Parameters.Add("LastName", cust.LastName);
-        //        cmd.Parameters.Add("City", cust.City);
-        //        cmd.Parameters.Add("State", cust.State);
-        //        cmd.Parameters.Add("Zip", cust.Zip);
-        //        cmd.Parameters.Add("VehicleCounty", cust.County);
-        //        cmd.Parameters.Add("CountyCode", cust.CountyCode);
-
-        //        cmd.Parameters.Add("Plate", cust.Plate);
-        //        cmd.Parameters.Add("VehicleMake", cust.VehicleMake);
-        //        cmd.Parameters.Add("VehicleBody", cust.Body);
-        //        cmd.Parameters.Add("VehicleYear", cust.Year);
-        //        cmd.Parameters.Add("Odometer", cust.CurrOdo);
-
-        //        cmd.Parameters.Add("VehicleBody", cust.Body);
-        //        cmd.Parameters.Add("VehicleYear", cust.Year);
-        //        cmd.Parameters.Add("Odometer", cust.CurrOdo);
-
-
-        //        cmd.Parameters.Add("NAIC", cust.Naic);
-        //        cmd.Parameters.Add("InsuranceCompany", cust.InsCpy);
-        //        cmd.Parameters.Add("PolicyNumber", cust.Policy);
-        //        cmd.Parameters.Add("InsuranceExpires", cust.ExpDate);
-
-        //        /*
-        //        cmd.Parameters.Add("NAIC", inspInfo.Body);
-        //        cmd.Parameters.Add("NAIC", inspInfo.Break);
-        //        cmd.Parameters.Add("Exhaust", inspInfo.Exhaust);
-        //        cmd.Parameters.Add("NAIC", inspInfo.Fuel);
-        //        cmd.Parameters.Add("GlazingMirrors", inspInfo.Glazing);
-        //        cmd.Parameters.Add("Lighting", inspInfo.Lights);
-        //        cmd.Parameters.Add("Other", inspInfo.Other);
-        //        cmd.Parameters.Add("NAIC", inspInfo.RegVerified);
-        //        cmd.Parameters.Add("NAIC", inspInfo.RoadTest);
-        //        cmd.Parameters.Add("Streering", inspInfo.Streering);
-        //        cmd.Parameters.Add("NAIC", inspInfo.Tires);
-        //        */
-
-
-
-        //        cn.Open();
-        //        cmd.ExecuteNonQuery();
-        //        cn.Close();
-        //      }
-
-
-
-
-
-        //    }
-
-        //  }
-        //  catch (AdsException e)
-        //  {
-        //    // print the exception message
-        //    Console.WriteLine(e.Message);
-        //  }
-        //}
-
-        private CustVehInfo LoadControlValueToObject()
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            var cust = new CustVehInfo
-            {
-                FirstName = txtFirstName.Text,
-                LastName = txtLastName.Text,
-                Address1 = txtAddress1.Text,
-                Address2 = txtAdd2.Text,
-                City = txtCity.Text,
-                State = txtState.Text,
-                Zip = txtZip.Text,
-                CountyCode = txtCountyCode.Text,
-                County = txtCounty.Text,
-
-                VIN = txtVin.Text,
-                Plate = txtPlate.Text,
-                Year = txtYear.Text,
-                VehicleMake = txtMake.Text,
-                VehicleModel = txtModel.Text,
-                Body = txtBody.Text,
-                CurrOdo = txtCurrOdo.Text,
-                PrevOdo = txtOldOdo.Text,
-                Naic = txtNaic.Text,
-                ExpDate = txtExpDt.Text,
-                Policy = txtPolicy.Text,
-                InsCpy = txtInsuranceCpy.Text,
-                InspectionDate = txtInspectionDate.Text,
-                EmissonNum = txtEmissionNum.Text,
-                StrickerMMYY = txtStickerMMYY.Text,
-                WorkOrder = txtWorkOrder.Text
-
-            };
-            var inspInfo = new InspectionInfo
-            {
-                RegVerified = txtRegistrationVerified.Text,
-                RoadTest = txtRoadTest.Text,
-                Tires = txtTires.Text,
-                Body = txtBodyInfo.Text,
-                Fuel = txtFuel.Text,
-                Break = txtBrake.Text,
-                Exhaust = txtExhaust.Text,
-                Glazing = txtGlazing.Text,
-                Lights = txtLights.Text,
-                Streering = txtSteering.Text,
-                Other = txtOther.Text
-            };
-            var brakes = new Brakes
-            {
-                BrakeLFThickness = TxtLFBReading.Text,
-                BrakeLRThickness = txtLRBReading.Text,
-                BrakeRFThickness = TxtRFBReading.Text,
-                BrakeRRThickness = TxtRRBReading.Text,
-
-                LFBrakeBondRivet = txtLFBCondition.Text,
-                LRBrakeBondRivet = txtLRBCondition.Text,
-
-                RFBrakeBondRivet = txtRFBCondition.Text,
-                RRBrakeBondRivet = txtRRBCondition.Text,
-                //BrakeRRBondRivet = txtRRBCondition.Text,
-
-
-            };
-            var tires = new Tires
-            {
-                TireRightFront = txtRFTReading.Text,
-                TireRightRear = txtRRTReading.Text,
-                TireLeftFront = txtLFTReading.Text,
-                TireLeftRear = txtLRTReading.Text,
-
-
-            };
-
-            var visual = new VisualAnti
-            {
-                AIRPump = txtAirPump.Text,
-                CatalyticConverter = txtCatalyticConvertor.Text,
-                ERG = TxtERGValue.Text,
-                EvaporativeControl = txtEvaporativeControl.Text,
-                FuelInlet = txtFuelInlet.Text,
-                PCV = txtPCVValue.Text
-
-            };
-
-            cust.Brakes = brakes;
-            cust.Tires = tires;
-            cust.InspectionInfo = inspInfo;
-            cust.VisualAnti = visual;
-
-            cust.InspectionInfo.PassInspection = "Y";
-
-            if (cust.InspectionInfo.Body == "F" || cust.InspectionInfo.Break == "F" || cust.InspectionInfo.Exhaust == "F" || cust.InspectionInfo.Fuel == "F" || cust.InspectionInfo.Glazing == "F" ||
-              cust.InspectionInfo.Lights == "F" || cust.InspectionInfo.Other == "F" || cust.InspectionInfo.RegVerified == "F" || cust.InspectionInfo.RegVerified == "N" || cust.InspectionInfo.RoadTest == "F" || cust.InspectionInfo.Streering == "F" ||
-              cust.InspectionInfo.Tires == "F")
-            {
-                cust.InspectionInfo.PassInspection = "N";
-            }
-
-            if (cust.VisualAnti.AIRPump == "F" || cust.VisualAnti.CatalyticConverter == "F" || cust.VisualAnti.ERG == "F" || cust.VisualAnti.EvaporativeControl == "F" || cust.VisualAnti.FuelInlet == "F"
-              || cust.VisualAnti.PCV == "F")
-            {
-                cust.InspectionInfo.PassInspection = "N";
-            }
-
-            if (CustomerInfo != null)
-            {
-                cust.InspectionCost = CustomerInfo.InspectionCost;
-                cust.TotalCost = CustomerInfo.TotalCost;
-                cust.StickerCharge = CustomerInfo.StickerCharge;
-                cust.StateTaxRate = CustomerInfo.StateTaxRate;
-                cust.EmissonNum = CustomerInfo.EmissonNum;
-                cust.Id = CustomerInfo.Id;
-                cust.VehicleServiceGuid = CustomerInfo.VehicleServiceGuid;
-                cust.Station_Id = CustomerInfo.Station_Id;
-                cust.Region = CustomerInfo.Region;
-                if (CustomerInfo.Tires != null)
-                {
-                    cust.Tires.LowestTireReading = CustomerInfo.Tires.LowestTireReading;
-                    cust.Tires.LowestTireSide = CustomerInfo.Tires.LowestTireSide;
-                }
-            }
-            return cust;
+            dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, servicePollInterval);
         }
 
-        private void LoadObjectToControlValue()
-        {
-
-            txtFirstName.Text = CustomerInfo.FirstName;
-            txtLastName.Text = CustomerInfo.LastName;
-            txtAddress1.Text = CustomerInfo.Address1;
-            txtAdd2.Text = CustomerInfo.Address2;
-            txtCity.Text = CustomerInfo.City;
-
-            txtState.Text = CustomerInfo.State;
-            txtZip.Text = CustomerInfo.Zip;
-            txtCountyCode.Text = CustomerInfo.CountyCode;
-            txtCounty.Text = CustomerInfo.County;
-
-            txtVin.Text = CustomerInfo.VIN;
-            txtPlate.Text = CustomerInfo.Plate;
-            txtYear.Text = CustomerInfo.Year;
-            txtMake.Text = CustomerInfo.VehicleMake;
-            txtModel.Text = CustomerInfo.VehicleModel;
-            txtBody.Text = CustomerInfo.Body;
-            txtCurrOdo.Text = CustomerInfo.CurrOdo;
-            txtOldOdo.Text = CustomerInfo.PrevOdo;
-            txtNaic.Text = CustomerInfo.Naic;
-            txtInsuranceCpy.Text = CustomerInfo.InsCpy;
-            txtExpDt.Text = CustomerInfo.ExpDate;
-            txtPolicy.Text = CustomerInfo.Policy;
-            txtInspectionDate.Text = CustomerInfo.InspectionDate;
-            txtEmissionNum.Text = CustomerInfo.EmissonNum;
-            txtWorkOrder.Text = CustomerInfo.WorkOrder;
-            txtStickerMMYY.Text = CustomerInfo.StrickerMMYY;
-            txtInspCost.Text = CustomerInfo.InspectionCost;
-            txtVehicleServiceGuid.Text = CustomerInfo.VehicleServiceGuid.ToString();
-
-
-            txtRegistrationVerified.Text = CustomerInfo.InspectionInfo.RegVerified;
-            txtRoadTest.Text = CustomerInfo.InspectionInfo.RoadTest;
-            txtTires.Text = CustomerInfo.InspectionInfo.Tires;
-            txtBodyInfo.Text = CustomerInfo.InspectionInfo.Body;
-            txtFuel.Text = CustomerInfo.InspectionInfo.Fuel;
-            txtBrake.Text = CustomerInfo.InspectionInfo.Break;
-            txtExhaust.Text = CustomerInfo.InspectionInfo.Exhaust;
-            txtGlazing.Text = CustomerInfo.InspectionInfo.Glazing;
-            txtLights.Text = CustomerInfo.InspectionInfo.Lights;
-            txtSteering.Text = CustomerInfo.InspectionInfo.Streering;
-            txtOther.Text = CustomerInfo.InspectionInfo.Other;
-
-            TxtLFBReading.Text = CustomerInfo.Brakes.BrakeLFThickness;
-            txtLRBReading.Text = CustomerInfo.Brakes.BrakeLRThickness;
-            TxtRFBReading.Text = CustomerInfo.Brakes.BrakeRFThickness;
-            TxtRRBReading.Text = CustomerInfo.Brakes.BrakeRRThickness;
-
-            txtLFBCondition.Text = CustomerInfo.Brakes.LFBrakeBondRivet;
-            txtLRBCondition.Text = CustomerInfo.Brakes.LRBrakeBondRivet;
-
-            txtRFBCondition.Text = CustomerInfo.Brakes.RFBrakeBondRivet;
-            txtRRBCondition.Text = CustomerInfo.Brakes.RRBrakeBondRivet;
-
-
-            txtRFTReading.Text = CustomerInfo.Tires.TireRightFront;
-            txtRRTReading.Text = CustomerInfo.Tires.TireRightRear;
-            txtLFTReading.Text = CustomerInfo.Tires.TireLeftFront;
-            txtLRTReading.Text = CustomerInfo.Tires.TireLeftRear;
-
-
-            txtAirPump.Text = CustomerInfo.VisualAnti.AIRPump;
-            txtCatalyticConvertor.Text = CustomerInfo.VisualAnti.CatalyticConverter;
-            TxtERGValue.Text = CustomerInfo.VisualAnti.ERG;
-            txtEvaporativeControl.Text = CustomerInfo.VisualAnti.EvaporativeControl;
-            txtFuelInlet.Text = CustomerInfo.VisualAnti.FuelInlet;
-            txtPCVValue.Text = CustomerInfo.VisualAnti.PCV;
-
-
-
-
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            counter--;
-            lblCountDown.Text = counter.ToString();
-            if (counter <= 0)
-            {
-                timer1.Stop();
-
-                if (IsShowForm == false)
-                {
-                    this.Visible = false;
-                }
-
-                SelectAllCYADataFromWeb();
-                counter = servicePollInterval;
-            }
-
-            timer1.Start();
-
-        }
-
+        private CustVehInfo CustomerInfo { get; set; }
         private void SelectAllCYADataFromWeb()
         {
             try
@@ -534,8 +206,6 @@ namespace MyShopComp
                 });
             }
         }
-
-        private CustVehInfo CustomerInfo { get; set; }
         private void MapMyShopDataToObject(uspSelAllCompInspectionExportData_Result m)
         {
 
@@ -679,76 +349,6 @@ namespace MyShopComp
             LoadObjectToControlValue();
 
         }
-
-
-        //private void SelectAllCounties()
-        //{
-        //    try
-        //    {
-
-        //        string sql = " SELECT * from PACounty";
-
-        //        cmd.CommandText = sql;
-        //        cmd.Connection = conn;
-        //        adapter.SelectCommand = cmd;
-        //        adapter.Fill(dset);
-        //        if (dset.Tables[0].Rows.Count > 0)
-        //        {
-        //            var success = true;
-
-        //        }
-
-        //    }
-        //    catch (AdsException e)
-        //    {
-        //        // print the exception message
-        //        Console.WriteLine(e.Message);
-        //    }
-        //}
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //AddToStartup();
-        }
-
-
-
-        private void cmdSendData_Click(object sender, EventArgs e)
-        {
-
-
-            //  Helper.ResetAllControls(this);
-            UpsertInvoice();
-
-
-        }
-
-        //private void BuidInsertStatement()
-        //{
-
-        //    string[] colNames = { "UserWorkOrder, InvoiceDate, InspectDate, Lastname, Firstname, VIN, InvoiceNumber, City, State, Zip, VehicleCounty, CountyCode, Plate, VehicleMake, VehicleBody, VehicleYear, " +
-        //            "CurrentOdometer, OldOdometer,NAIC,InsuranceCompany,PolicyNo,InsuranceExpires,InvoiceType,RegCardVerified,Field1,Doors,BrakeSystem, Exhaust,Fuel,GlazingMirrors,Lighting,Other,RoadTest,Steering," +
-        //            "};
-
-
-
-        //    sql = "INSERT INTO Invoice (UserWorkOrder,InvoiceDate,InspectDate, Lastname, Firstname,VIN,InvoiceNumber,City, State, Zip,VehicleCounty,CountyCode, Plate,VehicleMake,VehicleBody, VehicleYear," +
-        //      " CurrentOdometer, OldOdometer,NAIC,InsuranceCompany,PolicyNo,InsuranceExpires,InvoiceType,RegCardVerified,Field1,Doors," +
-        //      "BrakeSystem, Exhaust,Fuel,GlazingMirrors,Lighting,Other,RoadTest,Steering," +
-        //                 "BrakeLFBondRivet,BrakeLFThickness,BrakeLRBondRivet," +
-        //      "BrakeLRThickness,BrakeRFBondRivet,BrakeRFThickness,BrakeRRBondRivet,BrakeRRThickness,TreadRightFront,TreadRightRear,TreadLeftFront,TreadLeftRear,InspectType," +
-        //      "AirPump,CatalyticConverter,EGRvalve,EvaporativeControl,FuelInletRestrictor,PCVValve,PassInspection,StickerExpiresMonth,StickerExpiresYear,TreadLeftNR32,TreadLeft," +
-        //      "Labor1,LaborTotalCost,Part1,Part1Cost,Part1Qty,Station_Id,StationInspectionCharge,CurrentYear,PartsTotalCost)  " +
-
-        //      " VALUES (:UserWorkOrder,:InvoiceDate,:InspectDate,:Lastname, :FirstName, :VIN,:InvoiceNumber, :City, :State, :Zip,:VehicleCounty,:CountyCode, :Plate,:VehicleMake,:VehicleBody, :VehicleYear," +
-        //      " :CurrentOdometer,:OldOdometer, :NAIC,:InsuranceCompany, :PolicyNo,:InsuranceExpires,:InvoiceType,:RegCardVerified,:Field1,:Doors," +
-        //      ":BrakeSystem, :Exhaust,:Fuel,:GlazingMirrors,:Lighting,:Other,:RoadTest,:Steering," +
-        //      ":BrakeLFBondRivet,:BrakeLFThickness,:BrakeLRBondRivet," +
-        //      ":BrakeLRThickness,:BrakeRFBondRivet,:BrakeRFThickness,:BrakeRRBondRivet,:BrakeRRThickness,:TreadRightFront,:TreadRightRear,:TreadLeftFront,:TreadLeftRear,:InspectType," +
-        //      "  :AirPump,:CatalyticConverter,:EGRvalve,:EvaporativeControl,:FuelInletRestrictor,:PCVValve,:PassInspection,:StickerExpiresMonth,:StickerExpiresYear,:TreadLeftNR32,:TreadLeft," +
-        //      ":Labor1,:LaborTotalCost,:Part1,:Part1Cost,:Part1Qty,:Station_Id,:StationInspectionCharge,:CurrentYear,:PartsTotalCost)";
-        //}
-
 
         private void UpsertInvoice()
         {
@@ -1238,45 +838,226 @@ namespace MyShopComp
             }
         }
 
-
-
-        private void cmdPullMyShopAuto_Click(object sender, EventArgs e)
+        private CustVehInfo LoadControlValueToObject()
         {
-            Helper.ResetAllControls(this);
-            SelectAllCYADataFromWeb();
+            var cust = new CustVehInfo
+            {
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                Address1 = txtAddress1.Text,
+                Address2 = txtAdd2.Text,
+                City = txtCity.Text,
+                State = txtState.Text,
+                Zip = txtZip.Text,
 
+                
+                Year = txtYear.Text,
+                VehicleMake = txtMake.Text,
+                VehicleModel = txtModel.Text,
+                Body = txtBody.Text,
+                CountyCode = txtCountyCode.Text,
+                County = txtCounty.Text,
+                VIN = txtVin.Text,
+                Plate = txtPlate.Text,
+                CurrOdo = txtCurrOdo.Text,
+                PrevOdo = txtOldOdo.Text,
+
+                Naic = txtNaic.Text,
+                ExpDate = txtExpDt.Text,
+                Policy = txtPolicy.Text,
+                InsCpy = txtInsuranceCpy.Text,
+                InspectionDate = txtInspectionDate.Text,
+
+                EmissonNum = txtEmissionNum.Text,
+                StrickerMMYY = txtStickerMMYY.Text,
+                WorkOrder = txtWorkOrder.Text
+
+            };
+            var inspInfo = new InspectionInfo
+            {
+                RegVerified = txtRegistrationVerified.Text,
+                RoadTest = txtRoadTest.Text,
+                Tires = txtTires.Text,
+                Body = txtBodyInfo.Text,
+                Fuel = txtFuel.Text,
+                Break = txtBrake.Text,
+                Exhaust = txtExhaust.Text,
+                Glazing = txtGlazing.Text,
+                Lights = txtLights.Text,
+                Streering = txtSteering.Text,
+                Other = txtOther.Text
+            };
+            var brakes = new Brakes
+            {
+                BrakeLFThickness = TxtLFBReading.Text,
+                BrakeLRThickness = txtLRBReading.Text,
+                BrakeRFThickness = TxtRFBReading.Text,
+                BrakeRRThickness = TxtRRBReading.Text,
+
+                LFBrakeBondRivet = txtLFBCondition.Text,
+                LRBrakeBondRivet = txtLRBCondition.Text,
+
+                RFBrakeBondRivet = txtRFBCondition.Text,
+                RRBrakeBondRivet = txtRRBCondition.Text,
+                //BrakeRRBondRivet = txtRRBCondition.Text,
+
+
+            };
+            var tires = new Tires
+            {
+                TireRightFront = txtRFTReading.Text,
+                TireRightRear = txtRRTReading.Text,
+                TireLeftFront = txtLFTReading.Text,
+                TireLeftRear = txtLRTReading.Text,
+
+
+            };
+
+            var visual = new VisualAnti
+            {
+                AIRPump = txtAirPump.Text,
+                CatalyticConverter = txtCatalyticConvertor.Text,
+                ERG = TxtERGValue.Text,
+                EvaporativeControl = txtEvaporativeControl.Text,
+                FuelInlet = txtFuelInlet.Text,
+                PCV = txtPCVValue.Text
+
+            };
+
+            cust.Brakes = brakes;
+            cust.Tires = tires;
+            cust.InspectionInfo = inspInfo;
+            cust.VisualAnti = visual;
+
+            cust.InspectionInfo.PassInspection = "Y";
+
+            if (cust.InspectionInfo.Body == "F" || cust.InspectionInfo.Break == "F" || cust.InspectionInfo.Exhaust == "F" || cust.InspectionInfo.Fuel == "F" || cust.InspectionInfo.Glazing == "F" ||
+              cust.InspectionInfo.Lights == "F" || cust.InspectionInfo.Other == "F" || cust.InspectionInfo.RegVerified == "F" || cust.InspectionInfo.RegVerified == "N" || cust.InspectionInfo.RoadTest == "F" || cust.InspectionInfo.Streering == "F" ||
+              cust.InspectionInfo.Tires == "F")
+            {
+                cust.InspectionInfo.PassInspection = "N";
+            }
+
+            if (cust.VisualAnti.AIRPump == "F" || cust.VisualAnti.CatalyticConverter == "F" || cust.VisualAnti.ERG == "F" || cust.VisualAnti.EvaporativeControl == "F" || cust.VisualAnti.FuelInlet == "F"
+              || cust.VisualAnti.PCV == "F")
+            {
+                cust.InspectionInfo.PassInspection = "N";
+            }
+
+            if (CustomerInfo != null)
+            {
+                cust.InspectionCost = CustomerInfo.InspectionCost;
+                cust.TotalCost = CustomerInfo.TotalCost;
+                cust.StickerCharge = CustomerInfo.StickerCharge;
+                cust.StateTaxRate = CustomerInfo.StateTaxRate;
+                cust.EmissonNum = CustomerInfo.EmissonNum;
+                cust.Id = CustomerInfo.Id;
+                cust.VehicleServiceGuid = CustomerInfo.VehicleServiceGuid;
+                cust.Station_Id = CustomerInfo.Station_Id;
+                cust.Region = CustomerInfo.Region;
+                if (CustomerInfo.Tires != null)
+                {
+                    cust.Tires.LowestTireReading = CustomerInfo.Tires.LowestTireReading;
+                    cust.Tires.LowestTireSide = CustomerInfo.Tires.LowestTireSide;
+                }
+            }
+            return cust;
         }
 
-        private void txtLRTReading_TextChanged(object sender, EventArgs e)
+        private void LoadObjectToControlValue()
         {
+
+            txtFirstName.Text = CustomerInfo.FirstName;
+            txtLastName.Text = CustomerInfo.LastName;
+            txtAddress1.Text = CustomerInfo.Address1;
+            txtAdd2.Text = CustomerInfo.Address2;
+            txtCity.Text = CustomerInfo.City;
+
+            txtState.Text = CustomerInfo.State;
+            txtZip.Text = CustomerInfo.Zip;
+            txtCountyCode.Text = CustomerInfo.CountyCode;
+            txtCounty.Text = CustomerInfo.County;
+
+            txtVin.Text = CustomerInfo.VIN;
+            txtPlate.Text = CustomerInfo.Plate;
+            txtYear.Text = CustomerInfo.Year;
+            txtMake.Text = CustomerInfo.VehicleMake;
+            txtModel.Text = CustomerInfo.VehicleModel;
+            txtBody.Text = CustomerInfo.Body;
+            txtCurrOdo.Text = CustomerInfo.CurrOdo;
+            txtOldOdo.Text = CustomerInfo.PrevOdo;
+            txtNaic.Text = CustomerInfo.Naic;
+            txtInsuranceCpy.Text = CustomerInfo.InsCpy;
+            txtExpDt.Text = CustomerInfo.ExpDate;
+            txtPolicy.Text = CustomerInfo.Policy;
+            txtInspectionDate.Text = CustomerInfo.InspectionDate;
+            txtEmissionNum.Text = CustomerInfo.EmissonNum;
+            txtWorkOrder.Text = CustomerInfo.WorkOrder;
+            txtStickerMMYY.Text = CustomerInfo.StrickerMMYY;
+            txtInspCost.Text = CustomerInfo.InspectionCost;
+            txtVehicleServiceGuid.Text = CustomerInfo.VehicleServiceGuid.ToString();
+
+
+            txtRegistrationVerified.Text = CustomerInfo.InspectionInfo.RegVerified;
+            txtRoadTest.Text = CustomerInfo.InspectionInfo.RoadTest;
+            txtTires.Text = CustomerInfo.InspectionInfo.Tires;
+            txtBodyInfo.Text = CustomerInfo.InspectionInfo.Body;
+            txtFuel.Text = CustomerInfo.InspectionInfo.Fuel;
+            txtBrake.Text = CustomerInfo.InspectionInfo.Break;
+            txtExhaust.Text = CustomerInfo.InspectionInfo.Exhaust;
+            txtGlazing.Text = CustomerInfo.InspectionInfo.Glazing;
+            txtLights.Text = CustomerInfo.InspectionInfo.Lights;
+            txtSteering.Text = CustomerInfo.InspectionInfo.Streering;
+            txtOther.Text = CustomerInfo.InspectionInfo.Other;
+
+            TxtLFBReading.Text = CustomerInfo.Brakes.BrakeLFThickness;
+            txtLRBReading.Text = CustomerInfo.Brakes.BrakeLRThickness;
+            TxtRFBReading.Text = CustomerInfo.Brakes.BrakeRFThickness;
+            TxtRRBReading.Text = CustomerInfo.Brakes.BrakeRRThickness;
+
+            txtLFBCondition.Text = CustomerInfo.Brakes.LFBrakeBondRivet;
+            txtLRBCondition.Text = CustomerInfo.Brakes.LRBrakeBondRivet;
+
+            txtRFBCondition.Text = CustomerInfo.Brakes.RFBrakeBondRivet;
+            txtRRBCondition.Text = CustomerInfo.Brakes.RRBrakeBondRivet;
+
+
+            txtRFTReading.Text = CustomerInfo.Tires.TireRightFront;
+            txtRRTReading.Text = CustomerInfo.Tires.TireRightRear;
+            txtLFTReading.Text = CustomerInfo.Tires.TireLeftFront;
+            txtLRTReading.Text = CustomerInfo.Tires.TireLeftRear;
+
+
+            txtAirPump.Text = CustomerInfo.VisualAnti.AIRPump;
+            txtCatalyticConvertor.Text = CustomerInfo.VisualAnti.CatalyticConverter;
+            TxtERGValue.Text = CustomerInfo.VisualAnti.ERG;
+            txtEvaporativeControl.Text = CustomerInfo.VisualAnti.EvaporativeControl;
+            txtFuelInlet.Text = CustomerInfo.VisualAnti.FuelInlet;
+            txtPCVValue.Text = CustomerInfo.VisualAnti.PCV;
+
+
+
 
         }
-
-        private void txtRegistrationVerified_TextChanged(object sender, EventArgs e)
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
+            counter--;
+            lblCountDown.Text = counter.ToString();
+            if (counter <= 0)
+            {
+                //timer1.Stop();
 
-        }
+                //if (IsShowForm == false)
+                //{
+                //    this.Visible = false;
+                //}
 
-        private void cmdClearAll_Click(object sender, EventArgs e)
-        {
-            Helper.ResetAllControls(this);
-        }
+                //SelectAllCYADataFromWeb();
+                //counter = servicePollInterval;
+            }
 
-        private void txtCity_TextChanged(object sender, EventArgs e)
-        {
+          //  timer1.Start();
 
-
-        }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel = true;
-            //WindowState = FormWindowState.Minimized;
-            this.Hide();
-        }
-
-        private void cmdPullMyShopAuto_Click_1(object sender, EventArgs e)
-        {
 
         }
     }

@@ -10,6 +10,7 @@ using Elmah;
 namespace ATP.WCF.Svcs {
     [ServiceErrorBehaviour(typeof(HttpErrorHandler))]
     public class OutDoor : IOutDoor {
+
         public List<uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(Nullable<int> dealerId, Nullable<bool> isPickUpOrDrop, string keyLockerPin) {
             return new ATP.Services.Data.OutDoor().VerifyPinGetCustInfo(dealerId, isPickUpOrDrop, keyLockerPin).ToList();
         }

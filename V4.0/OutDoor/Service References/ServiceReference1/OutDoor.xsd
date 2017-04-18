@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ATP.DataModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ATP.DataModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:50000/OutDoor.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://sylesh-001-site2.ctempurl.com/ATPServices/OutDoor.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://sylesh-001-site2.ctempurl.com/ATPServices/OutDoor.svc?xsd=xsd4" namespace="http://www.AdamKiosks.com/ATPServiceData" />
   <xs:complexType name="ArrayOfuspVerifyPinGetCustInfo_Result">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="uspVerifyPinGetCustInfo_Result" nillable="true" type="tns:uspVerifyPinGetCustInfo_Result" />
@@ -53,6 +54,58 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="uspVerifyPinGetCustInfo_Result" nillable="true" type="tns:uspVerifyPinGetCustInfo_Result" />
+  <xs:complexType name="ArrayOfuspVerifyPinGetCustInfoExpress_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="uspVerifyPinGetCustInfoExpress_Result" nillable="true" type="tns:uspVerifyPinGetCustInfoExpress_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfuspVerifyPinGetCustInfoExpress_Result" nillable="true" type="tns:ArrayOfuspVerifyPinGetCustInfoExpress_Result" />
+  <xs:complexType name="uspVerifyPinGetCustInfoExpress_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceTypeId" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FleetNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GoogleGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InspectionExpMnth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InspectionExpYr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsuranceCompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsuranceExpDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsuranceId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsuranceState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastServiceMileage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LicensePlate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mileage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NAIC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextEmisisonDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextInspectionDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextServiceDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextSvcInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoOfRotationCustomer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonGuid" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PinStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PolicyNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RelatedId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehBodyType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehPhId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleGuid" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="VehicleMake" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleModel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleServiceGuid" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="VehicleTrim" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleYear" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleYrMkMod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YearlyAverageMileage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="uspVerifyPinGetCustInfoExpress_Result" nillable="true" type="tns:uspVerifyPinGetCustInfoExpress_Result" />
   <xs:complexType name="ArrayOfuspSelVehicleMakes_Result">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="uspSelVehicleMakes_Result" nillable="true" type="tns:uspSelVehicleMakes_Result" />
@@ -260,4 +313,86 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="uspSelSvcTypeByDealerId_Result" nillable="true" type="tns:uspSelSvcTypeByDealerId_Result" />
+  <xs:complexType name="ArrayOfuspSelNextExpressNumber_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="uspSelNextExpressNumber_Result" nillable="true" type="tns:uspSelNextExpressNumber_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfuspSelNextExpressNumber_Result" nillable="true" type="tns:ArrayOfuspSelNextExpressNumber_Result" />
+  <xs:complexType name="uspSelNextExpressNumber_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DbErrorLine" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DbErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DbErrorNumber" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DbErrorProcedure" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DbErrorSeverity" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DbErrorState" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="uspSelNextExpressNumber_Result" nillable="true" type="tns:uspSelNextExpressNumber_Result" />
+  <xs:complexType name="ATPServiceDataMasterKiosk">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ADAM" type="xs:boolean" />
+      <xs:element xmlns:q1="http://www.AdamKiosks.com/ATPServiceData" minOccurs="0" name="ATPServiceDataList" nillable="true" type="q1:ArrayOfATPServiceData" />
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ContactByText" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ContactCellPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DealerId" type="xs:int" />
+      <xs:element minOccurs="0" name="EnteredBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpressNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="KeyLockerPegId" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="KeyTagBarCodeId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KioskId" type="xs:int" />
+      <xs:element minOccurs="0" name="KioskMachineId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KioskName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mileage" type="xs:int" />
+      <xs:element minOccurs="0" name="PackageCost" type="xs:double" />
+      <xs:element minOccurs="0" name="Paid" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PersonGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="RONumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceCost" type="xs:double" />
+      <xs:element minOccurs="0" name="StatusId" type="xs:int" />
+      <xs:element minOccurs="0" name="VehicleGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="VehicleMileage" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ATPServiceDataMasterKiosk" nillable="true" type="tns:ATPServiceDataMasterKiosk" />
+  <xs:complexType name="ArrayOfuspSelDealerDetailsById_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="uspSelDealerDetailsById_Result" nillable="true" type="tns:uspSelDealerDetailsById_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfuspSelDealerDetailsById_Result" nillable="true" type="tns:ArrayOfuspSelDealerDetailsById_Result" />
+  <xs:complexType name="uspSelDealerDetailsById_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DealerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GeneralInquryPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IOSp12FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageHttpPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImageOSPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsValid" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ManagerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ManagerPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SalesPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceEmailFromId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceEmailFromName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceEmailSubject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServicePhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode4" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="uspSelDealerDetailsById_Result" nillable="true" type="tns:uspSelDealerDetailsById_Result" />
 </xs:schema>

@@ -221,13 +221,17 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\ATP.DataModel.ATPData.datasource" />
     <None Include="Properties\DataSources\ATP.DataModel.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result.datasource" />
     <None Include="Properties\DataSources\ATP.DataModel.uspGetKeyLockerSteps_Result.datasource" />
     <None Include="Properties\DataSources\ATP.DataModel.uspSelAllKeyDropPegByDealerId_Result.datasource" />
+    <None Include="Properties\DataSources\ATP.DataModel.uspSelDealerDetailsById_Result.datasource" />
     <None Include="Properties\DataSources\ATP.DataModel.uspSelKioskInUSE_Result.datasource" />
+    <None Include="Properties\DataSources\ATP.DataModel.uspSelNextExpressNumber_Result.datasource" />
     <None Include="Properties\DataSources\ATP.DataModel.uspSelSvcTypeByDealerId_Result.datasource" />
     <None Include="Properties\DataSources\ATP.DataModel.uspSelVehicleMakes_Result.datasource" />
     <None Include="Properties\DataSources\ATP.DataModel.uspSelVehicleServiceDetails_Result.datasource" />
+    <None Include="Properties\DataSources\ATP.DataModel.uspVerifyPinGetCustInfoExpress_Result.datasource" />
     <None Include="Properties\DataSources\ATP.DataModel.uspVerifyPinGetCustInfo_Result.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -245,6 +249,12 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference1\OutDoor3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\OutDoor4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\OutDoor5.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -332,7 +342,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

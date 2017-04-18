@@ -44,10 +44,10 @@
                             <Grid x:Name="GrdServiceItem"
                                   VerticalAlignment="Stretch"
                                   HorizontalAlignment="Stretch"
-                                  MinHeight="40"
-                                  Width="200">
+                                  Height="150"
+                                  Width="250">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Row="0"
                                            Grid.ColumnSpan="1"
@@ -55,11 +55,12 @@
                                            VerticalAlignment="Stretch" />
                                 <TextBlock Grid.Column="1"
                                            Text="{Binding ShortName}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
                                            TextWrapping="Wrap"
                                            FontWeight="Bold"
-                                           FontSize="16"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center" />
+                                           FontSize="22"
+                                            />
                             </Grid>
                         </Border>
                         <DataTemplate.Triggers>

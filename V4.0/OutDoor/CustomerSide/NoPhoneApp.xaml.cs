@@ -124,8 +124,8 @@ namespace MyShopExpress
             get {
                 if (_dealerServiceList == null)
                 {
-                    _dealerId = 105;
-
+                    // _dealerId = 105;
+                    _dealerId = ConfigClass.DealerId;
                     _dealerServiceList = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs =>
                     {
 

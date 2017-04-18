@@ -127,15 +127,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\MyShopProxy\CompInspection2.wsdl" />
-    <None Include="Service References\MyShopProxy\CompInspection21.wsdl" />
-    <None Include="Service References\MyShopProxy\CompInspection3.xsd">
+    <None Include="Service References\MyShopProxy\CompInspection.wsdl" />
+    <None Include="Service References\MyShopProxy\CompInspection.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MyShopProxy\CompInspection31.xsd">
+    <None Include="Service References\MyShopProxy\CompInspection1.wsdl" />
+    <None Include="Service References\MyShopProxy\CompInspection1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MyShopProxy\CompInspection32.xsd">
+    <None Include="Service References\MyShopProxy\CompInspection2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\MyShopProxy\MyShopCompInspectionSync.MyShopProxy.uspSelAllCompInspectionExportData_Result.datasource">
@@ -196,7 +196,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\MyShopProxy\CompInspection1.disco" />
+    <None Include="Service References\MyShopProxy\CompInspection.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

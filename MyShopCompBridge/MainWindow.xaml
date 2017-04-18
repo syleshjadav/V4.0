@@ -1,0 +1,220 @@
+﻿<Window x:Class="MyShopCompBridge.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyShopCompBridge"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="350"
+        Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="21*" />
+            <RowDefinition Height="265*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <WrapPanel>
+          
+            
+            <TextBlock Name="lblCountDown" />
+            <TextBlock Name="txtInspCost" />
+            <TextBlock Name="txtVehicleServiceGuid" />
+        </WrapPanel>
+        <WrapPanel Grid.Row="2">
+        <TextBlock 
+                   Name="lblErrorMsg" />
+        </WrapPanel>
+        <WrapPanel  Grid.Row="1">
+            <GroupBox Header="Customer"
+                      Grid.Row="1">
+                <WrapPanel>
+                    <TextBox x:Name="txtFirstName"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtLastName"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtAddress1"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtAdd2"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtCity"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtState"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtZip"
+                             Text="TextBox" />
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox Header="Vehicle"
+                      Grid.Row="1">
+                <WrapPanel>
+                    <TextBox x:Name="txtVin"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtPlate"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtYear"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtMake"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtModel"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtBody"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtCurrOdo"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtOldOdo"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtCountyCode"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtCounty"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtNaic"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtExpDt"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtPolicy"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtInsuranceCpy"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtInspectionDate"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtEmissionNum"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtStickerMMYY"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtWorkOrder"
+                             Text="TextBox" />
+                    <TextBlock />
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox Header="InspectionInfo"
+                      Grid.Row="1">
+                <WrapPanel>
+                    <TextBox x:Name="txtRegistrationVerified"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtRoadTest"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtTires"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtBodyInfo"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtFuel"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtBrake"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtExhaust"
+                             Text="TextBox" />
+                    <TextBox x:Name="txtGlazing"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtLights"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtSteering"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtOther"
+                             Text="TextBox" />
+                    
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox Header="Brakes"
+                      Grid.Row="1">
+                <WrapPanel>
+                    <TextBox x:Name="TxtLFBReading"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtLRBReading"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="TxtRFBReading"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="TxtRRBReading"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtLFBCondition"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtLRBCondition"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtRFBCondition"
+                             Text="TextBox" />
+                    <TextBox x:Name="txtRRBCondition"
+                             Text="TextBox" />
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox Header="Tires"
+                      Grid.Row="1">
+                <WrapPanel>
+                    <TextBox x:Name="txtRFTReading"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtRRTReading"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtLFTReading"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtLRTReading"
+                             Text="TextBox" />
+                    <TextBlock />
+                   
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox Header="VisualAnti"
+                      Grid.Row="1">
+                <WrapPanel>
+                    <TextBox x:Name="txtAirPump"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtCatalyticConvertor"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="TxtERGValue"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtEvaporativeControl"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtFuelInlet"
+                             Text="TextBox" />
+                    <TextBlock />
+                    <TextBox x:Name="txtPCVValue"
+                             Text="TextBox" />
+                </WrapPanel>
+            </GroupBox>
+            
+        </WrapPanel>
+    </Grid>
+</Window>

@@ -116,7 +116,7 @@ namespace MyShopExpress {
             // CtrlValidatePin.TxtPin.Text = "30372";
 
             try {
-                res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+              res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
                     return svcs.VerifyPinGetCustInfo(_dealerId, IsPickUpOrDrop, TxtPin.Text).ToList();
                 });
 

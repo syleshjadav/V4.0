@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1a2fa1aa-cd42-4254-aea6-c65ae3876602" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://www.myshopauto.com/atpservices/CompInspection.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CompInspection.xsd" MetadataType="Schema" ID="e8972598-74a4-43e1-871f-176e2852ae3b" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/CompInspection.svc?xsd=xsd1" />
+    <MetadataFile FileName="CompInspection.wsdl" MetadataType="Wsdl" ID="181c08b0-2de4-471f-8015-8be1b613b44e" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/CompInspection.svc?wsdl" />
+    <MetadataFile FileName="CompInspection.disco" MetadataType="Disco" ID="ef59c95c-ec62-44d5-90bd-f55a5fa56c2a" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/CompInspection.svc?disco" />
+    <MetadataFile FileName="CompInspection1.wsdl" MetadataType="Wsdl" ID="9c9ee4f5-90b9-440b-b3df-2ece9ad1e3e2" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/CompInspection.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="CompInspection1.xsd" MetadataType="Schema" ID="763f8393-4272-49cb-a55b-b048eb7d348e" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/CompInspection.svc?xsd=xsd2" />
+    <MetadataFile FileName="CompInspection2.xsd" MetadataType="Schema" ID="c879eee0-766d-40c5-a645-9cc35c6fe688" SourceId="1" SourceUrl="http://www.myshopauto.com/ATPServices/CompInspection.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
