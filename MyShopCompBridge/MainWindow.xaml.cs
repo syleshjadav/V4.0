@@ -37,6 +37,8 @@ namespace MyShopCompBridge
 
         //string Connectionstring = "data source = c:\\SIRPA\\Data\\SIRDATA.ADD; ServerType=remote|local; TableType=ADT";
         string Connectionstring = Properties.Settings.Default.CompDb;
+        
+
         private int counter = 120;
         private int servicePollInterval = 120;
         private int dealerId = 103;
@@ -136,6 +138,7 @@ namespace MyShopCompBridge
                 IsAutoPilot = Convert.ToBoolean(xmlnode["ISAUTOPILOT"].InnerText);
                 IsShowForm = Convert.ToBoolean(xmlnode["ISSHOWFORM"].InnerText);
 
+               
             }
             catch (Exception ex)
             {
@@ -370,6 +373,10 @@ namespace MyShopCompBridge
 
             try
             {
+                Connectionstring = @"data source = data source = c:\\SIRPA\\Data\\SIRDATA.ADD; ServerType=remote|local; TableType=ADT"; 
+
+                //"Provider=Advantage OLE DB Provider; Data Source=z:\data\tables; ServerType=AIS; TableType=ADS_CDX;"
+
                 conn.ConnectionString = Connectionstring;
 
 
@@ -389,6 +396,7 @@ namespace MyShopCompBridge
                     stickerYear = cust.StrickerMMYY.Substring(2, 2);
                 }
 
+               
 
                 DataTable t1 = new DataTable();
                 using (var a = new AdsDataAdapter(cmd))
