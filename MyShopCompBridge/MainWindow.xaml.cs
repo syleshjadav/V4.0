@@ -108,6 +108,7 @@ namespace MyShopCompBridge
         {
             InitializeComponent();
             this.Loaded += MainWindow_Loaded;
+
             AddToStartup();
 
             var dir = @"c:\Sites";
@@ -129,7 +130,7 @@ namespace MyShopCompBridge
                 xdoc.Load(filedir);
                 XmlNode xmlnode;
                 xmlnode = xdoc.SelectSingleNode("ROOT");
-  
+
                 servicePollInterval = Convert.ToInt32(xmlnode["SERVICEPOLLINTERVAL"].InnerText);
                 dealerId = Convert.ToInt32(xmlnode["DEALERID"].InnerText);
                 IsAutoPilot = Convert.ToBoolean(xmlnode["ISAUTOPILOT"].InnerText);
@@ -146,7 +147,7 @@ namespace MyShopCompBridge
                 return;
 
             }
-           
+
             counter = servicePollInterval;
             lblCountDown.Text = counter.ToString();
 
@@ -163,7 +164,11 @@ namespace MyShopCompBridge
         {
             dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, servicePollInterval);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+
+            lblCountDown.Text = servicePollInterval.ToString();
+            dispatcherTimer.Start();
+
         }
 
         private CustVehInfo CustomerInfo { get; set; }
@@ -850,7 +855,7 @@ namespace MyShopCompBridge
                 State = txtState.Text,
                 Zip = txtZip.Text,
 
-                
+
                 Year = txtYear.Text,
                 VehicleMake = txtMake.Text,
                 VehicleModel = txtModel.Text,
@@ -1045,20 +1050,47 @@ namespace MyShopCompBridge
             lblCountDown.Text = counter.ToString();
             if (counter <= 0)
             {
-                //timer1.Stop();
+                dispatcherTimer.Stop();
+                counter = servicePollInterval;
+                lblCountDown.Text = servicePollInterval.ToString();
 
-                //if (IsShowForm == false)
-                //{
-                //    this.Visible = false;
-                //}
-
-                //SelectAllCYADataFromWeb();
-                //counter = servicePollInterval;
+                cmdPullFromMyShopAuto_Click(sender, new RoutedEventArgs());
             }
 
-          //  timer1.Start();
+            dispatcherTimer.Start();
 
 
+        }
+
+        private void cmdPullFromMyShopAuto_Click(object sender, RoutedEventArgs e)
+        {
+            // MyShopComp.Helper.ResetAllControls(this);
+            TraverseVisualTree(MyMainWindow);
+            SelectAllCYADataFromWeb();
+        }
+
+
+        static public void TraverseVisualTree(Visual myMainWindow)
+        {
+            int childrenCount = VisualTreeHelper.GetChildrenCount(myMainWindow);
+            for (int i = 0; i < childrenCount; i++)
+            {
+                var visualChild = (Visual)VisualTreeHelper.GetChild(myMainWindow, i);
+                if (visualChild is TextBox)
+                {
+                    TextBox tb = (TextBox)visualChild;
+                    tb.Clear();
+                }
+                TraverseVisualTree(visualChild);
+            }
+        }
+
+        private void MyMainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+
+            this.ShowInTaskbar = true;
+            this.WindowState = WindowState.Minimized;
         }
     }
 }

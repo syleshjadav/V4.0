@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MyShopComp
 {
-  public class Helper
+    public class Helper
   {
 
         public static void ResetAllControls(Control form)
