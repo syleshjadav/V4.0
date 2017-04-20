@@ -373,7 +373,7 @@ namespace MyShopCompBridge
 
             try
             {
-                Connectionstring = @"data source = data source = c:\\SIRPA\\Data\\SIRDATA.ADD; ServerType=remote|local; TableType=ADT"; 
+               // Connectionstring = @"data source = data source = c:\\SIRPA\\Data\\SIRDATA.ADD; ServerType=remote|local; TableType=ADT"; 
 
                 //"Provider=Advantage OLE DB Provider; Data Source=z:\data\tables; ServerType=AIS; TableType=ADS_CDX;"
 

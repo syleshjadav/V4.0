@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyShopCompBridge"
         mc:Ignorable="d"
-        Title="MainWindow"
+        Title="Version 1.0  DT: 04-19-2017"
         x:Name="MyMainWindow"
         Closing="MyMainWindow_Closing"
         Width="800">
