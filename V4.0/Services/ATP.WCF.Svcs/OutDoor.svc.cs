@@ -56,6 +56,15 @@ namespace ATP.WCF.Svcs {
 
         }
 
+        public int UpdtVehSvcAndKeyLocker_AppAndNoApp(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, string svcInfo, int serviceStatusId, byte? assignedKeyLockerBucketId
+       , byte? outdoorKeyDroppedBy, List<ATPServiceData> serviceDataList)
+        {
+            return new ATP.Services.Data.OutDoor().UpdtVehSvcAndKeyLocker_AppAndNoApp(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy, serviceDataList);
+
+        }
+
+
+
         public List<uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, Guid? personGuid, string svcFromDt, string svcToDt) {
             return new ATP.Services.Data.OutDoor().SelVehicleServiceDetails(dealerId, vehicleServiceGuid, vehicleGuid, personGuid, svcFromDt, svcFromDt);
         }

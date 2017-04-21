@@ -87,6 +87,55 @@ namespace ATP.Services.Data {
 
 
 
+        public int UpdtVehSvcAndKeyLocker_AppAndNoApp(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, string svcInfo, int serviceStatusId, byte? assignedKeyLockerBucketId
+          , byte? outdoorKeyDroppedBy,List<ATPServiceData> serviceDataList)
+        {
+
+            int? dealid = Convert.ToInt32(dealerId);
+             var vehGuid = new Guid(vehicleGuid.ToString());
+
+
+            var rtnValue = new uspAssignKeylockerPinForExpressCheckIn_Result();
+            try
+            {
+                
+                var vehicleServicesDataTable = new VehicleServicesDataTable
+                {
+                    ADAM = false,
+                    Amount = 0,
+                    Date = DateTime.Now,
+                    DealerId = dealid,
+                    EnteredBy = vehGuid,
+                    ExpressNumber = 0,
+                    KioskId = 1,
+                    Mileage = 1,
+                    PackageCost = 1,
+                    Paid = false,
+                    ServiceCost = 1,
+                    StatusId = serviceStatusId,
+                    VehicleGUID = vehGuid,
+                    Reason = svcInfo
+                };
+
+                    
+                    List<VehicleServicesDataTable> vehsvcs = new List<VehicleServicesDataTable>();
+                    vehsvcs.Add(vehicleServicesDataTable);
+
+                    var ss = new ATP.Services.Data.VehicleService().SaveVehicleServices(vehsvcs, serviceDataList);
+
+                return ss;
+
+                //return new ATPData { Id = rtnValue.KeyLockerPin, Value = rtnValue.Comments };
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            };
+
+        }
+
+
+
         public List<uspSelKioskInUSE_Result> SelKioskInUSE(int? dealerId) {
 
             using (var entity = new ATP.DataModel.Entities()) {

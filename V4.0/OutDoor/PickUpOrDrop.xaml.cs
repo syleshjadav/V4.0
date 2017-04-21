@@ -230,8 +230,18 @@ namespace MyShopExpress {
                         return svcs.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(_dealerId, CustomerInfo.VehicleServiceGuid, CustomerInfo.VehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId,
                             OutDoorKeyDroppedBy);
                     });
+                    List<ATPServiceData> serviceDataList = new List<ATPServiceData>();
 
-                }
+                    var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+                        return svcs.UpdtVehSvcAndKeyLocker_AppAndNoApp(_dealerId, CustomerInfo.VehicleServiceGuid, CustomerInfo.VehicleGuid, svcInfo,(int) serviceStatusId, assignedKeyLockerBucketId,
+                            OutDoorKeyDroppedBy, serviceDataList);
+                    });
+
+
+                         
+
+
+    }
                 catch (Exception ex) {
                     MessageBox(ex.Message.ToString(), "Error !");
                 }

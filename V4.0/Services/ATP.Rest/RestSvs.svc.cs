@@ -646,7 +646,8 @@ namespace ATP.Rest {
 
                 var xx = new ATP.Services.Data.Person().SendSessionToWeb(jsonCust);
 
-               
+                return new ATPData { Id = xx.Id, Value = xx.Value };
+
             }
             catch (Exception ex)
             {

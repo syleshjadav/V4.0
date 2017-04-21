@@ -50,14 +50,15 @@ namespace MyShopExpress {
         xmlnode = xdoc.SelectSingleNode("ROOT");
         ConfigClass.DealerId = Convert.ToInt32(xmlnode["DEALERID"].InnerText);
 
+              
 
-        // return;
+                // return;
 
-        SerialPortInterface sp = new SerialPortInterface(); // load port details
+                SerialPortInterface sp = new SerialPortInterface(); // load port details
         ConfigClass.MyShopSerialPort.PortName = xmlnode["MYSHOPCOMMPORT"].InnerText;
 
         
-       // if (!ConfigClass.MyShopSerialPort.IsOpen) { ConfigClass.MyShopSerialPort.Open(); }
+      //  if (!ConfigClass.MyShopSerialPort.IsOpen) { ConfigClass.MyShopSerialPort.Open(); }
 
 
         if (xmlnode["DEALORCUST"].InnerText == "C") {

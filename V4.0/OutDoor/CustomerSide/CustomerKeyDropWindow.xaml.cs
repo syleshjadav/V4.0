@@ -13,7 +13,7 @@ using MyShopExpress.Common;
 using System.Xml.Serialization;
 using System.IO;
 using ATP.DataModel;
-using ATP.WCF.Svcs;
+using MyShopOutDoor.ServiceReference1;
 using KeyPad;
 
 namespace MyShopExpress {
@@ -32,12 +32,7 @@ namespace MyShopExpress {
         int _dealerId = ConfigClass.DealerId;
         public CustomerKeyDropWindow() {
             InitializeComponent();
-            // App.Current.SessionEnding += Current_SessionEnding;
             cmdVerifyPIN.Click += CmdVerifyPIN_Click;
-            //  _serialPort = new SerialPort();
-            // _serialPort.DataReceived += _serialPort_DataReceived;
-            //  _serialPort.ErrorReceived += _serialPort_ErrorReceived;
-
 
             this.Loaded += CustomerKeyDropWindow_Loaded;
         }
@@ -119,6 +114,9 @@ namespace MyShopExpress {
               res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
                     return svcs.VerifyPinGetCustInfo(_dealerId, IsPickUpOrDrop, TxtPin.Text).ToList();
                 });
+
+               
+
 
                 if (res != null && res.Count == 1) {
                     if (res[0].PinStatus == "G" && IsPickUpOrDrop == false) {
