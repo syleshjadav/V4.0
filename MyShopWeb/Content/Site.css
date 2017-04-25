@@ -22,3 +22,76 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+
+#jtable-create-form, #jtable-edit-form {
+    display: block;
+    width: 650px;
+    -moz-column-gap: 50px;
+    -webkit-column-gap: 50px;
+    column-gap: 50px;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+}
+
+div.jtable-main-container > div.jtable-bottom-panel span.jtable-page-size-change select, div.jtable-bottom-panel span.jtable-goto-page select {
+    background-color: rgba(18, 13, 13, 0.40);
+}
+
+
+
+.hidden {
+    visibility: hidden;
+}
+
+.red {
+    color: #ff0000;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.panel-heading span {
+    margin-top: -20px;
+    font-size: 15px;
+}
+
+.noReg {
+    font-size: 15px;
+    font-weight: bold;
+    color: #930303;
+    font-style: italic;
+}
+
+.panel-default > .panel-heading-green {
+    background: #088543;
+    color: #fff;
+}
+
+.panel-default > .panel-heading-orange {
+    background: #fc6900;
+    color: #fff;
+}
+
+.panel-default > .panel-heading-gray {
+    background: gray;
+    color: #fff;
+}
+
+.panel-default > .panel-heading-blue {
+    color: #fff;
+    border: 1px solid #003eff;
+    background: #007fff;
+}
+
+.legend {
+    color: red !important;
+}
+
+.LegendHeader {
+    color: gray;
+    font-size: small;
+}

@@ -1,11 +1,16 @@
-﻿using System.Web.Mvc;
+﻿using MyShopWeb.DAL;
+using System;
+using System.Web.Mvc;
+using System.Linq;
+using System.Web;
+using System.Web.Services;
 
 namespace Authentication.Controllers
 {
-    [Authorize]
+   // [Authorize]
     public class HomeController : Controller
     {
-        [Authorize(Roles = "Admin")]
+      //  [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View();
@@ -24,6 +29,42 @@ namespace Authentication.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+
+        [HttpPost]
+        public JsonResult StickerTypeList()
+        {
+            try
+            {
+                using (var entity = new MyShopDataClassesDataContext())
+                {
+                    var ds = entity.uspSelAllStickerTypes().ToList();
+                    return Json(new { Result = "OK", Records = ds, TotalRecordCount = ds.Count() });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Result = "ERROR", Message = ex.Message });
+            }
+        }
+
+
+        [HttpPost]
+        public JsonResult StickerStatusList()
+        {
+            try
+            {
+                using (var entity = new MyShopDataClassesDataContext())
+                {
+                    var ds = entity.uspSelAllStickerStatus().ToList();
+                    return Json(new { Result = "OK", Records = ds, TotalRecordCount = ds.Count() });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Result = "ERROR", Message = ex.Message });
+            }
         }
     }
 }

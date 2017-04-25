@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_9F2CA9_MyShopAuto" Class="MyShopDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=SQL5021.Smarterasp.net;Initial Catalog=DB_9F2CA9_MyShopAuto;Persist Security Info=True;User ID=DB_9F2CA9_MyShopAuto_admin;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_9F2CA9_MyShopAutoConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.uspSelAllStickerStatus" Method="uspSelAllStickerStatus">
+    <ElementType Name="uspSelAllStickerStatusResult">
+      <Column Name="StickerStatusId" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="StickerIssuedStatus" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspSelAllStickerTypes" Method="uspSelAllStickerTypes">
+    <ElementType Name="uspSelAllStickerTypesResult">
+      <Column Name="StickerTypeId" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="StickerTypeCD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="StickerType" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="StickerDesc" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
