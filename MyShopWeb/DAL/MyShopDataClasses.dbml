@@ -14,4 +14,60 @@
       <Column Name="StickerDesc" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.uspSelStickerOrderMaster" Method="uspSelStickerOrderMaster">
+    <Parameter Name="DealerId" Parameter="dealerId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageStartIndex" Parameter="pageStartIndex" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="PageSize" Parameter="pageSize" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="uspSelStickerOrderMasterResult">
+      <Column Name="StickerOrderMasterId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DealerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReceiptId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IssuingLocationId" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="NoOfReceipts" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="TransmittalNum" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MessengerNum" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TotalPayment" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="BatchNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OrderStatusId" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="EnteredDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EnteredBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ModifiedDt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspSelStickerOrderDetail" Method="uspSelStickerOrderDetail">
+    <Parameter Name="StickerOrderMasterId" Parameter="stickerOrderMasterId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspSelStickerOrderDetailResult">
+      <Column Name="StickerOrderDetaiIId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StickerOrderMasterId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StickerTypeId" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="StickerQty" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="StickerCost" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Series" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="StickerTypeCD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="StickerType" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="EnteredDt" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="EnteredBy" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDt" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.uspUpsertDealerStickerType" Method="uspUpsertDealerStickerType">
+    <Parameter Name="dealerId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StickerTypeId" Parameter="stickerTypeId" Type="System.Byte" DbType="TinyInt" />
+    <Parameter Name="Cost" Parameter="cost" Type="System.Decimal" DbType="Decimal(18,3)" />
+    <Parameter Name="IsValid" Parameter="isValid" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspSelDealerStickerType" Method="uspSelDealerStickerType">
+    <Parameter Name="dealerId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="uspSelDealerStickerTypeResult">
+      <Column Name="StickerTypeId" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="StickerTypeCD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StickerType" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Decimal(18,3)" CanBeNull="true" />
+      <Column Name="IsValid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
