@@ -4,20 +4,25 @@ using System.Web.Mvc;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using MyShopWeb.Models;
 
 namespace Authentication.Controllers
 {
-   // [Authorize]
+    // [Authorize]
     public class HomeController : Controller
     {
 
+        public Guid EnteredBy = new Guid("C8F23075-18DC-4E26-8501-C083D72033B3");
 
-        public int DealerId { get; set; }
-      //  [Authorize(Roles = "Admin")]
+
+        public int DealerId = 103;
+
         public ActionResult Index()
         {
             DealerId = 103;
-            return View();
+           // return View();
+
+           return View(new SafetyStickers() { AI = new StickerModel { StickerTypeId = 1 } });
         }
 
         [Authorize(Roles = "Admin,Editor")]
@@ -35,74 +40,5 @@ namespace Authentication.Controllers
             return View();
         }
 
-
-        [HttpPost]
-        public JsonResult StickerTypeList()
-        {
-            try
-            {
-                using (var entity = new MyShopDataClassesDataContext())
-                {
-                    var ds = entity.uspSelAllStickerTypes().ToList();
-                    return Json(new { Result = "OK", Records = ds, TotalRecordCount = ds.Count() });
-                }
-            }
-            catch (Exception ex)
-            {
-                return Json(new { Result = "ERROR", Message = ex.Message });
-            }
-        }
-        [HttpPost]
-        public JsonResult DealerStickerTypeList()
-        {
-            try
-            {
-                using (var entity = new MyShopDataClassesDataContext())
-                {
-                    var ds = entity.uspSelDealerStickerType(DealerId).ToList();
-                    return Json(new { Result = "OK", Records = ds, TotalRecordCount = ds.Count() });
-                }
-            }
-            catch (Exception ex)
-            {
-                return Json(new { Result = "ERROR", Message = ex.Message });
-            }
-        }
-
-        [HttpPost]
-        public JsonResult UpdtDealerStickerTypeList(uspSelDealerStickerTypeResult m)
-        {
-            try
-            {
-                using (var entity = new MyShopDataClassesDataContext())
-                {
-                    var ds = entity.uspUpsertDealerStickerType(DealerId,m.StickerTypeId,m.Cost,m.IsValid);
-
-                    return Json(new { Result = "OK", Record = m });
-                    //return Json(new { Result = "OK" }); in case of update
-                }
-            }
-            catch (Exception ex)
-            {
-                return Json(new { Result = "ERROR", Message = ex.Message });
-            }
-        }
-
-        [HttpPost]
-        public JsonResult StickerStatusList()
-        {
-            try
-            {
-                using (var entity = new MyShopDataClassesDataContext())
-                {
-                    var ds = entity.uspSelAllStickerStatus().ToList();
-                    return Json(new { Result = "OK", Records = ds, TotalRecordCount = ds.Count() });
-                }
-            }
-            catch (Exception ex)
-            {
-                return Json(new { Result = "ERROR", Message = ex.Message });
-            }
-        }
     }
 }

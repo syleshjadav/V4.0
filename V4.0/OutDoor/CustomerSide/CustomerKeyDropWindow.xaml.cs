@@ -277,6 +277,7 @@ namespace MyShopExpress {
 
 
             wnd.CustomerInfo = CustomerInfo;
+            wnd.GrdServiceRequested.Visibility = Visibility.Collapsed;
 
             if (IsPickUpOrDrop == false) // pickup
               {

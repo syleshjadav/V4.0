@@ -62,12 +62,25 @@ namespace ATP.Services.Data {
         }
 
 
-        public List<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId, 
+        public int CreateSeviceAndKeyLockerBucket_TowTruck(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId, 
             byte? assignedKeyLockerBucketId, byte? outdoorKeyDroppedBy) {
 
-            using (var entity = new ATP.DataModel.Entities()) {
+            using (var entity = new ATP.DataModel.CustomEntities()) {
 
-                var xx = entity.uspCreateSeviceAndKeyLockerBucket_TowTruck( dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy).ToList();
+                var xx = entity.uspCreateSeviceAndKeyLockerBucket_TowTruck(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy,null);
+
+                return xx;
+            }
+        }
+
+        public int CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId,
+            byte? assignedKeyLockerBucketId, byte? outdoorKeyDroppedBy, List<ATPServiceData> serviceDataList)
+        {
+
+            using (var entity = new ATP.DataModel.CustomEntities())
+            {
+
+                var xx = entity.uspCreateSeviceAndKeyLockerBucket_TowTruck(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy, serviceDataList);
 
                 return xx;
             }

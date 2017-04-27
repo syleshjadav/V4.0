@@ -34,8 +34,11 @@ namespace ATP.WCF.Svcs {
         List<string> UpdateVehiceServiceStatus(int? dealerId, Guid? vehicleServiceGUID, Guid? vehicleGUID, Guid? personGUID, Nullable<byte> statusId, Nullable<System.Guid> updatedBy);
 
         [OperationContract]
-        List<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId, 
+        int CreateSeviceAndKeyLockerBucket_TowTruck(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId, 
             byte? assignedKeyLockerBucketId, byte? outdoorKeyDroppedBy);
+        [OperationContract]
+        int CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId, byte? assignedKeyLockerBucketId, byte? outdoorKeyDroppedBy, List<ATPServiceData> serviceDataList);
+
         [OperationContract]
         List<String> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, string svcInfo, byte? serviceStatusId,
             byte? assignedKeyLockerBucketId, byte? outdoorKeyDroppedBy);

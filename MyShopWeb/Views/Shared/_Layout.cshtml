@@ -14,30 +14,84 @@
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jTable")
+    <link href="~/Content/menu/component.css" rel="stylesheet" />
+    <link href="~/Content/menu/demo.css" rel="stylesheet" />
+    <link href="~/Content/menu/normalize.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
+
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
+            <ul id="gn-menu" class="gn-menu-main">
+                <li class="gn-trigger">
+                    <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+                    <nav class="gn-menu-wrapper">
+                        <div class="gn-scroller">
+                            <ul class="gn-menu">
+                                <li class="gn-search-item">
+                                    <input placeholder="Search" type="search" class="gn-search">
+                                    <a class="gn-icon gn-icon-search"><span>Search</span></a>
+                                </li>
+                                <li>
+                                    <a class="gn-icon gn-icon-download">Downloads</a>
+                                    <ul class="gn-submenu">
+                                        <li><a class="gn-icon gn-icon-illustrator">Vector Illustrations</a></li>
+                                        <li><a class="gn-icon gn-icon-photoshop">Photoshop files</a></li>
+                                    </ul>
+                                </li>
+                                <li>@Html.ActionLink("Settings", "Index", new { controller = "Sticker" }, new { @class = "gn-icon gn-icon-cog" })</li>
+
+                                <li>@Html.ActionLink("Home", "Index", new { controller = "Home" }, new { @class = "gn-icon gn-icon-help" })</li>
+                                <li>
+                                    <a class="gn-icon gn-icon-archive">Archives</a>
+                                    <ul class="gn-submenu">
+                                        <li><a class="gn-icon gn-icon-article">Articles</a></li>
+                                        <li><a class="gn-icon gn-icon-pictures">Images</a></li>
+                                        <li><a class="gn-icon gn-icon-videos">Videos</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </nav>
+                </li>
+                <li><a href="#"></a></li>
+                <li><a class="codrops-icon codrops-icon-prev" href="#"><span></span></a></li>
+                <li><a class="codrops-icon codrops-icon-drop" href="#"><span></span></a></li>
+            </ul>
+            @*<header>
+                    <div>Header</div>
+                </header>*@
+        </div><!-- /container -->
+        <script src="~/Scripts/plugins/Menu/js/classie.js"></script>
+        <script src="~/Scripts/plugins/Menu/js/gnmenu.js"></script>
+
+        <script>
+            new gnMenu(document.getElementById('gn-menu'));
+        </script>
+
+        @*<div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>*@
     </div>
     <div class="container body-content">
-        <p></p>
+        <br /><br /><br />
         @RenderBody()
         <hr />
         <footer>

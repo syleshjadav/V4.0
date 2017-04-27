@@ -58,6 +58,12 @@
   <wsdl:message name="IOutDoor_CreateSeviceAndKeyLockerBucket_TowTruck_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateSeviceAndKeyLockerBucket_TowTruckResponse" />
   </wsdl:message>
+  <wsdl:message name="IOutDoor_CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp" />
+  </wsdl:message>
+  <wsdl:message name="IOutDoor_CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSeviceAndKeyLockerBucket_TowTruckAndNoAppResponse" />
+  </wsdl:message>
   <wsdl:message name="IOutDoor_UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer" />
   </wsdl:message>
@@ -162,6 +168,10 @@
     <wsdl:operation name="CreateSeviceAndKeyLockerBucket_TowTruck">
       <wsdl:input wsaw:Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck" message="tns:IOutDoor_CreateSeviceAndKeyLockerBucket_TowTruck_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckResponse" message="tns:IOutDoor_CreateSeviceAndKeyLockerBucket_TowTruck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp" message="tns:IOutDoor_CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckAndNoAppResponse" message="tns:IOutDoor_CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer" message="tns:IOutDoor_UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer_InputMessage" />
@@ -279,6 +289,15 @@
     </wsdl:operation>
     <wsdl:operation name="CreateSeviceAndKeyLockerBucket_TowTruck">
       <soap:operation soapAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp">
+      <soap:operation soapAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

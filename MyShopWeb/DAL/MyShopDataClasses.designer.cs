@@ -91,9 +91,9 @@ namespace MyShopWeb.DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpsertDealerStickerType")]
-		public int uspUpsertDealerStickerType([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> dealerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StickerTypeId", DbType="TinyInt")] System.Nullable<byte> stickerTypeId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cost", DbType="Decimal(18,3)")] System.Nullable<decimal> cost, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsValid", DbType="Bit")] System.Nullable<bool> isValid)
+		public int uspUpsertDealerStickerType([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> dealerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StickerTypeId", DbType="TinyInt")] System.Nullable<byte> stickerTypeId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cost", DbType="Decimal(18,3)")] System.Nullable<decimal> cost, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsValid", DbType="Bit")] System.Nullable<bool> isValid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReOrderCount", DbType="TinyInt")] System.Nullable<byte> reOrderCount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EnteredBy", DbType="UniqueIdentifier")] System.Nullable<System.Guid> enteredBy)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId, stickerTypeId, cost, isValid);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId, stickerTypeId, cost, isValid, reOrderCount, enteredBy);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -736,13 +736,31 @@ namespace MyShopWeb.DAL
 		
 		private byte _StickerTypeId;
 		
-		private System.Nullable<int> _StickerTypeCD;
+		private System.Nullable<int> _DealerId;
+		
+		private string _StickerTypeCD;
 		
 		private string _StickerType;
 		
+		private string _StickerDesc;
+		
 		private System.Nullable<decimal> _Cost;
 		
+		private System.Nullable<byte> _ReOrderCount;
+		
 		private System.Nullable<bool> _IsValid;
+		
+		private System.Nullable<System.Guid> _EnteredBy;
+		
+		private System.Nullable<System.Guid> _ModifiedBy;
+		
+		private System.Nullable<System.DateTime> _EnteredDt;
+		
+		private System.Nullable<System.DateTime> _ModifiedDt;
+		
+		private string _EnteredByName;
+		
+		private string _ModifiedByName;
 		
 		public uspSelDealerStickerTypeResult()
 		{
@@ -764,8 +782,24 @@ namespace MyShopWeb.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerTypeCD", DbType="Int")]
-		public System.Nullable<int> StickerTypeCD
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DealerId", DbType="Int")]
+		public System.Nullable<int> DealerId
+		{
+			get
+			{
+				return this._DealerId;
+			}
+			set
+			{
+				if ((this._DealerId != value))
+				{
+					this._DealerId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerTypeCD", DbType="VarChar(10)")]
+		public string StickerTypeCD
 		{
 			get
 			{
@@ -796,6 +830,22 @@ namespace MyShopWeb.DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerDesc", DbType="VarChar(100)")]
+		public string StickerDesc
+		{
+			get
+			{
+				return this._StickerDesc;
+			}
+			set
+			{
+				if ((this._StickerDesc != value))
+				{
+					this._StickerDesc = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Decimal(18,3)")]
 		public System.Nullable<decimal> Cost
 		{
@@ -812,6 +862,22 @@ namespace MyShopWeb.DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReOrderCount", DbType="TinyInt")]
+		public System.Nullable<byte> ReOrderCount
+		{
+			get
+			{
+				return this._ReOrderCount;
+			}
+			set
+			{
+				if ((this._ReOrderCount != value))
+				{
+					this._ReOrderCount = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsValid", DbType="Bit")]
 		public System.Nullable<bool> IsValid
 		{
@@ -824,6 +890,102 @@ namespace MyShopWeb.DAL
 				if ((this._IsValid != value))
 				{
 					this._IsValid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredBy", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> EnteredBy
+		{
+			get
+			{
+				return this._EnteredBy;
+			}
+			set
+			{
+				if ((this._EnteredBy != value))
+				{
+					this._EnteredBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> ModifiedBy
+		{
+			get
+			{
+				return this._ModifiedBy;
+			}
+			set
+			{
+				if ((this._ModifiedBy != value))
+				{
+					this._ModifiedBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredDt", DbType="DateTime")]
+		public System.Nullable<System.DateTime> EnteredDt
+		{
+			get
+			{
+				return this._EnteredDt;
+			}
+			set
+			{
+				if ((this._EnteredDt != value))
+				{
+					this._EnteredDt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDt", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ModifiedDt
+		{
+			get
+			{
+				return this._ModifiedDt;
+			}
+			set
+			{
+				if ((this._ModifiedDt != value))
+				{
+					this._ModifiedDt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredByName", DbType="NVarChar(100)")]
+		public string EnteredByName
+		{
+			get
+			{
+				return this._EnteredByName;
+			}
+			set
+			{
+				if ((this._EnteredByName != value))
+				{
+					this._EnteredByName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedByName", DbType="NVarChar(100)")]
+		public string ModifiedByName
+		{
+			get
+			{
+				return this._ModifiedByName;
+			}
+			set
+			{
+				if ((this._ModifiedByName != value))
+				{
+					this._ModifiedByName = value;
 				}
 			}
 		}

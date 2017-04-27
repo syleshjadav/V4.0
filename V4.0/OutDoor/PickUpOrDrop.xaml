@@ -16,6 +16,50 @@
     <Window.Resources>
         <hlp:ValueToBrushConverter x:Key="NameToBrushConverter" />
         <hlp:ColorToSolidColorBrushValueConverter  x:Key="ColorToSolidColorBrush_ValueConverter" />
+        <Style x:Key="ServiceItemListBoxTemplate"
+               TargetType="{x:Type ListBox}">
+            <!-- Do not fill in this value. -->
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border BorderBrush="#FF1D9C52"
+                                Background="{DynamicResource YellowGradient}"
+                                BorderThickness="1"
+                                CornerRadius="4"
+                                Margin="3">
+                            <Grid x:Name="GrdServiceItem"
+                                  VerticalAlignment="Stretch"
+                                  HorizontalAlignment="Stretch"
+                                  Height="50"
+                                  Width="300">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0"
+                                           Grid.ColumnSpan="1"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch" />
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding ShortName}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           TextWrapping="Wrap"
+                                           FontWeight="Bold"
+                                           FontSize="22" />
+                            </Grid>
+                        </Border>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding IsSelected}"
+                                         Value="True">
+                                <Setter TargetName="GrdServiceItem"
+                                        Property="Background"
+                                        Value="#FFA3DC5C" />
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid x:Name="GrdMain">
         <Grid.Background>
@@ -132,24 +176,26 @@
                             </Grid>
                         </StackPanel>
                     </Grid>
-                    <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid Grid.Row="0" Grid.Column="1" x:Name="GrdServiceRequested">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
-                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <TextBlock  Text="Selected Service" FontSize="15" FontWeight="Bold"/>
                         <ListBox
                             x:Name="lstSelectedService"
                             ScrollViewer.VerticalScrollBarVisibility="Auto"
-                            ItemsSource="{Binding SelectedServiceList}" Grid.Row="1">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="{Binding ShortName}"  FontSize="15"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Stretch"
+                                 Style="{StaticResource ServiceItemListBoxTemplate}"
+                                 ItemsSource="{Binding SelectedServiceList}" Grid.Row="1">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel MaxWidth="350"
+                                               HorizontalAlignment="Center" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
                     </Grid>
                     <RichTextBox x:Name="TxtPlaceKeysInfo"
                                  Grid.Row="2"

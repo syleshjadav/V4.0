@@ -36,7 +36,7 @@
     <SuiteName>MyShopAuto</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>18</ApplicationRevision>
+    <ApplicationRevision>21</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -220,6 +220,27 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="bin\Debug\Cert\msa_push_prod.cer">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Cert\msa_push_prod_pvt_key_and_cert.p12">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="bin\Debug\MyShopOutDoor.application" />
+    <None Include="bin\Debug\MyShopOutDoor.exe.config" />
+    <None Include="bin\Debug\MyShopOutDoor.exe.manifest" />
+    <None Include="bin\Debug\MyShopOutDoor.vshost.application" />
+    <None Include="bin\Debug\MyShopOutDoor.vshost.exe.config" />
+    <None Include="bin\Debug\MyShopOutDoor.vshost.exe.manifest" />
+    <None Include="bin\Debug\MyShopOutDoorDealerSide.vshost.application" />
+    <None Include="bin\Debug\MyShopOutDoorDealerSide.vshost.exe.config" />
+    <None Include="bin\Debug\MyShopOutDoorDealerSide.vshost.exe.manifest" />
+    <Content Include="Cert\msa_push_prod.cer">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Cert\msa_push_prod_pvt_key_and_cert.p12">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\ATP.DataModel.ATPData.datasource" />
     <None Include="Properties\DataSources\ATP.DataModel.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result.datasource" />
@@ -341,6 +362,44 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\app.publish\MyShopOutDoor.exe" />
+    <Content Include="bin\Debug\ATP.DataModel.dll" />
+    <Content Include="bin\Debug\ATP.DataModel.pdb" />
+    <Content Include="bin\Debug\ATP.Kiosk.Common.dll" />
+    <Content Include="bin\Debug\ATP.Kiosk.Common.pdb" />
+    <Content Include="bin\Debug\ATP.Services.Data.dll" />
+    <Content Include="bin\Debug\ATP.Services.Data.pdb" />
+    <Content Include="bin\Debug\ATP.WCF.Svcs.dll" />
+    <Content Include="bin\Debug\ATP.WCF.Svcs.pdb" />
+    <Content Include="bin\Debug\Elmah.dll" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Resource Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\KeyPad.dll" />
+    <Content Include="bin\Debug\KeyPad.pdb" />
+    <Content Include="bin\Debug\MyShopOutDoor.exe" />
+    <Content Include="bin\Debug\MyShopOutDoor.pdb" />
+    <Content Include="bin\Debug\MyShopOutDoor.vshost.exe" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\NLog.dll" />
+    <Resource Include="bin\Debug\NLog.xml" />
+    <Content Include="bin\Debug\System.Data.SqlServerCe.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Resource Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\de\" />
+    <Folder Include="bin\Debug\en\" />
+    <Folder Include="bin\Debug\es\" />
+    <Folder Include="bin\Debug\fr\" />
+    <Folder Include="bin\Debug\it\" />
+    <Folder Include="bin\Debug\ja\" />
+    <Folder Include="bin\Debug\ko\" />
+    <Folder Include="bin\Debug\ru\" />
+    <Folder Include="bin\Debug\zh-Hans\" />
+    <Folder Include="bin\Debug\zh-Hant\" />
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

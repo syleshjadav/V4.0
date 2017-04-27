@@ -46,10 +46,17 @@ namespace ATP.WCF.Svcs {
 
         }
 
-        public List<uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId, byte? assignedKeyLockerBucketId, byte? outdoorKeyDroppedBy) {
+        public int CreateSeviceAndKeyLockerBucket_TowTruck(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId, byte? assignedKeyLockerBucketId, byte? outdoorKeyDroppedBy) {
             return new ATP.Services.Data.OutDoor().CreateSeviceAndKeyLockerBucket_TowTruck(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy);
 
         }
+
+        public int CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp(int? dealerId, string firstName, string phone, string svcInfo, byte? serviceStatusId, byte? assignedKeyLockerBucketId, byte? outdoorKeyDroppedBy, List<ATPServiceData> serviceDataList)
+        {
+            return new ATP.Services.Data.OutDoor().CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy,serviceDataList);
+
+        }
+
 
         public List<String> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, string svcInfo, byte? serviceStatusId, byte? assignedKeyLockerBucketId, byte? outdoorKeyDroppedBy) {
             return new ATP.Services.Data.OutDoor().UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy);

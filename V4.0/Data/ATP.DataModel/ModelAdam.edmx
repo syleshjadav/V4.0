@@ -2457,15 +2457,6 @@
             <Parameter Name="googleGuid" Mode="In" Type="String" />
             <Parameter Name="deviceTypeID" Mode="In" Type="Byte" />
           </FunctionImport>
-          <FunctionImport Name="uspCreateSeviceAndKeyLockerBucket_TowTruck" ReturnType="Collection(ModelContainer.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result)">
-            <Parameter Name="DealerId" Mode="In" Type="Int32" />
-            <Parameter Name="FirstName" Mode="In" Type="String" />
-            <Parameter Name="Phone" Mode="In" Type="String" />
-            <Parameter Name="SvcInfo" Mode="In" Type="String" />
-            <Parameter Name="ServiceStatusId" Mode="In" Type="Byte" />
-            <Parameter Name="AssignedKeyLockerBucketId" Mode="In" Type="Byte" />
-            <Parameter Name="OutDoorKeyDroppedBy" Mode="In" Type="Byte" />
-          </FunctionImport>
           <FunctionImport Name="uspSelAllKeyDropPegByDealerId" ReturnType="Collection(ModelContainer.uspSelAllKeyDropPegByDealerId_Result)">
           <Parameter Name="DealerId" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -2536,6 +2527,15 @@
           <FunctionImport Name="uspVerifyPinGetCustInfoExpress" ReturnType="Collection(ModelContainer.uspVerifyPinGetCustInfoExpress_Result)">
             <Parameter Name="DealerId" Mode="In" Type="Int32" />
             <Parameter Name="KeyLockerPin" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspCreateSeviceAndKeyLockerBucket_TowTruck">
+            <Parameter Name="DealerId" Mode="In" Type="Int32" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="SvcInfo" Mode="In" Type="String" />
+            <Parameter Name="ServiceStatusId" Mode="In" Type="Byte" />
+            <Parameter Name="AssignedKeyLockerBucketId" Mode="In" Type="Byte" />
+            <Parameter Name="OutDoorKeyDroppedBy" Mode="In" Type="Byte" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="uspSelVehAlertByVehGuid_Result">
@@ -4584,10 +4584,6 @@
           <Property Type="Int32" Name="DealerId" Nullable="false" />
           <Property Type="Int32" Name="DeptId" Nullable="false" />
           <Property Type="String" Name="PaymentStatus" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="uspCreateSeviceAndKeyLockerBucket_TowTruck_Result">
-          <Property Type="Guid" Name="PersonGUID" Nullable="true" />
-          <Property Type="Int32" Name="VehicleID" Nullable="true" />
         </ComplexType>
         <ComplexType Name="uspSelAllKeyDropPegByDealerId_Result">
           <Property Type="String" Name="FirstName" Nullable="true" MaxLength="255" />
@@ -7171,14 +7167,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="uspCreateSeviceAndKeyLockerBucket_TowTruck" FunctionName="ModelContainer.Store.uspCreateSeviceAndKeyLockerBucket_TowTruck">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ModelContainer.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result">
-                <ScalarProperty Name="PersonGUID" ColumnName="PersonGUID" />
-                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="uspSelAllKeyDropPegByDealerId" FunctionName="ModelContainer.Store.uspSelAllKeyDropPegByDealerId">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ModelContainer.uspSelAllKeyDropPegByDealerId_Result">
@@ -7503,6 +7491,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspCreateSeviceAndKeyLockerBucket_TowTruck" FunctionName="ModelContainer.Store.uspCreateSeviceAndKeyLockerBucket_TowTruck" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

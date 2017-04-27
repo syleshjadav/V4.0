@@ -58,10 +58,18 @@ namespace MyShopOutDoor.ServiceReference1 {
         System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdateVehiceServiceStatusAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGUID, System.Nullable<System.Guid> vehicleGUID, System.Nullable<System.Guid> personGUID, System.Nullable<byte> statusId, System.Nullable<System.Guid> updatedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckResponse")]
-        System.Collections.Generic.List<ATP.DataModel.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
+        int CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<ATP.DataModel.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
+        System.Threading.Tasks.Task<int> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckAndNoAppRespon" +
+            "se")]
+        int CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy, System.Collections.Generic.List<ATP.DataModel.ATPServiceData> serviceDataList);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckAndNoAppRespon" +
+            "se")]
+        System.Threading.Tasks.Task<int> CreateSeviceAndKeyLockerBucket_TowTruckAndNoAppAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy, System.Collections.Generic.List<ATP.DataModel.ATPServiceData> serviceDataList);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer", ReplyAction="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerRes" +
             "ponse")]
@@ -221,12 +229,20 @@ namespace MyShopOutDoor.ServiceReference1 {
             return base.Channel.UpdateVehiceServiceStatusAsync(dealerId, vehicleServiceGUID, vehicleGUID, personGUID, statusId, updatedBy);
         }
         
-        public System.Collections.Generic.List<ATP.DataModel.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
+        public int CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
             return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruck(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<ATP.DataModel.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
+        public System.Threading.Tasks.Task<int> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
             return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruckAsync(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy);
+        }
+        
+        public int CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy, System.Collections.Generic.List<ATP.DataModel.ATPServiceData> serviceDataList) {
+            return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy, serviceDataList);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateSeviceAndKeyLockerBucket_TowTruckAndNoAppAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy, System.Collections.Generic.List<ATP.DataModel.ATPServiceData> serviceDataList) {
+            return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruckAndNoAppAsync(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy, serviceDataList);
         }
         
         public System.Collections.Generic.List<string> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {

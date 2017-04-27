@@ -1,8 +1,9 @@
 ﻿using ATP.DataModel;
 using ATP.Kiosk.Views;
-using ATP.WCF.Svcs;
+
 using KeyPad;
 using MyShopExpress.Common;
+using MyShopOutDoor.ServiceReference1;
 using System;
 using System.Linq;
 using System.Windows;

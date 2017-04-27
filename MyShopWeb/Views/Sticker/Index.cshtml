@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "Settings";
+}
+
+<script>
+    $(document).ready(function () {
+        //Re-load records when user click 'load records' button.
+        $('#StickerTypesTC').jtable({
+            title: 'STICKER TYPES',
+            paging: false,
+            sorting: false,
+            selecting: false,
+            multiselect: false,
+            actions: {
+                listAction: '@Url.Action("StickerTypeList", "Sticker")'
+            },
+            fields: {
+                StickerTypeId: { title: "Id", width: "1%" },
+                StickerTypeCD: { title: 'Sticker Cd ', },
+                StickerType: { title: 'StickerType', },
+                StickerDesc: { title: 'Description', },
+            },
+        });
+
+        $('#StickerStatusTC').jtable({
+            title: 'STICKER STATUS',
+            paging: false,
+            sorting: false,
+            selecting: false,
+            multiselect: false,
+            actions: {
+                listAction: '@Url.Action("StickerStatusList", "Sticker")'
+            },
+            fields: {
+                StickerStatusId: { title: "Id", width: "1%" },
+                StickerIssuedStatus: { title: 'Status', },
+            },
+        });
+
+        $('#DealerStickerStatusTC').jtable({
+            title: 'DEALER STICKER SETUP',
+            paging: false,
+            sorting: false,
+            selecting: false,
+            multiselect: false,
+            messages: {
+                addNewRecord: ' Add  Sticker ',
+                editRecord: ' Edit Vehicle ',
+                deleteRecord: ' Delete Sticker'
+            },
+            actions: {
+                listAction: '@Url.Action("DealerStickerTypeList", "Sticker")',
+                updateAction: '@Url.Action("UpdtDealerStickerTypeList", "Sticker")',
+                createAction: '@Url.Action("InsDealerStickerTypeList", "Sticker")',
+            },
+            fields: {
+
+                DealerId: { title: "DealerId", width: "1%", key: true, visibility: 'hidden' },
+                EnteredBy: { visibility: 'hidden', create: false, edit: false },
+                UpdatedBy: { visibility: 'hidden', create: false, edit: false },
+                StickerTypeCD: { title: 'Code ', create: false, edit: false, width: "3%" },
+                StickerType: { title: 'Sticker Type', create: false, edit: false, },
+                StickerDesc: { title: 'Desc', create: false, edit: false, },
+                StickerTypeId: {
+                    title: 'Sticker',
+                    options: '/Home/GetStickerTypeList',
+                    list: false,
+                },
+                Cost: { title: 'Cost $', },
+                ReOrderCount: { title: 'Re-Order Count' },
+                IsValid: {
+                    title: 'Is Active ?', type: 'checkbox',
+                    values: { 'false': 'Passive', 'true': 'Active' },
+                    defaultValue: 'true'
+                },
+                
+                EnteredByName: { title: 'Entered By', create: false, edit: false },
+                ModifiedByName: { title: 'Modified By', create: false, edit: false }
+            },
+            recordUpdated: function (event, data) {
+                $('#DealerStickerStatusTC').jtable('load');
+            },
+            recordAdded: function (event, data) {
+                $('#DealerStickerStatusTC').jtable('load');
+            },
+        });
+
+
+        $('#StickerTypesTC').jtable('load');
+        $('#StickerStatusTC').jtable('load');
+        $('#DealerStickerStatusTC').jtable('load');
+    });
+
+
+
+    //Load  list from server
+
+</script>
+
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading panel-heading-green clickable">
+            <h1 class="panel-title">Sticker Settings  ....</h1>
+            <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+        </div>
+        <div class="panel-body">
+            <div class="col-md6">
+                <div id="DealerStickerStatusTC"></div>
+            </div>
+            <hr />
+            <div class="col-md6">
+                <div id="StickerTypesTC"></div>
+            </div>
+            <hr />
+            <div class="col-md6">
+                <div id="StickerStatusTC"></div>
+            </div>
+            <hr />
+
+        </div>
+    </div>
+</div>

@@ -1,68 +1,11 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@model MyShopWeb.Models.StickerModel
 
 <script>
     $(document).ready(function () {
-        //Re-load records when user click 'load records' button.
-        $('#StickerTypesTC').jtable({
-            title: 'STICKER TYPES',
-            paging: false,
-            sorting: false,
-            selecting: false,
-            multiselect: false,
-            actions: {
-                listAction: '@Url.Action("StickerTypeList", "Home")'
-            },
-            fields: {
-                StickerTypeId: { title: "Id", width: "1%" },
-                StickerTypeCD: { title: 'Sticker Cd ', },
-                StickerType: { title: 'StickerType', },
-                StickerDesc: { title: 'Description', },
-            },
-        });
-
-        $('#StickerStatusTC').jtable({
-            title: 'STICKER STATUS',
-            paging: false,
-            sorting: false,
-            selecting: false,
-            multiselect: false,
-            actions: {
-                listAction: '@Url.Action("StickerStatusList", "Home")'
-            },
-            fields: {
-                StickerStatusId: { title: "Id", width: "1%" },
-                StickerIssuedStatus: { title: 'Status', },
-            },
-        });
-
-        $('#DealerStickerStatusTC').jtable({
-            title: 'DEALER STICKER TYPES',
-            paging: false,
-            sorting: false,
-            selecting: false,
-            multiselect: false,
-            actions: {
-                listAction: '@Url.Action("DealerStickerTypeList", "Home")',
-                updateAction: '@Url.Action("UpdtDealerStickerTypeList", "Home")',
-                createAction: '@Url.Action("UpdtDealerStickerTypeList", "Home")',
-            },
-            fields: {
-
-                DealerId: { title: "DealerId", width: "1%" },
-                StickerTypeId: { title: "Id", width: "1%" },
-                StickerTypeCD: { title: 'Sticker Cd ', },
-                StickerType: { title: 'StickerType', },
-                Cost: { title: 'Cost', },
-                IsValid: { title: 'IsValid', },
-            },
-        });
-
-
-        $('#StickerTypesTC').jtable('load');
-        $('#StickerStatusTC').jtable('load');
-        $('#DealerStickerStatusTC').jtable('load');
+    
     });
 
 
@@ -78,17 +21,10 @@
             <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
         </div>
         <div class="panel-body">
-            <div class="col-md6">
-                <div id="StickerTypesTC"></div>
-            </div>
+           
+            @Html.EditorFor(x => x.SafetyStickers)
             <hr />
-            <div class="col-md6">
-                <div id="StickerStatusTC"></div>
-            </div>
-            <hr />
-            <div class="col-md6">
-                <div id="DealerStickerStatusTC"></div>
-            </div>
+
         </div>
     </div>
 </div>

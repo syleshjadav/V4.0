@@ -130,7 +130,28 @@
   <xs:element name="CreateSeviceAndKeyLockerBucket_TowTruckResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="CreateSeviceAndKeyLockerBucket_TowTruckResult" nillable="true" type="q12:ArrayOfuspCreateSeviceAndKeyLockerBucket_TowTruck_Result" />
+        <xs:element minOccurs="0" name="CreateSeviceAndKeyLockerBucket_TowTruckResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="svcInfo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serviceStatusId" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="assignedKeyLockerBucketId" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="outdoorKeyDroppedBy" nillable="true" type="xs:unsignedByte" />
+        <xs:element xmlns:q12="http://www.AdamKiosks.com/ATPServiceData" minOccurs="0" name="serviceDataList" nillable="true" type="q12:ArrayOfATPServiceData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSeviceAndKeyLockerBucket_TowTruckAndNoAppResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateSeviceAndKeyLockerBucket_TowTruckAndNoAppResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

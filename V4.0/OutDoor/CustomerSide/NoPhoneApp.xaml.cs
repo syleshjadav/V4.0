@@ -285,7 +285,7 @@ namespace MyShopExpress
             TextBox tb = sender as TextBox;
             VirtualKeyboard kbWin = new VirtualKeyboard(tb, this, title);
             kbWin.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            this.Opacity = .8;
+            this.Opacity = .6;
             if (kbWin.ShowDialog() == true)
                 tb.Text = kbWin.Result;
             this.Opacity = 1;

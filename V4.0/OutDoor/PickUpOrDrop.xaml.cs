@@ -1,23 +1,26 @@
 ﻿using ATP.DataModel;
 using ATP.Kiosk.Views;
-using ATP.WCF.Svcs;
 using MyShopExpress.Common;
+using MyShopOutDoor.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
-namespace MyShopExpress {
+namespace MyShopExpress
+{
     /// <summary>
     /// Interaction logic for PickUpOrDrop.xaml
     /// </summary>
-    public partial class PickUpOrDrop : Window {
+    public partial class PickUpOrDrop : Window
+    {
 
         int _dealerId = 0;
         public byte? OutDoorKeyDroppedBy { get; set; }
         public List<uspSelSvcTypeByDealerId_Result> SelectedServiceList { get; set; }
 
-        public PickUpOrDrop() {
+        public PickUpOrDrop()
+        {
             InitializeComponent();
 
             this.Loaded += PickUpOrDrop_Loaded;
@@ -25,11 +28,13 @@ namespace MyShopExpress {
         }
         // public byte? ServiceStatus { get; set; }
         public uspVerifyPinGetCustInfo_Result CustomerInfo { get; set; }
-        private void PickUpOrDrop_Loaded(object sender, RoutedEventArgs e) {
+        private void PickUpOrDrop_Loaded(object sender, RoutedEventArgs e)
+        {
             GrdSelection.DataContext = SelectedPerson;
 
             //Ready for pickup
-            if (SelectedPerson.ServiceStatus == 10) {
+            if (SelectedPerson.ServiceStatus == 10)
+            {
                 TxtPlaceKeysInfo.Visibility = Visibility.Collapsed;
                 cmdPlaceKeys.Visibility = Visibility.Collapsed;
                 cmdOpenDoor.Visibility = Visibility.Collapsed;
@@ -48,13 +53,15 @@ namespace MyShopExpress {
 
         public uspSelAllKeyDropPegByDealerId_Result SelectedPerson { get; set; }
 
-        private void cmdBack_Click(object sender, RoutedEventArgs e) {
+        private void cmdBack_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
             // this.Close();
 
         }
 
-        private void cmdTakeKeys_Click(object sender, RoutedEventArgs e) {
+        private void cmdTakeKeys_Click(object sender, RoutedEventArgs e)
+        {
 
 
             var FindHomeAndMoveStepsReading = SelectedPerson.NoOfRotationDealer;
@@ -62,15 +69,18 @@ namespace MyShopExpress {
             ConfigClass.SendCommandToBoard(FindHomeAndMoveStepsReading);
             byte? assignedKeyLockerBucketId = Convert.ToByte(SelectedPerson.NoOfRotationDealer.Substring(2, 2));
 
-            if (SelectedPerson.ServiceStatus == 4) {
+            if (SelectedPerson.ServiceStatus == 4)
+            {
                 TowTruckOrPhoneDrop(SelectedPerson.ServiceStatus);
             }
-            else if (SelectedPerson.ServiceStatus == 10) {
+            else if (SelectedPerson.ServiceStatus == 10)
+            {
 
                 ConfigClass.SendCommandToBoard("BC0059000");//BC0060000
                 TowTruckOrPhoneDrop(11);
             }
-            else {
+            else
+            {
                 ConfigClass.SendCommandToBoard("KD0075000");
                 // sylesh
                 UpdateVehicleServiceStatus(3);//Currently being serviced
@@ -78,40 +88,51 @@ namespace MyShopExpress {
 
         }
 
-        private void UpdateVehicleServiceStatus(byte? serviceStatusId) {
-            try {
+        private void UpdateVehicleServiceStatus(byte? serviceStatusId)
+        {
+            try
+            {
 
-                var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+                var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs =>
+                {
                     return svcs.UpdateVehiceServiceStatus(_dealerId, CustomerInfo.VehicleServiceGuid, CustomerInfo.VehicleGuid, CustomerInfo.PersonGuid, serviceStatusId, CustomerInfo.VehicleGuid);
                 });
 
 
 
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox(ex.Message.ToString(), "Error !");
             }
             this.Close();
         }
 
-        private bool CheckIfKioskIsInUse() {
+        private bool CheckIfKioskIsInUse()
+        {
             var res = new List<uspSelKioskInUSE_Result>();
-            try {
-                res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+            try
+            {
+                res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs =>
+                {
                     return svcs.SelKioskInUSE(_dealerId).ToList();
                 });
 
 
-                if (res != null && res.Count == 1) {
-                    if (res.FirstOrDefault().IsMachineInUse == true) {
+                if (res != null && res.Count == 1)
+                {
+                    if (res.FirstOrDefault().IsMachineInUse == true)
+                    {
                         MessageBox("Kiosk InUse by Customer, Please try in few minutes ...");
                         cmdBack_Click(new object(), new RoutedEventArgs());
                         return false;
 
                     }
-                    else {
+                    else
+                    {
 
-                        var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+                        var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs =>
+                        {
                             return svcs.UpsertKioskInUSE(_dealerId, "D", new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
                         });
 
@@ -119,7 +140,8 @@ namespace MyShopExpress {
                 }
             }
 
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox(ex.Message.ToString(), "Error !");
             }
 
@@ -127,7 +149,8 @@ namespace MyShopExpress {
         }
 
 
-        private bool? MessageBox(string msg, string header = "Information") {
+        private bool? MessageBox(string msg, string header = "Information")
+        {
             var wnd = new AdamMessageBox();
             wnd.TxtError.Text = msg;
             wnd.TxtHeader.Text = header;
@@ -140,7 +163,8 @@ namespace MyShopExpress {
             return x;
         }
 
-        private void cmdOpenDoor_Click(object sender, RoutedEventArgs e) {
+        private void cmdOpenDoor_Click(object sender, RoutedEventArgs e)
+        {
             //Thread t = new Thread(OpenDoorLatchAndBringToHomePosition);
 
             OpenDoorLatchAndBringToHomePosition();
@@ -154,7 +178,8 @@ namespace MyShopExpress {
 
         }
 
-        private void OpenDoorLatchAndBringToHomePosition() {
+        private void OpenDoorLatchAndBringToHomePosition()
+        {
 
 
             //ConfigClass.SendCommandToBoard("DL00500");
@@ -172,7 +197,8 @@ namespace MyShopExpress {
             //Thread.Sleep(TimeSpan.FromHours(1));
         }
 
-        private void cmdPlaceKeys_Click(object sender, RoutedEventArgs e) {
+        private void cmdPlaceKeys_Click(object sender, RoutedEventArgs e)
+        {
 
             var wnd = new AdamMessageBox();
             wnd.TxtError.Text = "KINDLY ENSURE THAT THE KEYS ARE PLACED AND DOOR IS CLOSED.";
@@ -183,12 +209,13 @@ namespace MyShopExpress {
 
             var x = wnd.ShowDialog();
 
-            if (x == true) {
+            if (x == true)
+            {
                 //MessageBox("key placed");
 
 
                 ConfigClass.SendCommandToBoard("KC00170000"); // key floor
-                
+
 
                 TowTruckOrPhoneDrop(SelectedPerson.ServiceStatus);
 
@@ -204,7 +231,8 @@ namespace MyShopExpress {
         }
 
 
-        private void TowTruckOrPhoneDrop(byte? serviceStatusId) {
+        private void TowTruckOrPhoneDrop(byte? serviceStatusId)
+        {
 
             // Thread t = new Thread(FindHomeAndRotateKeyFloor);
 
@@ -218,44 +246,73 @@ namespace MyShopExpress {
             var firstName = CustomerInfo.FirstName;
             var phone = CustomerInfo.PhoneNumber;
             var svcInfo = CustomerInfo.Comments;
-           // byte? serviceStatusId = SelectedPerson.ServiceStatus;
+            // byte? serviceStatusId = SelectedPerson.ServiceStatus;
             byte? assignedKeyLockerBucketId = Convert.ToByte(SelectedPerson.NoOfRotationDealer.Substring(2, 2));
 
 
             // Phone customer will have service guid // towtruck no guid
-            if (CustomerInfo.VehicleServiceGuid != null) {
-                try {
+            if (CustomerInfo.VehicleServiceGuid != null)
+            {
+                try
+                {
 
-                    var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
-                        return svcs.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(_dealerId, CustomerInfo.VehicleServiceGuid, CustomerInfo.VehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId,
-                            OutDoorKeyDroppedBy);
-                    });
+                    //var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs =>
+                    //{
+                    //    return svcs.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(_dealerId, CustomerInfo.VehicleServiceGuid, CustomerInfo.VehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId,
+                    //        OutDoorKeyDroppedBy);
+                    //});
                     List<ATPServiceData> serviceDataList = new List<ATPServiceData>();
 
-                    var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
-                        return svcs.UpdtVehSvcAndKeyLocker_AppAndNoApp(_dealerId, CustomerInfo.VehicleServiceGuid, CustomerInfo.VehicleGuid, svcInfo,(int) serviceStatusId, assignedKeyLockerBucketId,
+                    var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs =>
+                    {
+                        return svcs.UpdtVehSvcAndKeyLocker_AppAndNoApp(_dealerId, CustomerInfo.VehicleServiceGuid, CustomerInfo.VehicleGuid, svcInfo, (int)serviceStatusId, assignedKeyLockerBucketId,
                             OutDoorKeyDroppedBy, serviceDataList);
                     });
 
 
-                         
 
 
-    }
-                catch (Exception ex) {
+
+                }
+                catch (Exception ex)
+                {
                     MessageBox(ex.Message.ToString(), "Error !");
                 }
             }
-            else {
+            else
+            {
 
-                try {
+                try
+                {
 
-                    var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
-                        return svcs.CreateSeviceAndKeyLockerBucket_TowTruck(_dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, OutDoorKeyDroppedBy);
+                    List<ATPServiceData> serviceDataList = new List<ATPServiceData>();
+                    if (SelectedServiceList != null)
+                    {
+                        foreach (var m in SelectedServiceList)
+                        {
+                            serviceDataList.Add(new ATPServiceData { Id = m.ServiceTypeId.ToString(), Cost = m.Cost.ToString() });
+                        }
+                    }
+
+                    //serviceDataList = SelectedServiceList;
+
+                    //; ; List < ATP.DataModel.ATPServiceData
+
+                    //var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs =>
+                    //{
+                    //    return svcs.UpdtVehSvcAndKeyLocker_AppAndNoApp(_dealerId, CustomerInfo.VehicleServiceGuid, CustomerInfo.VehicleGuid, svcInfo, (int)serviceStatusId, assignedKeyLockerBucketId,
+                    //        OutDoorKeyDroppedBy, serviceDataList);
+                    //});
+
+
+                    var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs =>
+                    {
+                        return svcs.CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp(_dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, OutDoorKeyDroppedBy,serviceDataList);
                     });
 
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     MessageBox(ex.Message.ToString(), "Error !");
                 }
             }
@@ -265,11 +322,14 @@ namespace MyShopExpress {
 
             var msg = "WE HAVE YOUR INFORMATION NOW. THANKS FOR USING OUR AUTOMATED KEY SYSTEM. ";
             var msgType = "Chat";
-            if (CustomerInfo.PersonGuid != null && !string.IsNullOrEmpty(CustomerInfo.GoogleGuid)) {
+            if (CustomerInfo.PersonGuid != null && !string.IsNullOrEmpty(CustomerInfo.GoogleGuid))
+            {
                 var finalResult = SendMsgToDevice(CustomerInfo, "Key Drop Info ..", msgType, "MsgToCust", msg);
 
-                try {
-                    if (finalResult.ToUpper() == "SUCCESS" && msgType != "Notification") {
+                try
+                {
+                    if (finalResult.ToUpper() == "SUCCESS" && msgType != "Notification")
+                    {
 
                         var x = new uspSelDealerMsg_Result();
                         x.DealerId = _dealerId;
@@ -281,14 +341,16 @@ namespace MyShopExpress {
                         x.PersonGuid = CustomerInfo.PersonGuid;
 
 
-                        var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+                        var res = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs =>
+                        {
                             return svcs.InsDealerMsg(x);
                         });
 
                     }
 
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     //MessageBox(ex.Message.ToString(), "Error !");
                 }
             }
@@ -297,7 +359,8 @@ namespace MyShopExpress {
         }
 
 
-        public string SendMsgToDevice(uspVerifyPinGetCustInfo_Result currPerson, string contentTitle, string msgType, string MsgToCust, string message) {
+        public string SendMsgToDevice(uspVerifyPinGetCustInfo_Result currPerson, string contentTitle, string msgType, string MsgToCust, string message)
+        {
             // var DealerId = 116;
 
 
@@ -305,13 +368,15 @@ namespace MyShopExpress {
             string deviceId = currPerson.GoogleGuid;
 
 
-            if (string.IsNullOrEmpty(deviceId)) {
+            if (string.IsNullOrEmpty(deviceId))
+            {
                 MessageBox("I couldn't find device Id. Sorry cannot send message to this customer");
                 return "false";
 
             }
             var finalResult = "SUCCESS";
-            try {
+            try
+            {
 
                 //currPerson.DealerId = ATPDealerRecord.DealerId;
                 var vehphId = currPerson.VehPhId == null ? "1" : currPerson.VehPhId;
@@ -323,12 +388,14 @@ namespace MyShopExpress {
                     message, msgType, contentTitle, currPerson.DeviceTypeId.ToString(), "TxtRoNum", "TxtROAmount", currPerson.PersonGuid.ToString(), vehphId);
 
 
-                if (currPerson.DeviceTypeId == 0) {
+                if (currPerson.DeviceTypeId == 0)
+                {
                     var msgret = new ATP.Kiosk.Common.GeneratePhoneMessage().SendMessageToAndroid(deviceId, jsonCustomMsg, tickerText, contentTitle);
                     var gcmReturn = ATP.Kiosk.Common.JSonHelpers.FromJson<ATP.Kiosk.Common.GCMReturn>(msgret);
                     if (gcmReturn.success == "1") { finalResult = "Success"; }
                 }
-                else if (currPerson.DeviceTypeId == 1) {
+                else if (currPerson.DeviceTypeId == 1)
+                {
                     //  var iosdeviceToken = "04d40a3743b36b27ebcc3fded70b33e3feceb3b857b7724ea2095bd4a635a682";
                     var bsandbox = false;
                     var payload = new MoonAPNS.NotificationPayload(deviceId, tickerText);
@@ -337,7 +404,7 @@ namespace MyShopExpress {
 
                     //if (SelectedVehicleInService.DealerId > 100)
                     //  {
-                    var certPath = @"Certs\AdamShopAPNProdPvtKey.p12";
+                    var certPath = @"Certs\msa_push_prod_pvt_key_and_cert.p12";
                     // }
                     var notificationList = new List<MoonAPNS.NotificationPayload> { payload };
                     var pushNotifi = new MoonAPNS.PushNotification(bsandbox, certPath, "Sarina87!");
@@ -347,7 +414,8 @@ namespace MyShopExpress {
                     if (iosResult != null) { finalResult = "Success"; }
 
                 }
-                else {
+                else
+                {
                     MessageBox("Either No Customer Selected or Device Id is Null");
                     return "false";
                 }
@@ -355,7 +423,8 @@ namespace MyShopExpress {
                 return finalResult;
 
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox(ex.Message.ToString(), "Error !");
             }
             return finalResult;
