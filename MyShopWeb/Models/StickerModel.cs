@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyShopWeb.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,9 @@ namespace MyShopWeb.Models
         public string StickerTypeCD { get; set; }
         public string StickerTypeDesc { get; set; }
 
-        public int OrderQty { get; set; }
+        public byte? OrderQty { get; set; }
 
-        public decimal Cost { get; set; }
+        public decimal? Cost { get; set; }
     }
 
     public class SafetyStickers
@@ -33,5 +34,14 @@ namespace MyShopWeb.Models
         public StickerModel ExcemptInserts { get; set; }
         public StickerModel WaiverInserts { get; set; }
         public StickerModel DOTInserts { get; set; }
+    }
+
+    public class StickerMaster
+    {
+        public SafetyStickers MySafetyStickers { get; set; }
+        public EmissionStickers MyEmissionStickerss { get; set; }
+        public SpecialInsertsStickers MySpecialInsertsStickers { get; set; }
+        public List<uspSelDealerStickerTypeResult> DealerStickerTypes { get; set; }
+
     }
 }

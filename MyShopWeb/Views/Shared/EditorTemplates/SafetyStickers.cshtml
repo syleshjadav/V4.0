@@ -1,12 +1,66 @@
 ﻿@model MyShopWeb.Models.SafetyStickers
+<fieldset>
+    <legend>Safety Stickers</legend>
 
-<div class="col-sm-3 nopadding" style="background-color:transparent;font-family: 'Arial Narrow'; border: 1px solid lightgrey; word-wrap: break-word;height:100px">
-    <div style="color:white; background-color:black;font-weight:bold">
-        
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <span class="typehdr">ANNUAL INSIDE (AI)</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <span class="typehdr">Qty</span>
+                @Html.TextBoxFor(o => o.AI.OrderQty)
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <span class="typehdr">Cost $</span>
+                @Html.TextBoxFor(o => o.AI.Cost)
+            </div>
+        </div>
     </div>
 
-    @Html.DisplayFor(x => x.AI)<br />
-    @Html.DisplayFor(x => x.AO)<br />
-    @Html.DisplayFor(x => x.SI)
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <span class="typehdr">ANNUAL OUTSIDE (AO)</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <span class="typehdr">Qty</span>
+                @Html.TextBoxFor(o => o.AO.OrderQty)
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <span class="typehdr">Cost $</span>
+                @Html.TextBoxFor(o => o.AO.Cost)
+            </div>
+        </div>
+    </div>
 
-</div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <span class="typehdr">SEMI ANNUAL INSIDE (SI)</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <span class="typehdr">Qty</span>
+                @Html.TextBoxFor(o => o.SI.OrderQty)
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <span class="typehdr">Cost $</span>
+                @Html.TextBoxFor(o => o.SI.Cost)
+            </div>
+        </div>
+    </div>
+
+</fieldset>

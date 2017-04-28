@@ -1,11 +1,13 @@
-﻿@{
+﻿
+@model MyShopWeb.Models.StickerMaster
+
+
+@{
     ViewBag.Title = "Home Page";
 }
-@model MyShopWeb.Models.StickerModel
-
 <script>
     $(document).ready(function () {
-    
+
     });
 
 
@@ -17,12 +19,41 @@
 <div class="row">
     <div class="panel panel-default">
         <div class="panel-heading panel-heading-green clickable">
-            <h1 class="panel-title">Search TAP Promo Database ....</h1>
+            <h1 class="panel-title">Sticker Order Form ....</h1>
             <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
         </div>
         <div class="panel-body">
-           
-            @Html.EditorFor(x => x.SafetyStickers)
+
+
+            @using (Html.BeginForm("SaveSticker", "Home", FormMethod.Post))
+            {
+
+                foreach (var item in @Model.DealerStickerTypes)
+                {
+
+                    if (@item.StickerTypeCD == "AI")
+                    {
+
+
+                        @Html.EditorFor(model => model.MySafetyStickers);
+
+                    }
+                    if (@item.StickerTypeCD == "AO")
+                    {
+                        Html.TextBox("myTextBox", "This is value1", new { @class = "form-control" });
+
+                    }
+
+                    if (@item.StickerTypeCD == "SI")
+                    {
+                        Html.TextBox("myTextBox2", "This is value2", new { @class = "form-control" });
+                    }
+                    // @Html.TextBox("myTextBox", "This is value", new { @class = "form-control" });
+                }
+                <br />
+                <input type="submit" name="submit" value="Save" />
+                <input type="submit" name="submit" value="Cancel" />
+            }
             <hr />
 
         </div>
