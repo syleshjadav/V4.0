@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://www.AdamKiosks.com/ATPServiceData" elementFormDefault="qualified" targetNamespace="http://www.AdamKiosks.com/ATPServiceData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfATPServiceData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ATPServiceData" nillable="true" type="tns:ATPServiceData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfATPServiceData" nillable="true" type="tns:ArrayOfATPServiceData" />
+  <xs:complexType name="ATPServiceData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cost" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DealerEmpGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="Desc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPackage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ATPServiceData" nillable="true" type="tns:ATPServiceData" />
+</xs:schema>

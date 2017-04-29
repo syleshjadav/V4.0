@@ -1,0 +1,332 @@
+﻿<Window x:Class="MyShopExpress.PickUpOrDrop"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        mc:Ignorable="d"
+        d:DesignHeight="900"
+        d:DesignWidth="900"
+        Height="900"
+        Width="900"
+        WindowState="Normal"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        xmlns:hlp="clr-namespace:ATP.Kiosk.Helpers">
+    <Window.Resources>
+        <hlp:ValueToBrushConverter x:Key="NameToBrushConverter" />
+        <hlp:ColorToSolidColorBrushValueConverter  x:Key="ColorToSolidColorBrush_ValueConverter" />
+        <Style x:Key="ServiceItemListBoxTemplate"
+               TargetType="{x:Type ListBox}">
+            <!-- Do not fill in this value. -->
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border BorderBrush="#FF1D9C52"
+                                Background="{DynamicResource YellowGradient}"
+                                BorderThickness="1"
+                                CornerRadius="4"
+                                Margin="3">
+                            <Grid x:Name="GrdServiceItem"
+                                  VerticalAlignment="Stretch"
+                                  HorizontalAlignment="Stretch"
+                                  Height="50"
+                                  Width="300">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0"
+                                           Grid.ColumnSpan="1"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch" />
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding ShortName}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           TextWrapping="Wrap"
+                                           FontWeight="Bold"
+                                           FontSize="22" />
+                            </Grid>
+                        </Border>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding IsSelected}"
+                                         Value="True">
+                                <Setter TargetName="GrdServiceItem"
+                                        Property="Background"
+                                        Value="#FFA3DC5C" />
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="GrdMain">
+        <Grid.Background>
+            <ImageBrush Opacity="0.1"
+                        TileMode="Tile"
+                        ImageSource="Image/DealerLogo/116.png">
+                <ImageBrush.Transform>
+                    <ScaleTransform ScaleX=".2"
+                                    ScaleY=".2" />
+                </ImageBrush.Transform>
+            </ImageBrush>
+        </Grid.Background>
+        <Border BorderThickness="5"
+                BorderBrush="Gray"
+                CornerRadius="5"
+                Grid.RowSpan="2"></Border>
+        <GroupBox Grid.Row="0"
+                  Margin="5"
+                  Style="{DynamicResource DesignerGroupBoxSmallBk}"
+                  Grid.RowSpan="2"
+                  Grid.ColumnSpan="2">
+            <GroupBox.Header>
+                <TextBlock x:Name="GrpHeaderName"
+                           Text="PLACE KEY"
+                           FontSize="36"
+                           FontWeight="Bold"
+                           Foreground="Black"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center" />
+            </GroupBox.Header>
+            <Grid x:Name="GrdSelection">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid Background="White" Margin="5"
+                          >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border CornerRadius="4"
+                                Grid.RowSpan="3"
+                                Grid.ColumnSpan="2"
+                                BorderThickness="1"
+                                BorderBrush="Brown"></Border>
+                        <Border Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                CornerRadius="4"
+                                Background="#FFF8941C"
+                                Margin="1"
+                                BorderThickness="1" />
+                        <TextBlock  Grid.Column="0"
+                                    Text="{Binding KeyLockerPegId}"
+                                    Width="35"
+                                    Height="30"
+                                    VerticalAlignment="Top"
+                                    FontSize="20"
+                                    FontWeight="Bold"
+                                    Foreground="White"
+                                    Background="#FF9E2828"
+                                    Margin="1" />
+                        <TextBlock Grid.Column="1"
+                                   HorizontalAlignment="Left"
+                                   FontSize="30"
+                                   TextWrapping="Wrap">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} {1}">
+                                    <Binding Path="FirstName" />
+                                    <Binding Path="LastName" />
+                                </MultiBinding>
+                            </TextBlock.Text></TextBlock>
+                        <StackPanel Grid.Row="1"
+                                    Grid.ColumnSpan="2">
+                            <TextBlock TextWrapping="NoWrap"
+                                       FontSize="30">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} {1} {2} {3}">
+                                        <Binding Path="VehicleYear" />
+                                        <Binding Path="VehicleMake" />
+                                        <Binding Path="VehicleModel" />
+                                        <Binding Path="VehicleTrim" />
+                                    </MultiBinding>
+                                </TextBlock.Text></TextBlock>
+                           
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock   Text="{Binding VIN}" Margin="0,0,5,0"
+                                             TextWrapping="Wrap"
+                                             FontSize="30" />
+                                <TextBlock    Text="{Binding LicensePlate}"
+                                              HorizontalAlignment="Right"
+                                              FontSize="30" />
+                            </StackPanel>
+                            <Grid Background="{Binding ServiceStatusColor, Converter={StaticResource ColorToSolidColorBrush_ValueConverter}}">
+                                <TextBlock Text="{Binding ServiceStatusDesc}"
+                                           Foreground="{Binding ServiceStatusColorForeGround, Converter={StaticResource ColorToSolidColorBrush_ValueConverter}}"
+                                           FontSize="30" />
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1" x:Name="GrdServiceRequested">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock  Text="Selected Service" FontSize="15" FontWeight="Bold"/>
+                        <ListBox
+                            x:Name="lstSelectedService"
+                            ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Stretch"
+                                 Style="{StaticResource ServiceItemListBoxTemplate}"
+                                 ItemsSource="{Binding SelectedServiceList}" Grid.Row="1">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel MaxWidth="350"
+                                               HorizontalAlignment="Center" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+                    </Grid>
+                    <RichTextBox x:Name="TxtPlaceKeysInfo"
+                                 Grid.Row="2"
+                                >
+                        <FlowDocument FontSize="45"
+                                      FontFamily="Segoe Marker">
+                            <Paragraph LineHeight="10">1. Have  Keys ready and Click on Open Door Button.</Paragraph>
+                            <Paragraph LineHeight="10">2. Place Vehicle keys.</Paragraph>
+                            <Paragraph LineHeight="10">3. Close the Door and finally Click PLACE KEY Button.</Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                    <RichTextBox x:Name="TxtTakeKeysInfo"
+                                 Visibility="Collapsed"
+                                 Grid.Row="2"
+                                 Grid.ColumnSpan="2"
+                                 >
+                        <FlowDocument FontSize="45"
+                                      FontFamily="Segoe Marker">
+                            <Paragraph LineHeight="10">1. Press Button,TAKE KEYS to collect the Key from 
+                the key Locker.</Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </Grid>
+                <UniformGrid Grid.Row="1"
+                             x:Name="GrdButtons"
+                             Columns="2">
+                    <Button x:Name="cmdOpenDoor"
+                            Visibility="Visible"
+                            Margin="5"
+                            Click="cmdOpenDoor_Click"
+                            Style="{DynamicResource PackageOrServicesButton }"
+                            VerticalAlignment="Bottom">
+                        <Grid  Width="250"
+                               Height="200">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock VerticalAlignment="Top"
+                                       FontSize="30"
+                                       HorizontalAlignment="Center"
+                                       Foreground="Maroon"
+                                       FontWeight="Bold"
+                                       Grid.Row="0">Step 1</TextBlock>
+                            <Image  HorizontalAlignment="Center"
+                                    Width="100"
+                                    Source="Image/OpenDoor.png"
+                                    Grid.Row="1" />
+                            <TextBlock FontSize="40"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Bottom"
+                                       Foreground="Black"
+                                       FontWeight="Bold"
+                                       Grid.Row="2">Open Door</TextBlock>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="cmdPlaceKeys"
+                            IsEnabled="False"
+                            Opacity=".4"
+                            Width="250"
+                            Height="200"
+                            VerticalAlignment="Bottom"
+                            Style="{DynamicResource PackageOrServicesButton }"
+                            Click="cmdPlaceKeys_Click">
+                        <Grid  Width="250"
+                               Height="250">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock VerticalAlignment="Top"
+                                       FontSize="30"
+                                       HorizontalAlignment="Center"
+                                       Foreground="Maroon"
+                                       FontWeight="Bold"
+                                       Grid.Row="0">Step 2</TextBlock>
+                            <TextBlock DockPanel.Dock="Bottom"
+                                       x:Name="TxtcmdCustomerVerified"
+                                       FontSize="50"
+                                       HorizontalAlignment="Center"
+                                       Grid.Row="2"
+                                       Foreground="Black">PLACE KEY</TextBlock>
+                            <Image  Grid.Row="1"
+                                    HorizontalAlignment="Center"
+                                    Source="Image/carkey.png" />
+                        </Grid>
+                    </Button>
+                    <Button x:Name="cmdTakeKeys"
+                            Width="400"
+                            Height="150"
+                            VerticalAlignment="Bottom"
+                            Visibility="Collapsed"
+                            Style="{DynamicResource PackageOrServicesButton }"
+                            Click="cmdTakeKeys_Click">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Bottom"
+                                       FontSize="50"
+                                       HorizontalAlignment="Center"
+                                       Foreground="Black">TAKE KEY</TextBlock>
+                            <Image DockPanel.Dock="Top"
+                                   HorizontalAlignment="Center"
+                                   Source="Image/carkey.png" />
+                        </DockPanel>
+                    </Button>
+                </UniformGrid>
+                <Button x:Name="cmdBack"
+                        Width="90"
+                        Height="90"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        FontWeight="Bold"
+                        Style="{DynamicResource PackageOrServicesButton }"
+                        Click="cmdBack_Click">
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Bottom"
+                                   FontSize="30"
+                                   HorizontalAlignment="Center"
+                                   Foreground="Black">BACK</TextBlock>
+                        <TextBlock DockPanel.Dock="Top"
+                                   FontSize="50"
+                                   Foreground="Black"
+                                   FontFamily="Wingdings"
+                                   HorizontalAlignment="Center"
+                                   Text="ç" />
+                    </DockPanel>
+                </Button>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
