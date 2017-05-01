@@ -14,7 +14,6 @@ using System.Xml.Serialization;
 using System.IO;
 using ATP.DataModel;
 using OutDoorCustomer.ServiceReference1;
-using KeyPad;
 
 namespace MyShopExpress {
     /// <summary>
@@ -104,6 +103,7 @@ namespace MyShopExpress {
         private void CmdVerifyPIN_Click(object sender, RoutedEventArgs e) {
 
             // pickup = false, drop = true
+            Keyboard.IsOpen = false;
 
             var res = new List<uspVerifyPinGetCustInfo_Result>();
             var x = new List<uspSelVehicleMakes_Result>();
@@ -242,6 +242,7 @@ namespace MyShopExpress {
 
 
         private void GoHome() {
+            Keyboard.IsOpen = false;
             this.Close();
         }
 
@@ -263,7 +264,7 @@ namespace MyShopExpress {
             // var sKeyLockerId = res[0].KeyLockerId;
             //GrdVerifiedPinInfo.Visibility = Visibility.Visible;
             GrdVerifyPinInfo.Visibility = Visibility.Collapsed;
-
+            Keyboard.IsOpen = false;
             var wnd = new PickUpOrDrop();
             wnd.SelectedPerson = new uspSelAllKeyDropPegByDealerId_Result {
                 FirstName = CustomerInfo.FirstName,
@@ -309,31 +310,15 @@ namespace MyShopExpress {
 
         private void TxtPin_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            TextBox textbox = sender as TextBox;
-            Keypad keypadWindow = new Keypad(textbox, this, "Enter PIN");
-            keypadWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            this.Opacity = .8;
-            if (keypadWindow.ShowDialog() == true)
-                textbox.Text = keypadWindow.Result;
-
-            this.Opacity = 1;
+            Keyboard.IsOpen = true;
 
         }
 
         private void TxtComments_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            InvokeKeyBoard(sender, "Enter Comments :");
+            Keyboard.IsOpen = true;
         }
-        private void InvokeKeyBoard(object sender, string title)
-        {
-            TextBox tb = sender as TextBox;
-            VirtualKeyboard kbWin = new VirtualKeyboard(tb, this, title);
-            kbWin.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            this.Opacity = .8;
-            if (kbWin.ShowDialog() == true)
-                tb.Text = kbWin.Result;
-            this.Opacity = 1;
-        }
+      
     }
 
 

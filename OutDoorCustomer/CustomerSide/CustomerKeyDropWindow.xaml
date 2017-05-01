@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-       
+        xmlns:WpfKb="clr-namespace:WpfKb.Controls;assembly=WpfKb"
         x:Name="CtrlCustomerKeyDrop"
         mc:Ignorable="d"
         Tag="mdi_child"
@@ -265,6 +265,18 @@
                             </Button>
                         </Grid>
                     </Grid>
+                </Grid>
+                <Grid Grid.Row="1"
+                      x:Name="GrdKeyBoard"
+                      VerticalAlignment="Bottom">
+                    <WpfKb:FloatingTouchScreenKeyboard x:Name="Keyboard"
+                                                       IsOpen="True"
+                                                       Width="900"
+                                                       Height="400"
+                                                       PlacementTarget="{Binding ElementName=pgTowTruck}"
+                                                       Placement="Center"
+                                                       AreAnimationsEnabled="False"
+                                                       IsAllowedToFade="False" />
                 </Grid>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>

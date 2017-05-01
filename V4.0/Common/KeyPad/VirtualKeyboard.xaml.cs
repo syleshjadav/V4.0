@@ -34,7 +34,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 
-namespace KeyPad
+namespace MyShopExpress
 {
     /// <summary>
     /// Logica di interazione per VirtualKeyboard.xaml
@@ -140,6 +140,11 @@ namespace KeyPad
                 this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
         }
 
-        #endregion        
+        #endregion
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
     }
 }

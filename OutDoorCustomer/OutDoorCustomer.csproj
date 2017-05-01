@@ -34,7 +34,7 @@
     <SuiteName>OutDoor</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -304,6 +304,10 @@
     <ProjectReference Include="..\V4.0\Common\KeyPad\KeyPad.csproj">
       <Project>{3adbff38-915c-4115-9cdd-81c0cad9733a}</Project>
       <Name>KeyPad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\V4.0\Common\WpfKb\WpfKb.csproj">
+      <Project>{0784cdc9-0f52-4b8b-9488-6589c11e94e2}</Project>
+      <Name>WpfKb</Name>
     </ProjectReference>
     <ProjectReference Include="..\V4.0\Data\ATP.DataModel\ATP.DataModel.csproj">
       <Project>{aa7a2394-df96-49c0-a6c5-47b98da977f4}</Project>

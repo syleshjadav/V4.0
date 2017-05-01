@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:MyShopExpress"
         mc:Ignorable="d"
-       
+        xmlns:WpfKb="clr-namespace:WpfKb.Controls;assembly=WpfKb"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Tag="mdi_child"
         d:DesignHeight="900"
@@ -77,7 +77,8 @@
         </Style>
     </Window.Resources>
     <Grid x:Name="GrdMain"
-          Background="{DynamicResource BrushMainPageBackGround}">
+          Background="{DynamicResource BrushMainPageBackGround}"
+          GotFocus="GrdMain_GotFocus">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -87,6 +88,7 @@
                 CornerRadius="5"
                 Grid.RowSpan="3"></Border>
         <GroupBox Grid.Row="1"
+                  
                   Margin="5"
                   Style="{DynamicResource DesignerGroupBoxSmallBk}">
             <GroupBox.Header>
@@ -126,10 +128,7 @@
                                Grid.Row="1"
                                TextWrapping="Wrap"
                                Style="{DynamicResource StyleLabel}" />
-                    <TextBlock Text="Notes :"
-                               Grid.Row="2"
-                               TextWrapping="Wrap"
-                               Style="{DynamicResource StyleLabel}" />
+                   
                     <TextBox Grid.Row="1"
                              Grid.Column="1"
                              Margin="1"
@@ -138,10 +137,12 @@
                              FontWeight="Bold"
                              FontSize="30"
                              Height="50"
-                             Width="400"
+                             Width="250"
                              HorizontalAlignment="Left"
                              Background="#FFFFFFE4"
-                             PreviewMouseDown="TxtName_PreviewMouseDown" />
+                             GotFocus="TxtName_GotFocus"
+                             PreviewMouseDown="TxtName_PreviewMouseDown"
+                             GotKeyboardFocus="TxtName_GotKeyboardFocus" />
                     <TextBox Grid.Row="1"
                              Grid.Column="4"
                              Margin="1"
@@ -155,22 +156,39 @@
                              Height="50"
                              Background="#FFFFFFE4"
                              HorizontalAlignment="Left"
+                             GotFocus="TxtName_GotFocus"
+                             GotKeyboardFocus="TxtName_GotKeyboardFocus"
                              PreviewMouseDown="TxtPhone_PreviewMouseDown" />
-                    <TextBox BorderBrush="White"
-                             GotFocus="TxtNotes_GotFocus"
-                             Margin="1"
-                             Grid.Row="2"
-                             Grid.Column="1"
-                             Grid.RowSpan="4"
-                             MinLines="1"
-                             FontSize="16"
-                             x:Name="TxtNotes"
-                             FontWeight="Bold"
-                             AcceptsReturn="True"
-                             TextWrapping="Wrap"
-                             Background="#FFFFFFE4"
-                             SpellCheck.IsEnabled="True"
-                             PreviewMouseDown="TxtNotes_PreviewMouseDown" />
+                  
+                    <Grid  Grid.ColumnSpan="6" Grid.Row="2" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Notes :"
+                                   Grid.Row="2"
+                                   TextWrapping="Wrap"
+                                   Width="125"
+                                   HorizontalAlignment="Left"
+                                   Style="{DynamicResource StyleLabel}" />
+                        <TextBox BorderBrush="White"
+                                 Margin="1"
+                                Width="600"
+                                 HorizontalAlignment="Left"
+                                 Grid.Column="1"
+                                
+                                 MinLines="1"
+                                 FontSize="16"
+                                 x:Name="TxtNotes"
+                                 FontWeight="Bold"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 Background="#FFFFFFE4"
+                                 SpellCheck.IsEnabled="True"
+                                 GotFocus="TxtName_GotFocus"
+                                 GotKeyboardFocus="TxtName_GotKeyboardFocus"
+                                 PreviewMouseDown="TxtNotes_PreviewMouseDown" />
+                    </Grid>
                 </Grid>
                 <Grid Grid.Row="1">
                     <ListBox Grid.Row="2"
@@ -185,6 +203,7 @@
                              SelectedItem="{Binding SelectedService}"
                              SelectionChanged="LstServiceItems_SelectionChanged"
                              Style="{StaticResource ServiceItemListBoxTemplate}"
+                             GotFocus="LstServiceItems_GotFocus"
                              KeyboardNavigation.DirectionalNavigation="Cycle"
                              ScrollViewer.HorizontalScrollBarVisibility="Auto"
                              ScrollViewer.VerticalScrollBarVisibility="Visible">
@@ -203,6 +222,18 @@
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
                     </ListBox>
+                </Grid>
+                <Grid Grid.Row="1"
+                      x:Name="GrdKeyBoard"
+                      VerticalAlignment="Bottom">
+                    <WpfKb:FloatingTouchScreenKeyboard x:Name="Keyboard"
+                                                       IsOpen="True"
+                                                       Width="900"
+                                                       Height="400"
+                                                       PlacementTarget="{Binding ElementName=pgTowTruck}"
+                                                       Placement="Center"
+                                                       AreAnimationsEnabled="False"
+                                                       IsAllowedToFade="False" />
                 </Grid>
                 <UniformGrid Grid.Row="2"
                              Columns="2">

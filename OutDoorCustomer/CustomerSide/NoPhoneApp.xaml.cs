@@ -40,6 +40,7 @@ namespace MyShopExpress
 
            // LstServiceItems.Items.Clear();
             LstServiceItems.SelectedIndex = -1;
+            Keyboard.IsOpen = false;
         }
 
 
@@ -259,47 +260,42 @@ namespace MyShopExpress
             Opacity = 1;
         }
 
-        private void TxtNotes_GotFocus(object sender, RoutedEventArgs e)
-        {
-           
-
-        }
+       
 
         private void TxtName_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            InvokeKeyBoard(sender, "Enter Name :");
+            Keyboard.IsOpen = true;
         }
 
         private void TxtPhone_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            InvokeKeyBoardNumeric(sender, "Enter Phone :");
+            Keyboard.IsOpen = true;
         }
 
         private void TxtNotes_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            InvokeKeyBoard(sender, "Enter Comments :");
+            Keyboard.IsOpen = true;
         }
 
-        private void InvokeKeyBoard(object sender, string title)
+        private void GrdMain_GotFocus(object sender, RoutedEventArgs e)
         {
-            TextBox tb = sender as TextBox;
-            VirtualKeyboard kbWin = new VirtualKeyboard(tb, this, title);
-            kbWin.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            this.Opacity = .6;
-            if (kbWin.ShowDialog() == true)
-                tb.Text = kbWin.Result;
-            this.Opacity = 1;
+            Keyboard.IsOpen = false;
         }
 
-        private void InvokeKeyBoardNumeric(object sender, string title)
+        private void TxtName_GotFocus(object sender, RoutedEventArgs e)
         {
-            TextBox tb = sender as TextBox;
-            Keypad kbWin = new Keypad(tb, this, title);
-            kbWin.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            this.Opacity = .8;
-            if (kbWin.ShowDialog() == true)
-                tb.Text = kbWin.Result;
-            this.Opacity = 1;
+            Keyboard.IsOpen = true;
+        }
+
+        private void LstServiceItems_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Keyboard.IsOpen = false;
+
+        }
+
+        private void TxtName_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Keyboard.IsOpen = true;
         }
     }
 }

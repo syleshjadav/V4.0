@@ -30,6 +30,7 @@ namespace MyShopExpress {
         private void TowTruck_Loaded(object sender, RoutedEventArgs e) {
 
             _dealerId = ConfigClass.DealerId;
+            Keyboard.IsOpen = true;
         }
 
 
@@ -63,7 +64,7 @@ namespace MyShopExpress {
 
 
         private void cmdDropKeys_Click(object sender, RoutedEventArgs e) {
-
+            Keyboard.IsOpen = false;
             if (String.IsNullOrEmpty(TxtPhone.Text) || String.IsNullOrEmpty(TxtName.Text)) {
 
                 MessageBox("Please enter Name and Phone Number before you drop the keys", "Information");
@@ -162,22 +163,13 @@ namespace MyShopExpress {
 
         }
 
-        private void InvokeKeyBoard(object sender, string title)
-        {
-            TextBox tb = sender as TextBox;
-            VirtualKeyboard kbWin = new VirtualKeyboard(tb, this, title);
-            kbWin.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            this.Opacity = .8;
-            if (kbWin.ShowDialog() == true)
-                tb.Text = kbWin.Result;
-            this.Opacity = 1;
-        }
+       
 
         private void InvokeKeyBoardNumeric(object sender, string title)
         {
             TextBox tb = sender as TextBox;
             Keypad kbWin = new Keypad(tb, this, title);
-            kbWin.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            kbWin.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             this.Opacity = .8;
             if (kbWin.ShowDialog() == true)
                 tb.Text = kbWin.Result;
@@ -186,17 +178,19 @@ namespace MyShopExpress {
 
         private void TxtName_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            InvokeKeyBoard(sender, "Enter Name :");
+            // InvokeKeyBoard(sender, "Enter Name :");
+            Keyboard.IsOpen = true;
+
         }
 
         private void TxtPhone_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            InvokeKeyBoardNumeric(sender, "Enter Phone :");
+            Keyboard.IsOpen = true;
         }
 
         private void TxtNotes_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            InvokeKeyBoard(sender, "Enter Comments :");
+            Keyboard.IsOpen = true;
         }
     }
 }

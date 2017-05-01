@@ -60,8 +60,10 @@ namespace ATP.DataModel
                 SqlCommand sqlCmd = new SqlCommand("dbo.uspCreateSeviceAndKeyLockerBucket_TowTruck", con);
                 sqlCmd.CommandType = CommandType.StoredProcedure;
                 sqlCmd.Parameters.AddWithValue("@DealerId", dealerId).SqlDbType = SqlDbType.Int;
+                sqlCmd.Parameters.AddWithValue("@FirstName", firstName).SqlDbType = SqlDbType.VarChar;
                 sqlCmd.Parameters.AddWithValue("@Phone", phone).SqlDbType = SqlDbType.VarChar;
                 sqlCmd.Parameters.AddWithValue("@SvcInfo", svcInfo).SqlDbType = SqlDbType.VarChar;
+
                 sqlCmd.Parameters.AddWithValue("@ServiceStatusId", serviceStatusId).SqlDbType = SqlDbType.TinyInt;
                 sqlCmd.Parameters.AddWithValue("@AssignedKeyLockerBucketId", assignedKeyLockerBucketId).SqlDbType = SqlDbType.TinyInt;
                 sqlCmd.Parameters.AddWithValue("@OutDoorKeyDroppedBy", outDoorKeyDroppedBy).SqlDbType = SqlDbType.TinyInt;
