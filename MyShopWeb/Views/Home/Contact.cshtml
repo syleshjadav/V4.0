@@ -1,17 +1,62 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿
+@model MyShopWeb.Models.StickerMaster
+
+
+@{
+    ViewBag.Title = "Home Page";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<script>
+    $(document).ready(function () {
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+    });
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+
+
+    //Load  list from server
+
+</script>
+
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading panel-heading-green clickable">
+            <h1 class="panel-title">Sticker Order Form ....</h1>
+            <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+        </div>
+        <div class="panel-body">
+
+
+            @using (Html.BeginForm("SaveSticker", "Home", FormMethod.Post))
+            {
+
+                foreach (var item in @Model.DealerStickerTypes)
+                {
+
+                    if (@item.StickerTypeCD == "AI")
+                    {
+
+
+                        @Html.EditorFor(model => model.MySafetyStickers);
+
+                    }
+                    if (@item.StickerTypeCD == "AO")
+                    {
+                        Html.TextBox("myTextBox", "This is value1", new { @class = "form-control" });
+
+                    }
+
+                    if (@item.StickerTypeCD == "SI")
+                    {
+                        Html.TextBox("myTextBox2", "This is value2", new { @class = "form-control" });
+                    }
+                    // @Html.TextBox("myTextBox", "This is value", new { @class = "form-control" });
+                }
+                <br />
+                <input type="submit" name="submit" value="Save" />
+                <input type="submit" name="submit" value="Cancel" />
+                <input type="submit" name="submit" value="Print" />
+            }
+            <hr />
+
+        </div>
+    </div>
+</div>

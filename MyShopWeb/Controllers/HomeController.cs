@@ -10,8 +10,7 @@ using MyShopWeb.Models;
 using System.Collections.Generic;
 
 
-
-namespace Authentication.Controllers
+namespace MyShopWeb.Controllers
 {
     // [Authorize]
     public class HomeController : Controller
@@ -23,6 +22,79 @@ namespace Authentication.Controllers
         public int DealerId = 103;
 
         public ActionResult Index()
+        {
+            DealerId = 103;
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult SelStickerOrderMaster()
+        {
+            try
+            {
+                using (var entity = new MyShopDataClassesDataContext())
+                {
+                    var ds = entity.uspSelStickerOrderMaster(DealerId,0,10).ToList();
+                    return Json(new { Result = "OK", Records = ds, TotalRecordCount = ds.Count() });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Result = "ERROR", Message = ex.Message });
+            }
+        }
+
+        [HttpPost]
+        public JsonResult StickerStatusList()
+        {
+            try
+            {
+                using (var entity = new MyShopDataClassesDataContext())
+                {
+                    var ds = entity.uspSelAllStickerStatus().ToList().Select(c => new { DisplayText = c.StickerIssuedStatus, Value = c.StickerStatusId });
+                    return Json(new { Result = "OK", Options = ds });
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Result = "ERROR", Message = ex.Message });
+            }
+        }
+        [HttpPost]
+        public JsonResult UpdtUpsertStickerOrder(uspSelStickerOrderMasterResult m)
+        {
+            return UpsertStickerOrder(m);
+        }
+        [HttpPost]
+        public JsonResult InsUpsertStickerOrder(uspSelStickerOrderMasterResult m)
+        {
+            m.OrderStatusId = 100; // ordered.
+            return UpsertStickerOrder(m);
+        }
+
+        private JsonResult UpsertStickerOrder(uspSelStickerOrderMasterResult m)
+        {
+            try
+            {
+                using (var entity = new MyShopDataClassesDataContext())
+                {
+                    // bool? isValid = m.IsValid == true ? true : false;
+
+                    var ds = entity.uspUpsertStickerOrderMasterDetail(DealerId, m.StickerOrderMasterId, m.ReceiptId, m.IssuingLocationId, m.NoOfReceipts, m.TransmittalNum,
+                        m.MessengerNum, m.IMQty, m.IMCost, m.AIQty, m.AICost, m.AOQty, m.AOCost, m.SIQty, m.SICost, m.MV46Qty, m.MV46Cost, m.TotalPayment,
+                        m.BatchNo, m.OrderStatusId, m.EnteredBy);
+
+                    return Json(new { Result = "OK", Record = m });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Result = "ERROR", Message = ex.Message });
+            }
+        }
+
+        public ActionResult Index_old()
         {
             DealerId = 103;
             // return View();
@@ -83,22 +155,34 @@ namespace Authentication.Controllers
 
 
         [HttpPost]
-        public ActionResult SaveSticker(StickerMaster m, string submit)
+        public ActionResult SaveSticker(string hidOrderId, string submit)
         {
             switch (submit)
             {
-                case "Save":
+                case "Print":
                     ViewBag.Message = "Customer saved successfully!";
 
-                    CreatePDFFile(m);
+                    //CreatePDFFile(m);
 
                     break;
                 case "Cancel":
                     ViewBag.Message = "The operation was cancelled!";
                     break;
             }
-            return View(m);
+            return View("Index");
         }
+
+
+        [HttpPost]
+        public JsonResult StickerAddToInventory(Data data)
+        {
+           // var data = "{ \"fname\" : \"" + fname + " \" , \"lastname\" : \"" + lastname + "\" }";
+            //// you have to add the JsonRequestBehavior.AllowGet 
+            //// otherwise it will throw an exception on run-time.
+
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
         private void CreatePDFFile(StickerMaster m)
         {
             var pdfPath = Server.MapPath("/Forms/mv-436A.pdf");
@@ -233,5 +317,11 @@ namespace Authentication.Controllers
             return View();
         }
 
+    }
+
+    public class Data
+    {
+        public string username { get; set; }
+        public string password { get; set; }
     }
 }

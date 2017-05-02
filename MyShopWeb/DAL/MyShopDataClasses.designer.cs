@@ -76,20 +76,6 @@ namespace MyShopWeb.DAL
 			return ((ISingleResult<uspSelAllStickerTypesResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelStickerOrderMaster")]
-		public ISingleResult<uspSelStickerOrderMasterResult> uspSelStickerOrderMaster([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DealerId", DbType="Int")] System.Nullable<int> dealerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageStartIndex", DbType="SmallInt")] System.Nullable<short> pageStartIndex, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageSize", DbType="SmallInt")] System.Nullable<short> pageSize)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId, pageStartIndex, pageSize);
-			return ((ISingleResult<uspSelStickerOrderMasterResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelStickerOrderDetail")]
-		public ISingleResult<uspSelStickerOrderDetailResult> uspSelStickerOrderDetail([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StickerOrderMasterId", DbType="Int")] System.Nullable<int> stickerOrderMasterId)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), stickerOrderMasterId);
-			return ((ISingleResult<uspSelStickerOrderDetailResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpsertDealerStickerType")]
 		public int uspUpsertDealerStickerType([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> dealerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StickerTypeId", DbType="TinyInt")] System.Nullable<byte> stickerTypeId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cost", DbType="Decimal(18,3)")] System.Nullable<decimal> cost, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsValid", DbType="Bit")] System.Nullable<bool> isValid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReOrderCount", DbType="TinyInt")] System.Nullable<byte> reOrderCount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EnteredBy", DbType="UniqueIdentifier")] System.Nullable<System.Guid> enteredBy)
 		{
@@ -102,6 +88,41 @@ namespace MyShopWeb.DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId);
 			return ((ISingleResult<uspSelDealerStickerTypeResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpsertStickerOrderMasterDetail")]
+		public int uspUpsertStickerOrderMasterDetail(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DealerId", DbType="Int")] System.Nullable<int> dealerId, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="StickerOrderMasterId", DbType="Int")] System.Nullable<int> stickerOrderMasterId, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReceiptId", DbType="Int")] System.Nullable<int> receiptId, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IssuingLocationId", DbType="Int")] System.Nullable<int> issuingLocationId, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NoOfReceipts", DbType="Int")] System.Nullable<int> noOfReceipts, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TransmittalNum", DbType="VarChar(50)")] string transmittalNum, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessengerNum", DbType="VarChar(50)")] string messengerNum, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IMQty", DbType="TinyInt")] System.Nullable<byte> iMQty, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IMCost", DbType="Decimal(18,3)")] System.Nullable<decimal> iMCost, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="AIQty", DbType="TinyInt")] System.Nullable<byte> aIQty, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="AICost", DbType="Decimal(18,3)")] System.Nullable<decimal> aICost, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="AOQty", DbType="TinyInt")] System.Nullable<byte> aOQty, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="AOCost", DbType="Decimal(18,3)")] System.Nullable<decimal> aOCost, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SIQty", DbType="TinyInt")] System.Nullable<byte> sIQty, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SICost", DbType="Decimal(18,3)")] System.Nullable<decimal> sICost, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MV46Qty", DbType="TinyInt")] System.Nullable<byte> mV46Qty, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MV46Cost", DbType="Decimal(18,3)")] System.Nullable<decimal> mV46Cost, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TotalPayment", DbType="Decimal(18,3)")] System.Nullable<decimal> totalPayment, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="BatchNo", DbType="VarChar(50)")] string batchNo, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="OrderStatusId", DbType="TinyInt")] System.Nullable<byte> orderStatusId, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="EnteredBy", DbType="UniqueIdentifier")] System.Nullable<System.Guid> enteredBy)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId, stickerOrderMasterId, receiptId, issuingLocationId, noOfReceipts, transmittalNum, messengerNum, iMQty, iMCost, aIQty, aICost, aOQty, aOCost, sIQty, sICost, mV46Qty, mV46Cost, totalPayment, batchNo, orderStatusId, enteredBy);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelStickerOrderMaster")]
+		public ISingleResult<uspSelStickerOrderMasterResult> uspSelStickerOrderMaster([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DealerId", DbType="Int")] System.Nullable<int> dealerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageStartIndex", DbType="SmallInt")] System.Nullable<short> pageStartIndex, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageSize", DbType="SmallInt")] System.Nullable<short> pageSize)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId, pageStartIndex, pageSize);
+			return ((ISingleResult<uspSelStickerOrderMasterResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -224,508 +245,6 @@ namespace MyShopWeb.DAL
 				if ((this._StickerDesc != value))
 				{
 					this._StickerDesc = value;
-				}
-			}
-		}
-	}
-	
-	public partial class uspSelStickerOrderMasterResult
-	{
-		
-		private int _StickerOrderMasterId;
-		
-		private System.Nullable<int> _DealerId;
-		
-		private System.Nullable<int> _ReceiptId;
-		
-		private System.Nullable<System.DateTime> _OrderDt;
-		
-		private System.Nullable<byte> _IssuingLocationId;
-		
-		private System.Nullable<byte> _NoOfReceipts;
-		
-		private string _TransmittalNum;
-		
-		private string _MessengerNum;
-		
-		private System.Nullable<decimal> _TotalPayment;
-		
-		private string _BatchNo;
-		
-		private System.Nullable<byte> _OrderStatusId;
-		
-		private System.Nullable<System.DateTime> _EnteredDt;
-		
-		private System.Nullable<System.Guid> _EnteredBy;
-		
-		private System.Nullable<System.DateTime> _ModifiedDt;
-		
-		private System.Nullable<System.Guid> _ModifiedBy;
-		
-		public uspSelStickerOrderMasterResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerOrderMasterId", DbType="Int NOT NULL")]
-		public int StickerOrderMasterId
-		{
-			get
-			{
-				return this._StickerOrderMasterId;
-			}
-			set
-			{
-				if ((this._StickerOrderMasterId != value))
-				{
-					this._StickerOrderMasterId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DealerId", DbType="Int")]
-		public System.Nullable<int> DealerId
-		{
-			get
-			{
-				return this._DealerId;
-			}
-			set
-			{
-				if ((this._DealerId != value))
-				{
-					this._DealerId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReceiptId", DbType="Int")]
-		public System.Nullable<int> ReceiptId
-		{
-			get
-			{
-				return this._ReceiptId;
-			}
-			set
-			{
-				if ((this._ReceiptId != value))
-				{
-					this._ReceiptId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderDt", DbType="DateTime")]
-		public System.Nullable<System.DateTime> OrderDt
-		{
-			get
-			{
-				return this._OrderDt;
-			}
-			set
-			{
-				if ((this._OrderDt != value))
-				{
-					this._OrderDt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssuingLocationId", DbType="TinyInt")]
-		public System.Nullable<byte> IssuingLocationId
-		{
-			get
-			{
-				return this._IssuingLocationId;
-			}
-			set
-			{
-				if ((this._IssuingLocationId != value))
-				{
-					this._IssuingLocationId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoOfReceipts", DbType="TinyInt")]
-		public System.Nullable<byte> NoOfReceipts
-		{
-			get
-			{
-				return this._NoOfReceipts;
-			}
-			set
-			{
-				if ((this._NoOfReceipts != value))
-				{
-					this._NoOfReceipts = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransmittalNum", DbType="VarChar(50)")]
-		public string TransmittalNum
-		{
-			get
-			{
-				return this._TransmittalNum;
-			}
-			set
-			{
-				if ((this._TransmittalNum != value))
-				{
-					this._TransmittalNum = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessengerNum", DbType="VarChar(50)")]
-		public string MessengerNum
-		{
-			get
-			{
-				return this._MessengerNum;
-			}
-			set
-			{
-				if ((this._MessengerNum != value))
-				{
-					this._MessengerNum = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPayment", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> TotalPayment
-		{
-			get
-			{
-				return this._TotalPayment;
-			}
-			set
-			{
-				if ((this._TotalPayment != value))
-				{
-					this._TotalPayment = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BatchNo", DbType="VarChar(50)")]
-		public string BatchNo
-		{
-			get
-			{
-				return this._BatchNo;
-			}
-			set
-			{
-				if ((this._BatchNo != value))
-				{
-					this._BatchNo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderStatusId", DbType="TinyInt")]
-		public System.Nullable<byte> OrderStatusId
-		{
-			get
-			{
-				return this._OrderStatusId;
-			}
-			set
-			{
-				if ((this._OrderStatusId != value))
-				{
-					this._OrderStatusId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredDt", DbType="DateTime")]
-		public System.Nullable<System.DateTime> EnteredDt
-		{
-			get
-			{
-				return this._EnteredDt;
-			}
-			set
-			{
-				if ((this._EnteredDt != value))
-				{
-					this._EnteredDt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredBy", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> EnteredBy
-		{
-			get
-			{
-				return this._EnteredBy;
-			}
-			set
-			{
-				if ((this._EnteredBy != value))
-				{
-					this._EnteredBy = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDt", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ModifiedDt
-		{
-			get
-			{
-				return this._ModifiedDt;
-			}
-			set
-			{
-				if ((this._ModifiedDt != value))
-				{
-					this._ModifiedDt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> ModifiedBy
-		{
-			get
-			{
-				return this._ModifiedBy;
-			}
-			set
-			{
-				if ((this._ModifiedBy != value))
-				{
-					this._ModifiedBy = value;
-				}
-			}
-		}
-	}
-	
-	public partial class uspSelStickerOrderDetailResult
-	{
-		
-		private int _StickerOrderDetaiIId;
-		
-		private System.Nullable<int> _StickerOrderMasterId;
-		
-		private System.Nullable<byte> _StickerTypeId;
-		
-		private System.Nullable<byte> _StickerQty;
-		
-		private System.Nullable<decimal> _StickerCost;
-		
-		private string _Series;
-		
-		private string _StickerTypeCD;
-		
-		private string _StickerType;
-		
-		private System.DateTime _EnteredDt;
-		
-		private System.Guid _EnteredBy;
-		
-		private System.Nullable<System.DateTime> _ModifiedDt;
-		
-		private System.Nullable<System.Guid> _ModifiedBy;
-		
-		public uspSelStickerOrderDetailResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerOrderDetaiIId", DbType="Int NOT NULL")]
-		public int StickerOrderDetaiIId
-		{
-			get
-			{
-				return this._StickerOrderDetaiIId;
-			}
-			set
-			{
-				if ((this._StickerOrderDetaiIId != value))
-				{
-					this._StickerOrderDetaiIId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerOrderMasterId", DbType="Int")]
-		public System.Nullable<int> StickerOrderMasterId
-		{
-			get
-			{
-				return this._StickerOrderMasterId;
-			}
-			set
-			{
-				if ((this._StickerOrderMasterId != value))
-				{
-					this._StickerOrderMasterId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerTypeId", DbType="TinyInt")]
-		public System.Nullable<byte> StickerTypeId
-		{
-			get
-			{
-				return this._StickerTypeId;
-			}
-			set
-			{
-				if ((this._StickerTypeId != value))
-				{
-					this._StickerTypeId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerQty", DbType="TinyInt")]
-		public System.Nullable<byte> StickerQty
-		{
-			get
-			{
-				return this._StickerQty;
-			}
-			set
-			{
-				if ((this._StickerQty != value))
-				{
-					this._StickerQty = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerCost", DbType="Decimal(18,2)")]
-		public System.Nullable<decimal> StickerCost
-		{
-			get
-			{
-				return this._StickerCost;
-			}
-			set
-			{
-				if ((this._StickerCost != value))
-				{
-					this._StickerCost = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Series", DbType="VarChar(15)")]
-		public string Series
-		{
-			get
-			{
-				return this._Series;
-			}
-			set
-			{
-				if ((this._Series != value))
-				{
-					this._Series = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerTypeCD", DbType="VarChar(10)")]
-		public string StickerTypeCD
-		{
-			get
-			{
-				return this._StickerTypeCD;
-			}
-			set
-			{
-				if ((this._StickerTypeCD != value))
-				{
-					this._StickerTypeCD = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerType", DbType="VarChar(100)")]
-		public string StickerType
-		{
-			get
-			{
-				return this._StickerType;
-			}
-			set
-			{
-				if ((this._StickerType != value))
-				{
-					this._StickerType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredDt", DbType="DateTime2 NOT NULL")]
-		public System.DateTime EnteredDt
-		{
-			get
-			{
-				return this._EnteredDt;
-			}
-			set
-			{
-				if ((this._EnteredDt != value))
-				{
-					this._EnteredDt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredBy", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid EnteredBy
-		{
-			get
-			{
-				return this._EnteredBy;
-			}
-			set
-			{
-				if ((this._EnteredBy != value))
-				{
-					this._EnteredBy = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDt", DbType="DateTime2")]
-		public System.Nullable<System.DateTime> ModifiedDt
-		{
-			get
-			{
-				return this._ModifiedDt;
-			}
-			set
-			{
-				if ((this._ModifiedDt != value))
-				{
-					this._ModifiedDt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> ModifiedBy
-		{
-			get
-			{
-				return this._ModifiedBy;
-			}
-			set
-			{
-				if ((this._ModifiedBy != value))
-				{
-					this._ModifiedBy = value;
 				}
 			}
 		}
@@ -986,6 +505,482 @@ namespace MyShopWeb.DAL
 				if ((this._ModifiedByName != value))
 				{
 					this._ModifiedByName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspSelStickerOrderMasterResult
+	{
+		
+		private int _StickerOrderMasterId;
+		
+		private System.Nullable<int> _DealerId;
+		
+		private System.Nullable<int> _ReceiptId;
+		
+		private System.Nullable<byte> _IssuingLocationId;
+		
+		private System.Nullable<byte> _NoOfReceipts;
+		
+		private string _TransmittalNum;
+		
+		private string _MessengerNum;
+		
+		private System.Nullable<byte> _IMQty;
+		
+		private System.Nullable<decimal> _IMCost;
+		
+		private System.Nullable<byte> _AIQty;
+		
+		private System.Nullable<decimal> _AICost;
+		
+		private System.Nullable<byte> _AOQty;
+		
+		private System.Nullable<decimal> _AOCost;
+		
+		private System.Nullable<byte> _SIQty;
+		
+		private System.Nullable<decimal> _SICost;
+		
+		private System.Nullable<byte> _MV46Qty;
+		
+		private System.Nullable<decimal> _MV46Cost;
+		
+		private System.Nullable<decimal> _TotalPayment;
+		
+		private string _BatchNo;
+		
+		private System.Nullable<byte> _OrderStatusId;
+		
+		private string _StickerIssuedStatus;
+		
+		private System.Nullable<System.Guid> _EnteredBy;
+		
+		private string _EnteredName;
+		
+		private System.Nullable<System.DateTime> _EnteredDt;
+		
+		private string _ModifiedName;
+		
+		private System.Nullable<System.Guid> _ModifiedBy;
+		
+		public uspSelStickerOrderMasterResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerOrderMasterId", DbType="Int NOT NULL")]
+		public int StickerOrderMasterId
+		{
+			get
+			{
+				return this._StickerOrderMasterId;
+			}
+			set
+			{
+				if ((this._StickerOrderMasterId != value))
+				{
+					this._StickerOrderMasterId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DealerId", DbType="Int")]
+		public System.Nullable<int> DealerId
+		{
+			get
+			{
+				return this._DealerId;
+			}
+			set
+			{
+				if ((this._DealerId != value))
+				{
+					this._DealerId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReceiptId", DbType="Int")]
+		public System.Nullable<int> ReceiptId
+		{
+			get
+			{
+				return this._ReceiptId;
+			}
+			set
+			{
+				if ((this._ReceiptId != value))
+				{
+					this._ReceiptId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssuingLocationId", DbType="TinyInt")]
+		public System.Nullable<byte> IssuingLocationId
+		{
+			get
+			{
+				return this._IssuingLocationId;
+			}
+			set
+			{
+				if ((this._IssuingLocationId != value))
+				{
+					this._IssuingLocationId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoOfReceipts", DbType="TinyInt")]
+		public System.Nullable<byte> NoOfReceipts
+		{
+			get
+			{
+				return this._NoOfReceipts;
+			}
+			set
+			{
+				if ((this._NoOfReceipts != value))
+				{
+					this._NoOfReceipts = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransmittalNum", DbType="VarChar(50)")]
+		public string TransmittalNum
+		{
+			get
+			{
+				return this._TransmittalNum;
+			}
+			set
+			{
+				if ((this._TransmittalNum != value))
+				{
+					this._TransmittalNum = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessengerNum", DbType="VarChar(50)")]
+		public string MessengerNum
+		{
+			get
+			{
+				return this._MessengerNum;
+			}
+			set
+			{
+				if ((this._MessengerNum != value))
+				{
+					this._MessengerNum = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMQty", DbType="TinyInt")]
+		public System.Nullable<byte> IMQty
+		{
+			get
+			{
+				return this._IMQty;
+			}
+			set
+			{
+				if ((this._IMQty != value))
+				{
+					this._IMQty = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMCost", DbType="Decimal(18,3)")]
+		public System.Nullable<decimal> IMCost
+		{
+			get
+			{
+				return this._IMCost;
+			}
+			set
+			{
+				if ((this._IMCost != value))
+				{
+					this._IMCost = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AIQty", DbType="TinyInt")]
+		public System.Nullable<byte> AIQty
+		{
+			get
+			{
+				return this._AIQty;
+			}
+			set
+			{
+				if ((this._AIQty != value))
+				{
+					this._AIQty = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AICost", DbType="Decimal(18,3)")]
+		public System.Nullable<decimal> AICost
+		{
+			get
+			{
+				return this._AICost;
+			}
+			set
+			{
+				if ((this._AICost != value))
+				{
+					this._AICost = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AOQty", DbType="TinyInt")]
+		public System.Nullable<byte> AOQty
+		{
+			get
+			{
+				return this._AOQty;
+			}
+			set
+			{
+				if ((this._AOQty != value))
+				{
+					this._AOQty = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AOCost", DbType="Decimal(18,3)")]
+		public System.Nullable<decimal> AOCost
+		{
+			get
+			{
+				return this._AOCost;
+			}
+			set
+			{
+				if ((this._AOCost != value))
+				{
+					this._AOCost = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIQty", DbType="TinyInt")]
+		public System.Nullable<byte> SIQty
+		{
+			get
+			{
+				return this._SIQty;
+			}
+			set
+			{
+				if ((this._SIQty != value))
+				{
+					this._SIQty = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SICost", DbType="Decimal(18,3)")]
+		public System.Nullable<decimal> SICost
+		{
+			get
+			{
+				return this._SICost;
+			}
+			set
+			{
+				if ((this._SICost != value))
+				{
+					this._SICost = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MV46Qty", DbType="TinyInt")]
+		public System.Nullable<byte> MV46Qty
+		{
+			get
+			{
+				return this._MV46Qty;
+			}
+			set
+			{
+				if ((this._MV46Qty != value))
+				{
+					this._MV46Qty = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MV46Cost", DbType="Decimal(18,3)")]
+		public System.Nullable<decimal> MV46Cost
+		{
+			get
+			{
+				return this._MV46Cost;
+			}
+			set
+			{
+				if ((this._MV46Cost != value))
+				{
+					this._MV46Cost = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPayment", DbType="Decimal(18,3)")]
+		public System.Nullable<decimal> TotalPayment
+		{
+			get
+			{
+				return this._TotalPayment;
+			}
+			set
+			{
+				if ((this._TotalPayment != value))
+				{
+					this._TotalPayment = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BatchNo", DbType="VarChar(50)")]
+		public string BatchNo
+		{
+			get
+			{
+				return this._BatchNo;
+			}
+			set
+			{
+				if ((this._BatchNo != value))
+				{
+					this._BatchNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderStatusId", DbType="TinyInt")]
+		public System.Nullable<byte> OrderStatusId
+		{
+			get
+			{
+				return this._OrderStatusId;
+			}
+			set
+			{
+				if ((this._OrderStatusId != value))
+				{
+					this._OrderStatusId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerIssuedStatus", DbType="VarChar(100)")]
+		public string StickerIssuedStatus
+		{
+			get
+			{
+				return this._StickerIssuedStatus;
+			}
+			set
+			{
+				if ((this._StickerIssuedStatus != value))
+				{
+					this._StickerIssuedStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredBy", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> EnteredBy
+		{
+			get
+			{
+				return this._EnteredBy;
+			}
+			set
+			{
+				if ((this._EnteredBy != value))
+				{
+					this._EnteredBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredName", DbType="NVarChar(100)")]
+		public string EnteredName
+		{
+			get
+			{
+				return this._EnteredName;
+			}
+			set
+			{
+				if ((this._EnteredName != value))
+				{
+					this._EnteredName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredDt", DbType="DateTime")]
+		public System.Nullable<System.DateTime> EnteredDt
+		{
+			get
+			{
+				return this._EnteredDt;
+			}
+			set
+			{
+				if ((this._EnteredDt != value))
+				{
+					this._EnteredDt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedName", DbType="NVarChar(100)")]
+		public string ModifiedName
+		{
+			get
+			{
+				return this._ModifiedName;
+			}
+			set
+			{
+				if ((this._ModifiedName != value))
+				{
+					this._ModifiedName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> ModifiedBy
+		{
+			get
+			{
+				return this._ModifiedBy;
+			}
+			set
+			{
+				if ((this._ModifiedBy != value))
+				{
+					this._ModifiedBy = value;
 				}
 			}
 		}
