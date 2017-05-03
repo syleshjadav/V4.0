@@ -69,27 +69,6 @@ namespace MyShopWeb.DAL
 			return ((ISingleResult<uspSelAllStickerStatusResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelAllStickerTypes")]
-		public ISingleResult<uspSelAllStickerTypesResult> uspSelAllStickerTypes()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<uspSelAllStickerTypesResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpsertDealerStickerType")]
-		public int uspUpsertDealerStickerType([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> dealerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StickerTypeId", DbType="TinyInt")] System.Nullable<byte> stickerTypeId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cost", DbType="Decimal(18,3)")] System.Nullable<decimal> cost, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsValid", DbType="Bit")] System.Nullable<bool> isValid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReOrderCount", DbType="TinyInt")] System.Nullable<byte> reOrderCount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EnteredBy", DbType="UniqueIdentifier")] System.Nullable<System.Guid> enteredBy)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId, stickerTypeId, cost, isValid, reOrderCount, enteredBy);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelDealerStickerType")]
-		public ISingleResult<uspSelDealerStickerTypeResult> uspSelDealerStickerType([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> dealerId)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId);
-			return ((ISingleResult<uspSelDealerStickerTypeResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpsertStickerOrderMasterDetail")]
 		public int uspUpsertStickerOrderMasterDetail(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DealerId", DbType="Int")] System.Nullable<int> dealerId, 
@@ -118,11 +97,39 @@ namespace MyShopWeb.DAL
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspInsStickerAddToStock")]
+		public ISingleResult<uspInsStickerAddToStockResult> uspInsStickerAddToStock([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DealerId", DbType="Int")] System.Nullable<int> dealerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StickerOrderMasterId", DbType="Int")] System.Nullable<int> stickerOrderMasterId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StickerTypeCD", DbType="VarChar(10)")] string stickerTypeCD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StickerSeq", DbType="VarChar(15)")] string stickerSeq, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Qty", DbType="TinyInt")] System.Nullable<byte> qty, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EnteredBy", DbType="UniqueIdentifier")] System.Nullable<System.Guid> enteredBy)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId, stickerOrderMasterId, stickerTypeCD, stickerSeq, qty, enteredBy);
+			return ((ISingleResult<uspInsStickerAddToStockResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelStickerOrderMaster")]
 		public ISingleResult<uspSelStickerOrderMasterResult> uspSelStickerOrderMaster([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DealerId", DbType="Int")] System.Nullable<int> dealerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageStartIndex", DbType="SmallInt")] System.Nullable<short> pageStartIndex, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PageSize", DbType="SmallInt")] System.Nullable<short> pageSize)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId, pageStartIndex, pageSize);
 			return ((ISingleResult<uspSelStickerOrderMasterResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelDealerStickerType")]
+		public ISingleResult<uspSelDealerStickerTypeResult> uspSelDealerStickerType([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> dealerId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId);
+			return ((ISingleResult<uspSelDealerStickerTypeResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSelAllStickerTypes")]
+		public ISingleResult<uspSelAllStickerTypesResult> uspSelAllStickerTypes()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<uspSelAllStickerTypesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpsertDealerStickerType")]
+		public int uspUpsertDealerStickerType([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> dealerId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StickerTypeCD", DbType="VarChar(10)")] string stickerTypeCD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cost", DbType="Decimal(18,3)")] System.Nullable<decimal> cost, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IsValid", DbType="Bit")] System.Nullable<bool> isValid, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReOrderCount", DbType="TinyInt")] System.Nullable<byte> reOrderCount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EnteredBy", DbType="UniqueIdentifier")] System.Nullable<System.Guid> enteredBy)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dealerId, stickerTypeCD, cost, isValid, reOrderCount, enteredBy);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -170,341 +177,27 @@ namespace MyShopWeb.DAL
 		}
 	}
 	
-	public partial class uspSelAllStickerTypesResult
+	public partial class uspInsStickerAddToStockResult
 	{
 		
-		private byte _StickerTypeId;
+		private System.Nullable<decimal> _Column1;
 		
-		private string _StickerTypeCD;
-		
-		private string _StickerType;
-		
-		private string _StickerDesc;
-		
-		public uspSelAllStickerTypesResult()
+		public uspInsStickerAddToStockResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerTypeId", DbType="TinyInt NOT NULL")]
-		public byte StickerTypeId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> Column1
 		{
 			get
 			{
-				return this._StickerTypeId;
+				return this._Column1;
 			}
 			set
 			{
-				if ((this._StickerTypeId != value))
+				if ((this._Column1 != value))
 				{
-					this._StickerTypeId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerTypeCD", DbType="VarChar(10)")]
-		public string StickerTypeCD
-		{
-			get
-			{
-				return this._StickerTypeCD;
-			}
-			set
-			{
-				if ((this._StickerTypeCD != value))
-				{
-					this._StickerTypeCD = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerType", DbType="VarChar(100)")]
-		public string StickerType
-		{
-			get
-			{
-				return this._StickerType;
-			}
-			set
-			{
-				if ((this._StickerType != value))
-				{
-					this._StickerType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerDesc", DbType="VarChar(100)")]
-		public string StickerDesc
-		{
-			get
-			{
-				return this._StickerDesc;
-			}
-			set
-			{
-				if ((this._StickerDesc != value))
-				{
-					this._StickerDesc = value;
-				}
-			}
-		}
-	}
-	
-	public partial class uspSelDealerStickerTypeResult
-	{
-		
-		private byte _StickerTypeId;
-		
-		private System.Nullable<int> _DealerId;
-		
-		private string _StickerTypeCD;
-		
-		private string _StickerType;
-		
-		private string _StickerDesc;
-		
-		private System.Nullable<decimal> _Cost;
-		
-		private System.Nullable<byte> _ReOrderCount;
-		
-		private System.Nullable<bool> _IsValid;
-		
-		private System.Nullable<System.Guid> _EnteredBy;
-		
-		private System.Nullable<System.Guid> _ModifiedBy;
-		
-		private System.Nullable<System.DateTime> _EnteredDt;
-		
-		private System.Nullable<System.DateTime> _ModifiedDt;
-		
-		private string _EnteredByName;
-		
-		private string _ModifiedByName;
-		
-		public uspSelDealerStickerTypeResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerTypeId", DbType="TinyInt NOT NULL")]
-		public byte StickerTypeId
-		{
-			get
-			{
-				return this._StickerTypeId;
-			}
-			set
-			{
-				if ((this._StickerTypeId != value))
-				{
-					this._StickerTypeId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DealerId", DbType="Int")]
-		public System.Nullable<int> DealerId
-		{
-			get
-			{
-				return this._DealerId;
-			}
-			set
-			{
-				if ((this._DealerId != value))
-				{
-					this._DealerId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerTypeCD", DbType="VarChar(10)")]
-		public string StickerTypeCD
-		{
-			get
-			{
-				return this._StickerTypeCD;
-			}
-			set
-			{
-				if ((this._StickerTypeCD != value))
-				{
-					this._StickerTypeCD = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerType", DbType="VarChar(100)")]
-		public string StickerType
-		{
-			get
-			{
-				return this._StickerType;
-			}
-			set
-			{
-				if ((this._StickerType != value))
-				{
-					this._StickerType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerDesc", DbType="VarChar(100)")]
-		public string StickerDesc
-		{
-			get
-			{
-				return this._StickerDesc;
-			}
-			set
-			{
-				if ((this._StickerDesc != value))
-				{
-					this._StickerDesc = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Decimal(18,3)")]
-		public System.Nullable<decimal> Cost
-		{
-			get
-			{
-				return this._Cost;
-			}
-			set
-			{
-				if ((this._Cost != value))
-				{
-					this._Cost = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReOrderCount", DbType="TinyInt")]
-		public System.Nullable<byte> ReOrderCount
-		{
-			get
-			{
-				return this._ReOrderCount;
-			}
-			set
-			{
-				if ((this._ReOrderCount != value))
-				{
-					this._ReOrderCount = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsValid", DbType="Bit")]
-		public System.Nullable<bool> IsValid
-		{
-			get
-			{
-				return this._IsValid;
-			}
-			set
-			{
-				if ((this._IsValid != value))
-				{
-					this._IsValid = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredBy", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> EnteredBy
-		{
-			get
-			{
-				return this._EnteredBy;
-			}
-			set
-			{
-				if ((this._EnteredBy != value))
-				{
-					this._EnteredBy = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> ModifiedBy
-		{
-			get
-			{
-				return this._ModifiedBy;
-			}
-			set
-			{
-				if ((this._ModifiedBy != value))
-				{
-					this._ModifiedBy = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredDt", DbType="DateTime")]
-		public System.Nullable<System.DateTime> EnteredDt
-		{
-			get
-			{
-				return this._EnteredDt;
-			}
-			set
-			{
-				if ((this._EnteredDt != value))
-				{
-					this._EnteredDt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDt", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ModifiedDt
-		{
-			get
-			{
-				return this._ModifiedDt;
-			}
-			set
-			{
-				if ((this._ModifiedDt != value))
-				{
-					this._ModifiedDt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredByName", DbType="NVarChar(100)")]
-		public string EnteredByName
-		{
-			get
-			{
-				return this._EnteredByName;
-			}
-			set
-			{
-				if ((this._EnteredByName != value))
-				{
-					this._EnteredByName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedByName", DbType="NVarChar(100)")]
-		public string ModifiedByName
-		{
-			get
-			{
-				return this._ModifiedByName;
-			}
-			set
-			{
-				if ((this._ModifiedByName != value))
-				{
-					this._ModifiedByName = value;
+					this._Column1 = value;
 				}
 			}
 		}
@@ -515,7 +208,7 @@ namespace MyShopWeb.DAL
 		
 		private int _StickerOrderMasterId;
 		
-		private System.Nullable<int> _DealerId;
+		private int _DealerId;
 		
 		private System.Nullable<int> _ReceiptId;
 		
@@ -565,6 +258,16 @@ namespace MyShopWeb.DAL
 		
 		private System.Nullable<System.Guid> _ModifiedBy;
 		
+		private System.Nullable<bool> _IMIsAddedToStock;
+		
+		private System.Nullable<bool> _AIIsAddedToStock;
+		
+		private System.Nullable<bool> _AOIsAddedToStock;
+		
+		private System.Nullable<bool> _SIIsAddedToStock;
+		
+		private System.Nullable<bool> _MV46IsAddedToStock;
+		
 		public uspSelStickerOrderMasterResult()
 		{
 		}
@@ -585,8 +288,8 @@ namespace MyShopWeb.DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DealerId", DbType="Int")]
-		public System.Nullable<int> DealerId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DealerId", DbType="Int NOT NULL")]
+		public int DealerId
 		{
 			get
 			{
@@ -981,6 +684,390 @@ namespace MyShopWeb.DAL
 				if ((this._ModifiedBy != value))
 				{
 					this._ModifiedBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMIsAddedToStock", DbType="Bit")]
+		public System.Nullable<bool> IMIsAddedToStock
+		{
+			get
+			{
+				return this._IMIsAddedToStock;
+			}
+			set
+			{
+				if ((this._IMIsAddedToStock != value))
+				{
+					this._IMIsAddedToStock = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AIIsAddedToStock", DbType="Bit")]
+		public System.Nullable<bool> AIIsAddedToStock
+		{
+			get
+			{
+				return this._AIIsAddedToStock;
+			}
+			set
+			{
+				if ((this._AIIsAddedToStock != value))
+				{
+					this._AIIsAddedToStock = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AOIsAddedToStock", DbType="Bit")]
+		public System.Nullable<bool> AOIsAddedToStock
+		{
+			get
+			{
+				return this._AOIsAddedToStock;
+			}
+			set
+			{
+				if ((this._AOIsAddedToStock != value))
+				{
+					this._AOIsAddedToStock = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIIsAddedToStock", DbType="Bit")]
+		public System.Nullable<bool> SIIsAddedToStock
+		{
+			get
+			{
+				return this._SIIsAddedToStock;
+			}
+			set
+			{
+				if ((this._SIIsAddedToStock != value))
+				{
+					this._SIIsAddedToStock = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MV46IsAddedToStock", DbType="Bit")]
+		public System.Nullable<bool> MV46IsAddedToStock
+		{
+			get
+			{
+				return this._MV46IsAddedToStock;
+			}
+			set
+			{
+				if ((this._MV46IsAddedToStock != value))
+				{
+					this._MV46IsAddedToStock = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspSelDealerStickerTypeResult
+	{
+		
+		private int _DealerId;
+		
+		private string _StickerTypeCD;
+		
+		private string _StickerType;
+		
+		private string _StickerDesc;
+		
+		private System.Nullable<decimal> _Cost;
+		
+		private System.Nullable<byte> _ReOrderCount;
+		
+		private System.Nullable<bool> _IsValid;
+		
+		private System.Nullable<System.Guid> _EnteredBy;
+		
+		private System.Nullable<System.Guid> _ModifiedBy;
+		
+		private System.Nullable<System.DateTime> _EnteredDt;
+		
+		private System.Nullable<System.DateTime> _ModifiedDt;
+		
+		private string _EnteredByName;
+		
+		private string _ModifiedByName;
+		
+		public uspSelDealerStickerTypeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DealerId", DbType="Int NOT NULL")]
+		public int DealerId
+		{
+			get
+			{
+				return this._DealerId;
+			}
+			set
+			{
+				if ((this._DealerId != value))
+				{
+					this._DealerId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerTypeCD", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string StickerTypeCD
+		{
+			get
+			{
+				return this._StickerTypeCD;
+			}
+			set
+			{
+				if ((this._StickerTypeCD != value))
+				{
+					this._StickerTypeCD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerType", DbType="VarChar(100)")]
+		public string StickerType
+		{
+			get
+			{
+				return this._StickerType;
+			}
+			set
+			{
+				if ((this._StickerType != value))
+				{
+					this._StickerType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerDesc", DbType="VarChar(100)")]
+		public string StickerDesc
+		{
+			get
+			{
+				return this._StickerDesc;
+			}
+			set
+			{
+				if ((this._StickerDesc != value))
+				{
+					this._StickerDesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Decimal(18,3)")]
+		public System.Nullable<decimal> Cost
+		{
+			get
+			{
+				return this._Cost;
+			}
+			set
+			{
+				if ((this._Cost != value))
+				{
+					this._Cost = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReOrderCount", DbType="TinyInt")]
+		public System.Nullable<byte> ReOrderCount
+		{
+			get
+			{
+				return this._ReOrderCount;
+			}
+			set
+			{
+				if ((this._ReOrderCount != value))
+				{
+					this._ReOrderCount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsValid", DbType="Bit")]
+		public System.Nullable<bool> IsValid
+		{
+			get
+			{
+				return this._IsValid;
+			}
+			set
+			{
+				if ((this._IsValid != value))
+				{
+					this._IsValid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredBy", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> EnteredBy
+		{
+			get
+			{
+				return this._EnteredBy;
+			}
+			set
+			{
+				if ((this._EnteredBy != value))
+				{
+					this._EnteredBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> ModifiedBy
+		{
+			get
+			{
+				return this._ModifiedBy;
+			}
+			set
+			{
+				if ((this._ModifiedBy != value))
+				{
+					this._ModifiedBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredDt", DbType="DateTime")]
+		public System.Nullable<System.DateTime> EnteredDt
+		{
+			get
+			{
+				return this._EnteredDt;
+			}
+			set
+			{
+				if ((this._EnteredDt != value))
+				{
+					this._EnteredDt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDt", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ModifiedDt
+		{
+			get
+			{
+				return this._ModifiedDt;
+			}
+			set
+			{
+				if ((this._ModifiedDt != value))
+				{
+					this._ModifiedDt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredByName", DbType="NVarChar(100)")]
+		public string EnteredByName
+		{
+			get
+			{
+				return this._EnteredByName;
+			}
+			set
+			{
+				if ((this._EnteredByName != value))
+				{
+					this._EnteredByName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedByName", DbType="NVarChar(100)")]
+		public string ModifiedByName
+		{
+			get
+			{
+				return this._ModifiedByName;
+			}
+			set
+			{
+				if ((this._ModifiedByName != value))
+				{
+					this._ModifiedByName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class uspSelAllStickerTypesResult
+	{
+		
+		private string _StickerTypeCD;
+		
+		private string _StickerType;
+		
+		private string _StickerDesc;
+		
+		public uspSelAllStickerTypesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerTypeCD", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string StickerTypeCD
+		{
+			get
+			{
+				return this._StickerTypeCD;
+			}
+			set
+			{
+				if ((this._StickerTypeCD != value))
+				{
+					this._StickerTypeCD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerType", DbType="VarChar(100)")]
+		public string StickerType
+		{
+			get
+			{
+				return this._StickerType;
+			}
+			set
+			{
+				if ((this._StickerType != value))
+				{
+					this._StickerType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StickerDesc", DbType="VarChar(100)")]
+		public string StickerDesc
+		{
+			get
+			{
+				return this._StickerDesc;
+			}
+			set
+			{
+				if ((this._StickerDesc != value))
+				{
+					this._StickerDesc = value;
 				}
 			}
 		}

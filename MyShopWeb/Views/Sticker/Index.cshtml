@@ -15,7 +15,6 @@
                 listAction: '@Url.Action("StickerTypeList", "Sticker")'
             },
             fields: {
-                StickerTypeId: { title: "Id", width: "1%" },
                 StickerTypeCD: { title: 'Sticker Cd ', },
                 StickerType: { title: 'StickerType', },
                 StickerDesc: { title: 'Description', },
@@ -58,14 +57,14 @@
                 DealerId: { title: "DealerId", width: "1%", key: true, visibility: 'hidden' },
                 EnteredBy: { visibility: 'hidden', create: false, edit: false },
                 UpdatedBy: { visibility: 'hidden', create: false, edit: false },
-                StickerTypeCD: { title: 'Code ', create: false, edit: false, width: "3%" },
-                StickerType: { title: 'Sticker Type', create: false, edit: false, },
-                StickerDesc: { title: 'Desc', create: false, edit: false, },
-                StickerTypeId: {
+                StickerTypeCD: {
                     title: 'Sticker',
                     options: '/Home/GetStickerTypeList',
-                    list: false,
+                    
                 },
+                StickerType: { title: 'Sticker Type', create: false, edit: false, },
+                StickerDesc: { title: 'Desc', create: false, edit: false, },
+              
                 Cost: { title: 'Cost $', },
                 ReOrderCount: { title: 'Re-Order Count' },
                 IsValid: {

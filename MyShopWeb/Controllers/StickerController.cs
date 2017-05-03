@@ -60,7 +60,7 @@ namespace MyShopWeb.Controllers
             {
                 using (var entity = new MyShopDataClassesDataContext())
                 {
-                    var ds = entity.uspSelAllStickerTypes().ToList().Select(c => new { DisplayText = c.StickerTypeCD, Value = c.StickerTypeId });
+                    var ds = entity.uspSelAllStickerTypes().ToList().Select(c => new { DisplayText = c.StickerTypeCD, Value = c.StickerTypeCD });
 
                     //  var ds2 = entity.uspSelAllFilingStatus().ToList();
 
@@ -98,7 +98,7 @@ namespace MyShopWeb.Controllers
                 {
                     bool? isValid = m.IsValid == true ? true : false;
 
-                    var ds = entity.uspUpsertDealerStickerType(DealerId, m.StickerTypeId, m.Cost, isValid, m.ReOrderCount, EnteredBy);
+                    var ds = entity.uspUpsertDealerStickerType(DealerId, m.StickerTypeCD, m.Cost, isValid, m.ReOrderCount, EnteredBy);
 
                     return Json(new { Result = "OK", Record = m });
                 }
@@ -117,7 +117,7 @@ namespace MyShopWeb.Controllers
                 using (var entity = new MyShopDataClassesDataContext())
                 {
                     bool? isValid = m.IsValid == true ? true : false;
-                    var ds = entity.uspUpsertDealerStickerType(DealerId, m.StickerTypeId, m.Cost, isValid, m.ReOrderCount, EnteredBy);
+                    var ds = entity.uspUpsertDealerStickerType(DealerId, m.StickerTypeCD, m.Cost, isValid, m.ReOrderCount, EnteredBy);
 
                     return Json(new { Result = "OK", Record = m });
                 }

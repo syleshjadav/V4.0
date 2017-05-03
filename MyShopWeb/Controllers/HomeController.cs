@@ -174,13 +174,35 @@ namespace MyShopWeb.Controllers
 
 
         [HttpPost]
-        public JsonResult StickerAddToInventory(Data data)
+        public JsonResult StickerAddToInventory(StickerRcvdQtyData data)
         {
-           // var data = "{ \"fname\" : \"" + fname + " \" , \"lastname\" : \"" + lastname + "\" }";
+            // var data = "{ \"fname\" : \"" + fname + " \" , \"lastname\" : \"" + lastname + "\" }";
             //// you have to add the JsonRequestBehavior.AllowGet 
             //// otherwise it will throw an exception on run-time.
 
-            return Json(data, JsonRequestBehavior.AllowGet);
+            try
+            {
+                int? stickerMasterId = Convert.ToInt32(data.StickerMasterId);
+                byte? qty = Convert.ToByte(data.Qty);
+
+                using (var entity = new MyShopDataClassesDataContext())
+                {
+                    // bool? isValid = m.IsValid == true ? true : false;
+
+                    var ds = entity.uspInsStickerAddToStock(DealerId, stickerMasterId, data.StickerTypeCD,data.SequenceNumber, qty, EnteredBy);
+
+                    //return Json(new { Result = "OK", Record = m });
+
+                    return Json(data, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Result = "ERROR", Message = ex.Message });
+            }
+
+
+          
         }
 
         private void CreatePDFFile(StickerMaster m)
@@ -319,9 +341,11 @@ namespace MyShopWeb.Controllers
 
     }
 
-    public class Data
+    public class StickerRcvdQtyData
     {
-        public string username { get; set; }
-        public string password { get; set; }
+        public string StickerMasterId { get; set; }
+        public string SequenceNumber { get; set; }
+        public string Qty { get; set; }
+        public string StickerTypeCD { get; set; }
     }
 }

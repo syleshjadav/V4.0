@@ -53,14 +53,26 @@
                     create: false,
                     edit: false,
                 },
-                EnteredName: { title: 'Ent. By', create: false, edit: false },
-                ModifiedName: { title: 'Mod. By', create: false, edit: false }
+                EnteredName: { title: 'Ent. By', create: false, edit: false, visibility: 'hidden' },
+                ModifiedName: { title: 'Mod. By', create: false, edit: false, visibility: 'hidden' },
+                IMIsAddedToStock: { title: '', create: false, edit: false, list: false },
+                AIIsAddedToStock: { title: '', create: false, edit: false, list: false },
+                AOIsAddedToStock: { title: 'AO', create: false, edit: false, list:false},
+                SIIsAddedToStock: { title: '', create: false, edit: false, list: false },
+                MV46IsAddedToStock: { title: '', create: false, edit: false, list: false },
             },
             recordsLoaded: function (event, data) {
                 if (data.records.length == 1) {
                     $('#hidOrderId').val(data.records[0].StickerOrderMasterId);
                 }
                 $('#btnPrint').prop('disabled', true);
+                $('#pnlAddToInventory').prop('disabled', true);
+                $('#btnMV46AddToStock').prop('disabled', true);
+                $('#btnIMAddToStock').prop('disabled', true);
+                $('#btnIM').prop('disabled', true);
+                $('#btnAI').prop('disabled', true);
+                $('#btnAO').prop('disabled', true);
+                $('#btnSI').prop('disabled', true);
 
             },
             selectionChanged: function () {
@@ -94,6 +106,21 @@
                         $('#lblBatchNumber').text(record.BatchNo);
 
                         $('#btnPrint').prop('disabled', false);
+                        $('#pnlAddToInventory').prop('disabled', false);
+                        $('#btnMV46AddToStock').prop('disabled', false);
+                        $('#btnIMAddToStock').prop('disabled', false);
+                        $('#btnAI').prop('disabled', false);
+                        $('#btnAO').prop('disabled', false);
+                        $('#btnSI').prop('disabled', false);
+
+                        if (record.MV46IsAddedToStock == true) { $('#imgMV46').show(); } else { $('#imgMV46').hide() };
+                        if (record.IMIsAddedToStock == true) { $('#imgIM').show(); } else { $('#imgIM').hide() };
+                        if (record.AIIsAddedToStock == true) { $('#imgAI').show(); } else { $('#imgAI').hide() };
+                        if (record.AOIsAddedToStock == true) { $('#imgAO').show(); } else { $('#imgAO').hide() };
+                        if (record.SIIsAddedToStock == true) { $('#imgSI').show(); } else { $('#imgSI').hide() };
+                        
+                        
+
 
                     });
                 } else {
@@ -112,6 +139,7 @@
 
 
         $('#DealerStickerOrder').jtable('load');
+        btnMV46AddToStock
     });
 
     $(document).ready(function () {
@@ -129,13 +157,15 @@
                         click: function (obj) {
 
                             var buttonDomElement = obj.target;
-                            $(buttonDomElement).attr('disabled', true);
+                            // $(buttonDomElement).attr('disabled', true);
 
-                            var segments =  $('#txtStickerNum1').val() + $('#txtStickerNum2').val() + $('#txtStickerNum3').val() + $('#txtStickerNum4').val();
-
+                            var segments = $('#txtStickerNum1').val() + $('#txtStickerNum2').val() + $('#txtStickerNum3').val() + $('#txtStickerNum4').val();
+                            var orderId = $('#hidOrderId').val();
                             var data = {
-                                username: segments,
-                                password: $('#txtAddToInventoryQty').val()
+                                StickerMasterId: orderId,
+                                SequenceNumber: segments,
+                                Qty: $('#txtAddToInventoryQty').val(),
+                                StickerTypeCD: $('#txtStickerNum1').val()
                             };
 
 
@@ -149,18 +179,18 @@
                                     alert('Error: ' + xhr.statusText);
                                 },
                                 success: function (result) {
-                                   // CheckIfInvoiceFound(result);
-                                    alert('Success');
+                                    // CheckIfInvoiceFound(result);
+                                    alert('Added To Inventory');
                                 },
                                 async: true,
                                 processData: false
                             });
 
-
+                            $(this).dialog("close");
                         },
                         text: 'Save To Inventory',
                         class: 'btn btn-warning',
-                        icons: {primary: 'ui-icon-check glyphicon glyphicon-floppy-save'},
+                        icons: { primary: 'ui-icon-check glyphicon glyphicon-floppy-save' },
                     },
                     "Cancel": {
                         click: function () {
@@ -253,7 +283,11 @@
     //Load  list from server
 
 </script>
-
+<style>
+    .green {
+        color: #0e9d15;
+    }
+</style>
 <div class="row">
     <div class="panel panel-default">
         <div class="panel-heading panel-heading-green clickable">
@@ -266,15 +300,15 @@
                     Place the Sticker Order by clicking on Order Sticker Button and Print  Form.
                 </li>
                 <li>
-                   Updated Sticker Inventory after you received. 
+                    Updated Sticker Inventory after you received.
                 </li>
 
             </ol>
 
             <div class="row">
-               
-                    <div id="DealerStickerOrder"></div>
-               
+
+                <div id="DealerStickerOrder"></div>
+
 
 
                 @using (Html.BeginForm("SaveSticker", "Home", FormMethod.Post))
@@ -285,17 +319,17 @@
                     <div>
                         *Select the Order to Print.
                     </div>
-                        <div class="btn btn-success pull-right">
-                            
-                            <span class="glyphicon glyphicon-print"></span>
+                    <div class="btn btn-success pull-right">
 
-                            <input type="submit" name="btnPrint" id="btnPrint" value="Print MV-436A" class="btn btn-success" />
-                        </div>
+                        <span class="glyphicon glyphicon-print"></span>
+
+                        <input type="submit" name="btnPrint" id="btnPrint" value="Print MV-436A" class="btn btn-success" />
+                    </div>
                 }
             </div>
             <hr />
             <div class="row">
-                <div class="panel panel-default">
+                <div class="panel panel-default" id="pnlAddToInventory">
                     <div class="panel-heading panel-heading-green clickable">
                         <h1 class="panel-title">STICKER ORDERS - ADD TO INVENTORY </h1>
                         <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
@@ -308,7 +342,7 @@
                         <li>
                             Click on each Sticker Type button to save to the inventory.
                         </li>
-                      
+
                     </ol>
 
                     <div class="panel-body">
@@ -389,12 +423,13 @@
                         <hr />
                         <table class="table table-hover">
                             <thead>
-                                <tr><td>STICKER TYPE</td><td>ORDERED QTY</td><td>RECEIVED QTY</td><td> ADD TO INVENTORY ?</td></tr>
+                                <tr><td>STICKER TYPE</td><td>ORDERED QTY</td><td>RECEIVED QTY</td><td>ALREADY ADDED</td><td> ADD TO INVENTORY </td></tr>
                             </thead>
                             <tr>
                                 <td>MV-46</td>
                                 <td><span id="txtMV46OrdQty" /></td>
                                 <td><input type="text" style="width:50px" id="txtMV46RcvdQty" /></td>
+                                <td><div class="glyphicon glyphicon-ok green" id="imgMV46" /></td>
                                 <td>
                                     <div id="btnMV46AddToStock" class="btn btn-success ">
                                         Add MV-46
@@ -405,6 +440,7 @@
                                 <td>IM</td>
                                 <td><span id="txtIMOrdQty" /></td>
                                 <td><input type="text" style="width:50px" id="txtIMRcvdQty" /></td>
+                                <td><div class="glyphicon glyphicon-ok green" id="imgIM" /></td>
                                 <td>
                                     <button id="btnIMAddToStock" class="btn btn-success "> Add IM </button>
                                 </td>
@@ -413,19 +449,21 @@
                                 <td>AI</td>
                                 <td><span id="txtAIOrdQty" /></td>
                                 <td><input type="text" style="width:50px" id="txtAIRcvdQty" /></td>
+                                <td><div class="glyphicon glyphicon-ok green" id="imgAI" /></td>
                                 <td>   <button id="btnAI" class="btn btn-success "> Add AI </button> </td>
                             </tr>
                             <tr>
                                 <td>AO</td>
                                 <td><span id="txtAOOrdQty" /></td>
                                 <td><input type="text" style="width:50px" id="txtAORcvdQty" /></td>
+                                <td><div class="glyphicon glyphicon-ok green" id="imgAO" /></td>
                                 <td> <button id="btnAO" class="btn btn-success "> Add AO </button> </td>
                             </tr>
                             <tr>
                                 <td>SI</td>
                                 <td><span id="txtSIOrdQty" /></td>
                                 <td><input type="text" style="width:50px" id="txtSIRcvdQty" /></td>
-
+                                <td><div class="glyphicon  glyphicon-ok green" id="imgSI" /></td>
                                 <td> <button id="btnSI" class="btn btn-success "> Add SI </button> </td>
                             </tr>
                         </table>
