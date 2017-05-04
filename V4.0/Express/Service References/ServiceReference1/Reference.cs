@@ -15,6 +15,131 @@ namespace MyShopExpress.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ATPServiceData", Namespace="http://www.AdamKiosks.com/ATPServiceData")]
+    [System.SerializableAttribute()]
+    public partial class ATPServiceData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid DealerEmpGuidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IsPackageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cost {
+            get {
+                return this.CostField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CostField, value) != true)) {
+                    this.CostField = value;
+                    this.RaisePropertyChanged("Cost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid DealerEmpGuid {
+            get {
+                return this.DealerEmpGuidField;
+            }
+            set {
+                if ((this.DealerEmpGuidField.Equals(value) != true)) {
+                    this.DealerEmpGuidField = value;
+                    this.RaisePropertyChanged("DealerEmpGuid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Desc {
+            get {
+                return this.DescField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescField, value) != true)) {
+                    this.DescField = value;
+                    this.RaisePropertyChanged("Desc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IsPackage {
+            get {
+                return this.IsPackageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IsPackageField, value) != true)) {
+                    this.IsPackageField = value;
+                    this.RaisePropertyChanged("IsPackage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="uspVerifyPinGetCustInfo_Result", Namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel")]
     [System.SerializableAttribute()]
     public partial class uspVerifyPinGetCustInfo_Result : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -2685,67 +2810,6 @@ namespace MyShopExpress.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="uspCreateSeviceAndKeyLockerBucket_TowTruck_Result", Namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel")]
-    [System.SerializableAttribute()]
-    public partial class uspCreateSeviceAndKeyLockerBucket_TowTruck_Result : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.Guid> PersonGUIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> VehicleIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.Guid> PersonGUID {
-            get {
-                return this.PersonGUIDField;
-            }
-            set {
-                if ((this.PersonGUIDField.Equals(value) != true)) {
-                    this.PersonGUIDField = value;
-                    this.RaisePropertyChanged("PersonGUID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> VehicleID {
-            get {
-                return this.VehicleIDField;
-            }
-            set {
-                if ((this.VehicleIDField.Equals(value) != true)) {
-                    this.VehicleIDField = value;
-                    this.RaisePropertyChanged("VehicleID");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="uspSelVehicleServiceDetails_Result", Namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel")]
     [System.SerializableAttribute()]
     public partial class uspSelVehicleServiceDetails_Result : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -3625,25 +3689,7 @@ namespace MyShopExpress.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> DbErrorLineField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DbErrorMessageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> DbErrorNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DbErrorProcedureField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> DbErrorSeverityField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> DbErrorStateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<short> ResultField;
+        private string ExpressNumberField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -3656,92 +3702,14 @@ namespace MyShopExpress.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> DbErrorLine {
+        public string ExpressNumber {
             get {
-                return this.DbErrorLineField;
+                return this.ExpressNumberField;
             }
             set {
-                if ((this.DbErrorLineField.Equals(value) != true)) {
-                    this.DbErrorLineField = value;
-                    this.RaisePropertyChanged("DbErrorLine");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DbErrorMessage {
-            get {
-                return this.DbErrorMessageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DbErrorMessageField, value) != true)) {
-                    this.DbErrorMessageField = value;
-                    this.RaisePropertyChanged("DbErrorMessage");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> DbErrorNumber {
-            get {
-                return this.DbErrorNumberField;
-            }
-            set {
-                if ((this.DbErrorNumberField.Equals(value) != true)) {
-                    this.DbErrorNumberField = value;
-                    this.RaisePropertyChanged("DbErrorNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DbErrorProcedure {
-            get {
-                return this.DbErrorProcedureField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DbErrorProcedureField, value) != true)) {
-                    this.DbErrorProcedureField = value;
-                    this.RaisePropertyChanged("DbErrorProcedure");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> DbErrorSeverity {
-            get {
-                return this.DbErrorSeverityField;
-            }
-            set {
-                if ((this.DbErrorSeverityField.Equals(value) != true)) {
-                    this.DbErrorSeverityField = value;
-                    this.RaisePropertyChanged("DbErrorSeverity");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> DbErrorState {
-            get {
-                return this.DbErrorStateField;
-            }
-            set {
-                if ((this.DbErrorStateField.Equals(value) != true)) {
-                    this.DbErrorStateField = value;
-                    this.RaisePropertyChanged("DbErrorState");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<short> Result {
-            get {
-                return this.ResultField;
-            }
-            set {
-                if ((this.ResultField.Equals(value) != true)) {
-                    this.ResultField = value;
-                    this.RaisePropertyChanged("Result");
+                if ((object.ReferenceEquals(this.ExpressNumberField, value) != true)) {
+                    this.ExpressNumberField = value;
+                    this.RaisePropertyChanged("ExpressNumber");
                 }
             }
         }
@@ -4171,131 +4139,6 @@ namespace MyShopExpress.ServiceReference1 {
                 if ((this.VehicleMileageField.Equals(value) != true)) {
                     this.VehicleMileageField = value;
                     this.RaisePropertyChanged("VehicleMileage");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ATPServiceData", Namespace="http://www.AdamKiosks.com/ATPServiceData")]
-    [System.SerializableAttribute()]
-    public partial class ATPServiceData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CostField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Guid DealerEmpGuidField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IsPackageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Cost {
-            get {
-                return this.CostField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CostField, value) != true)) {
-                    this.CostField = value;
-                    this.RaisePropertyChanged("Cost");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Guid DealerEmpGuid {
-            get {
-                return this.DealerEmpGuidField;
-            }
-            set {
-                if ((this.DealerEmpGuidField.Equals(value) != true)) {
-                    this.DealerEmpGuidField = value;
-                    this.RaisePropertyChanged("DealerEmpGuid");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Desc {
-            get {
-                return this.DescField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescField, value) != true)) {
-                    this.DescField = value;
-                    this.RaisePropertyChanged("Desc");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IdField, value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsPackage {
-            get {
-                return this.IsPackageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsPackageField, value) != true)) {
-                    this.IsPackageField = value;
-                    this.RaisePropertyChanged("IsPackage");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Value {
-            get {
-                return this.ValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
-                    this.ValueField = value;
-                    this.RaisePropertyChanged("Value");
                 }
             }
         }
@@ -4772,6 +4615,12 @@ namespace MyShopExpress.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IOutDoor")]
     public interface IOutDoor {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceForSTO", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceForSTOResponse")]
+        int CreateSeviceForSTO(System.Nullable<int> dealerId, System.Nullable<System.Guid> personGuid, System.Nullable<System.Guid> svcGuid, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceForSTO", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceForSTOResponse")]
+        System.Threading.Tasks.Task<int> CreateSeviceForSTOAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> personGuid, System.Nullable<System.Guid> svcGuid, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/VerifyPinGetCustInfo", ReplyAction="http://tempuri.org/IOutDoor/VerifyPinGetCustInfoResponse")]
         System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin);
         
@@ -4815,10 +4664,18 @@ namespace MyShopExpress.ServiceReference1 {
         System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdateVehiceServiceStatusAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGUID, System.Nullable<System.Guid> vehicleGUID, System.Nullable<System.Guid> personGUID, System.Nullable<byte> statusId, System.Nullable<System.Guid> updatedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckResponse")]
-        System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
+        int CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruck", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
+        System.Threading.Tasks.Task<int> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckAndNoAppRespon" +
+            "se")]
+        int CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceAndKeyLockerBucket_TowTruckAndNoAppRespon" +
+            "se")]
+        System.Threading.Tasks.Task<int> CreateSeviceAndKeyLockerBucket_TowTruckAndNoAppAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer", ReplyAction="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerRes" +
             "ponse")]
@@ -4827,6 +4684,12 @@ namespace MyShopExpress.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer", ReplyAction="http://tempuri.org/IOutDoor/UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerRes" +
             "ponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdtVehSvcAndKeyLocker_AppAndNoApp", ReplyAction="http://tempuri.org/IOutDoor/UpdtVehSvcAndKeyLocker_AppAndNoAppResponse")]
+        int UpdtVehSvcAndKeyLocker_AppAndNoApp(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, int serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/UpdtVehSvcAndKeyLocker_AppAndNoApp", ReplyAction="http://tempuri.org/IOutDoor/UpdtVehSvcAndKeyLocker_AppAndNoAppResponse")]
+        System.Threading.Tasks.Task<int> UpdtVehSvcAndKeyLocker_AppAndNoAppAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, int serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/SelVehicleServiceDetails", ReplyAction="http://tempuri.org/IOutDoor/SelVehicleServiceDetailsResponse")]
         System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt);
@@ -4916,6 +4779,14 @@ namespace MyShopExpress.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
+        public int CreateSeviceForSTO(System.Nullable<int> dealerId, System.Nullable<System.Guid> personGuid, System.Nullable<System.Guid> svcGuid, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList) {
+            return base.Channel.CreateSeviceForSTO(dealerId, personGuid, svcGuid, firstName, phone, svcInfo, serviceStatusId, serviceDataList);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateSeviceForSTOAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> personGuid, System.Nullable<System.Guid> svcGuid, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList) {
+            return base.Channel.CreateSeviceForSTOAsync(dealerId, personGuid, svcGuid, firstName, phone, svcInfo, serviceStatusId, serviceDataList);
+        }
+        
         public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin) {
             return base.Channel.VerifyPinGetCustInfo(dealerId, isPickUpOrDrop, keyLockerPin);
         }
@@ -4972,12 +4843,20 @@ namespace MyShopExpress.ServiceReference1 {
             return base.Channel.UpdateVehiceServiceStatusAsync(dealerId, vehicleServiceGUID, vehicleGUID, personGUID, statusId, updatedBy);
         }
         
-        public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result> CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
+        public int CreateSeviceAndKeyLockerBucket_TowTruck(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
             return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruck(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result>> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
+        public System.Threading.Tasks.Task<int> CreateSeviceAndKeyLockerBucket_TowTruckAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
             return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruckAsync(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy);
+        }
+        
+        public int CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList) {
+            return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruckAndNoApp(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy, serviceDataList);
+        }
+        
+        public System.Threading.Tasks.Task<int> CreateSeviceAndKeyLockerBucket_TowTruckAndNoAppAsync(System.Nullable<int> dealerId, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList) {
+            return base.Channel.CreateSeviceAndKeyLockerBucket_TowTruckAndNoAppAsync(dealerId, firstName, phone, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy, serviceDataList);
         }
         
         public System.Collections.Generic.List<string> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
@@ -4986,6 +4865,14 @@ namespace MyShopExpress.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<string>> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, System.Nullable<byte> serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy) {
             return base.Channel.UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerAsync(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy);
+        }
+        
+        public int UpdtVehSvcAndKeyLocker_AppAndNoApp(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, int serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList) {
+            return base.Channel.UpdtVehSvcAndKeyLocker_AppAndNoApp(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy, serviceDataList);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdtVehSvcAndKeyLocker_AppAndNoAppAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, string svcInfo, int serviceStatusId, System.Nullable<byte> assignedKeyLockerBucketId, System.Nullable<byte> outdoorKeyDroppedBy, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList) {
+            return base.Channel.UpdtVehSvcAndKeyLocker_AppAndNoAppAsync(dealerId, vehicleServiceGuid, vehicleGuid, svcInfo, serviceStatusId, assignedKeyLockerBucketId, outdoorKeyDroppedBy, serviceDataList);
         }
         
         public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(System.Nullable<int> dealerId, System.Nullable<System.Guid> vehicleServiceGuid, System.Nullable<System.Guid> vehicleGuid, System.Nullable<System.Guid> personGuid, string svcFromDt, string svcToDt) {

@@ -11,6 +11,8 @@ namespace ATP.WCF.Svcs {
     [ServiceContract]
     public interface IOutDoor {
 
+        [OperationContract]
+        int CreateSeviceForSTO(int? dealerId, Guid? personGuid, Guid? svcGuid, string firstName, string phone, string svcInfo, byte? serviceStatusId, List<ATPServiceData> serviceDataList);
 
         [OperationContract]
         List<uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(int? dealerId, bool? isPickUpOrDrop, string keyLockerPin);

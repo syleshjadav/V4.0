@@ -46,7 +46,7 @@ namespace ATP.DataModel
 
 
         public  int uspCreateSeviceAndKeyLockerBucket_TowTruck(Nullable<int> dealerId, string firstName, string phone, string svcInfo, Nullable<byte> serviceStatusId,
-            Nullable<byte> assignedKeyLockerBucketId, Nullable<byte> outDoorKeyDroppedBy, List<ATPServiceData>  atpServiceDataList)
+            Nullable<byte> assignedKeyLockerBucketId, Nullable<byte> outDoorKeyDroppedBy, List<ATPServiceData>  atpServiceDataList )
         {
 
             int affectedRows = -1;
@@ -77,6 +77,38 @@ namespace ATP.DataModel
 
             return affectedRows;
         }
+
+        public int CreateSeviceForSTO(Nullable<int> dealerId, string firstName, string phone, string svcInfo, Nullable<byte> serviceStatusId,
+          Guid? PersonGuid, Guid? SvcGuid, List<ATPServiceData> atpServiceDataList)
+        {
+
+            int affectedRows = -1;
+
+            var servicesdt = EntitiesHelpers.ToDataTable<ATPServiceData>(atpServiceDataList);
+
+            using (SqlConnection con = new SqlConnection(_connStr))
+            {
+                con.Open();
+                // Configure the SqlCommand and SqlParameter.
+                SqlCommand sqlCmd = new SqlCommand("dbo.uspCreateSeviceForSTO", con);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+                sqlCmd.Parameters.AddWithValue("@DealerId", dealerId).SqlDbType = SqlDbType.Int;
+                sqlCmd.Parameters.AddWithValue("@PersonGuid", PersonGuid).SqlDbType = SqlDbType.UniqueIdentifier;
+                sqlCmd.Parameters.AddWithValue("@SvcGuid", SvcGuid).SqlDbType = SqlDbType.UniqueIdentifier;
+                sqlCmd.Parameters.AddWithValue("@FirstName", firstName).SqlDbType = SqlDbType.VarChar;
+                sqlCmd.Parameters.AddWithValue("@Phone", phone).SqlDbType = SqlDbType.VarChar;
+                sqlCmd.Parameters.AddWithValue("@SvcInfo", svcInfo).SqlDbType = SqlDbType.VarChar;
+                sqlCmd.Parameters.AddWithValue("@ServiceStatusId", serviceStatusId).SqlDbType = SqlDbType.TinyInt;
+                sqlCmd.Parameters.AddWithValue("@SelectedServices", servicesdt).SqlDbType = SqlDbType.Structured;
+
+                affectedRows = sqlCmd.ExecuteNonQuery();
+                con.Close();
+                con.Dispose();
+            }
+
+            return affectedRows;
+        }
+
 
         public int UpsertVehicleServiceMPI(
                     int DealerId,

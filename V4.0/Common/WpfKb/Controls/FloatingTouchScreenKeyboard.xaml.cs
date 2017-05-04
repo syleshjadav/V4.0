@@ -177,5 +177,9 @@ namespace WpfKb.Controls
             IsAllowedToFade = _isAllowedToFadeValueBeforeDrag;
         }
 
+        private void cmdClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.IsOpen = false;
+        }
     }
 }

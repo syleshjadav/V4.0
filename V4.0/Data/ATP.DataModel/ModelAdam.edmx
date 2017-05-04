@@ -2875,13 +2875,7 @@
           <Property Type="String" Name="EmailDescription" Nullable="true" MaxLength="512" />
         </ComplexType>
         <ComplexType Name="uspSelNextExpressNumber_Result">
-          <Property Type="Int16" Name="Result" Nullable="true" />
-          <Property Type="Int32" Name="DbErrorNumber" Nullable="true" />
-          <Property Type="Int32" Name="DbErrorSeverity" Nullable="true" />
-          <Property Type="Int32" Name="DbErrorState" Nullable="true" />
-          <Property Type="String" Name="DbErrorProcedure" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="DbErrorLine" Nullable="true" />
-          <Property Type="String" Name="DbErrorMessage" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="ExpressNumber" Nullable="true" MaxLength="4000" />
         </ComplexType>
         <ComplexType Name="uspSelVehicleByPersonId_Result">
           <Property Type="Guid" Name="GUID" Nullable="false" />
@@ -5261,13 +5255,7 @@
           <FunctionImportMapping FunctionImportName="uspSelNextExpressNumber" FunctionName="ModelContainer.Store.uspSelNextExpressNumber">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ModelContainer.uspSelNextExpressNumber_Result">
-                <ScalarProperty Name="Result" ColumnName="Result" />
-                <ScalarProperty Name="DbErrorNumber" ColumnName="DbErrorNumber" />
-                <ScalarProperty Name="DbErrorSeverity" ColumnName="DbErrorSeverity" />
-                <ScalarProperty Name="DbErrorState" ColumnName="DbErrorState" />
-                <ScalarProperty Name="DbErrorProcedure" ColumnName="DbErrorProcedure" />
-                <ScalarProperty Name="DbErrorLine" ColumnName="DbErrorLine" />
-                <ScalarProperty Name="DbErrorMessage" ColumnName="DbErrorMessage" />
+                <ScalarProperty Name="ExpressNumber" ColumnName="ExpressNumber" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

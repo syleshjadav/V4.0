@@ -9,11 +9,11 @@
     x:Name="keyboard"
     DataContext="{Binding ElementName=keyboard}"
     Placement="Center"
-    AllowsTransparency="True"
+    AllowsTransparency="False"
     HorizontalOffset="0"
     VerticalOffset="0"
     >
-    <Grid x:Name="LayoutGrid">
+    <Grid x:Name="LayoutGrid" Background="White">
         <Interactivity:Interaction.Behaviors>
             <Behaviors:AutoHideBehavior
                 AreAnimationsEnabled="{Binding AreAnimationsEnabled}"
@@ -35,7 +35,12 @@
             <ColumnDefinition Width="200" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Border
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Border
             x:Name="DragHandle"
             Grid.Column="0"
             BorderBrush="LightGray"
@@ -57,6 +62,31 @@
                 </TextBlock>
             </Viewbox>
         </Border>
+            <Button Grid.Column="1"
+                    x:Name="cmdClose"
+                    Click="cmdClose_Click"
+               
+                    Width="35"
+                    Height="35"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    FontWeight="Bold"
+                    
+                    >
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Bottom"
+                               FontSize="10"
+                               HorizontalAlignment="Center"
+                               Foreground="Black">CLOSE</TextBlock>
+                    <TextBlock DockPanel.Dock="Top"
+                               FontSize="15"
+                               Foreground="Red"
+                               FontFamily="Wingdings"
+                               HorizontalAlignment="Center"
+                               Text="û" />
+                </DockPanel>
+            </Button>
+        </Grid>
         <Border
             Grid.Row="1"
             Grid.ColumnSpan="2"

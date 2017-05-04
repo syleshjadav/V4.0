@@ -36,7 +36,7 @@
     <SuiteName>MyShopAuto</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.htm</WebPage>
-    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationRevision>17</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -223,9 +223,6 @@
     <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.ATPData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.uspCreateSeviceAndKeyLockerBucket_TowTruck_Result.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ServiceReference1\MyShopExpress.ServiceReference1.uspGetKeyLockerSteps_Result.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -370,9 +367,12 @@
     <Resource Include="Image\IOS.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\KeyPad\KeyPad.csproj">
-      <Project>{3adbff38-915c-4115-9cdd-81c0cad9733a}</Project>
-      <Name>KeyPad</Name>
+    <Resource Include="Image\QR_IOS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\WpfKb\WpfKb.csproj">
+      <Project>{0784cdc9-0f52-4b8b-9488-6589c11e94e2}</Project>
+      <Name>WpfKb</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

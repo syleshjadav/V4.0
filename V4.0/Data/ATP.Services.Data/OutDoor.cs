@@ -87,6 +87,19 @@ namespace ATP.Services.Data {
         }
 
 
+        public int CreateSeviceForSTO(int? dealerId, Guid? personGuid, Guid? svcGuid, string firstName, string phone, string svcInfo, byte? serviceStatusId,List<ATPServiceData> serviceDataList)
+        {
+
+            using (var entity = new ATP.DataModel.CustomEntities())
+            {
+
+                var xx = entity.CreateSeviceForSTO(dealerId, firstName, phone, svcInfo, serviceStatusId, personGuid, svcGuid, serviceDataList);
+
+                return xx;
+            }
+        }
+
+
         public List<String> UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomer(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, string svcInfo, byte? serviceStatusId,  byte? assignedKeyLockerBucketId
             , byte? outdoorKeyDroppedBy) {
 
