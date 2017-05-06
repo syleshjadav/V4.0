@@ -12,7 +12,7 @@ namespace ATP.WCF.Svcs {
     public interface IOutDoor {
 
         [OperationContract]
-        int CreateSeviceForSTO(int? dealerId, Guid? personGuid, Guid? svcGuid, string firstName, string phone, string svcInfo, byte? serviceStatusId, List<ATPServiceData> serviceDataList);
+        int CreateSeviceForSTO(int? dealerId, Guid? personGuid, Guid? svcGuid, string firstName, string phone, string svcInfo, byte? serviceStatusId, List<ATPServiceData> serviceDataList,int expressNumber);
 
         [OperationContract]
         List<uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(int? dealerId, bool? isPickUpOrDrop, string keyLockerPin);

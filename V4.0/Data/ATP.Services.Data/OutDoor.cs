@@ -87,13 +87,13 @@ namespace ATP.Services.Data {
         }
 
 
-        public int CreateSeviceForSTO(int? dealerId, Guid? personGuid, Guid? svcGuid, string firstName, string phone, string svcInfo, byte? serviceStatusId,List<ATPServiceData> serviceDataList)
+        public int CreateSeviceForSTO(int? dealerId, Guid? personGuid, Guid? svcGuid, string firstName, string phone, string svcInfo, byte? serviceStatusId,List<ATPServiceData> serviceDataList,int expressNumber)
         {
 
             using (var entity = new ATP.DataModel.CustomEntities())
             {
 
-                var xx = entity.CreateSeviceForSTO(dealerId, firstName, phone, svcInfo, serviceStatusId, personGuid, svcGuid, serviceDataList);
+                var xx = entity.CreateSeviceForSTO(dealerId, firstName, phone, svcInfo, serviceStatusId, personGuid, svcGuid, serviceDataList, expressNumber);
 
                 return xx;
             }

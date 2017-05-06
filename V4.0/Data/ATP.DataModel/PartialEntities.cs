@@ -79,7 +79,7 @@ namespace ATP.DataModel
         }
 
         public int CreateSeviceForSTO(Nullable<int> dealerId, string firstName, string phone, string svcInfo, Nullable<byte> serviceStatusId,
-          Guid? PersonGuid, Guid? SvcGuid, List<ATPServiceData> atpServiceDataList)
+          Guid? PersonGuid, Guid? SvcGuid, List<ATPServiceData> atpServiceDataList, int expressNumber )
         {
 
             int affectedRows = -1;
@@ -100,7 +100,7 @@ namespace ATP.DataModel
                 sqlCmd.Parameters.AddWithValue("@SvcInfo", svcInfo).SqlDbType = SqlDbType.VarChar;
                 sqlCmd.Parameters.AddWithValue("@ServiceStatusId", serviceStatusId).SqlDbType = SqlDbType.TinyInt;
                 sqlCmd.Parameters.AddWithValue("@SelectedServices", servicesdt).SqlDbType = SqlDbType.Structured;
-
+                sqlCmd.Parameters.AddWithValue("@ExpressNumber", expressNumber).SqlDbType = SqlDbType.Int;
                 affectedRows = sqlCmd.ExecuteNonQuery();
                 con.Close();
                 con.Dispose();

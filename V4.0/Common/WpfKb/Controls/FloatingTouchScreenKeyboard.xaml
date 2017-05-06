@@ -62,31 +62,28 @@
                 </TextBlock>
             </Viewbox>
         </Border>
-            <Button Grid.Column="1"
-                    x:Name="cmdClose"
-                    Click="cmdClose_Click"
-               
-                    Width="35"
-                    Height="35"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Top"
-                    FontWeight="Bold"
-                    
-                    >
-                <DockPanel>
-                    <TextBlock DockPanel.Dock="Bottom"
-                               FontSize="10"
-                               HorizontalAlignment="Center"
-                               Foreground="Black">CLOSE</TextBlock>
-                    <TextBlock DockPanel.Dock="Top"
-                               FontSize="15"
-                               Foreground="Red"
-                               FontFamily="Wingdings"
-                               HorizontalAlignment="Center"
-                               Text="û" />
-                </DockPanel>
-            </Button>
+          
         </Grid>
+        <Button Grid.Column="1"
+                x:Name="cmdClose"
+                Click="cmdClose_Click"
+                Width="35"
+                Height="35"
+                Margin="0,5,5,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                FontWeight="Bold">
+            <DockPanel>
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           ToolTip="Close"
+                           
+                           FontSize="25"
+                           Foreground="Red"
+                           >X</TextBlock>
+               
+            </DockPanel>
+        </Button>
         <Border
             Grid.Row="1"
             Grid.ColumnSpan="2"

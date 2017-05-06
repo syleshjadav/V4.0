@@ -70,9 +70,9 @@ namespace ATP.WCF.Svcs {
 
         }
 
-        public int CreateSeviceForSTO(int? dealerId, Guid? personGuid, Guid? svcGuid, string firstName, string phone, string svcInfo, byte? serviceStatusId, List<ATPServiceData> serviceDataList)
+        public int CreateSeviceForSTO(int? dealerId, Guid? personGuid, Guid? svcGuid, string firstName, string phone, string svcInfo, byte? serviceStatusId, List<ATPServiceData> serviceDataList,int expressNumber)
         {
-            return new ATP.Services.Data.OutDoor().CreateSeviceForSTO(dealerId,personGuid,svcGuid, firstName, phone, svcInfo, serviceStatusId, serviceDataList);
+            return new ATP.Services.Data.OutDoor().CreateSeviceForSTO(dealerId,personGuid,svcGuid, firstName, phone, svcInfo, serviceStatusId, serviceDataList, expressNumber);
         }
 
         public List<uspSelVehicleServiceDetails_Result> SelVehicleServiceDetails(int? dealerId, Guid? vehicleServiceGuid, Guid? vehicleGuid, Guid? personGuid, string svcFromDt, string svcToDt) {

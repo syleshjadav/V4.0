@@ -4616,10 +4616,10 @@ namespace MyShopExpress.ServiceReference1 {
     public interface IOutDoor {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceForSTO", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceForSTOResponse")]
-        int CreateSeviceForSTO(System.Nullable<int> dealerId, System.Nullable<System.Guid> personGuid, System.Nullable<System.Guid> svcGuid, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList);
+        int CreateSeviceForSTO(System.Nullable<int> dealerId, System.Nullable<System.Guid> personGuid, System.Nullable<System.Guid> svcGuid, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList, int expressNumber);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/CreateSeviceForSTO", ReplyAction="http://tempuri.org/IOutDoor/CreateSeviceForSTOResponse")]
-        System.Threading.Tasks.Task<int> CreateSeviceForSTOAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> personGuid, System.Nullable<System.Guid> svcGuid, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList);
+        System.Threading.Tasks.Task<int> CreateSeviceForSTOAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> personGuid, System.Nullable<System.Guid> svcGuid, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList, int expressNumber);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutDoor/VerifyPinGetCustInfo", ReplyAction="http://tempuri.org/IOutDoor/VerifyPinGetCustInfoResponse")]
         System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin);
@@ -4779,12 +4779,12 @@ namespace MyShopExpress.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public int CreateSeviceForSTO(System.Nullable<int> dealerId, System.Nullable<System.Guid> personGuid, System.Nullable<System.Guid> svcGuid, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList) {
-            return base.Channel.CreateSeviceForSTO(dealerId, personGuid, svcGuid, firstName, phone, svcInfo, serviceStatusId, serviceDataList);
+        public int CreateSeviceForSTO(System.Nullable<int> dealerId, System.Nullable<System.Guid> personGuid, System.Nullable<System.Guid> svcGuid, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList, int expressNumber) {
+            return base.Channel.CreateSeviceForSTO(dealerId, personGuid, svcGuid, firstName, phone, svcInfo, serviceStatusId, serviceDataList, expressNumber);
         }
         
-        public System.Threading.Tasks.Task<int> CreateSeviceForSTOAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> personGuid, System.Nullable<System.Guid> svcGuid, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList) {
-            return base.Channel.CreateSeviceForSTOAsync(dealerId, personGuid, svcGuid, firstName, phone, svcInfo, serviceStatusId, serviceDataList);
+        public System.Threading.Tasks.Task<int> CreateSeviceForSTOAsync(System.Nullable<int> dealerId, System.Nullable<System.Guid> personGuid, System.Nullable<System.Guid> svcGuid, string firstName, string phone, string svcInfo, System.Nullable<byte> serviceStatusId, System.Collections.Generic.List<MyShopExpress.ServiceReference1.ATPServiceData> serviceDataList, int expressNumber) {
+            return base.Channel.CreateSeviceForSTOAsync(dealerId, personGuid, svcGuid, firstName, phone, svcInfo, serviceStatusId, serviceDataList, expressNumber);
         }
         
         public System.Collections.Generic.List<MyShopExpress.ServiceReference1.uspVerifyPinGetCustInfo_Result> VerifyPinGetCustInfo(System.Nullable<int> dealerId, System.Nullable<bool> isPickUpOrDrop, string keyLockerPin) {

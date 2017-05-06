@@ -1,0 +1,418 @@
+﻿<Window x:Class="MyShopExpress.NewExpressCustomer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:WpfKb="clr-namespace:WpfKb.Controls;assembly=WpfKb"
+        xmlns:local="clr-namespace:MyShopExpress.MyShopUserControl"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        x:Name="CtrlCustomerKeyDrop"
+        mc:Ignorable="d"
+        Tag="mdi_child"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        WindowStyle="None"
+        MinHeight="800"
+        MinWidth="900"
+        
+        d:DesignHeight="800"
+        d:DesignWidth="900">
+    <Window.Resources>
+        <Style TargetType="Button"
+               x:Key="BtnKeyBoard">
+            <Setter Property="Margin"
+                    Value="0,0,5,5" />
+            <Setter Property="FontSize"
+                    Value="70" />
+            <Setter Property="Width"
+                    Value="70" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+        </Style>
+        <Style TargetType="TextBlock"
+               x:Key="StyleCustHdr">
+            <Setter Property="FontSize"
+                    Value="25" />
+            <Setter Property="Foreground"
+                    Value="White" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+        </Style>
+        <Style x:Key="ServiceItemListBoxTemplate"
+               TargetType="{x:Type ListBox}">
+            <!-- Do not fill in this value. -->
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border BorderBrush="#FF1D9C52"
+                                Background="{DynamicResource YellowGradient}"
+                                BorderThickness="1"
+                                CornerRadius="4"
+                                Margin="3">
+                            <Grid x:Name="GrdServiceItem"
+                                  VerticalAlignment="Stretch"
+                                  HorizontalAlignment="Stretch"
+                                  Height="100"
+                                  Width="250">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0"
+                                           Grid.RowSpan="2"
+                                           HorizontalAlignment="Stretch"
+                                           VerticalAlignment="Stretch" />
+                                <Grid  Margin="1">
+                                    <Grid.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1"
+                                                             StartPoint="0.5,0">
+                                            <GradientStop Color="#FFC7C0C0"
+                                                          Offset="0" />
+                                            <GradientStop Color="White"
+                                                          Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Grid.Background>
+                                    <TextBlock VerticalAlignment="Top"
+                                               HorizontalAlignment="Right"
+                                               Margin="0,0,5,0"
+                                               Text="{Binding Cost, StringFormat=C}"
+                                               FontWeight="Bold"
+                                               FontSize="15"
+                                               Foreground="#FFB40C0C" />
+                                </Grid>
+                                <TextBlock Grid.Row="1"
+                                           Text="{Binding ShortName}"
+                                           TextWrapping="Wrap"
+                                           FontWeight="Bold"
+                                           FontSize="18"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding IsSelected}"
+                                         Value="True">
+                                <Setter TargetName="GrdServiceItem"
+                                        Property="Background"
+                                        Value="#FFA3DC5C" />
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="GrdMain"
+          Background="{DynamicResource BrushMainPageBackGround}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border BorderThickness="5"
+                BorderBrush="Gray"
+                CornerRadius="5"
+                Grid.RowSpan="3">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1"
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FF1D1919"
+                                  Offset="0.984" />
+                    <GradientStop Color="#FFF95D04"
+                                  Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <GroupBox Grid.Row="1"
+                  Margin="5"
+                  Style="{DynamicResource DesignerGroupBoxSmallBk}">
+            <GroupBox.Header>
+                <TextBlock x:Name="TxtCustomerDetails"
+                           Text="NEW EXPRESS CUSTOMER"
+                           FontSize="36"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center" />
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="110" />
+                </Grid.RowDefinitions>
+                <Grid x:Name="GrdEnterPin"
+                      Visibility="Collapsed">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel>
+                        <RichTextBox x:Name="TxtPlaceKeysInfo"
+                                     Grid.Row="2"
+                                     Grid.ColumnSpan="2"
+                                     Margin="5">
+                            <FlowDocument FontSize="45"
+                                          FontFamily="Segoe Marker">
+                                <Paragraph LineHeight="10">1. Using MyShopAuto Phone App request PIN.</Paragraph>
+                                <Paragraph LineHeight="10">2. Enter PIN.</Paragraph>
+                                <Paragraph LineHeight="10">3. Finally verify the PIN.</Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Image Height="Auto"
+                               Width="250"
+                               Source="/MyShopExpress;component/Image/ExpressCheckIn.png" />
+                    </StackPanel>
+                    <local:ValidatePinUC x:Name="CtrlValidatePin"
+                                         Grid.Column="1" />
+                </Grid>
+                <Grid x:Name="GrdKeyDrop"
+                      Visibility="Visible">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0"
+                          Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock  Text="Name :"
+                                    Style="{StaticResource StyleCustHdr}" />
+                        <TextBlock  Text="Phone :"
+                                    Grid.Row="1"
+                                    Style="{StaticResource StyleCustHdr}" />
+                        <TextBlock  Text="Email :"
+                                    Grid.Row="0"
+                                    Grid.Column="2"
+                                    Style="{StaticResource StyleCustHdr}" />
+                        <TextBlock  Text="Vehicle :"
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    Style="{StaticResource StyleCustHdr}" />
+                        <TextBox  x:Name="TxtName"
+                                  Grid.Row="0"
+                                  Grid.Column="1"
+                                  TextWrapping="Wrap"
+                                  FontSize="22"
+                                  FontWeight="Bold"
+                                  Background="Yellow"
+                                  GotFocus="TxtName_GotFocus" />
+                        <TextBox   x:Name="TxtContacts"
+                                   Grid.Row="1"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   Grid.Column="1"
+                                   Background="Yellow"
+                                   TextWrapping="Wrap"
+                                   GotFocus="TxtName_GotFocus" />
+                        <!--<TextBlock   x:Name="TxtAddress"
+                         Grid.Row="0"
+                         Grid.Column="3"
+                         TextWrapping="Wrap"
+                         Style="{StaticResource StyleCustHdr}" />-->
+                        <TextBox   x:Name="TxtVehicle"
+                                   Grid.Row="1"
+                                   Grid.Column="3"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"
+                                   Background="Yellow"
+                                   GotFocus="TxtName_GotFocus" />
+                        <TextBox   x:Name="TxtEmail"
+                                   Grid.Row="0"
+                                   Grid.Column="3"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"
+                                   GotFocus="TxtName_GotFocus" />
+                    </Grid>
+                    <Grid Grid.Row="0" 
+                          VerticalAlignment="Bottom">
+                        <WpfKb:FloatingTouchScreenKeyboard x:Name="KeyBoard"
+                                                           
+                                                           IsOpen="True"
+                                                           Width="900"
+                                                           Height="400"
+                                                           PlacementTarget="{Binding ElementName=CtrlCustomerKeyDrop}"
+                                                           Placement="Center"
+                                                           AreAnimationsEnabled="False"
+                                                           IsAllowedToFade="False"
+                                                           
+                                                           ></WpfKb:FloatingTouchScreenKeyboard>
+                    </Grid>
+                    <Grid Grid.Row="1"
+                          Grid.ColumnSpan="4">
+                        <GroupBox Width="auto"
+                                  Margin="10,10,0,0">
+                            <GroupBox.Header>
+                                <TextBlock Foreground="White"
+                                           FontSize="25"
+                                           FontWeight="Bold">SELECT SERVICES TO BE PERFORMED FROM THE TILES BELOW</TextBlock>
+                            </GroupBox.Header>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+                                <ListBox SelectedIndex="-1"
+                                         HorizontalAlignment="Stretch"
+                                         VerticalAlignment="Stretch"
+                                         x:Name="LstServiceItems"
+                                         SelectionMode="Multiple"
+                                         BorderBrush="Transparent"
+                                         IsSynchronizedWithCurrentItem="True"
+                                         ItemsSource="{Binding DealerServiceList}"
+                                         SelectedItem="{Binding SelectedService, BindsDirectlyToSource=True, IsAsync=True}"
+                                         SelectionChanged="LstServiceItems_SelectionChanged"
+                                         Style="{StaticResource ServiceItemListBoxTemplate}"
+                                         KeyboardNavigation.DirectionalNavigation="Cycle"
+                                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                         GotFocus="LstServiceItems_GotFocus">
+                                    <ListBox.Resources>
+                                        <Style TargetType="ListBoxItem">
+                                            <Setter Property="IsEnabled"
+                                                    Value="{Binding IsEnabledVal}" />
+                                            <Setter Property="Opacity"
+                                                    Value="{Binding OpacityVal}" />
+                                            <Setter Property="Background"
+                                                    Value="White" />
+                                        </Style>
+                                    </ListBox.Resources>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel MaxWidth="1000"
+                                                       HorizontalAlignment="Center" />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </ListBox>
+                                <TextBlock FontSize="18"
+                                           Grid.Row="1"
+                                           Foreground="Maroon"
+                                           Background="White"
+                                           HorizontalAlignment="Right"
+                                           FontWeight="Bold">*Cost Does not include State Tax and Service Charges</TextBlock>
+                                <StackPanel Orientation="Horizontal"
+                                            Grid.Row="2">
+                                    <TextBlock Text="Comments:"
+                                               Foreground="White"
+                                               FontSize="30"
+                                               VerticalAlignment="Center" />
+                                    <TextBox x:Name="TxtComments"
+                                             FontSize="25"
+                                             VerticalAlignment="Bottom"
+                                             MinWidth="600"
+                                             MinLines="1"
+                                             Margin="5"
+                                             GotFocus="TxtName_GotFocus"></TextBox>
+                                </StackPanel>
+                            </Grid>
+                        </GroupBox>
+                    </Grid>
+                    <!--<Grid  Grid.Row="2"
+                           VerticalAlignment="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid x:Name="GrdVerifyPinInfo"
+                              HorizontalAlignment="Right"
+                              Background="White"
+                              Visibility="Visible">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="18"
+                                       Foreground="Maroon"
+                                       FontWeight="Bold">*Cost Does not include State Tax and Service Charges</TextBlock>
+                            -->
+                    <!--<RichTextBox x:Name="TxtVerifyPinInfo1">
+                                <FlowDocument>
+                                   
+                                    <Paragraph FontSize="30"
+                                               FontWeight="Bold"
+                                               FontFamily="Segoe Marker">If your information is correct,  print your requested service . 
+                     .</Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>-->
+                    <!--
+                        </Grid>
+                    </Grid>-->
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Button x:Name="cmdBack"
+                                Width="100"
+                                Height="100"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Bottom"
+                                FontWeight="Bold"
+                                Style="{DynamicResource PackageOrServicesButton }"
+                                Click="cmdBack_Click">
+                            <DockPanel>
+                                <TextBlock DockPanel.Dock="Bottom"
+                                           FontSize="30"
+                                           HorizontalAlignment="Center"
+                                           Foreground="Black">BACK</TextBlock>
+                                <TextBlock DockPanel.Dock="Top"
+                                           FontSize="50"
+                                           Foreground="Black"
+                                           FontFamily="Wingdings"
+                                           HorizontalAlignment="Center"
+                                           Text="ç" />
+                            </DockPanel>
+                        </Button>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <!--<WpfKb:OnScreenKeyboardSection   x:Name="MyKeyboard"                                                     
+                                                       
+                                                       
+                                                       
+                                                       />-->
+                    </Grid>
+                    <Button x:Name="cmdNext"
+                            Grid.Column="2"
+                            Width="100"
+                            Height="100"
+                            Style="{DynamicResource PackageOrServicesButton }"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            FontWeight="Bold"
+                            Click="cmdNext_Click">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Bottom"
+                                       FontSize="30"
+                                       HorizontalAlignment="Center"
+                                       Foreground="Black">NEXT</TextBlock>
+                            <TextBlock DockPanel.Dock="Top"
+                                       FontSize="50"
+                                       Foreground="Black"
+                                       FontFamily="Wingdings"
+                                       HorizontalAlignment="Center"
+                                       Text="è" />
+                        </DockPanel>
+                    </Button>
+                </Grid>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
