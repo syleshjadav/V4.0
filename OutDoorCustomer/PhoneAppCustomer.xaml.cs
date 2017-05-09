@@ -6,12 +6,14 @@ using System.Windows;
 using System.Windows.Controls;
 using ATP.Kiosk.Views;
 using System.Xml.Serialization;
-using MyShopExpress.ServiceReference1;
 using ATP.Kiosk.Helpers;
 using ATP.Common;
 using System.IO;
 using System.Collections;
 using System.Runtime.Serialization;
+using OutDoorCustomer.ServiceReference1;
+using ATP.DataModel;
+using MyShopExpress.Common;
 
 
 namespace MyShopExpress
@@ -22,7 +24,7 @@ namespace MyShopExpress
     public partial class PhoneAppCustomer : Window
     {
 
-        private uspVerifyPinGetCustInfoExpress_Result CustomerInfo { get; set; }
+        private ATP.DataModel.uspVerifyPinGetCustInfoExpress_Result CustomerInfo { get; set; }
         //private string FindHomeAndMoveStepsReading { get; set; }
         //private string RotateKeyFloorReading { get; set; }
         //private string DoorLatchReading { get; set; }
@@ -303,16 +305,16 @@ namespace MyShopExpress
             // var sKeyLockerId = res[0].KeyLockerId;
             //GrdVerifiedPinInfo.Visibility = Visibility.Visible;
             //GrdVerifyPinInfo.Visibility = Visibility.Collapsed;
-            Keyboard.IsOpen = false;
-            var wnd = new VerifyAndPrint();
+            //Keyboard.IsOpen = false;
+            //var wnd = new VerifyAndPrint();
           
-            wnd.CustomerInfo = CustomerInfo;
-            wnd.SelectedServiceList = DealerServiceList.Where(m => m.IsSelected == true).ToList();
-            wnd.CustNotes = TxtComments.Text;
-            wnd.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            wnd.ShowDialog();
+            //wnd.CustomerInfo = CustomerInfo;
+            //wnd.SelectedServiceList = DealerServiceList.Where(m => m.IsSelected == true).ToList();
+            //wnd.CustNotes = TxtComments.Text;
+            //wnd.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //wnd.ShowDialog();
 
-            this.Opacity = 1;
+            //this.Opacity = 1;
             // MyKeyboard.Visibility = Visibility.Visible;
             // MyKeyboard.IsOpen = true;
 

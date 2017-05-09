@@ -60,7 +60,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>81754BCE85EC4106343D8EB77E0D3C728E4045D0</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>FDC1D1E3C48D69BF8D726370CA2D33E8055A153C</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>OutDoorCustomer_TemporaryKey.pfx</ManifestKeyFile>
@@ -129,10 +129,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="CustomerSide\NoPhoneApp.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="CustomerSide\TowTruck.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -156,9 +152,6 @@
     </Compile>
     <Compile Include="CustomerSide\MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerSide\NoPhoneApp.xaml.cs">
-      <DependentUpon>NoPhoneApp.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomerSide\TowTruck.xaml.cs">
       <DependentUpon>TowTruck.xaml</DependentUpon>
@@ -212,9 +205,29 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\ServiceReference1\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\ATP.DataModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\ATPData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\ATPServiceData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\service.wsdl" />
+    <None Include="Service References\ServiceReference1\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <Resource Include="Image\QR_AND.jpg" />
     <Resource Include="Image\QR_IOS.jpg" />
     <Resource Include="Image\QR_IOS.png" />
+    <None Include="OutDoorCustomer_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ATP.DataModel.ATPData.datasource" />
     <None Include="Properties\DataSources\ATP.DataModel.uspGetKeyLockerSteps_Result.datasource" />
@@ -233,26 +246,6 @@
     </None>
     <None Include="Service References\ServiceReference1\configuration.svcinfo" />
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference1\OutDoor.disco" />
-    <None Include="Service References\ServiceReference1\OutDoor.wsdl" />
-    <None Include="Service References\ServiceReference1\OutDoor.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\OutDoor1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\OutDoor2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\OutDoor3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\OutDoor4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceReference1\OutDoor5.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Resource Include="Image\TowTruck.png" />
     <Resource Include="Image\TakeKeys.jpg" />
     <Resource Include="Image\PickUpKey.jpg" />
@@ -280,7 +273,6 @@
     <Content Include="Cert\msa_push_prod_pvt_key_and_cert.p12">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="OutDoorCustomer_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -317,10 +309,6 @@
     <ProjectReference Include="..\V4.0\Common\ATP.Kiosk.Common\ATP.Kiosk.Common.csproj">
       <Project>{465721f9-2f5f-4b6f-a842-ac623c6452bc}</Project>
       <Name>ATP.Kiosk.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\V4.0\Common\KeyPad\KeyPad.csproj">
-      <Project>{3adbff38-915c-4115-9cdd-81c0cad9733a}</Project>
-      <Name>KeyPad</Name>
     </ProjectReference>
     <ProjectReference Include="..\V4.0\Common\WpfKb\WpfKb.csproj">
       <Project>{0784cdc9-0f52-4b8b-9488-6589c11e94e2}</Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ATP.DataModel;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,6 +14,6 @@ namespace MyShopExpress {
   /// </summary>
   public partial class App : Application {
 
-      
+        public static List<uspSelSvcTypeByDealerId_Result> gDealerServiceList { get; set; }
     }
 }

@@ -1,10 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel" />
-  <xs:import schemaLocation="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd4" namespace="http://www.AdamKiosks.com/ATPServiceData" />
-  <xs:import schemaLocation="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd5" namespace="http://www.AdamKiosks.com/ATPData" />
+  <xs:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="" namespace="http://www.AdamKiosks.com/ATPServiceData" />
+  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/ATP.DataModel" />
+  <xs:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="" namespace="http://www.AdamKiosks.com/ATPData" />
+  <xs:element name="CreateSeviceForSTO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="personGuid" nillable="true" type="q1:guid" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="svcGuid" nillable="true" type="q2:guid" />
+        <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="svcInfo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="serviceStatusId" nillable="true" type="xs:unsignedByte" />
+        <xs:element xmlns:q3="http://www.AdamKiosks.com/ATPServiceData" minOccurs="0" name="serviceDataList" nillable="true" type="q3:ArrayOfATPServiceData" />
+        <xs:element minOccurs="0" name="expressNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSeviceForSTOResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateSeviceForSTOResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="VerifyPinGetCustInfo">
     <xs:complexType>
       <xs:sequence>
@@ -17,7 +39,7 @@
   <xs:element name="VerifyPinGetCustInfoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="VerifyPinGetCustInfoResult" nillable="true" type="q1:ArrayOfuspVerifyPinGetCustInfo_Result" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="VerifyPinGetCustInfoResult" nillable="true" type="q4:ArrayOfuspVerifyPinGetCustInfo_Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -32,7 +54,7 @@
   <xs:element name="VerifyPinGetCustInfoExpressResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="VerifyPinGetCustInfoExpressResult" nillable="true" type="q2:ArrayOfuspVerifyPinGetCustInfoExpress_Result" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="VerifyPinGetCustInfoExpressResult" nillable="true" type="q5:ArrayOfuspVerifyPinGetCustInfoExpress_Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -47,14 +69,14 @@
   <xs:element name="GetMakesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="GetMakesResult" nillable="true" type="q3:ArrayOfuspSelVehicleMakes_Result" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="GetMakesResult" nillable="true" type="q6:ArrayOfuspSelVehicleMakes_Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsDealerMsg">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="x" nillable="true" type="q4:uspSelDealerMsg_Result" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="x" nillable="true" type="q7:uspSelDealerMsg_Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -77,7 +99,7 @@
   <xs:element name="GetKeyLockerStepsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="GetKeyLockerStepsResult" nillable="true" type="q5:ArrayOfuspGetKeyLockerSteps_Result" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="GetKeyLockerStepsResult" nillable="true" type="q8:ArrayOfuspGetKeyLockerSteps_Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -91,7 +113,7 @@
   <xs:element name="SelAllKeyDropPegByDealerIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelAllKeyDropPegByDealerIdResult" nillable="true" type="q6:ArrayOfuspSelAllKeyDropPegByDealerId_Result" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelAllKeyDropPegByDealerIdResult" nillable="true" type="q9:ArrayOfuspSelAllKeyDropPegByDealerId_Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -99,18 +121,18 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
-        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGUID" nillable="true" type="q7:guid" />
-        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleGUID" nillable="true" type="q8:guid" />
-        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="personGUID" nillable="true" type="q9:guid" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGUID" nillable="true" type="q10:guid" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleGUID" nillable="true" type="q11:guid" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="personGUID" nillable="true" type="q12:guid" />
         <xs:element minOccurs="0" name="statusId" nillable="true" type="xs:unsignedByte" />
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="updatedBy" nillable="true" type="q10:guid" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="updatedBy" nillable="true" type="q13:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateVehiceServiceStatusResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UpdateVehiceServiceStatusResult" nillable="true" type="q11:ArrayOfstring" />
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UpdateVehiceServiceStatusResult" nillable="true" type="q14:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -144,7 +166,7 @@
         <xs:element minOccurs="0" name="serviceStatusId" nillable="true" type="xs:unsignedByte" />
         <xs:element minOccurs="0" name="assignedKeyLockerBucketId" nillable="true" type="xs:unsignedByte" />
         <xs:element minOccurs="0" name="outdoorKeyDroppedBy" nillable="true" type="xs:unsignedByte" />
-        <xs:element xmlns:q12="http://www.AdamKiosks.com/ATPServiceData" minOccurs="0" name="serviceDataList" nillable="true" type="q12:ArrayOfATPServiceData" />
+        <xs:element xmlns:q15="http://www.AdamKiosks.com/ATPServiceData" minOccurs="0" name="serviceDataList" nillable="true" type="q15:ArrayOfATPServiceData" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -159,8 +181,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
-        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q13:guid" />
-        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleGuid" nillable="true" type="q14:guid" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q16:guid" />
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleGuid" nillable="true" type="q17:guid" />
         <xs:element minOccurs="0" name="svcInfo" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="serviceStatusId" nillable="true" type="xs:unsignedByte" />
         <xs:element minOccurs="0" name="assignedKeyLockerBucketId" nillable="true" type="xs:unsignedByte" />
@@ -171,7 +193,7 @@
   <xs:element name="UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerResult" nillable="true" type="q15:ArrayOfstring" />
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UpdtVehicleServiceAndKeyLockerBucket_PhoneCustomerResult" nillable="true" type="q18:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -179,13 +201,13 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
-        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q16:guid" />
-        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleGuid" nillable="true" type="q17:guid" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q19:guid" />
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleGuid" nillable="true" type="q20:guid" />
         <xs:element minOccurs="0" name="svcInfo" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="serviceStatusId" type="xs:int" />
         <xs:element minOccurs="0" name="assignedKeyLockerBucketId" nillable="true" type="xs:unsignedByte" />
         <xs:element minOccurs="0" name="outdoorKeyDroppedBy" nillable="true" type="xs:unsignedByte" />
-        <xs:element xmlns:q18="http://www.AdamKiosks.com/ATPServiceData" minOccurs="0" name="serviceDataList" nillable="true" type="q18:ArrayOfATPServiceData" />
+        <xs:element xmlns:q21="http://www.AdamKiosks.com/ATPServiceData" minOccurs="0" name="serviceDataList" nillable="true" type="q21:ArrayOfATPServiceData" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -200,9 +222,9 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
-        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q19:guid" />
-        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleGuid" nillable="true" type="q20:guid" />
-        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="personGuid" nillable="true" type="q21:guid" />
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleServiceGuid" nillable="true" type="q22:guid" />
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="vehicleGuid" nillable="true" type="q23:guid" />
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="personGuid" nillable="true" type="q24:guid" />
         <xs:element minOccurs="0" name="svcFromDt" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="svcToDt" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -211,7 +233,7 @@
   <xs:element name="SelVehicleServiceDetailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehicleServiceDetailsResult" nillable="true" type="q22:ArrayOfuspSelVehicleServiceDetails_Result" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelVehicleServiceDetailsResult" nillable="true" type="q25:ArrayOfuspSelVehicleServiceDetails_Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -225,7 +247,7 @@
   <xs:element name="SelKioskInUSEResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelKioskInUSEResult" nillable="true" type="q23:ArrayOfuspSelKioskInUSE_Result" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelKioskInUSEResult" nillable="true" type="q26:ArrayOfuspSelKioskInUSE_Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -234,7 +256,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="dealerId" nillable="true" type="xs:int" />
         <xs:element minOccurs="0" name="usedBy" nillable="true" type="xs:string" />
-        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="lastUsedBy" nillable="true" type="q24:guid" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="lastUsedBy" nillable="true" type="q27:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -255,7 +277,7 @@
   <xs:element name="GetServiceTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="GetServiceTypesResult" nillable="true" type="q25:ArrayOfuspSelSvcTypeByDealerId_Result" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="GetServiceTypesResult" nillable="true" type="q28:ArrayOfuspSelSvcTypeByDealerId_Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -270,21 +292,21 @@
   <xs:element name="SelNextExpressNumberResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelNextExpressNumberResult" nillable="true" type="q26:ArrayOfuspSelNextExpressNumber_Result" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelNextExpressNumberResult" nillable="true" type="q29:ArrayOfuspSelNextExpressNumber_Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ScheduleService">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="serviceDataMasterlist" nillable="true" type="q27:ATPServiceDataMasterKiosk" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="serviceDataMasterlist" nillable="true" type="q30:ATPServiceDataMasterKiosk" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ScheduleServiceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://www.AdamKiosks.com/ATPData" minOccurs="0" name="ScheduleServiceResult" nillable="true" type="q28:ATPData" />
+        <xs:element xmlns:q31="http://www.AdamKiosks.com/ATPData" minOccurs="0" name="ScheduleServiceResult" nillable="true" type="q31:ATPData" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -298,7 +320,7 @@
   <xs:element name="SelDealerDetailsByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelDealerDetailsByIdResult" nillable="true" type="q29:ArrayOfuspSelDealerDetailsById_Result" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/ATP.DataModel" minOccurs="0" name="SelDealerDetailsByIdResult" nillable="true" type="q32:ArrayOfuspSelDealerDetailsById_Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

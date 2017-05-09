@@ -1,7 +1,6 @@
 ﻿using ATP.DataModel;
 using ATP.Kiosk.Views;
 
-using KeyPad;
 using MyShopExpress.Common;
 using OutDoorCustomer.ServiceReference1;
 using System;
@@ -167,13 +166,13 @@ namespace MyShopExpress {
 
         private void InvokeKeyBoardNumeric(object sender, string title)
         {
-            TextBox tb = sender as TextBox;
-            Keypad kbWin = new Keypad(tb, this, title);
-            kbWin.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            this.Opacity = .8;
-            if (kbWin.ShowDialog() == true)
-                tb.Text = kbWin.Result;
-            this.Opacity = 1;
+            //TextBox tb = sender as TextBox;
+           
+            //kbWin.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //this.Opacity = .8;
+            //if (kbWin.ShowDialog() == true)
+            //    tb.Text = kbWin.Result;
+            //this.Opacity = 1;
         }
 
         private void TxtName_PreviewMouseDown(object sender, MouseButtonEventArgs e)

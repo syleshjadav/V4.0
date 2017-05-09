@@ -1,10 +1,10 @@
-﻿<Window x:Class="MyShopExpress.NewExpressCustomer"
+﻿<Window x:Class="MyShopExpress.NoPhoneApp"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:WpfKb="clr-namespace:WpfKb.Controls;assembly=WpfKb"
-        xmlns:local="clr-namespace:MyShopExpress.MyShopUserControl"
+
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         x:Name="CtrlCustomerKeyDrop"
         mc:Ignorable="d"
@@ -163,10 +163,9 @@
                         </RichTextBox>
                         <Image Height="Auto"
                                Width="250"
-                               Source="/MyShopExpress;component/Image/ExpressCheckIn.png" />
+                               Source="Arch.ico" />
                     </StackPanel>
-                    <local:ValidatePinUC x:Name="CtrlValidatePin"
-                                         Grid.Column="1" />
+                    
                 </Grid>
                 <Grid x:Name="GrdKeyDrop"
                       Visibility="Visible">
@@ -241,8 +240,7 @@
                     </Grid>
                     <Grid Grid.Row="0" 
                           VerticalAlignment="Bottom">
-                        <WpfKb:FloatingTouchScreenKeyboard x:Name="KeyBoard"
-                                                           
+                        <WpfKb:FloatingTouchScreenKeyboard Name="MyKeyboard"
                                                            IsOpen="True"
                                                            Width="900"
                                                            Height="400"
@@ -277,11 +275,12 @@
                                          IsSynchronizedWithCurrentItem="True"
                                          ItemsSource="{Binding DealerServiceList}"
                                          SelectedItem="{Binding SelectedService, BindsDirectlyToSource=True, IsAsync=True}"
-                                         SelectionChanged="LstServiceItems_SelectionChanged"
+                                         
                                          Style="{StaticResource ServiceItemListBoxTemplate}"
                                          KeyboardNavigation.DirectionalNavigation="Cycle"
                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                          ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                         SelectionChanged="LstServiceItems_SelectionChanged"
                                          GotFocus="LstServiceItems_GotFocus">
                                     <ListBox.Resources>
                                         <Style TargetType="ListBoxItem">
@@ -318,7 +317,7 @@
                                              MinWidth="600"
                                              MinLines="1"
                                              Margin="5"
-                                             GotFocus="TxtName_GotFocus"></TextBox>
+                                             GotFocus="TxtComments_GotFocus"></TextBox>
                                 </StackPanel>
                             </Grid>
                         </GroupBox>

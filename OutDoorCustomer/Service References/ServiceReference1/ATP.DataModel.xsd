@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ATP.DataModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ATP.DataModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="http://www.myshopauto.com/ATPServices/OutDoor.svc?xsd=xsd4" namespace="http://www.AdamKiosks.com/ATPServiceData" />
+  <xs:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="" namespace="http://www.AdamKiosks.com/ATPServiceData" />
   <xs:complexType name="ArrayOfuspVerifyPinGetCustInfo_Result">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="uspVerifyPinGetCustInfo_Result" nillable="true" type="tns:uspVerifyPinGetCustInfo_Result" />
@@ -308,13 +308,7 @@
   <xs:element name="ArrayOfuspSelNextExpressNumber_Result" nillable="true" type="tns:ArrayOfuspSelNextExpressNumber_Result" />
   <xs:complexType name="uspSelNextExpressNumber_Result">
     <xs:sequence>
-      <xs:element minOccurs="0" name="DbErrorLine" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="DbErrorMessage" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DbErrorNumber" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="DbErrorProcedure" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DbErrorSeverity" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="DbErrorState" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="ExpressNumber" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="uspSelNextExpressNumber_Result" nillable="true" type="tns:uspSelNextExpressNumber_Result" />

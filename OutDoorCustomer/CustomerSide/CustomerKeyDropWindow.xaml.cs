@@ -14,6 +14,7 @@ using System.Xml.Serialization;
 using System.IO;
 using ATP.DataModel;
 using OutDoorCustomer.ServiceReference1;
+using ATP.Kiosk.Helpers;
 
 namespace MyShopExpress {
     /// <summary>
@@ -22,6 +23,11 @@ namespace MyShopExpress {
     public partial class CustomerKeyDropWindow : Window {
 
         private uspVerifyPinGetCustInfo_Result CustomerInfo { get; set; }
+        public List<uspSelSvcTypeByDealerId_Result> DealerServiceList { get; set; }
+
+        
+
+
         private string FindHomeAndMoveStepsReading { get; set; }
         private string RotateKeyFloorReading { get; set; }
         private string DoorLatchReading { get; set; }
@@ -37,7 +43,35 @@ namespace MyShopExpress {
         }
 
         private void CustomerKeyDropWindow_Loaded(object sender, RoutedEventArgs e) {
-            // CmdVerifyPIN_Click(sender,e);
+            GetDealerServiceList();
+            // TxtName.Focus();
+            
+        }
+        private void GetDealerServiceList()
+        {
+            if (App.gDealerServiceList == null)
+            {
+                DealerServiceList = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs =>
+                {
+
+                    return svcs.GetServiceTypes(_dealerId.ToString()).Where(m => m.Express == true).ToList();
+                });
+                App.gDealerServiceList = DealerServiceList;
+            }
+            else
+            {
+                DealerServiceList = App.gDealerServiceList;
+            }
+
+
+
+            DealerServiceList.Update(xx => xx.OpacityVal = 1);
+            DealerServiceList.Update(xx => xx.IsEnabledVal = true);
+            DealerServiceList.Update(xx => xx.IsSelected = false);
+            LstServiceItems.UnselectAll();
+
+
+            LstServiceItems.ItemsSource = DealerServiceList;
         }
 
         private void Current_SessionEnding(object sender, SessionEndingCancelEventArgs e) {
@@ -322,22 +356,22 @@ namespace MyShopExpress {
     }
 
 
-    [XmlRoot(ElementName = "VEHSVC")]
-    public class VEHSVC {
-        [XmlElement(ElementName = "VehicleServiceGUID")]
-        public string VehicleServiceGUID { get; set; }
-        [XmlElement(ElementName = "ServiceTypeId")]
-        public string ServiceTypeId { get; set; }
-        [XmlElement(ElementName = "Sequence")]
-        public string Sequence { get; set; }
-        [XmlElement(ElementName = "ShortName")]
-        public string ShortName { get; set; }
-    }
+    //[XmlRoot(ElementName = "VEHSVC")]
+    //public class VEHSVC {
+    //    [XmlElement(ElementName = "VehicleServiceGUID")]
+    //    public string VehicleServiceGUID { get; set; }
+    //    [XmlElement(ElementName = "ServiceTypeId")]
+    //    public string ServiceTypeId { get; set; }
+    //    [XmlElement(ElementName = "Sequence")]
+    //    public string Sequence { get; set; }
+    //    [XmlElement(ElementName = "ShortName")]
+    //    public string ShortName { get; set; }
+    //}
 
-    [XmlRoot(ElementName = "VEHSVCS")]
-    [Serializable]
-    public class VEHSVCS {
-        [XmlElement(ElementName = "VEHSVC")]
-        public List<VEHSVC> VEHSVC { get; set; }
-    }
+    //[XmlRoot(ElementName = "VEHSVCS")]
+    //[Serializable]
+    //public class VEHSVCS {
+    //    [XmlElement(ElementName = "VEHSVC")]
+    //    public List<VEHSVC> VEHSVC { get; set; }
+    //}
 }
