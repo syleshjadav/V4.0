@@ -60,7 +60,7 @@ namespace MyShopExpress {
                 ConfigClass.DealerSerialPort.PortName = xmlnode["DEALERCOMMPORT"].InnerText;
 
 
-                if (!ConfigClass.DealerSerialPort.IsOpen) { ConfigClass.DealerSerialPort.Open(); }
+             //   if (!ConfigClass.DealerSerialPort.IsOpen) { ConfigClass.DealerSerialPort.Open(); }
 
 
 
@@ -110,9 +110,9 @@ namespace MyShopExpress {
             RefreshGrid();
 
 
-            var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
-                return svcs.UpsertKioskInUSE(_dealerId, null, new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
-            });
+            //var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+            //    return svcs.UpsertKioskInUSE(_dealerId, null, new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
+            //});
 
             dispatcherTimer.Start();
         }
@@ -154,9 +154,9 @@ namespace MyShopExpress {
                 var confirm = wnd.ShowDialog();
 
                
-                    var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
-                        return svcs.UpsertKioskInUSE(116, null, new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
-                    });
+                    //var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+                    //    return svcs.UpsertKioskInUSE(116, null, new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
+                    //});
                 
             }
             // LstPerson.UnselectAll();

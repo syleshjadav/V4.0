@@ -24,7 +24,7 @@ namespace MyShopExpress
         private string FindHomeAndMoveStepsReading { get; set; }
         private string RotateKeyFloorReading { get; set; }
         private string DoorLatchReading { get; set; }
-        public int OutDoorKeyDroppedBy { get; set; }
+        public byte? OutDoorKeyDroppedBy { get; set; }
         public List<uspSelSvcTypeByDealerId_Result> DealerServiceList { get; set; }
         public uspSelAllKeyDropPegByDealerId_Result SelectedPerson { get; set; }
         //SerialPort _serialPort = ConfigClass.MyShopSerialPort;
@@ -32,7 +32,7 @@ namespace MyShopExpress
         public NoPhoneApp()
         {
             InitializeComponent();
-           // cmdVerifyPIN.Click += CmdVerifyPIN_Click;
+            // cmdVerifyPIN.Click += CmdVerifyPIN_Click;
 
             this.Loaded += CustomerKeyDropWindow_Loaded;
         }
@@ -289,44 +289,84 @@ namespace MyShopExpress
         private void cmdNext_Click(object sender, RoutedEventArgs e)
         {
             MyKeyboard.IsOpen = false;
-
-            //var wnd = new VerifyAndPrint();
-
             if (String.IsNullOrEmpty(TxtContacts.Text) || String.IsNullOrEmpty(TxtName.Text) || String.IsNullOrEmpty(TxtVehicle.Text))
             {
                 MessageBox("Please Enter All Values Marked in YELLOW...", "Error");
                 return;
             }
 
-            var wnd = new PickUpOrDrop();
+            try
+            {
+
+
+
+                var stepsLst = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs =>
+                {
+                    return svcs.GetKeyLockerSteps(_dealerId, null, true).ToList();
+                });
+
+                if (stepsLst != null && stepsLst.Count > 0)
+                {
+                    FindHomeAndMoveStepsReading = stepsLst.Where(m => m.StepCode == "FH").SingleOrDefault().NoOfRotationCustomer;
+                    RotateKeyFloorReading = stepsLst.Where(m => m.StepCode == "KF").SingleOrDefault().StepReading;
+                    DoorLatchReading = stepsLst.Where(m => m.StepCode == "DL").SingleOrDefault().StepReading;
+
+                    if (FindHomeAndMoveStepsReading == "0000")
+                    {
+                        MessageBox("Electronic Key Locker is Full \n Sorry try another time..", "Information");
+                        return;
+                    }
+
+                }
+                else
+                {
+                    MessageBox("Electronic Key Locker is Full \n Sorry try another time..", "Information");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                var stepsLst = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs =>
+                {
+                    return svcs.LogError(ex.Message);
+                });
+
+            }
+
+
+             var wnd = new PickUpOrDrop { OutDoorKeyDroppedBy = OutDoorKeyDroppedBy };
+
             wnd.CustomerInfo = new uspVerifyPinGetCustInfo_Result { FirstName = TxtName.Text, VehicleMake = TxtVehicle.Text, EmailAddress = TxtEmail.Text, PhoneNumber = TxtContacts.Text };
             wnd.SelectedServiceList = DealerServiceList.Where(m => m.IsSelected == true).ToList();
-          //  wnd.co = TxtComments.Text;
+            //  wnd.co = TxtComments.Text;
             //wnd.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             //wnd.ShowDialog();
 
 
-            if (IsPickUpOrDrop == false) // pickup
+
+            wnd.SelectedPerson = new uspSelAllKeyDropPegByDealerId_Result { ServiceStatus = 4 };
+
+
+            
+
+            wnd.SelectedPerson = new uspSelAllKeyDropPegByDealerId_Result
             {
-                wnd.SelectedPerson = new uspSelAllKeyDropPegByDealerId_Result { ServiceStatus = 10  };
-            }
+                FirstName = TxtName.Text,
+                PhoneNumber = TxtContacts.Text,
+                
+                NoOfRotationDealer = FindHomeAndMoveStepsReading,
+                ServiceStatus = 4
+            };
+
+
+
 
             wnd.ShowDialog();
 
             this.Opacity = 1;
-            // MyKeyboard.Visibility = Visibility.Visible;
-            // MyKeyboard.IsOpen = true;
-
-            // if (wnd.IsKeyDroppedClcked == true) {
             GoHome();
 
-            //var wnd = new OpenDoorAndDropKeys {
-            //          FindHomeAndMoveStepsReading = FindHomeAndMoveStepsReading,
-            //          CustomerInfo = CustomerInfo
-            //      };
-
-            //      wnd.ShowDialog();
-            //      GoHome();
 
         }
 

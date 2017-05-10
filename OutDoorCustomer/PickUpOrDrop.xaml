@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         d:DesignHeight="900"
         d:DesignWidth="900"
-        Height="900"
-        Width="900"
-        WindowState="Normal"
+        MinHeight="900"
+        MinWidth="900"
+        WindowState="Maximized"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         xmlns:hlp="clr-namespace:ATP.Kiosk.Helpers">

@@ -65,7 +65,7 @@ namespace MyShopExpress
                 ConfigClass.MyShopSerialPort.PortName = xmlnode["MYSHOPCOMMPORT"].InnerText;
 
 
-              //  if (!ConfigClass.MyShopSerialPort.IsOpen) { ConfigClass.MyShopSerialPort.Open(); }
+                if (!ConfigClass.MyShopSerialPort.IsOpen) { ConfigClass.MyShopSerialPort.Open(); }
 
 
                 if (xmlnode["DEALORCUST"].InnerText == "C")

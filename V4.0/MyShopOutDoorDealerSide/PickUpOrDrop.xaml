@@ -14,9 +14,9 @@
         d:DesignHeight="300"
         d:DesignWidth="300">
   <Window.Resources>
-    <!--<hlp:ValueToBrushConverter x:Key="NameToBrushConverter" />
-    <hlp:ColorToSolidColorBrushValueConverter  x:Key="ColorToSolidColorBrush_ValueConverter" />-->
-  </Window.Resources>
+        <hlp:ValueToBrushConverter x:Key="NameToBrushConverter" />
+        <hlp:ColorToSolidColorBrushValueConverter  x:Key="ColorToSolidColorBrush_ValueConverter" />
+    </Window.Resources>
   <Grid x:Name="GrdMain">
     <Grid.Background>
       <ImageBrush Opacity="0.1"

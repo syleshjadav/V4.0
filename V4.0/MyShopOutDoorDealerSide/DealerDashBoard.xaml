@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MyShopExpress"
         mc:Ignorable="d"
         x:Name="CtrlMenuWindow"
-        xmlns:hlp="clr-namespace:MyShopExpress"
+        xmlns:hlp="clr-namespace:ATP.Kiosk.Helpers"
         VerticalAlignment="Stretch"
         HorizontalAlignment="Stretch"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"

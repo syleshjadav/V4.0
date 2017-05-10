@@ -104,9 +104,9 @@ namespace MyShopExpress.DealerSide {
                     }
                     else {
 
-                        var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
-                            return svcs.UpsertKioskInUSE(dealerid, "D", new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
-                        });
+                        //var res1 = ATP.Common.ProxyHelper.Service<IOutDoor>.Use(svcs => {
+                        //    return svcs.UpsertKioskInUSE(dealerid, "D", new Guid("A0B1C2D3-E4F5-AABB-CCDD-9F8E7D6C5B4A"));
+                        //});
 
                     }
                 }

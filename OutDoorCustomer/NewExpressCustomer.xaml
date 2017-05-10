@@ -4,7 +4,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:WpfKb="clr-namespace:WpfKb.Controls;assembly=WpfKb"
-
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         x:Name="CtrlCustomerKeyDrop"
         mc:Ignorable="d"
@@ -14,7 +13,6 @@
         WindowStyle="None"
         MinHeight="800"
         MinWidth="900"
-        
         d:DesignHeight="800"
         d:DesignWidth="900">
     <Window.Resources>
@@ -165,7 +163,6 @@
                                Width="250"
                                Source="Arch.ico" />
                     </StackPanel>
-                    
                 </Grid>
                 <Grid x:Name="GrdKeyDrop"
                       Visibility="Visible">
@@ -238,7 +235,7 @@
                                    TextWrapping="Wrap"
                                    GotFocus="TxtName_GotFocus" />
                     </Grid>
-                    <Grid Grid.Row="0" 
+                    <Grid Grid.Row="0"
                           VerticalAlignment="Bottom">
                         <WpfKb:FloatingTouchScreenKeyboard Name="MyKeyboard"
                                                            IsOpen="True"
@@ -247,9 +244,7 @@
                                                            PlacementTarget="{Binding ElementName=CtrlCustomerKeyDrop}"
                                                            Placement="Center"
                                                            AreAnimationsEnabled="False"
-                                                           IsAllowedToFade="False"
-                                                           
-                                                           ></WpfKb:FloatingTouchScreenKeyboard>
+                                                           IsAllowedToFade="False"></WpfKb:FloatingTouchScreenKeyboard>
                     </Grid>
                     <Grid Grid.Row="1"
                           Grid.ColumnSpan="4">
@@ -275,7 +270,6 @@
                                          IsSynchronizedWithCurrentItem="True"
                                          ItemsSource="{Binding DealerServiceList}"
                                          SelectedItem="{Binding SelectedService, BindsDirectlyToSource=True, IsAsync=True}"
-                                         
                                          Style="{StaticResource ServiceItemListBoxTemplate}"
                                          KeyboardNavigation.DirectionalNavigation="Cycle"
                                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -305,20 +299,27 @@
                                            Background="White"
                                            HorizontalAlignment="Right"
                                            FontWeight="Bold">*Cost Does not include State Tax and Service Charges</TextBlock>
-                                <StackPanel Orientation="Horizontal"
-                                            Grid.Row="2">
+                                <Grid HorizontalAlignment="Stretch"
+                                      Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
                                     <TextBlock Text="Comments:"
                                                Foreground="White"
                                                FontSize="30"
-                                               VerticalAlignment="Center" />
+                                               VerticalAlignment="Center"
+                                                />
                                     <TextBox x:Name="TxtComments"
                                              FontSize="25"
                                              VerticalAlignment="Bottom"
+                                             HorizontalAlignment="Stretch"
                                              MinWidth="600"
                                              MinLines="1"
-                                             Margin="5"
-                                             GotFocus="TxtComments_GotFocus"></TextBox>
-                                </StackPanel>
+                                             Grid.Column="1"
+                                             GotFocus="TxtComments_GotFocus"
+                                             ></TextBox>
+                                </Grid>
                             </Grid>
                         </GroupBox>
                     </Grid>
