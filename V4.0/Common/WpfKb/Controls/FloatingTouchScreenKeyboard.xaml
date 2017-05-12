@@ -40,28 +40,25 @@
                 <ColumnDefinition  />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Border
-            x:Name="DragHandle"
-            Grid.Column="0"
-            BorderBrush="LightGray"
-            BorderThickness="10 10 10 5"
-            Background="DarkGray"
-            CornerRadius="10, 10, 0, 0"
-            PreviewMouseDown="DragHandle_PreviewMouseDown"
-            PreviewMouseMove="DragHandle_PreviewMouseMove"
-            PreviewMouseUp="DragHandle_PreviewMouseUp"
-            >
-            <Viewbox>
-                <TextBlock Text="Drag to move" Style="{DynamicResource Text.Detail}">
-                    <Interactivity:Interaction.Behaviors>
-                        <Behaviors:AutoHideBehavior
-                            ActionWhenClicked="None"
-                            IsAllowedToHide="{Binding IsDragHelperAllowedToHide}"
-                            />
-                    </Interactivity:Interaction.Behaviors>
-                </TextBlock>
-            </Viewbox>
-        </Border>
+        
+                <Button Grid.Column="0"
+                        x:Name="cmdClose1"
+                        Click="cmdClose_Click"
+                        Width="35"
+                        Height="35"
+                        Margin="0,5,5,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontWeight="Bold">
+                    <DockPanel>
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   ToolTip="Close"
+                                   FontSize="25"
+                                   Foreground="Red">X</TextBlock>
+                    </DockPanel>
+                </Button>
+            
           
         </Grid>
         <Button Grid.Column="1"

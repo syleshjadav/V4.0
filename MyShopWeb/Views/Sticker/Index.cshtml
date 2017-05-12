@@ -15,7 +15,7 @@
                 listAction: '@Url.Action("StickerTypeList", "Sticker")'
             },
             fields: {
-                StickerTypeCD: { title: 'Sticker Cd ', },
+                StickerTypeCD: { title: 'Sticker Type CD' },
                 StickerType: { title: 'StickerType', },
                 StickerDesc: { title: 'Description', },
             },
@@ -58,9 +58,9 @@
                 EnteredBy: { visibility: 'hidden', create: false, edit: false },
                 UpdatedBy: { visibility: 'hidden', create: false, edit: false },
                 StickerTypeCD: {
-                    title: 'Sticker',
-                    options: '/Home/GetStickerTypeList',
-                    
+                    title: 'Sticker Type CD',
+                    options: '@Url.Action("GetStickerTypeList", "Sticker")'
+
                 },
                 StickerType: { title: 'Sticker Type', create: false, edit: false, },
                 StickerDesc: { title: 'Desc', create: false, edit: false, },

@@ -416,15 +416,7 @@ namespace MyShopExpress
             }
         }
 
-        private void TxtComments_GotFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TxtName_GotFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
+      
 
         private void GetDealerServiceList()
         {
@@ -455,5 +447,28 @@ namespace MyShopExpress
 
         }
 
+        private void TxtName_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            MyKeyboard.IsOpen = true;
+        }
+
+        private void TxtName_TouchEnter(object sender, TouchEventArgs e)
+        {
+            MyKeyboard.IsOpen = true;
+        }
+
+        private void TxtName_TouchDown(object sender, TouchEventArgs e)
+        {
+            MyKeyboard.IsOpen = true;
+        }
+        private void TxtComments_GotFocus(object sender, RoutedEventArgs e)
+        {
+            MyKeyboard.IsOpen = true;
+        }
+
+        private void TxtName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            MyKeyboard.IsOpen = true;
+        }
     }
 }

@@ -1,10 +1,8 @@
 /* 
-Need any help for business ltd template? : Contact
+Need any help for S2SAssociates ltd template? : Contact
 =============================
 -----------------------------
-	Adhikari Surya
-	Frontend Web Developer
-	Email: adh.surya@gmail.com
+	
 -----------------------------
 =============================
  */

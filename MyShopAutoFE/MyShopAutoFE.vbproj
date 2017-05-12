@@ -238,6 +238,8 @@
     <Content Include="Content\content.png" />
     <Content Include="Content\footer.png" />
     <Content Include="Content\graphic.png" />
+    <Content Include="Content\images\QR_AND.jpg" />
+    <Content Include="Content\images\QR_IOS.png" />
     <Content Include="Content\link.png" />
     <Content Include="Content\logo.png" />
     <Content Include="Content\menu.png" />
@@ -306,7 +308,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\_ViewStart.vbhtml" />
     <Content Include="Views\Home\About.vbhtml" />
-    <Content Include="Views\Home\Contact.vbhtml" />
+    <Content Include="Views\Home\Products.vbhtml" />
     <Content Include="Views\Home\Index.vbhtml" />
     <Content Include="Views\Shared\Error.vbhtml" />
     <Content Include="Views\Shared\_Layout.vbhtml" />

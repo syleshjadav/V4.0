@@ -159,7 +159,7 @@ namespace WpfKb.Controls
                     IsDragHelperAllowedToHide = true;
                     _isAllowedToFadeValueBeforeDrag = IsAllowedToFade;
                     IsAllowedToFade = false;
-                    DragHandle.CaptureMouse();
+                    //DragHandle.CaptureMouse();
                 }
 
                 if (IsDragging)
@@ -172,7 +172,7 @@ namespace WpfKb.Controls
 
         private void DragHandle_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            DragHandle.ReleaseMouseCapture();
+           // DragHandle.ReleaseMouseCapture();
             IsDragging = false;
             IsAllowedToFade = _isAllowedToFadeValueBeforeDrag;
         }

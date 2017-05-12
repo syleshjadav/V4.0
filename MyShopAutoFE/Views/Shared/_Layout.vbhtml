@@ -22,7 +22,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Products", "Products", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -33,7 +33,28 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <div class="welcome-bottom">
+                <div class="container">
+                    <div class="welcome-bottom-text">
+                        <div class="col-md-6 welcome-bottom-text-left">
+                            <h3><span> Googel Play <span></h3>
+                            <a href="#"><img src="https://www.myshopauto.com/dealerapp/images/gplay.png"></a>
+                            <a href="#"><img src="~/Content/images/QR_AND.jpg" style="width:200px"></a>
+                            <p>
+                                <b>Requirements:</b><br>Requires Android 2.3 and higher. WiFi, Edge, or 3G network connection sometimes required.
+                            </p>
+                        </div>
+                        <div class="col-md-6 welcome-bottom-text-right">
+                            <h3><span>App Store<span></h3>
+                            <a href="#"><img src="https://www.myshopauto.com/dealerapp/images/appstore.png"></a>
+                            <a href="#"><img src="~/Content/images/QR_IOS.png" style="width:200px"></a>
+                            <p><b>Requirements:</b><br>Compatible with iPhone and iPod touch. Requires iPhone OS 2.2 or later. WiFi, Edge, or 3G network connection sometimes required.</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+
         </footer>
     </div>
 

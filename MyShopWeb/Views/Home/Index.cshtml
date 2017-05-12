@@ -139,7 +139,7 @@
 
 
         $('#DealerStickerOrder').jtable('load');
-        btnMV46AddToStock
+       // btnMV46AddToStock
     });
 
     $(document).ready(function () {
@@ -180,6 +180,7 @@
                                 },
                                 success: function (result) {
                                     // CheckIfInvoiceFound(result);
+                                    $('#DealerStickerOrder').jtable('load');
                                     alert('Added To Inventory');
                                 },
                                 async: true,

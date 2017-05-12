@@ -3,29 +3,81 @@
 End Code
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>  Welcome to My Shop Auto!</h1>
+    <p>
+        My Shop Auto Was Designed For You, To Make Your Service Experience As Pleasant As Possible.
+        By placing The My Shop App On Your Smart Device, You Are Connected With Your Chosen Automotive Service Provider Dealer Garage, without disrupting the rest of your day.
+        This APP, will allow you to receive and send back, " Chat Messages ", with your Service Personnel.
+        You will also receive a "Vehicle Inspection Report", from your automotive service provider Service Personnel, that is sent directly to your smartphone.
+        It is easy to use . Just install and follow the prompts and you are ready for your next Service visit.
+    </p>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+<div class="services">
+    <div class="container">
+        <h3>Auto Service Made Easy</h3>
+        <p class="ert">To Provide Good & Quick Service</p>
+        <div class="services-grids">
+            <div class="col-md-3 services-grid">
+                <div class="services-grid1">
+                    <div class="services-grid1-pos">
+                        <img src="https://www.myshopauto.com/dealerapp/images/1.png" alt=" " />
+                    </div>
+                    <div class="aut">
+                        <h4>Shop Branded App</h4>
+                        <p>Build a customer loyality with a shop branded app. Action Buttons Clickable phone, email, website buttons your shop is at their fingertips in a instant.</p>
+                    </div>
+                    <div class="more m1">
+                        <a href="#">Learn More...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 services-grid">
+                <div class="services-grid1">
+                    <div class="services-grid1-pos">
+                        <img src="https://www.myshopauto.com/dealerapp/images/4.png" alt=" " />
+                    </div>
+                    <div class="aut">
+                        <h4>Interactive MPI</h4>
+                        <p>Our exclusive, interactive inspection sheet is designed for your shop. Allowing for comments and pricing, to give your customer to information they need.</p>
+                    </div>
+                    <div class="more m1">
+                        <a href="#">Learn More...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 services-grid">
+                <div class="services-grid1">
+                    <div class="services-grid1-pos">
+                        <img src="https://www.myshopauto.com/dealerapp/images/3.png" alt=" " />
+                    </div>
+                    <div class="aut">
+                        <h4>No phone tag</h4>
+                        <p>Chat feature allows direct messages, to and from customer. No voice mail or missed calls. Keep vehicles moving in shop.</p>
+                    </div>
+                    <div class="more m1">
+                        <a href="#">Learn More...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 services-grid">
+                <div class="services-grid1">
+                    <div class="services-grid1-pos">
+                        <img src="https://www.myshopauto.com/dealerapp/images/2.png" alt=" " />
+                    </div>
+                    <div class="aut">
+                        <h4>User Friendly & Vehicle Information</h4>
+                        <p>
+                            Generation X and Y are becoming the new buying power, where do they want to communicate?
+                            Vehicle information and reminders can be front and center on your app.
+                        </p>
+                    </div>
+                    <div class="more m1">
+                        <a href="#">Learn More...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
     </div>
 </div>

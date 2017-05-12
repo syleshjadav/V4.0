@@ -119,7 +119,7 @@
                       VerticalAlignment="Bottom">
                     <WpfKb:FloatingTouchScreenKeyboard x:Name="Keyboard"
                                                        IsOpen="True"
-                                                       Width="900"
+                                                       Width="800"
                                                        Height="400"
                                                        PlacementTarget="{Binding ElementName=pgTowTruck}"
                                                        Placement="Center"

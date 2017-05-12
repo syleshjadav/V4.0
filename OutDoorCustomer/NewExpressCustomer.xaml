@@ -8,11 +8,11 @@
         x:Name="CtrlCustomerKeyDrop"
         mc:Ignorable="d"
         Tag="mdi_child"
-        WindowStartupLocation="CenterScreen"
+       
         WindowState="Maximized"
         WindowStyle="None"
-        MinHeight="800"
-        MinWidth="900"
+        
+        
         d:DesignHeight="800"
         d:DesignWidth="900">
     <Window.Resources>
@@ -45,7 +45,7 @@
                         <Border BorderBrush="#FF1D9C52"
                                 Background="{DynamicResource YellowGradient}"
                                 BorderThickness="1"
-                                CornerRadius="4"
+                                CornerRadius="2"
                                 Margin="3">
                             <Grid x:Name="GrdServiceItem"
                                   VerticalAlignment="Stretch"
@@ -135,35 +135,9 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="110" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Grid x:Name="GrdEnterPin"
-                      Visibility="Collapsed">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <StackPanel>
-                        <RichTextBox x:Name="TxtPlaceKeysInfo"
-                                     Grid.Row="2"
-                                     Grid.ColumnSpan="2"
-                                     Margin="5">
-                            <FlowDocument FontSize="45"
-                                          FontFamily="Segoe Marker">
-                                <Paragraph LineHeight="10">1. Using MyShopAuto Phone App request PIN.</Paragraph>
-                                <Paragraph LineHeight="10">2. Enter PIN.</Paragraph>
-                                <Paragraph LineHeight="10">3. Finally verify the PIN.</Paragraph>
-                            </FlowDocument>
-                        </RichTextBox>
-                        <Image Height="Auto"
-                               Width="250"
-                               Source="Arch.ico" />
-                    </StackPanel>
-                </Grid>
+            
                 <Grid x:Name="GrdKeyDrop"
                       Visibility="Visible">
                     <Grid.RowDefinitions>
@@ -205,7 +179,10 @@
                                   FontSize="22"
                                   FontWeight="Bold"
                                   Background="Yellow"
-                                  GotFocus="TxtName_GotFocus" />
+                                  GotFocus="TxtName_GotFocus"
+                                  GotKeyboardFocus="TxtName_GotKeyboardFocus"
+                                  TouchEnter="TxtName_TouchEnter"
+                                  TouchDown="TxtName_TouchDown" />
                         <TextBox   x:Name="TxtContacts"
                                    Grid.Row="1"
                                    FontSize="22"
@@ -213,7 +190,10 @@
                                    Grid.Column="1"
                                    Background="Yellow"
                                    TextWrapping="Wrap"
-                                   GotFocus="TxtName_GotFocus" />
+                                   GotFocus="TxtName_GotFocus"
+                                   GotKeyboardFocus="TxtName_GotKeyboardFocus"
+                                   TouchEnter="TxtName_TouchEnter"
+                                   TouchDown="TxtName_TouchDown" />
                         <!--<TextBlock   x:Name="TxtAddress"
                          Grid.Row="0"
                          Grid.Column="3"
@@ -233,13 +213,16 @@
                                    FontSize="22"
                                    FontWeight="Bold"
                                    TextWrapping="Wrap"
-                                   GotFocus="TxtName_GotFocus" />
+                                   GotFocus="TxtName_GotFocus"
+                                   GotKeyboardFocus="TxtName_GotKeyboardFocus"
+                                   TouchEnter="TxtName_TouchEnter"
+                                   TouchDown="TxtName_TouchDown" />
                     </Grid>
                     <Grid Grid.Row="0"
                           VerticalAlignment="Bottom">
                         <WpfKb:FloatingTouchScreenKeyboard Name="MyKeyboard"
                                                            IsOpen="True"
-                                                           Width="900"
+                                                           Width="800"
                                                            Height="400"
                                                            PlacementTarget="{Binding ElementName=CtrlCustomerKeyDrop}"
                                                            Placement="Center"
@@ -288,7 +271,7 @@
                                     </ListBox.Resources>
                                     <ListBox.ItemsPanel>
                                         <ItemsPanelTemplate>
-                                            <WrapPanel MaxWidth="1000"
+                                            <WrapPanel MaxWidth="950"
                                                        HorizontalAlignment="Center" />
                                         </ItemsPanelTemplate>
                                     </ListBox.ItemsPanel>
@@ -314,7 +297,7 @@
                                              FontSize="25"
                                              VerticalAlignment="Bottom"
                                              HorizontalAlignment="Stretch"
-                                             MinWidth="600"
+                                             MinWidth="300"
                                              MinLines="1"
                                              Grid.Column="1"
                                              GotFocus="TxtComments_GotFocus"
@@ -323,42 +306,10 @@
                             </Grid>
                         </GroupBox>
                     </Grid>
-                    <!--<Grid  Grid.Row="2"
-                           VerticalAlignment="Center">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid x:Name="GrdVerifyPinInfo"
-                              HorizontalAlignment="Right"
-                              Background="White"
-                              Visibility="Visible">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2*" />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock FontSize="18"
-                                       Foreground="Maroon"
-                                       FontWeight="Bold">*Cost Does not include State Tax and Service Charges</TextBlock>
-                            -->
-                    <!--<RichTextBox x:Name="TxtVerifyPinInfo1">
-                                <FlowDocument>
-                                   
-                                    <Paragraph FontSize="30"
-                                               FontWeight="Bold"
-                                               FontFamily="Segoe Marker">If your information is correct,  print your requested service . 
-                     .</Paragraph>
-                                </FlowDocument>
-                            </RichTextBox>-->
-                    <!--
-                        </Grid>
-                    </Grid>-->
+                  
                 </Grid>
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                <UniformGrid Grid.Row="1">
+                    
                     <Grid Grid.Column="0">
                         <Button x:Name="cmdBack"
                                 Width="100"
@@ -382,13 +333,7 @@
                             </DockPanel>
                         </Button>
                     </Grid>
-                    <Grid Grid.Column="1">
-                        <!--<WpfKb:OnScreenKeyboardSection   x:Name="MyKeyboard"                                                     
-                                                       
-                                                       
-                                                       
-                                                       />-->
-                    </Grid>
+                   
                     <Button x:Name="cmdNext"
                             Grid.Column="2"
                             Width="100"
@@ -411,7 +356,7 @@
                                        Text="è" />
                         </DockPanel>
                     </Button>
-                </Grid>
+                </UniformGrid>
             </Grid>
         </GroupBox>
     </Grid>
