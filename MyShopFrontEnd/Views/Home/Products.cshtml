@@ -2,90 +2,151 @@
     ViewBag.Title = "Contact";
 }
 <style>
-    ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
+    article {
+        display: none;
+    }
 </style>
 
 
 <div class="row">
+    <div class="col-md-12">
+        <div class="col-md-4 vertical-menu">
+            <ul class="list-unstyled">
+                
+                <li><a href="#page1" class="active"/>Communications</li>
+                <li><a href="#page2" />Unique Products </li>
+                <li><a href="#page3" />STO</li>
+                <li><a href="#page4" />KeysEeeZe</li>
+                <li><a href="#page5" />Mobile</li>
+                <li><a href="#page6" />Lines</li>
+                <li><a href="#page7" />MPI</li>
+                <li><a href="#page8" />CYA</li>
+                <li><a href="#page9" />FAQ</li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            @*<div id="page0">
+                <div class="container">
+                    <h1>Products </h1>
+                    <p>
+                        My Shop Auto Was Designed For You, To Make Your Service Experience As Pleasant As Possible. By placing The My Shop App On Your Smart Device, You Are Connected With Your Chosen Automotive Service Provider Dealer Garage, without disrupting the rest of your day.
+                    </p>
+                </div>
+            </div>*@
+            <div id="page1">
+                <div class="container">
+                    <h1>Communications </h1>
+                    <img src="~/Content/images/Products/1.PNG" />
+                    <p>
+                        We live in an environment where instant gratification and immediate feedback of Communication IS A MUST , and the only way to keep a Valued Customer.
+                        Studies indicate a Consumer looks at their Smart Phone over 144 times* a Day, This is the very reason that we have developed Business communications tools for convenience of your service coustomers which will increase your retention and csi scores.
+                    </p>
+                </div>
+            </div>
+            <article id="page2" class="dark">
+                <div class="container">
+                    <h1>Unique Products </h1>
+                    <img src="~/Content/images/Products/2.PNG" />
+                    <p>
+                        My Shop’s unique products are designed to increase customer satisfaction and loyalty while assisting the automotive service shop in today's digital market place.
+                        Innovative products such as KEYS WITH EEEZE, Digital Mobile Multi-Point applications, two way customer communications, Mobile ordering of service menu of items, credit card payment, and Service To Order (STO).
+                        All products are designed to enhance the customer experience while building customer loyalty retention and satisfaction.
+                    </p>
+                </div>
+            </article>
+            <article id="page3">
+                <div class="container">
+                    <h1>STO</h1>
+                    <img src="~/Content/images/Products/3.PNG" />
+                    <p>Build customer loyalty satisfaction and retention with convenient digital communications, easy to read multipoint inspection sheets, pre and post vehicle inspection reports and customer convenient Service To Order (STO) kiosk and Keys with EeeZe after hours key drop off and pick up are designed for customer convenience.</p>
+                </div>
+            </article>
+            <article id="page4">
+                <div class="container">
+                    <h1>KeysEeeZe</h1>
+                    <img src="~/Content/images/Products/4.PNG" />
+                    <p>
+                        Give your customer control with KEYS With EeeZe which allows your Service Customer to deliver their key to the Service Department, whether your shop is open or closed.  Included software provides complete security and transparency to the customer, additionally the service writer has complete knowledge of who the Customer is, What they have ordered, and any additional information the customer needs to communicate, The KEYS WITH EEEZE SYSTEM identifies
+                        whether customer is dropping off or picking up their vehicle.
+                        This system also accepts Tow Truck Drop-offs as well as rental and loaner car drop offs and pick ups.
+                    </p>
+                </div>
+            </article>
 
-    <div class="col-md-4">
-        <h1>Multi-Level Accordion Menu</h1>
-        <ul class="cd-accordion-menu animated">
-            <li class="has-children">
-                <input type="checkbox" name="group-1" id="group-1" checked>
-                <label for="group-1">Group 1</label>
-                <ul>
-                    <li class="has-children">
-                        <input type="checkbox" name="sub-group-1" id="sub-group-1">
-                        <label for="sub-group-1">Sub Group 1</label>
-                        <ul>
-                            <li><a href="#0">Image</a></li>
-                            <li><a href="#0">Image</a></li>
-                            <li><a href="#0">Image</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-children">
-                        <input type="checkbox" name="sub-group-2" id="sub-group-2">
-                        <label for="sub-group-2">Sub Group 2</label>
-                        <ul>
-                            <li class="has-children">
-                                <input type="checkbox" name="sub-group-level-3" id="sub-group-level-3">
-                                <label for="sub-group-level-3">Sub Group Level 3</label>
-                                <ul>
-                                    <li><a href="#0">Image</a></li>
-                                    <li><a href="#0">Image</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#0">Image</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#0">Image</a></li>
-                    <li><a href="#0">Image</a></li>
-                </ul>
-            </li>
-            <li class="has-children">
-                <input type="checkbox" name="group-2" id="group-2">
-                <label for="group-2">Group 2</label>
-                <ul>
-                    <li><a href="#0">Image</a></li>
-                    <li><a href="#0">Image</a></li>
-                </ul>
-            </li>
-            <li class="has-children">
-                <input type="checkbox" name="group-3" id="group-3">
-                <label for="group-3">Group 3</label>
-                <ul>
-                    <li><a href="#0">Image</a></li>
-                    <li><a href="#0">Image</a></li>
-                </ul>
-            </li>
-            <li class="has-children">
-                <input type="checkbox" name="group-4" id="group-4">
-                <label for="group-4">Group 4</label>
-                <ul>
-                    <li class="has-children">
-                        <input type="checkbox" name="sub-group-3" id="sub-group-3">
-                        <label for="sub-group-3">Sub Group 3</label>
-                        <ul>
-                            <li><a href="#0">Image</a></li>
-                            <li><a href="#0">Image</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#0">Image</a></li>
-                    <li><a href="#0">Image</a></li>
-                </ul>
-            </li>
-        </ul> <!-- cd-accordion-menu -->
+            <article id="page5">
+                <div class="container">
+                    <h1>Mobile</h1>
+                    <img src="~/Content/images/Products/5.PNG" />
+                    <p>
+                        Communication by Mobile phone, tablet, iPad or computer gives your customer control of the service process.  Customers can request an appointment, select express services, write detail notes receive inspection findings, approve work & pay for work preformed and Securely drop off and or pick up their vehicle.
+                    </p>
+                </div>
+            </article>
 
+            <article id="page6">
+                <div class="container">
+                    <h1>Lines</h1>
+                    <img src="~/Content/images/Products/6.PNG" />
+                    <p>
+                        Eliminate waiting lines with express service check in.
+                        Customers using express service check in, choose from frequently ordered services, digitally sign the order and continue on with their days business.
+                    </p>
+                </div>
+            </article>
+
+            <article id="page7">
+                <div class="container">
+                    <h1>MPI</h1>
+                    <img src="~/Content/images/Products/7.PNG" />
+                    <p>
+                        The multipoint inspection sheet provides your customer a one page synopsis of the status of their vehicle.
+                        Standard point and click component comments provides the inspector instant access to comments concerning a vehicle component.
+                        Speech to text and picture capture are included at the component level
+                        Items which need attention immediately sent to Smart Phone Tablet or computer via instant messaging or
+                        e-mail. Customer may respond via instant message or phone for immediate approval of work.
+                    </p>
+                </div>
+            </article>
+
+            <article id="page8">
+                <div class="container">
+                    <h1>CYA</h1>
+                    <img src="~/Content/images/Products/8.PNG" />
+                    <p>
+                        The CYA inspection sheet provides a synopsis of the status of your customers vehicle before and after state inspection.
+                        Standard point and click component comments provides instant access to standard comments concerning a vehicle component.
+                        Speech to text and picture capture are included at the component level.Protect your inspection license with detailed inspection documentation.
+                    </p>
+                </div>
+            </article>
+
+            <article id="page9">
+                <div class="container">
+                    <h1>FAQ</h1>
+                    <img src="~/Content/images/Products/9.PNG" />
+                    <p>
+                        Order today on line, still have questions visit our frequently asked questions page or call a MYSHOP representative.
+                        Thank you for your time and attention today.
+                    </p>
+                </div>
+            </article>
+
+        </div>
     </div>
+
+
+
 </div>
+
+
+<script>
+    $('a:not(:first)').click(function (e) {
+        e.preventDefault()
+        var href = $(this).attr('href')
+        $('article').hide();
+        $('#page1').hide();
+        if (href != null)
+        $(href).show();
+    })
+
+</script>
