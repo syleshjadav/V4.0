@@ -1,4 +1,5 @@
-﻿using ATP.Kiosk.Views;
+﻿using ATP.DataModel;
+using ATP.Kiosk.Views;
 using MyShopExpress.Common;
 using OutDoorCustomer.ServiceReference1;
 using System;
@@ -7,7 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using System.Xml;
-
+using System.Xml.Serialization;
 
 namespace MyShopExpress
 {
@@ -15,12 +16,182 @@ namespace MyShopExpress
 
     public partial class DealerDashBoard : Window
     {
+        static public void Serialize(StickerInvoice details)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(StickerInvoice));
+            using (TextWriter writer = new StreamWriter(@"C:\temp\StickerInvoiceXml.xml"))
+            {
+                serializer.Serialize(writer, details);
+            }
+        }
 
         int _dealerId = ConfigClass.DealerId;
         public DispatcherTimer dispatcherTimer;
         public DealerDashBoard()
         {
             InitializeComponent();
+
+
+
+            StickerInvoice SI = new StickerInvoice();
+
+            SI.CustomerVehicle = new MSCustomerVehicle
+            {
+                Address1 = "",
+                Address2 = "",
+                City = "",
+                State = "",
+                CurrMileage = "",
+                DealerPersonGroupId = "",
+                DeviceTypeId = "",
+                NextInspectionDate = "",
+                NextServiceDate = "",
+                EmailAddress = "",
+                FirstName = "",
+                GoogleGuid = "",
+                GroupName = "",
+                IsValid = "",
+                LastName = "",
+                MiddleName = "",
+                MileageIn = "",
+                MileageOut = "",
+                NextSvcInfo = "",
+                OldMileage = "",
+                PersonGuid = "",
+                PhoneNumber = "",
+                Plate = "",
+                VehicleGuid = "",
+                VehicleId = "",
+                VehicleMake = "",
+                VehicleModel = "",
+                VehicleName = "",
+                VehicleTrim = "",
+                VehicleYrMkMod = "",
+                VehicleYear = "",
+                VehPhId = "",
+                VIN = "",
+                Zip = "",
+                InsExpDate="",
+                InsPolicyNum="",
+                NAIC=""
+            };
+            SI.DealerEmp = new MSDealerEmp
+            {
+                DealerEmpGuid = "",
+                DealerId = "",
+                DeptId = "",
+                DeptName = "",
+                EmailAddress = "",
+                EmpName = "",
+                InspectionYr = "",
+                PhoneNumber = "",
+                StationNumber = "",
+                StationYr = "",
+                StickerCharge = ""
+
+            };
+            SI.InspectionInfo = new MsInspectionInfo
+            {
+                Insurance =   new InspectionItem
+                {
+                    Comments = "",
+                    Cost = "",
+                    DuringInsp = "",
+                    PostInsp = ""
+                },
+
+                BodyDoorAndLatches = new InspectionItem {
+                    Comments = "",
+                    Cost = "",
+                    DuringInsp = "",
+                    PostInsp = ""
+                },
+
+                BrakeSystems = new InspectionItem {
+                    Comments = "",
+                    Cost = "",
+                    DuringInsp = "",
+                    PostInsp = ""
+                },
+                ExhaustSystems = new InspectionItem {
+                    Comments = "",
+                    Cost = "",
+                    DuringInsp = "",
+                    PostInsp = ""
+                },
+                FuelSystems = new InspectionItem {
+                    Comments = "",
+                    Cost = "",
+                    DuringInsp = "",
+                    PostInsp = ""
+                },
+                GlazingAndMirrors = new InspectionItem {
+                    Comments = "",
+                    Cost = "",
+                    DuringInsp = "",
+                    PostInsp = ""
+                },
+                InspectionResult = new InspectionItem {
+                    Comments = "",
+                    Cost = "",
+                    DuringInsp = "",
+                    PostInsp = ""
+                },
+                RegistrationVerified = new InspectionItem {
+                    Comments = "",
+                    Cost = "",
+                    DuringInsp = "",
+                    PostInsp = ""
+                },
+                RoadTest = new InspectionItem {
+                    Comments = "",
+                    Cost = "",
+                    DuringInsp = "",
+                    PostInsp = ""
+                },
+                SteeringandSuspension = new InspectionItem {
+                    Comments = "",
+                    Cost = "",
+                    DuringInsp = "",
+                    PostInsp = ""
+                },
+                StickerNumber = new InspectionItem {
+                    Comments = "",
+                    Cost = "",
+                    DuringInsp = "",
+                    PostInsp = ""
+                },
+                TireReadings = new FrontRear
+                {
+                    LF = new Findings { Readings = "", BondOrRevet = "", Comments = "" },
+                    LR = new Findings { Readings = "", BondOrRevet = "", Comments = "" },
+                    RF = new Findings { Readings = "", BondOrRevet = "", Comments = "" },
+                    RR = new Findings { Readings = "", BondOrRevet = "", Comments = "" },
+                },
+                BrakeReadings = new FrontRear {
+                    LF = new Findings { Readings = "", Comments = "" },
+                    LR = new Findings { Readings = "", Comments = "" },
+                    RF = new Findings { Readings = "", Comments = "" },
+                    RR = new Findings { Readings = "", Comments = "" },
+                },
+                TiresAndWheels = new InspectionItem {
+                    Comments = "",
+                    Cost = "",
+                    DuringInsp = "",
+                    PostInsp = ""
+
+                },
+                VisualAntiTampering = new InspectionItem {
+                    Comments = "",
+                    Cost = "",
+                    DuringInsp = "",
+                    PostInsp = ""
+                },
+            };
+
+
+            Serialize(SI);
+
 
             LoadConfig();
             _dealerId = ConfigClass.DealerId;
@@ -59,15 +230,15 @@ namespace MyShopExpress
 
 
 
-                
+
 
                 SerialPortInterface sp = new SerialPortInterface(); // load port details
                 ConfigClass.MyShopSerialPort.PortName = xmlnode["MYSHOPCOMMPORT"].InnerText;
 
-               
 
 
-               // if (!ConfigClass.MyShopSerialPort.IsOpen) { ConfigClass.MyShopSerialPort.Open(); }
+
+                // if (!ConfigClass.MyShopSerialPort.IsOpen) { ConfigClass.MyShopSerialPort.Open(); }
 
 
                 if (xmlnode["DEALORCUST"].InnerText == "C")

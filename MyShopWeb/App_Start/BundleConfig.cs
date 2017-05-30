@@ -39,7 +39,7 @@ namespace Authentication
 
 
             bundles.Add(new StyleBundle("~/Content/theme/jTable").Include(
-                            "~/Scripts/jtable/themes/metro/green/jtable.css",
+                            "~/Scripts/jtable/themes/metro/blue/jtable.css",
                             "~/Scripts/plugins/ValidationEngine/validationEngine.jquery.css"));
 
 
