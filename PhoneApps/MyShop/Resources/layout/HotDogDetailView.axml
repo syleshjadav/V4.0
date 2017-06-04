@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainScrollView"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="#FCD972"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/mainLinearLayout">
+        <ImageView
+            android:id="@+id/hotDogImageView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+        <TextView
+            android:text="Hot Dog Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/hotDogNameTextView"
+            android:textColor="@android:color/black"
+            android:paddingTop="20dp"
+            android:textSize="20dp" />
+        <TextView
+            android:text="Short Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/shortDescriptionTextView"
+            android:textColor="@android:color/black"
+            android:paddingTop="20dp"
+            android:textSize="16dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/descriptionTextView"
+            android:text="Lorem ipsum dolor sit amet, consen faucibus. s facilisis. Vivamus a dignissim enim, id luctus leo."
+            android:editable="False"
+            android:textColor="@android:color/black"
+            android:paddingTop="20dp"
+            android:textSize="12dp" />
+        <TextView
+            android:text="Price: 1111"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/priceTextView"
+            android:textColor="@android:color/black"
+            android:paddingTop="20dp"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+    <!--<TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+            <TableRow>
+                <Button
+                    android:layout_column="0"
+                    android:text="Cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cancelButton"
+                    android:layout_marginTop="20dp" />
+                <EditText
+                    android:layout_column="2"
+                    android:inputType="number"
+                    android:text="1"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/amountEditText"
+                    android:background="@android:color/white"
+                    android:textColor="@android:color/black"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true" />
+                <Button
+                    android:layout_column="3"
+                    android:text="Order now!"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/orderButton"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="20dp" />
+            </TableRow>
+        </TableLayout>-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="#FFFFFF"
+            android:layout_height="wrap_content"
+            android:gravity="fill">
+            <Button
+                android:text="Cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cancelButton" />
+            <EditText
+                android:inputType="number"
+                android:text="1"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:id="@+id/amountEditText"
+                android:layout_centerInParent="true"
+                android:background="@android:color/white"
+                android:textColor="@android:color/black" />
+            <Button
+                android:text="Order now!"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:id="@+id/orderButton" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
