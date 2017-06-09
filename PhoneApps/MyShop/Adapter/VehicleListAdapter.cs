@@ -14,12 +14,12 @@ using MyShop.Utility;
 
 namespace MyShop.Adapter
 {
-    public class HotDogListAdapter : BaseAdapter<HotDog>
+    public class VehicleListAdapter : BaseAdapter<CustomerVehicle>
     {
-        List<HotDog> items;
+        List<CustomerVehicle> items;
         Activity context;
 
-        public HotDogListAdapter(Activity context, List<HotDog> items) : base()
+        public VehicleListAdapter(Activity context, List<CustomerVehicle> items) : base()
         {
             this.context = context;
             this.items = items;
@@ -30,7 +30,7 @@ namespace MyShop.Adapter
             return position;
         }
 
-        public override HotDog this[int position]
+        public override CustomerVehicle this[int position]
         {
             get
             {
@@ -54,7 +54,7 @@ namespace MyShop.Adapter
             //return convertView;
 
 
-            var imageBitmap = ImageHelper.GetImageBitmapFromUrl("http://gillcleerenpluralsight.blob.core.windows.net/files/" + item.ImagePath + ".jpg");
+           // var imageBitmap = ImageHelper.GetImageBitmapFromUrl("http://gillcleerenpluralsight.blob.core.windows.net/files/" + item.ImagePath + ".jpg");
 
             //if (convertView == null)
             //{
@@ -67,10 +67,10 @@ namespace MyShop.Adapter
             }
             //convertView.FindViewById<TextView>(Android.Resource.Id.Text1).Text = item.Name;
 
-            convertView.FindViewById<TextView>(Resource.Id.hotDogNameTextView).Text = item.Name;
-            convertView.FindViewById<TextView>(Resource.Id.shortDescriptionTextView).Text = item.ShortDescription;
-            convertView.FindViewById<TextView>(Resource.Id.priceTextView).Text = "$ " + item.Price;
-            convertView.FindViewById<ImageView>(Resource.Id.hotDogImageView).SetImageBitmap(imageBitmap);
+            convertView.FindViewById<TextView>(Resource.Id.hotDogNameTextView).Text = item.VehicleMake;
+            convertView.FindViewById<TextView>(Resource.Id.shortDescriptionTextView).Text = item.VehicleModel;
+            convertView.FindViewById<TextView>(Resource.Id.priceTextView).Text = "$ " + item.VehicleYear;
+           // convertView.FindViewById<ImageView>(Resource.Id.hotDogImageView).SetImageBitmap(imageBitmap);
 
             return convertView;
         }

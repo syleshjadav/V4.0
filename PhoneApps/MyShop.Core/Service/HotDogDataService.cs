@@ -4,6 +4,23 @@ using System.Linq;
 
 namespace MyShop.Core
 {
+
+    public class DealerDataService
+    {
+        private static DealerRepoisitory dealerRepository = new DealerRepoisitory();
+        public DealerDataService() { }
+
+        public List<Dealer> GetAllDealers()
+        {
+            return dealerRepository.GetAllDealers();
+        }
+
+        public Dealer GetDealersById(int dealerId)
+        {
+            return dealerRepository.GetDealerById(dealerId);
+        }
+    }
+
 	public class HotDogDataService
 	{
 		//private static HotDogWebRepository hotDogRepository = new HotDogWebRepository();

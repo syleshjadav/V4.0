@@ -33,10 +33,17 @@ namespace MyShop
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.HotDogDetailView);
-            dataservice = new HotDogDataService();
+            //SetContentView(Resource.Layout.HotDogDetailView);
+            //dataservice = new HotDogDataService();
 
-            selectedHotDog = dataservice.GetHotDogById(1);
+            //selectedHotDog = dataservice.GetHotDogById(1);
+
+            SetContentView(Resource.Layout.HotDogDetailView);
+
+            HotDogDataService dataService = new HotDogDataService();
+            var selectedHotDogId = Intent.Extras.GetInt("selectedHotDogId");
+            selectedHotDog = dataService.GetHotDogById(selectedHotDogId);
+
 
             FindView();
             BindData();
@@ -81,10 +88,18 @@ namespace MyShop
 
         private void OrderButton_Click(object sender, EventArgs e)
         {
-            var dlg = new AlertDialog.Builder(this);
-            dlg.SetTitle("Confirm");
-            dlg.SetMessage("items added to cart");
-            dlg.Show();
+            //var dlg = new AlertDialog.Builder(this);
+            //dlg.SetTitle("Confirm");
+            //dlg.SetMessage("items added to cart");
+            //dlg.Show();
+            var amount = Int32.Parse(amountEditText.Text);
+            var intent = new Intent();
+            intent.PutExtra("selectedHotDogId", selectedHotDog.HotDogId);
+            intent.PutExtra("amount", amount);
+
+            SetResult(Result.Ok, intent);
+
+            this.Finish();
         }
     }
 }

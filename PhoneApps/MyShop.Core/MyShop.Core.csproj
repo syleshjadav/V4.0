@@ -34,12 +34,13 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <Folder Include="Model - Copy %283%29\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Model\Cart.cs" />
     <Compile Include="Model\CartItem.cs" />
+    <Compile Include="Model\CustomerVehicle.cs" />
+    <Compile Include="Model\Dealer.cs" />
     <Compile Include="Model\HotDog.cs" />
     <Compile Include="Model\HotDogGroups.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -48,15 +49,16 @@
     <Compile Include="Repository\HotDogWebRepository.cs" />
     <Compile Include="Repository\MyExtensions.cs" />
     <Compile Include="Service\CartDataService.cs" />
+    <Compile Include="Service\VehicleDataService.cs" />
     <Compile Include="Service\HotDogDataService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

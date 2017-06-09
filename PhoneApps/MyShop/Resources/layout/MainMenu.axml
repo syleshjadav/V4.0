@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/logoImageView"
+        android:src="@drawable/raylogo" />
+    <Button
+        android:text="Drop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dropkeyButton" />
+    <Button
+        android:text="PickUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pickUpKeyButton" />
+    <Button
+        android:text="Express"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/expressCheckInButton" />
+    <Button
+        android:text="Add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addVehicleButton" />
+    <Button
+        android:text="About "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/aboutButton" />
+</LinearLayout>
